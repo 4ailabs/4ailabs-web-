@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-zinc-900 text-white px-4 py-3 fixed top-0 left-0 right-0 z-50 border-b border-zinc-800" style={{ backgroundColor: '#18181b', color: '#ffffff', padding: '0.75rem 1rem', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, borderBottom: '1px solid #27272a' }}>
+    <header className="bg-slate-800 text-white px-4 py-3 fixed top-0 left-0 right-0 z-50 border-b border-slate-700" style={{ backgroundColor: '#1e293b', color: '#ffffff', padding: '0.75rem 1rem', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, borderBottom: '1px solid #334155' }}>
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         <Link to="/" className="text-xl font-bold text-white hover:text-blue-400 transition-colors">
           4ailabs
