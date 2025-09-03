@@ -113,7 +113,7 @@ const ContactPage: React.FC = () => {
                   <MapPin className="w-8 h-8 text-blue-600 dark:text-cyan-400 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-zinc-900 dark:text-white">Oficina Principal</h3>
-                    <p>Dirección de la empresa, Ciudad, País</p>
+                    <p>Acapulco 36, Colonia Roma, Ciudad de México</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 p-4 bg-indigo-50/50 dark:bg-zinc-800/50 rounded-lg border border-indigo-200 dark:border-zinc-700">
@@ -133,7 +133,7 @@ const ContactPage: React.FC = () => {
               </div>
               <div className="mt-10 h-64 bg-gradient-to-br from-slate-100 to-zinc-200 dark:bg-zinc-800 rounded-lg overflow-hidden border border-slate-300 dark:border-zinc-700">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.816999999999!2d-78.4913!3d-0.1839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a7f3f2d2b5d%3A0x6f5d6f6e5e8e8e7a!2sQuito%2C%2D Ecuador!5e0!3m2!1sen!2sus!4v1628000000000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.123456789!2d-99.1634!3d19.4194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f8c8c8c8c8c8%3A0x1234567890abcdef!2sAcapulco%2036%2C%20Roma%20Nte.%2C%20Cuauht%C3%A9moc%2C%2006700%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1628000000000!5m2!1ses!2smx"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
