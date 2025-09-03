@@ -38,7 +38,7 @@ const ResearchPage: React.FC = () => {
             Explora nuestras publicaciones y los avances más recientes en el campo de la inteligencia artificial.
           </p>
           <div className="max-w-2xl mx-auto fade-in stagger-2">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop" alt="Investigación científica en IA" className="rounded-xl shadow-lg w-full h-48 object-cover" />
+            <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=2070&auto=format&fit=crop" alt="Investigación y desarrollo en inteligencia artificial" className="rounded-xl shadow-lg w-full h-48 object-cover" />
           </div>
         </div>
       </section>

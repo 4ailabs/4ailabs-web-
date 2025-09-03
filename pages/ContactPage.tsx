@@ -32,7 +32,7 @@ const ContactPage: React.FC = () => {
 
   return (
     <div className="bg-white dark:bg-zinc-950 transition-colors duration-300">
-      <section className="py-20 sm:py-28 bg-gradient-to-b from-emerald-50 via-teal-50/30 to-blue-50/50 dark:from-zinc-900 dark:to-zinc-950 transition-colors duration-300">
+      <section className="py-20 sm:py-28 bg-gradient-to-b from-slate-50 via-slate-100/30 to-blue-50/50 dark:from-zinc-900 dark:to-zinc-950 transition-colors duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-1 rounded-full text-sm font-medium mb-6">
             Consultas gratuitas disponibles
@@ -42,19 +42,19 @@ const ContactPage: React.FC = () => {
           </h1>
           <p className="mt-4 text-lg text-zinc-600 dark:text-slate-300 max-w-2xl mx-auto fade-in stagger-1">
             Recibe un <strong>análisis personalizado y roadmap de implementación</strong> para automatizar tu negocio con IA. 
-            <span className="text-emerald-600 dark:text-emerald-400 font-semibold"> Startup especializada - Atención personalizada garantizada.</span>
+            <span className="text-slate-600 dark:text-slate-400 font-semibold"> Startup especializada - Atención personalizada garantizada.</span>
           </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl shadow-sm border border-emerald-200 dark:border-zinc-700">
-              <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">15 min</div>
+            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-zinc-700">
+              <div className="text-2xl font-bold text-slate-600 dark:text-slate-400">15 min</div>
               <div className="text-sm text-zinc-600 dark:text-slate-400">Duración</div>
             </div>
-            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl shadow-sm border border-emerald-200 dark:border-zinc-700">
-              <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">100% Gratis</div>
+            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-zinc-700">
+              <div className="text-2xl font-bold text-slate-600 dark:text-slate-400">100% Gratis</div>
               <div className="text-sm text-zinc-600 dark:text-slate-400">Sin compromisos</div>
             </div>
-            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl shadow-sm border border-emerald-200 dark:border-zinc-700">
-              <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">Roadmap</div>
+            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-zinc-700">
+              <div className="text-2xl font-bold text-slate-600 dark:text-slate-400">Roadmap</div>
               <div className="text-sm text-zinc-600 dark:text-slate-400">Incluido</div>
             </div>
           </div>
@@ -65,7 +65,7 @@ const ContactPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             <div className="fade-in">
-              <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/10 dark:to-teal-900/10 rounded-2xl p-6 border border-emerald-200 dark:border-emerald-800/30 mb-8">
+              <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-900/10 dark:to-slate-800/10 rounded-2xl p-6 border border-slate-200 dark:border-slate-700/30 mb-8">
                 <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-2">¡Agenda tu consulta AHORA!</h2>
                 <p className="text-zinc-600 dark:text-slate-300">Completa el formulario y te contactaremos en menos de 24 horas para agendar tu llamada gratuita.</p>
               </div>
@@ -94,15 +94,15 @@ const ContactPage: React.FC = () => {
                   <label htmlFor="message" className="block text-sm font-medium text-zinc-700 dark:text-slate-300">Mensaje</label>
                   <textarea id="message" name="message" rows={4} required value={formData.message} onChange={handleChange} className="mt-1 block w-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-md shadow-sm py-3 px-4 text-zinc-900 dark:text-white focus:outline-none focus:ring-slate-500 dark:focus:ring-cyan-500 focus:border-slate-500 dark:focus:border-cyan-500"></textarea>
                 </div>
-                <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/10 dark:to-teal-900/10 rounded-xl p-4 border border-emerald-200 dark:border-emerald-800/30">
-                  <button type="submit" disabled={formState === 'loading'} className="w-full flex justify-center items-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-95 disabled:bg-zinc-400 dark:disabled:bg-zinc-600 text-white font-bold py-4 px-6 rounded-full text-lg transition-all-smooth shadow-xl shadow-emerald-400/25 pulse-cta">
+                <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-900/10 dark:to-slate-800/10 rounded-xl p-4 border border-slate-200 dark:border-slate-700/30">
+                  <button type="submit" disabled={formState === 'loading'} className="w-full flex justify-center items-center gap-3 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 active:scale-95 disabled:bg-zinc-400 dark:disabled:bg-zinc-600 text-white font-bold py-4 px-6 rounded-full text-lg transition-all-smooth shadow-xl shadow-slate-400/25 pulse-cta">
                     {formState === 'loading' ? <><Loader2 className="animate-spin" /> Procesando...</> : <>Reservar Mi Consulta GRATIS <Send className="w-5 h-5" /></>}
                   </button>
                   <p className="text-xs text-center text-zinc-500 dark:text-slate-500 mt-3">
                     Respuesta en 24h • Sin compromisos • Roadmap incluido
                   </p>
                 </div>
-                {formState === 'success' && <p className="text-green-600 dark:text-green-400 text-center">¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto pronto.</p>}
+                {formState === 'success' && <p className="text-slate-600 dark:text-slate-400 text-center">¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto pronto.</p>}
                 {formState === 'error' && <p className="text-red-600 dark:text-red-400 text-center">Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.</p>}
               </form>
             </div>

@@ -49,7 +49,7 @@ const AiAgentsPage: React.FC = () => {
                 { bg: 'bg-purple-50 dark:bg-zinc-900', border: 'border-purple-200 dark:border-zinc-800', hover: 'hover:border-purple-400 dark:hover:border-cyan-400/50', iconBg: 'bg-purple-100/50 dark:bg-cyan-500/10', icon: 'text-purple-600 dark:text-cyan-400' },
                 { bg: 'bg-indigo-50 dark:bg-zinc-900', border: 'border-indigo-200 dark:border-zinc-800', hover: 'hover:border-indigo-400 dark:hover:border-cyan-400/50', iconBg: 'bg-indigo-100/50 dark:bg-cyan-500/10', icon: 'text-indigo-600 dark:text-cyan-400' },
                 { bg: 'bg-cyan-50 dark:bg-zinc-900', border: 'border-cyan-200 dark:border-zinc-800', hover: 'hover:border-cyan-400 dark:hover:border-cyan-400/50', iconBg: 'bg-cyan-100/50 dark:bg-cyan-500/10', icon: 'text-cyan-600 dark:text-cyan-400' },
-                { bg: 'bg-emerald-50 dark:bg-zinc-900', border: 'border-emerald-200 dark:border-zinc-800', hover: 'hover:border-emerald-400 dark:hover:border-cyan-400/50', iconBg: 'bg-emerald-100/50 dark:bg-cyan-500/10', icon: 'text-emerald-600 dark:text-cyan-400' },
+                { bg: 'bg-slate-50 dark:bg-zinc-900', border: 'border-slate-200 dark:border-zinc-800', hover: 'hover:border-slate-400 dark:hover:border-cyan-400/50', iconBg: 'bg-slate-100/50 dark:bg-cyan-500/10', icon: 'text-slate-600 dark:text-cyan-400' },
                 { bg: 'bg-orange-50 dark:bg-zinc-900', border: 'border-orange-200 dark:border-zinc-800', hover: 'hover:border-orange-400 dark:hover:border-cyan-400/50', iconBg: 'bg-orange-100/50 dark:bg-cyan-500/10', icon: 'text-orange-600 dark:text-cyan-400' },
                 { bg: 'bg-rose-50 dark:bg-zinc-900', border: 'border-rose-200 dark:border-zinc-800', hover: 'hover:border-rose-400 dark:hover:border-cyan-400/50', iconBg: 'bg-rose-100/50 dark:bg-cyan-500/10', icon: 'text-rose-600 dark:text-cyan-400' }
               ][index % 6];
@@ -72,7 +72,7 @@ const AiAgentsPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
            <div className="grid md:grid-cols-2 gap-12 items-center">
              <div className="fade-in stagger-1">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Agentes de IA en acción" className="rounded-2xl shadow-xl w-full h-80 object-cover" />
+                <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2126&auto=format&fit=crop" alt="Sistema de agentes IA automatizados" className="rounded-2xl shadow-xl w-full h-80 object-cover" />
              </div>
              <div className="fade-in">
                 <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-4">Showcase Interactivo</h2>

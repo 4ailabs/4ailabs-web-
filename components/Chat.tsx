@@ -168,11 +168,11 @@ const Chat: React.FC = () => {
         {/* Chat Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className="p-3 sm:p-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-full shadow-xl transition-all-smooth transform hover:scale-110 active:scale-95 group pulse-cta"
+          className="p-3 sm:p-4 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white rounded-full shadow-xl transition-all-smooth transform hover:scale-110 active:scale-95 group pulse-cta"
           aria-label="Open chat"
         >
           <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-          <div className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-20"></div>
+          <div className="absolute inset-0 rounded-full bg-slate-400 animate-ping opacity-20"></div>
           
           {/* Notification badge */}
           <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">

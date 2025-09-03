@@ -93,7 +93,7 @@ const EducationPage: React.FC = () => {
               </div>
             </div>
             <div className="fade-in stagger-1">
-              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" alt="Educación y capacitación en IA" className="rounded-2xl shadow-xl w-full h-80 object-cover" />
+              <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=2070&auto=format&fit=crop" alt="Capacitación profesional en inteligencia artificial" className="rounded-2xl shadow-xl w-full h-80 object-cover" />
             </div>
           </div>
         </div>

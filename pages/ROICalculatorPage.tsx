@@ -188,7 +188,7 @@ const ROICalculatorPage: React.FC = () => {
               Descubre cuánto puedes ahorrar y el retorno de inversión que obtendrás al implementar soluciones de IA en tu empresa
             </p>
             <div className="max-w-2xl mx-auto">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Análisis de ROI y métricas de IA" className="rounded-xl shadow-lg w-full h-48 object-cover" />
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Dashboard de análisis ROI y métricas empresariales" className="rounded-xl shadow-lg w-full h-48 object-cover" />
             </div>
           </div>
         </div>
@@ -254,7 +254,7 @@ const ROICalculatorPage: React.FC = () => {
                       const sectorColors = [
                         { bg: 'bg-red-50 dark:bg-red-900/20', border: 'border-red-200 dark:border-red-800', hover: 'hover:border-red-400 dark:hover:border-red-600', selected: 'border-red-400 dark:border-red-400 bg-red-100 dark:bg-red-500/10', icon: 'text-red-600 dark:text-red-400' }, // Retail
                         { bg: 'bg-pink-50 dark:bg-pink-900/20', border: 'border-pink-200 dark:border-pink-800', hover: 'hover:border-pink-400 dark:hover:border-pink-600', selected: 'border-pink-400 dark:border-pink-400 bg-pink-100 dark:bg-pink-500/10', icon: 'text-pink-600 dark:text-pink-400' }, // Healthcare
-                        { bg: 'bg-green-50 dark:bg-green-900/20', border: 'border-green-200 dark:border-green-800', hover: 'hover:border-green-400 dark:hover:border-green-600', selected: 'border-green-400 dark:border-green-400 bg-green-100 dark:bg-green-500/10', icon: 'text-green-600 dark:text-green-400' }, // Finance
+                        { bg: 'bg-slate-50 dark:bg-slate-900/20', border: 'border-slate-200 dark:border-slate-800', hover: 'hover:border-slate-400 dark:hover:border-slate-600', selected: 'border-slate-400 dark:border-slate-400 bg-slate-100 dark:bg-slate-500/10', icon: 'text-slate-600 dark:text-slate-400' }, // Finance
                         { bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'border-blue-200 dark:border-blue-800', hover: 'hover:border-blue-400 dark:hover:border-blue-600', selected: 'border-blue-400 dark:border-blue-400 bg-blue-100 dark:bg-blue-500/10', icon: 'text-blue-600 dark:text-blue-400' }, // Manufacturing
                         { bg: 'bg-purple-50 dark:bg-purple-900/20', border: 'border-purple-200 dark:border-purple-800', hover: 'hover:border-purple-400 dark:hover:border-purple-600', selected: 'border-purple-400 dark:border-purple-400 bg-purple-100 dark:bg-purple-500/10', icon: 'text-purple-600 dark:text-purple-400' }, // Services
                         { bg: 'bg-yellow-50 dark:bg-yellow-900/20', border: 'border-yellow-200 dark:border-yellow-800', hover: 'hover:border-yellow-400 dark:hover:border-yellow-600', selected: 'border-yellow-400 dark:border-yellow-400 bg-yellow-100 dark:bg-yellow-500/10', icon: 'text-yellow-600 dark:text-yellow-400' }, // Education
@@ -526,12 +526,12 @@ const ROICalculatorPage: React.FC = () => {
                     <p className="text-sm text-zinc-500 dark:text-slate-400 mt-1">Tiempo ahorrado en tareas repetitivas</p>
                   </div>
 
-                  <div className="bg-green-50 dark:bg-zinc-800/50 p-6 rounded-xl border border-green-200 dark:border-zinc-700">
+                  <div className="bg-slate-50 dark:bg-zinc-800/50 p-6 rounded-xl border border-slate-200 dark:border-zinc-700">
                     <div className="flex items-center gap-3 mb-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-slate-300" />
+                      <CheckCircle className="w-5 h-5 text-slate-600 dark:text-slate-300" />
                       <h3 className="font-semibold text-zinc-900 dark:text-white">Reducción de Errores</h3>
                     </div>
-                    <p className="text-3xl font-bold text-green-700 dark:text-slate-300">-{results.errorReduction}%</p>
+                    <p className="text-3xl font-bold text-slate-700 dark:text-slate-300">-{results.errorReduction}%</p>
                     <p className="text-sm text-zinc-500 dark:text-slate-400 mt-1">Menos errores en procesos automatizados</p>
                   </div>
 
@@ -547,35 +547,35 @@ const ROICalculatorPage: React.FC = () => {
               </div>
 
               {/* CTA Section */}
-              <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/10 dark:to-teal-900/10 rounded-2xl p-8 border border-emerald-200 dark:border-emerald-800/30">
+              <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-900/10 dark:to-slate-800/10 rounded-2xl p-8 border border-slate-200 dark:border-slate-700/30">
                 <div className="text-center">
                   <div className="inline-flex items-center gap-2 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-1 rounded-full text-sm font-medium mb-4">
                     Consultas gratuitas disponibles
                   </div>
                   <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
-                    Basado en tus números: Podrías ahorrar <span className="text-emerald-600 dark:text-emerald-400">{formatCurrency(results.monthlySavings)}/mes</span>
+                    Basado en tus números: Podrías ahorrar <span className="text-slate-600 dark:text-slate-400">{formatCurrency(results.monthlySavings)}/mes</span>
                   </h3>
                   <p className="text-zinc-600 dark:text-slate-300 mb-6 max-w-2xl mx-auto">
                     <strong>Agenda una consulta de 15 minutos GRATIS</strong> y recibe un roadmap personalizado para implementar estas mejoras en tu empresa específica.
                   </p>
-                  <div className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-lg border border-emerald-200 dark:border-zinc-700 mb-6">
+                  <div className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-zinc-700 mb-6">
                     <div className="flex items-center justify-center gap-6 mb-4 text-sm">
                       <div className="text-center">
-                        <div className="text-lg font-bold text-emerald-600 dark:text-emerald-400">15 min</div>
+                        <div className="text-lg font-bold text-slate-600 dark:text-slate-400">15 min</div>
                         <div className="text-xs text-zinc-600 dark:text-slate-400">Duración</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-lg font-bold text-emerald-600 dark:text-emerald-400">$0</div>
+                        <div className="text-lg font-bold text-slate-600 dark:text-slate-400">$0</div>
                         <div className="text-xs text-zinc-600 dark:text-slate-400">Costo</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-lg font-bold text-emerald-600 dark:text-emerald-400">ROI {results.roiPercentage}%</div>
+                        <div className="text-lg font-bold text-slate-600 dark:text-slate-400">ROI {results.roiPercentage}%</div>
                         <div className="text-xs text-zinc-600 dark:text-slate-400">Tu potencial</div>
                       </div>
                     </div>
                     <Link
                       to="/contacto"
-                      className="inline-block bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-emerald-400/25 pulse-cta"
+                      className="inline-block bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta"
                     >
                       Reservar Mi Consulta GRATIS
                     </Link>
@@ -584,7 +584,7 @@ const ROICalculatorPage: React.FC = () => {
                     </p>
                   </div>
                   <p className="text-sm text-zinc-500 dark:text-slate-500">
-                    ¿Quieres ver cómo lo logramos? <Link to="/servicios" className="text-emerald-600 dark:text-emerald-400 hover:underline">Conoce nuestros servicios →</Link>
+                    ¿Quieres ver cómo lo logramos? <Link to="/servicios" className="text-slate-600 dark:text-slate-400 hover:underline">Conoce nuestros servicios →</Link>
                   </p>
                 </div>
               </div>

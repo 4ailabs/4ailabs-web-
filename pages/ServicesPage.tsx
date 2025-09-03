@@ -8,7 +8,7 @@ const ServicesPage: React.FC = () => {
     <div className="bg-white dark:bg-zinc-950 transition-colors duration-300">
       <section className="py-20 sm:py-28 bg-gradient-to-b from-slate-50 via-blue-50/30 to-indigo-50/50 dark:from-zinc-900 dark:to-zinc-950 transition-colors duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-emerald-100 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-900/20 text-slate-700 dark:text-slate-300 px-3 py-1 rounded-full text-sm font-medium mb-6">
             Startup innovadora con resultados reales
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white fade-in">Nuestros Servicios de IA</h1>
@@ -16,20 +16,20 @@ const ServicesPage: React.FC = () => {
             Soluciones de inteligencia artificial <strong>prácticas y efectivas</strong> para pequeñas y medianas empresas. Cada servicio está diseñado para generar resultados reales desde el primer mes.
           </p>
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto text-center">
-            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl border border-emerald-200 dark:border-zinc-700">
-              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">4</div>
+            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl border border-slate-200 dark:border-zinc-700">
+              <div className="text-xl font-bold text-slate-600 dark:text-slate-400">4</div>
               <div className="text-sm text-zinc-600 dark:text-slate-400">Servicios especializados</div>
             </div>
-            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl border border-emerald-200 dark:border-zinc-700">
-              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">15 min</div>
+            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl border border-slate-200 dark:border-zinc-700">
+              <div className="text-xl font-bold text-slate-600 dark:text-slate-400">15 min</div>
               <div className="text-sm text-zinc-600 dark:text-slate-400">Consulta gratuita</div>
             </div>
-            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl border border-emerald-200 dark:border-zinc-700">
-              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">100%</div>
+            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl border border-slate-200 dark:border-zinc-700">
+              <div className="text-xl font-bold text-slate-600 dark:text-slate-400">100%</div>
               <div className="text-sm text-zinc-600 dark:text-slate-400">Personalizado</div>
             </div>
-            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl border border-emerald-200 dark:border-zinc-700">
-              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">24/7</div>
+            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl border border-slate-200 dark:border-zinc-700">
+              <div className="text-xl font-bold text-slate-600 dark:text-slate-400">24/7</div>
               <div className="text-sm text-zinc-600 dark:text-slate-400">Soporte incluido</div>
             </div>
           </div>
@@ -44,7 +44,7 @@ const ServicesPage: React.FC = () => {
                 { iconBg: 'bg-gradient-to-br from-purple-500 to-purple-600', icon: 'text-white', cardBg: 'bg-gradient-to-br from-purple-50/50 to-purple-100/50 dark:from-purple-900/20 dark:to-purple-800/20', border: 'border-purple-200 dark:border-purple-700', buttonBg: 'bg-purple-500 hover:bg-purple-600', buttonText: 'text-white' },
                 { iconBg: 'bg-gradient-to-br from-blue-500 to-blue-600', icon: 'text-white', cardBg: 'bg-gradient-to-br from-blue-50/50 to-blue-100/50 dark:from-blue-900/20 dark:to-blue-800/20', border: 'border-blue-200 dark:border-blue-700', buttonBg: 'bg-blue-500 hover:bg-blue-600', buttonText: 'text-white' },
                 { iconBg: 'bg-gradient-to-br from-cyan-500 to-cyan-600', icon: 'text-white', cardBg: 'bg-gradient-to-br from-cyan-50/50 to-cyan-100/50 dark:from-cyan-900/20 dark:to-cyan-800/20', border: 'border-cyan-200 dark:border-cyan-700', buttonBg: 'bg-cyan-500 hover:bg-cyan-600', buttonText: 'text-white' },
-                { iconBg: 'bg-gradient-to-br from-emerald-500 to-emerald-600', icon: 'text-white', cardBg: 'bg-gradient-to-br from-emerald-50/50 to-emerald-100/50 dark:from-emerald-900/20 dark:to-emerald-800/20', border: 'border-emerald-200 dark:border-emerald-700', buttonBg: 'bg-emerald-500 hover:bg-emerald-600', buttonText: 'text-white' }
+                { iconBg: 'bg-gradient-to-br from-slate-500 to-slate-600', icon: 'text-white', cardBg: 'bg-gradient-to-br from-slate-50/50 to-slate-100/50 dark:from-slate-900/20 dark:to-slate-800/20', border: 'border-slate-200 dark:border-slate-700', buttonBg: 'bg-slate-500 hover:bg-slate-600', buttonText: 'text-white' }
               ][index % 4];
               
               return (
@@ -61,7 +61,7 @@ const ServicesPage: React.FC = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
                       {service.points.map((point, i) => (
                         <div key={i} className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-slate-500 rounded-full mt-2 flex-shrink-0"></div>
                           <span className="text-zinc-700 dark:text-slate-300 text-sm">{point}</span>
                         </div>
                       ))}
@@ -89,7 +89,7 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 sm:py-24 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-zinc-900 dark:to-zinc-800 transition-colors duration-300">
+      <section className="py-16 sm:py-24 bg-gradient-to-r from-slate-50 to-slate-100 dark:from-zinc-900 dark:to-zinc-800 transition-colors duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-1 rounded-full text-sm font-medium mb-6">
@@ -104,19 +104,19 @@ const ServicesPage: React.FC = () => {
             <div className="bg-white dark:bg-zinc-800 rounded-2xl p-8 shadow-xl border border-emerald-200 dark:border-zinc-700 mb-8">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">15 min</div>
+                  <div className="text-2xl font-bold text-slate-600 dark:text-slate-400 mb-2">15 min</div>
                   <div className="text-sm text-zinc-600 dark:text-slate-400">Duración de la consulta</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">100% Gratis</div>
+                  <div className="text-2xl font-bold text-slate-600 dark:text-slate-400 mb-2">100% Gratis</div>
                   <div className="text-sm text-zinc-600 dark:text-slate-400">Sin compromisos</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">Roadmap</div>
+                  <div className="text-2xl font-bold text-slate-600 dark:text-slate-400 mb-2">Roadmap</div>
                   <div className="text-sm text-zinc-600 dark:text-slate-400">Plan personalizado incluido</div>
                 </div>
               </div>
-              <Link to="/contacto" className="inline-block bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-emerald-400/25">
+              <Link to="/contacto" className="inline-block bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25">
                 Reservar Mi Consulta GRATIS
               </Link>
               <p className="text-xs text-zinc-500 dark:text-slate-500 mt-4">
@@ -124,7 +124,7 @@ const ServicesPage: React.FC = () => {
               </p>
             </div>
             <p className="text-sm text-zinc-500 dark:text-slate-500">
-              ¿Prefieres ver números primero? <Link to="/calculadora-roi" className="text-emerald-600 dark:text-emerald-400 hover:underline">Calcula tu ROI en 3 minutos →</Link>
+              ¿Prefieres ver números primero? <Link to="/calculadora-roi" className="text-slate-600 dark:text-slate-400 hover:underline">Calcula tu ROI en 3 minutos →</Link>
             </p>
           </div>
         </div>

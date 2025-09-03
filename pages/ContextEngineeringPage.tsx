@@ -67,7 +67,7 @@ const ContextEngineeringPage: React.FC = () => {
                 { bg: 'bg-violet-50 dark:bg-zinc-900', border: 'border-violet-200 dark:border-zinc-800', hover: 'hover:border-violet-400 dark:hover:border-purple-400/50', iconBg: 'bg-violet-100/50 dark:bg-purple-500/10', icon: 'text-violet-600 dark:text-purple-400' },
                 { bg: 'bg-blue-50 dark:bg-zinc-900', border: 'border-blue-200 dark:border-zinc-800', hover: 'hover:border-blue-400 dark:hover:border-purple-400/50', iconBg: 'bg-blue-100/50 dark:bg-purple-500/10', icon: 'text-blue-600 dark:text-purple-400' },
                 { bg: 'bg-cyan-50 dark:bg-zinc-900', border: 'border-cyan-200 dark:border-zinc-800', hover: 'hover:border-cyan-400 dark:hover:border-purple-400/50', iconBg: 'bg-cyan-100/50 dark:bg-purple-500/10', icon: 'text-cyan-600 dark:text-purple-400' },
-                { bg: 'bg-emerald-50 dark:bg-zinc-900', border: 'border-emerald-200 dark:border-zinc-800', hover: 'hover:border-emerald-400 dark:hover:border-purple-400/50', iconBg: 'bg-emerald-100/50 dark:bg-purple-500/10', icon: 'text-emerald-600 dark:text-purple-400' }
+                { bg: 'bg-slate-50 dark:bg-zinc-900', border: 'border-slate-200 dark:border-zinc-800', hover: 'hover:border-slate-400 dark:hover:border-purple-400/50', iconBg: 'bg-slate-100/50 dark:bg-purple-500/10', icon: 'text-slate-600 dark:text-purple-400' }
               ][index % 6];
               
               return (
@@ -93,7 +93,7 @@ const ContextEngineeringPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => {
               const colors = [
-                { iconBg: 'bg-green-100/50 dark:bg-purple-500/10', icon: 'text-green-600 dark:text-purple-400' },
+                { iconBg: 'bg-slate-100/50 dark:bg-purple-500/10', icon: 'text-slate-600 dark:text-purple-400' },
                 { iconBg: 'bg-blue-100/50 dark:bg-purple-500/10', icon: 'text-blue-600 dark:text-purple-400' },
                 { iconBg: 'bg-purple-100/50 dark:bg-purple-500/10', icon: 'text-purple-600 dark:text-purple-400' },
                 { iconBg: 'bg-indigo-100/50 dark:bg-purple-500/10', icon: 'text-indigo-600 dark:text-purple-400' }
@@ -134,7 +134,7 @@ const ContextEngineeringPage: React.FC = () => {
               </div>
             </div>
             <div className="fade-in stagger-1">
-              <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=2070&auto=format&fit=crop" alt="Context Engineering y optimización de IA" className="rounded-2xl shadow-xl w-full h-80 object-cover" />
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop" alt="Optimización de modelos de IA y context engineering" className="rounded-2xl shadow-xl w-full h-80 object-cover" />
             </div>
           </div>
         </div>

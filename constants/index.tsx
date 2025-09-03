@@ -42,7 +42,7 @@ export const serviceCards: { title: string; description: string; icon: LucideIco
 ];
 
 export const stats = [
-  { value: '3', label: 'Empresas transformadas' },
+  { value: 'Expertos', label: 'Equipo especializado' },
   { value: '100%', label: 'Clientes satisfechos' },
   { value: '24/7', label: 'Soporte disponible' },
   { value: '15 min', label: 'Primera consulta gratis' },
@@ -100,7 +100,7 @@ export const allServices = [
         ],
         ctaText: "Crear mi chatbot",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1551818255-e6e10975846a?q=80&w=1974&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
     },
     {
         icon: Bot,
@@ -115,7 +115,7 @@ export const allServices = [
         ],
         ctaText: "Crear mi agente",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2126&auto=format&fit=crop"
     },
     {
         icon: HeartPulse,
@@ -130,7 +130,7 @@ export const allServices = [
         ],
         ctaText: "Consulta médica especializada",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?q=80&w=2070&auto=format&fit=crop"
     },
     {
         icon: BrainCircuit,
@@ -145,7 +145,7 @@ export const allServices = [
         ],
         ctaText: "Optimizar mi IA",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop"
     },
     {
         icon: Zap,
@@ -160,7 +160,7 @@ export const allServices = [
         ],
         ctaText: "Automatizar procesos",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
     },
     {
         icon: BookOpen,
@@ -175,7 +175,7 @@ export const allServices = [
         ],
         ctaText: "Ver programas de formación",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2070&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
     },
 ];
 
@@ -387,7 +387,7 @@ export const newsItems = [
       category: 'Aplicaciones Emergentes',
       source: 'Science Daily',
       summary: 'Investigadores han utilizado un modelo de IA para diseñar una nueva molécula candidata a fármaco en un tiempo récord, reduciendo potencialmente años del ciclo de descubrimiento de medicamentos.',
-      imageUrl: 'https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 'n-002',
@@ -396,7 +396,7 @@ export const newsItems = [
       category: 'Industria y Negocios',
       source: 'Reuters',
       summary: 'La inversión busca acelerar el desarrollo de algoritmos de IA que puedan resolver problemas actualmente intratables, con aplicaciones en finanzas, materiales y salud.',
-      imageUrl: 'https://images.unsplash.com/photo-1635070049281-7b0aa7a27b9c?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 'n-003',
@@ -405,7 +405,7 @@ export const newsItems = [
       category: 'Avances Tecnológicos',
       source: 'MIT Technology Review',
       summary: 'Un reciente paper demuestra cómo los nuevos modelos de "árbol de pensamiento" permiten a la IA explorar múltiples líneas de razonamiento antes de llegar a una conclusión, mejorando drásticamente su rendimiento.',
-      imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 'n-004',
@@ -414,7 +414,7 @@ export const newsItems = [
       category: 'Regulación y Ética',
       source: 'The Guardian',
       summary: 'El marco regulatorio, pionero a nivel mundial, clasifica las aplicaciones de IA por nivel de riesgo y establece normas estrictas para sistemas considerados de "alto riesgo", como los utilizados en infraestructuras críticas.',
-      imageUrl: 'https://images.unsplash.com/photo-1556155092-490a1ba16284?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: 'https://images.unsplash.com/photo-1589994965851-a8f479c573a9?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 'n-005',
@@ -433,7 +433,7 @@ export const newsItems = [
       category: 'Aplicaciones Emergentes',
       source: 'Nature Medicine',
       summary: 'Nuevo sistema de IA desarrollado por investigadores médicos logra superar a radiólogos experimentados en la detección temprana de tumores, prometiendo transformar la medicina preventiva.',
-      imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 'n-007',
@@ -451,7 +451,7 @@ export const newsItems = [
       category: 'Avances Tecnológicos',
       source: 'Google DeepMind',
       summary: 'El nuevo modelo Gemini Pro 1.5 demuestra capacidades superiores en matemáticas, código y razonamiento lógico, estableciendo nuevos estándares en la industria de modelos de lenguaje.',
-      imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: 'https://images.unsplash.com/photo-1486312338219-ce68e2c6b7d9?q=80&w=2072&auto=format&fit=crop'
     },
     {
       id: 'n-009',
@@ -460,7 +460,7 @@ export const newsItems = [
       category: 'Aplicaciones Emergentes',
       source: 'El País Tecnología',
       summary: 'Una empresa de Barcelona utiliza computer vision e IoT para monitorear cultivos en tiempo real, prediciendo enfermedades y optimizando el riego, reduciendo el desperdicio en un 40%.',
-      imageUrl: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 'n-010',
@@ -478,7 +478,7 @@ export const newsItems = [
       category: 'Aplicaciones Emergentes',
       source: 'Financial Times',
       summary: 'Sistemas de machine learning procesan transacciones bancarias en microsegundos, identificando patrones fraudulentos con 99.7% de precisión y reduciendo falsos positivos en un 60%.',
-      imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 'n-012',
