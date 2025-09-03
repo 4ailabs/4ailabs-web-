@@ -29,7 +29,6 @@ const ChatWindow: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
   useEffect(scrollToBottom, [messages]);
 
   const handleSendMessage = async () => {
-    console.log('Chat: handleSendMessage llamado con:', inputMessage);
     if (!inputMessage.trim() || isLoading) return;
 
     const userMessage: ChatMessage = {
@@ -39,15 +38,12 @@ const ChatWindow: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
       timestamp: new Date()
     };
 
-    console.log('Chat: Agregando mensaje de usuario:', userMessage);
     setMessages(prev => [...prev, userMessage]);
     setInputMessage('');
     setIsLoading(true);
 
     try {
-      console.log('Chat: Llamando a chatService.sendMessage');
       const response = await chatService.sendMessage(inputMessage);
-      console.log('Chat: Respuesta recibida:', response);
       
       const botMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
@@ -55,7 +51,6 @@ const ChatWindow: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
         isUser: false,
         timestamp: new Date()
       };
-      console.log('Chat: Agregando mensaje del bot:', botMessage);
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       console.error('Error sending message:', error);
@@ -164,14 +159,27 @@ const Chat: React.FC = () => {
 
   return (
     <>
-      {/* Chat Button - Simplified for testing */}
-      <div className="fixed bottom-4 right-4 z-50">
+      {/* Chat Button - Professional design */}
+      <div className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999] flex flex-col items-end gap-2 transition-opacity duration-300 ${isOpen ? 'opacity-0 sm:opacity-100 pointer-events-none sm:pointer-events-auto' : 'opacity-100'}`}>
+        {/* Tooltip/Preview - Hidden on mobile to avoid covering content */}
+        <div className="hidden sm:block bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white px-4 py-2 rounded-lg shadow-lg border border-zinc-200 dark:border-zinc-700 text-sm max-w-xs opacity-0 transition-opacity duration-500 hover:opacity-100">
+          ¿Necesitas ayuda? ¡Pregúntame sobre consultas GRATUITAS!
+        </div>
+        
+        {/* Chat Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className="p-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-colors"
+          className="relative p-3 sm:p-4 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 active:scale-95 group pulse-cta z-[10000]"
           aria-label="Open chat"
+          style={{ position: 'relative', zIndex: 10000 }}
         >
-          <MessageCircle className="w-6 h-6" />
+          <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
+          <div className="absolute inset-0 rounded-full bg-slate-400 animate-ping opacity-20"></div>
+          
+          {/* Notification badge */}
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+            <span className="text-xs text-white font-bold">!</span>
+          </div>
         </button>
       </div>
 

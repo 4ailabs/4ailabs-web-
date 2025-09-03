@@ -38,13 +38,11 @@ class ChatService {
   }
 
   async sendMessage(message: string): Promise<ChatResponse> {
-    console.log('ChatService: Enviando mensaje:', message);
     try {
       // Simulate API delay for realistic experience
       await this.delay(800 + Math.random() * 1200);
       
       const responseText = this.getResponse(message);
-      console.log('ChatService: Respuesta generada:', responseText);
       
       return {
         text: responseText,
