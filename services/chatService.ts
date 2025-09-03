@@ -1,12 +1,17 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import type { ChatResponse } from '../types';
 
 class ChatService {
-  private ai: GoogleGenAI | null = null;
+  private genAI: GoogleGenerativeAI | null = null;
 
   constructor() {
     try {
-      this.ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+      const apiKey = process.env.GEMINI_API_KEY;
+      if (apiKey && apiKey !== 'your_gemini_api_key_here') {
+        this.genAI = new GoogleGenerativeAI(apiKey);
+      } else {
+        console.warn("GEMINI_API_KEY not configured, using fallback responses");
+      }
     } catch (error) {
       console.error("Error initializing Chat Service:", error);
     }
@@ -47,13 +52,13 @@ OBJETIVO PRINCIPAL: Guiar al cliente hacia una consulta gratuita donde podemos a
   }
 
   async sendMessage(message: string): Promise<ChatResponse> {
-    if (!this.ai) {
+    if (!this.genAI) {
       return this.getFallbackResponse();
     }
 
     try {
-      const model = this.ai.getGenerativeModel({ 
-        model: "gemini-2.0-flash-exp",
+      const model = this.genAI.getGenerativeModel({ 
+        model: "gemini-1.5-flash",
         systemInstruction: this.getSystemPrompt()
       });
 
