@@ -69,53 +69,53 @@ const ChatWindow: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center p-4 sm:justify-end sm:items-end bg-black/50 backdrop-blur-sm">
-      <div className="bg-zinc-900 rounded-2xl shadow-2xl w-full max-w-md h-[70vh] sm:h-[600px] flex flex-col border border-zinc-700 fade-in">
-        <div className="flex items-center justify-between p-4 border-b border-zinc-700 flex-shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-cyan-500/20 rounded-lg">
-              <Bot className="w-5 h-5 text-cyan-400" />
+    <div className="fixed inset-0 z-50 flex items-end justify-center p-2 sm:p-4 sm:justify-end sm:items-end bg-black/50 backdrop-blur-sm">
+      <div className="bg-zinc-900 rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-md h-[80vh] sm:h-[600px] flex flex-col border border-zinc-700 animate-fade-in-scale">
+        <div className="flex items-center justify-between p-3 sm:p-4 border-b border-zinc-700 flex-shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="p-1.5 sm:p-2 bg-slate-500/20 rounded-lg">
+              <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-slate-300" />
             </div>
             <div>
-              <h3 className="font-semibold text-white">Asistente Virtual</h3>
+              <h3 className="font-semibold text-white text-sm sm:text-base">Asistente Virtual</h3>
               <p className="text-xs text-slate-400">4ailabs</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-zinc-800 rounded-lg transition-colors"
+            className="p-1.5 sm:p-2 hover:bg-zinc-800 rounded-lg transition-all-smooth"
           >
-            <X className="w-5 h-5 text-slate-400" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
           {messages.map((message) => (
             <div
               key={message.id}
               className={`flex gap-2.5 ${message.isUser ? 'justify-end' : 'justify-start'}`}
             >
-              {!message.isUser && <Bot className="w-6 h-6 text-cyan-400 flex-shrink-0 mt-1" />}
+              {!message.isUser && <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-slate-300 flex-shrink-0 mt-1" />}
               <div
-                className={`max-w-[80%] rounded-2xl p-3 ${
+                className={`max-w-[85%] sm:max-w-[80%] rounded-xl sm:rounded-2xl p-2.5 sm:p-3 ${
                   message.isUser
-                    ? 'bg-cyan-500 text-white rounded-br-none'
+                    ? 'bg-slate-500 text-white rounded-br-none'
                     : 'bg-zinc-800 text-slate-200 rounded-bl-none'
                 }`}
               >
-                <p className="text-sm leading-relaxed">{message.text}</p>
+                <p className="text-xs sm:text-sm leading-relaxed">{message.text}</p>
               </div>
-               {message.isUser && <User className="w-6 h-6 text-slate-300 flex-shrink-0 mt-1" />}
+               {message.isUser && <User className="w-5 h-5 sm:w-6 sm:h-6 text-slate-300 flex-shrink-0 mt-1" />}
             </div>
           ))}
           
           {isLoading && (
             <div className="flex justify-start">
-              <div className="bg-zinc-800 text-slate-200 rounded-2xl p-3">
+              <div className="bg-zinc-800 text-slate-200 rounded-xl sm:rounded-2xl p-2.5 sm:p-3">
                 <div className="flex items-center gap-2">
-                  <Bot className="w-4 h-4 text-cyan-400" />
-                  <Loader2 className="w-4 h-4 animate-spin text-cyan-400" />
-                  <span className="text-sm">Escribiendo...</span>
+                  <Bot className="w-3 h-3 sm:w-4 sm:h-4 text-cyan-400" />
+                  <Loader2 className="w-3 h-3 sm:w-4 sm:h-4 animate-spin text-cyan-400" />
+                  <span className="text-xs sm:text-sm">Escribiendo...</span>
                 </div>
               </div>
             </div>
@@ -124,7 +124,7 @@ const ChatWindow: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
           <div ref={messagesEndRef} />
         </div>
 
-        <div className="p-4 border-t border-zinc-700 flex-shrink-0">
+        <div className="p-3 sm:p-4 border-t border-zinc-700 flex-shrink-0">
           <div className="flex gap-2">
             <input
               type="text"
@@ -132,18 +132,18 @@ const ChatWindow: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
               placeholder="Escribe tu pregunta..."
-              className="flex-1 bg-zinc-800 border border-zinc-600 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition"
+              className="flex-1 bg-zinc-800 border border-zinc-600 rounded-lg px-3 sm:px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition text-sm"
               disabled={isLoading}
             />
             <button
               onClick={handleSendMessage}
               disabled={!inputMessage.trim() || isLoading}
-              className="p-3 bg-cyan-500 hover:bg-cyan-600 disabled:bg-slate-700 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+              className="p-2.5 sm:p-3 bg-slate-500 hover:bg-slate-400 disabled:bg-slate-700 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
             >
               {isLoading ? (
-                <Loader2 className="w-5 h-5 animate-spin" />
+                <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
               ) : (
-                <Send className="w-5 h-5" />
+                <Send className="w-4 h-4 sm:w-5 sm:h-5" />
               )}
             </button>
           </div>
@@ -161,11 +161,11 @@ const Chat: React.FC = () => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 p-4 bg-gradient-to-r from-cyan-500 to-fuchsia-500 hover:opacity-90 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 active:scale-95 group"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 p-3 sm:p-4 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white rounded-full shadow-lg transition-all-smooth transform hover:scale-110 active:scale-95 group"
         aria-label="Open chat"
       >
-        <MessageCircle className="w-6 h-6" />
-        <div className="absolute inset-0 rounded-full bg-cyan-500 animate-ping opacity-20"></div>
+        <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
+        <div className="absolute inset-0 rounded-full bg-slate-400 animate-ping opacity-20"></div>
       </button>
 
       <ChatWindow isOpen={isOpen} onClose={() => setIsOpen(false)} />

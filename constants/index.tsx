@@ -7,11 +7,19 @@ import type { LucideIcon } from 'lucide-react';
 
 export const navLinks = [
   { name: 'Servicios', path: '/servicios' },
+  { name: 'Tecnologías', path: '/tecnologias' },
+  { name: 'Calculadora ROI', path: '/calculadora-roi' },
+  { name: 'Nosotros', path: '/nosotros' },
+  { name: 'Noticias', path: '/noticias' },
+  { name: 'Contacto', path: '/contacto' },
+];
+
+export const servicesSubmenu = [
+  { name: 'Agentes de IA', path: '/agentes-ia' },
+  { name: 'IA Médica', path: '/ia-medica' },
+  { name: 'Context Engineering', path: '/context-engineering' },
   { name: 'Educación', path: '/educacion' },
   { name: 'Investigación', path: '/investigacion' },
-  { name: 'Noticias IA', path: '/noticias' },
-  { name: 'Nosotros', path: '/nosotros' },
-  { name: 'Contacto', path: '/contacto' },
 ];
 
 export const socialLinks = [
@@ -21,12 +29,12 @@ export const socialLinks = [
 ];
 
 export const serviceCards: { title: string; description: string; icon: LucideIcon; color: string; }[] = [
-  { title: 'Asesoría Empresarial IA', description: 'Estrategias de IA para optimizar procesos y generar valor.', icon: Briefcase, color: '#38bdf8' },
-  { title: 'Desarrollo de Sistemas IA', description: 'Soluciones a medida, desde chatbots hasta análisis predictivo.', icon: Code, color: '#4ade80' },
-  { title: 'IA Médica y Healthcare', description: 'Innovación en diagnóstico, gestión y tratamiento médico.', icon: HeartPulse, color: '#f87171' },
   { title: 'Agentes de IA Inteligentes', description: 'Automatización avanzada con agentes que aprenden y colaboran.', icon: MessageSquare, color: '#c084fc' },
+  { title: 'Context Engineering Avanzado', description: 'Optimización de modelos IA mediante técnicas avanzadas de ingeniería de contexto.', icon: BrainCircuit, color: '#8b5cf6' },
+  { title: 'IA Médica y Healthcare', description: 'Innovación en diagnóstico, gestión, tratamiento e investigación médica.', icon: HeartPulse, color: '#f87171' },
+  { title: 'Desarrollo de Sistemas IA', description: 'Soluciones a medida, desde chatbots hasta análisis predictivo.', icon: Code, color: '#4ade80' },
+  { title: 'Asesoría Empresarial IA', description: 'Estrategias de IA para optimizar procesos y generar valor.', icon: Briefcase, color: '#38bdf8' },
   { title: 'Educación y Capacitación', description: 'Programas para equipos y líderes sobre el poder de la IA.', icon: BookOpen, color: '#facc15' },
-  { title: 'Colaboración Académica', description: 'Puentes entre la industria y la academia para investigación de punta.', icon: University, color: '#fb923c' },
 ];
 
 export const stats = [
@@ -64,6 +72,21 @@ export const partners = [
 
 export const allServices = [
     {
+        icon: BrainCircuit,
+        title: "Context Engineering Avanzado",
+        description: "Optimizamos el rendimiento de modelos de IA mediante técnicas avanzadas de ingeniería de contexto, prompt engineering y fine-tuning para obtener resultados superiores.",
+        points: [
+            "Prompt engineering y optimización de contextos.",
+            "Fine-tuning de modelos para casos específicos.",
+            "RAG (Retrieval-Augmented Generation) avanzado.",
+            "Chain-of-thought y reasoning patterns.",
+            "Optimización de tokens y eficiencia computacional.",
+        ],
+        ctaText: "Optimiza tu modelo",
+        ctaLink: "/context-engineering",
+        imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
         icon: Briefcase,
         title: "Asesoría Empresarial en IA",
         description: "Guiamos tu transformación digital, identificando oportunidades y diseñando una hoja de ruta de IA alineada con tus objetivos de negocio.",
@@ -81,11 +104,12 @@ export const allServices = [
     {
         icon: HeartPulse,
         title: "IA Médica y Healthcare",
-        description: "Desarrollamos soluciones de vanguardia que apoyan al personal médico, mejoran la gestión hospitalaria y aceleran la investigación.",
+        description: "Desarrollamos soluciones de vanguardia que apoyan al personal médico, mejoran la gestión hospitalaria y aceleran la investigación médica.",
         points: [
             "Diagnóstico asistido por IA (análisis de imágenes).",
             "Gestión hospitalaria inteligente y predicción de demanda.",
             "Drug discovery y análisis de ensayos clínicos.",
+            "Investigación médica con IA y análisis de literatura científica.",
             "Telemedicina inteligente con chatbots y monitoreo remoto.",
         ],
         ctaText: "Consulta especializada",
@@ -202,6 +226,57 @@ export const newsCategories = [
     "Industria y Negocios",
     "Aplicaciones Emergentes",
     "Regulación y Ética"
+];
+
+export const technologies = [
+  {
+    name: "OpenAI",
+    description: "GPT-4, GPT-4 Turbo, DALL-E, Whisper",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='%23000000'%3EOpenAI%3C/text%3E%3C/svg%3E",
+    category: "LLM"
+  },
+  {
+    name: "Google Gemini",
+    description: "Gemini Pro, Gemini Ultra, PaLM 2",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' font-weight='bold' fill='%23000000'%3EGemini API%3C/text%3E%3C/svg%3E",
+    category: "LLM"
+  },
+  {
+    name: "Anthropic",
+    description: "Claude 3, Claude 3.5 Sonnet",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' font-weight='bold' fill='%23000000'%3EAnthropic%3C/text%3E%3C/svg%3E",
+    category: "LLM"
+  },
+  {
+    name: "Hugging Face",
+    description: "Transformers, Datasets, Spaces",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='12' font-weight='bold' fill='%23000000'%3EHugging Face%3C/text%3E%3C/svg%3E",
+    category: "Platform"
+  },
+  {
+    name: "LangChain",
+    description: "Framework para aplicaciones LLM",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' font-weight='bold' fill='%23FFFFFF'%3ELangChain%3C/text%3E%3C/svg%3E",
+    category: "Framework"
+  },
+  {
+    name: "Pinecone",
+    description: "Vector Database para RAG",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' font-weight='bold' fill='%23FFFFFF'%3EPinecone%3C/text%3E%3C/svg%3E",
+    category: "Database"
+  },
+  {
+    name: "TensorFlow",
+    description: "Machine Learning Framework",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='12' font-weight='bold' fill='%23FFFFFF'%3ETensorFlow%3C/text%3E%3C/svg%3E",
+    category: "ML Framework"
+  },
+  {
+    name: "PyTorch",
+    description: "Deep Learning Framework",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' font-weight='bold' fill='%23FFFFFF'%3EPyTorch%3C/text%3E%3C/svg%3E",
+    category: "ML Framework"
+  }
 ];
 
 export const newsItems = [

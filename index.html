@@ -4,9 +4,79 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4ailabs | Transformamos empresas con Inteligencia Artificial</title>
+  <title>4ailabs | Agencia de IA Especializada en Desarrollo de Agentes Inteligentes</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          animation: {
+            'fade-in-up': 'fadeInUp 0.4s ease-out forwards',
+            'fade-in-left': 'fadeInLeft 0.4s ease-out forwards',
+            'fade-in-right': 'fadeInRight 0.4s ease-out forwards',
+            'fade-in-scale': 'fadeInScale 0.4s ease-out forwards',
+            'slide-in-top': 'slideInFromTop 0.5s ease-out forwards',
+            'slide-in-bottom': 'slideInFromBottom 0.5s ease-out forwards',
+            'bounce-in': 'bounceIn 0.5s ease-out forwards',
+            'icon-bounce': 'icon-bounce 3s ease-in-out infinite',
+            'float': 'float 3s ease-in-out infinite',
+            'pulse': 'pulse 2s ease-in-out infinite',
+            'glow': 'glow 2s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              'from': { opacity: '0', transform: 'translateY(15px)' },
+              'to': { opacity: '1', transform: 'translateY(0)' }
+            },
+            fadeInLeft: {
+              'from': { opacity: '0', transform: 'translateX(-15px)' },
+              'to': { opacity: '1', transform: 'translateX(0)' }
+            },
+            fadeInRight: {
+              'from': { opacity: '0', transform: 'translateX(15px)' },
+              'to': { opacity: '1', transform: 'translateX(0)' }
+            },
+            fadeInScale: {
+              'from': { opacity: '0', transform: 'scale(0.95)' },
+              'to': { opacity: '1', transform: 'scale(1)' }
+            },
+            slideInFromTop: {
+              'from': { opacity: '0', transform: 'translateY(-20px)' },
+              'to': { opacity: '1', transform: 'translateY(0)' }
+            },
+            slideInFromBottom: {
+              'from': { opacity: '0', transform: 'translateY(20px)' },
+              'to': { opacity: '1', transform: 'translateY(0)' }
+            },
+            bounceIn: {
+              '0%': { opacity: '0', transform: 'scale(0.8)' },
+              '50%': { opacity: '1', transform: 'scale(1.02)' },
+              '100%': { opacity: '1', transform: 'scale(1)' }
+            },
+            'icon-bounce': {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-2px)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-3px)' }
+            },
+            pulse: {
+              '0%, 100%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.02)' }
+            },
+            glow: {
+              '0%, 100%': { boxShadow: '0 0 0 rgba(59, 130, 246, 0)' },
+              '50%': { boxShadow: '0 0 8px rgba(59, 130, 246, 0.3)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/styles/animations.css">
   <style>
     body {
       background-color: #09090b;
@@ -94,8 +164,8 @@
     "react-router-dom": "https://esm.sh/react-router-dom@6.23.1",
     "lucide-react": "https://esm.sh/lucide-react@0.395.0",
     "@google/genai": "https://esm.sh/@google/genai@0.15.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-    "react/": "https://aistudiocdn.com/react@^19.1.1/"
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+    "react/": "https://esm.sh/react@18.2.0/"
   }
 }
 </script>
