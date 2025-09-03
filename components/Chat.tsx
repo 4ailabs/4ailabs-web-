@@ -29,6 +29,7 @@ const ChatWindow: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
   useEffect(scrollToBottom, [messages]);
 
   const handleSendMessage = async () => {
+    console.log('Chat: handleSendMessage llamado con:', inputMessage);
     if (!inputMessage.trim() || isLoading) return;
 
     const userMessage: ChatMessage = {
@@ -38,12 +39,15 @@ const ChatWindow: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
       timestamp: new Date()
     };
 
+    console.log('Chat: Agregando mensaje de usuario:', userMessage);
     setMessages(prev => [...prev, userMessage]);
     setInputMessage('');
     setIsLoading(true);
 
     try {
+      console.log('Chat: Llamando a chatService.sendMessage');
       const response = await chatService.sendMessage(inputMessage);
+      console.log('Chat: Respuesta recibida:', response);
       
       const botMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
@@ -51,6 +55,7 @@ const ChatWindow: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
         isUser: false,
         timestamp: new Date()
       };
+      console.log('Chat: Agregando mensaje del bot:', botMessage);
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       console.error('Error sending message:', error);
