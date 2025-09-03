@@ -21,8 +21,12 @@ import {
   Briefcase,
   GraduationCap,
   Home,
-  Settings
+  Settings,
+  Brain,
+  FileText
 } from 'lucide-react';
+import { roiAnalysisService, ROIAnalysis } from '../services/roiAnalysisService';
+import ROIAnalysisComponent from '../components/ROIAnalysis';
 
 interface ROIData {
   sector: string;
@@ -65,6 +69,9 @@ const ROICalculatorPage: React.FC = () => {
 
   const [results, setResults] = useState<ROIResults | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
+  const [roiAnalysis, setRoiAnalysis] = useState<ROIAnalysis | null>(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [showAnalysis, setShowAnalysis] = useState(false);
 
   const sectors = [
     { value: 'retail', label: 'Retail/E-commerce', icon: Building2 },
@@ -145,6 +152,21 @@ const ROICalculatorPage: React.FC = () => {
       ...prev,
       [field]: value
     }));
+  };
+
+  const generateROIAnalysis = async () => {
+    if (!results) return;
+    
+    setIsAnalyzing(true);
+    try {
+      const analysis = await roiAnalysisService.analyzeROI(roiData, results);
+      setRoiAnalysis(analysis);
+      setShowAnalysis(true);
+    } catch (error) {
+      console.error('Error generating ROI analysis:', error);
+    } finally {
+      setIsAnalyzing(false);
+    }
   };
 
   const handleCalculate = async () => {
@@ -558,6 +580,30 @@ const ROICalculatorPage: React.FC = () => {
                   <p className="text-zinc-600 dark:text-slate-300 mb-6 max-w-2xl mx-auto">
                     <strong>Agenda una consulta de 15 minutos GRATIS</strong> y recibe un roadmap personalizado para implementar estas mejoras en tu empresa específica.
                   </p>
+                  
+                  {/* Análisis de ROI Inteligente */}
+                  <div className="mb-6">
+                    <button
+                      onClick={generateROIAnalysis}
+                      disabled={isAnalyzing}
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 disabled:from-blue-400 disabled:to-indigo-400 text-white font-bold py-3 px-6 rounded-full text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-blue-400/25"
+                    >
+                      {isAnalyzing ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          Generando Análisis...
+                        </>
+                      ) : (
+                        <>
+                          <Brain className="w-5 h-5" />
+                          Análisis de ROI Inteligente
+                        </>
+                      )}
+                    </button>
+                    <p className="text-xs text-zinc-500 dark:text-slate-500 mt-2">
+                      Análisis personalizado con IA • Recomendaciones estratégicas • Insights de mercado
+                    </p>
+                  </div>
                   <div className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-zinc-700 mb-6">
                     <div className="flex items-center justify-center gap-6 mb-4 text-sm">
                       <div className="text-center">
@@ -617,6 +663,14 @@ const ROICalculatorPage: React.FC = () => {
           )}
         </div>
       </div>
+
+      {/* Análisis de ROI Modal */}
+      {showAnalysis && roiAnalysis && (
+        <ROIAnalysisComponent
+          analysis={roiAnalysis}
+          onClose={() => setShowAnalysis(false)}
+        />
+      )}
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2, FileText } from 'lucide-react';
+import { proposalGeneratorService, ProposalData } from '../services/proposalGeneratorService';
+import ProposalGenerator from '../components/ProposalGenerator';
 
 type FormState = 'idle' | 'loading' | 'success' | 'error';
 
@@ -11,9 +13,31 @@ const ContactPage: React.FC = () => {
     service: 'Consulta empresarial',
     message: ''
   });
+  const [proposal, setProposal] = useState<ProposalData | null>(null);
+  const [isGeneratingProposal, setIsGeneratingProposal] = useState(false);
+  const [showProposal, setShowProposal] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const generateProposal = async () => {
+    if (!formData.name || !formData.email || !formData.service) {
+      alert('Por favor completa al menos el nombre, email y tipo de servicio para generar una propuesta');
+      return;
+    }
+
+    setIsGeneratingProposal(true);
+    try {
+      const generatedProposal = await proposalGeneratorService.generateProposal(formData);
+      setProposal(generatedProposal);
+      setShowProposal(true);
+    } catch (error) {
+      console.error('Error generating proposal:', error);
+      alert('Error al generar la propuesta. Por favor intenta de nuevo.');
+    } finally {
+      setIsGeneratingProposal(false);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -94,6 +118,32 @@ const ContactPage: React.FC = () => {
                   <label htmlFor="message" className="block text-sm font-medium text-zinc-700 dark:text-slate-300">Mensaje</label>
                   <textarea id="message" name="message" rows={4} required value={formData.message} onChange={handleChange} className="mt-1 block w-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-md shadow-sm py-3 px-4 text-zinc-900 dark:text-white focus:outline-none focus:ring-slate-500 dark:focus:ring-cyan-500 focus:border-slate-500 dark:focus:border-cyan-500"></textarea>
                 </div>
+                
+                {/* Generador de Propuestas */}
+                <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/10 dark:to-teal-900/10 rounded-xl p-4 border border-emerald-200 dark:border-emerald-700/30 mb-4">
+                  <button
+                    type="button"
+                    onClick={generateProposal}
+                    disabled={isGeneratingProposal}
+                    className="w-full flex justify-center items-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-95 disabled:bg-zinc-400 dark:disabled:bg-zinc-600 text-white font-bold py-3 px-6 rounded-full text-base transition-all-smooth shadow-lg shadow-emerald-400/25"
+                  >
+                    {isGeneratingProposal ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        Generando Propuesta...
+                      </>
+                    ) : (
+                      <>
+                        <FileText className="w-5 h-5" />
+                        Generar Propuesta Técnica
+                      </>
+                    )}
+                  </button>
+                  <p className="text-xs text-center text-zinc-500 dark:text-slate-500 mt-2">
+                    Propuesta personalizada con IA • Precios y timeline • Especificaciones técnicas
+                  </p>
+                </div>
+
                 <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-900/10 dark:to-slate-800/10 rounded-xl p-4 border border-slate-200 dark:border-slate-700/30">
                   <button type="submit" disabled={formState === 'loading'} className="w-full flex justify-center items-center gap-3 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 active:scale-95 disabled:bg-zinc-400 dark:disabled:bg-zinc-600 text-white font-bold py-4 px-6 rounded-full text-lg transition-all-smooth shadow-xl shadow-slate-400/25 pulse-cta">
                     {formState === 'loading' ? <><Loader2 className="animate-spin" /> Procesando...</> : <>Reservar Mi Consulta GRATIS <Send className="w-5 h-5" /></>}
@@ -147,6 +197,14 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Generador de Propuestas Modal */}
+      {showProposal && proposal && (
+        <ProposalGenerator
+          proposal={proposal}
+          onClose={() => setShowProposal(false)}
+        />
+      )}
     </div>
   );
 };
