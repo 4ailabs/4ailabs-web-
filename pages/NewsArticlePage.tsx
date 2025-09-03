@@ -186,7 +186,7 @@ const NewsArticlePage: React.FC = () => {
         author: "Luis Martínez",
         readTime: "9 min"
       },
-      'n-005': {
+      'n-006': {
         content: `
           <p class="mb-6 text-zinc-700 dark:text-slate-300 leading-relaxed">
             OpenAI ha reportado que ChatGPT ha alcanzado los 180 millones de usuarios activos mensuales, estableciendo un nuevo récord en la adopción de tecnología de inteligencia artificial y consolidando su posición como la aplicación de IA más utilizada del mundo.
