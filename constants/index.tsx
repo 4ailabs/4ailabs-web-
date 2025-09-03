@@ -7,11 +7,14 @@ import type { LucideIcon } from 'lucide-react';
 
 export const navLinks = [
   { name: 'Servicios', path: '/servicios' },
+  { name: 'ROI', path: '/calculadora-roi' },
+  { name: 'Contacto', path: '/contacto' },
+];
+
+export const secondaryNavLinks = [
   { name: 'Tecnologías', path: '/tecnologias' },
-  { name: 'Calculadora ROI', path: '/calculadora-roi' },
   { name: 'Nosotros', path: '/nosotros' },
   { name: 'Noticias', path: '/noticias' },
-  { name: 'Contacto', path: '/contacto' },
 ];
 
 export const servicesSubmenu = [

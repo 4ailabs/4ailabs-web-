@@ -11,22 +11,18 @@ const HomePage: React.FC = () => {
       <section className="py-12 sm:py-20 md:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-zinc-900 dark:text-white leading-tight max-w-4xl mx-auto animate-slide-in-top">
-            Agencia de IA especializada en desarrollo de agentes inteligentes
+            Automatiza tu negocio con agentes de IA que trabajan 24/7
           </h1>
           <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-zinc-600 dark:text-slate-300 max-w-2xl mx-auto px-4 animate-fade-in-up animate-delay-200">
-            Creamos agentes de IA autónomos, sistemas inteligentes y soluciones personalizadas que automatizan y optimizan tu negocio
+            Reduce costos operativos hasta 60% con agentes inteligentes personalizados para ventas, soporte y automatización
           </p>
-          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 animate-fade-in-up animate-delay-400 px-4">
-            <Link to="/contacto" className="w-full sm:w-auto bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base md:text-lg transition-all-smooth transform hover:scale-105 shadow-lg">
-              Solicitar Consulta
+          <div className="mt-8 sm:mt-10 flex flex-col justify-center items-center gap-4 animate-fade-in-up animate-delay-400 px-4">
+            <Link to="/contacto" className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-emerald-400/25 pulse-cta">
+              🚀 Consulta Gratuita - Ver mi ROI
             </Link>
-            <Link to="/calculadora-roi" className="w-full sm:w-auto bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base md:text-lg transition-all-smooth transform hover:scale-105 shadow-lg">
-              <Calculator className="w-4 h-4 sm:w-5 sm:h-5 mr-2 inline" />
-              Calcular ROI
-            </Link>
-            <Link to="/agentes-ia" className="w-full sm:w-auto bg-zinc-100 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base md:text-lg transition-all-smooth">
-              Ver Agentes de IA
-            </Link>
+            <p className="text-sm text-zinc-500 dark:text-slate-400 mt-2">
+              ⏱️ Solo 15 minutos • 💬 Sin compromiso • 📈 Resultados garantizados
+            </p>
           </div>
           <div className="mt-12 sm:mt-16 animate-fade-in-scale animate-delay-600 px-4">
              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" alt="Demostración de soluciones IA" className="rounded-xl sm:rounded-2xl shadow-2xl mx-auto w-full max-w-4xl transition-transform-smooth" />
@@ -38,11 +34,11 @@ const HomePage: React.FC = () => {
       <section className="py-12 sm:py-16 md:py-24 bg-zinc-100 dark:bg-zinc-950 transition-colors duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12 animate-fade-in-up px-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight">Nuestros Servicios Principales</h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">Soluciones de IA a medida para cada desafío de negocio.</p>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight">Lo que más demandan nuestros clientes</h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">Los 3 servicios que más impacto generan en tu negocio</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {serviceCards.map((service, index) => {
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
+            {serviceCards.slice(0, 3).map((service, index) => {
               const serviceColors = [
                 { bg: 'bg-purple-50 dark:bg-purple-900/20', border: 'border-purple-200 dark:border-purple-800', hover: 'hover:border-purple-400 dark:hover:border-purple-600', shadow: 'hover:shadow-purple-400/10 dark:hover:shadow-purple-400/10', iconBg: 'bg-purple-100 dark:bg-purple-500/10', iconHover: 'group-hover:bg-purple-200 dark:group-hover:bg-purple-500/20', iconColor: 'text-purple-600 dark:text-purple-400' }, // Agentes de IA
                 { bg: 'bg-indigo-50 dark:bg-indigo-900/20', border: 'border-indigo-200 dark:border-indigo-800', hover: 'hover:border-indigo-400 dark:hover:border-indigo-600', shadow: 'hover:shadow-indigo-400/10 dark:hover:shadow-indigo-400/10', iconBg: 'bg-indigo-100 dark:bg-indigo-500/10', iconHover: 'group-hover:bg-indigo-200 dark:group-hover:bg-indigo-500/20', iconColor: 'text-indigo-600 dark:text-indigo-400' }, // Context Engineering
@@ -69,6 +65,12 @@ const HomePage: React.FC = () => {
                 </div>
               );
             })}
+          </div>
+          <div className="text-center">
+            <Link to="/servicios" className="inline-flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white font-semibold py-3 px-6 rounded-full transition-all-smooth">
+              Ver todos los servicios
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
