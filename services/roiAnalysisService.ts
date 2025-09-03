@@ -1,4 +1,4 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 interface ROIData {
   sector: string;
@@ -34,26 +34,31 @@ interface ROIAnalysis {
 }
 
 class ROIAnalysisService {
-  private ai: GoogleGenAI | null = null;
+  private genAI: GoogleGenerativeAI | null = null;
 
   constructor() {
     try {
-      this.ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+      const apiKey = process.env.GEMINI_API_KEY;
+      if (apiKey && apiKey !== 'your_gemini_api_key_here') {
+        this.genAI = new GoogleGenerativeAI(apiKey);
+      } else {
+        console.warn("GEMINI_API_KEY not configured, using fallback responses");
+      }
     } catch (error) {
       console.error("Error initializing ROI Analysis Service:", error);
     }
   }
 
   async analyzeROI(roiData: ROIData, roiResults: ROIResults): Promise<ROIAnalysis> {
-    if (!this.ai) {
+    if (!this.genAI) {
       return this.getMockAnalysis(roiData, roiResults);
     }
 
     try {
       const prompt = this.buildAnalysisPrompt(roiData, roiResults);
       
-      const model = this.ai.getGenerativeModel({ 
-        model: "gemini-2.0-flash-exp",
+      const model = this.genAI.getGenerativeModel({ 
+        model: "gemini-1.5-flash",
         systemInstruction: `Eres un consultor experto en IA empresarial y análisis de ROI. Tu trabajo es analizar los datos de ROI de un cliente y proporcionar recomendaciones estratégicas, identificando riesgos y oportunidades de optimización. Responde en español, siendo específico y accionable.`
       });
 

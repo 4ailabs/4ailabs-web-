@@ -1,4 +1,4 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 interface ContactFormData {
   name: string;
@@ -29,26 +29,31 @@ interface ProposalData {
 }
 
 class ProposalGeneratorService {
-  private ai: GoogleGenAI | null = null;
+  private genAI: GoogleGenerativeAI | null = null;
 
   constructor() {
     try {
-      this.ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+      const apiKey = process.env.GEMINI_API_KEY;
+      if (apiKey && apiKey !== 'your_gemini_api_key_here') {
+        this.genAI = new GoogleGenerativeAI(apiKey);
+      } else {
+        console.warn("GEMINI_API_KEY not configured, using fallback responses");
+      }
     } catch (error) {
       console.error("Error initializing Proposal Generator Service:", error);
     }
   }
 
   async generateProposal(formData: ContactFormData): Promise<ProposalData> {
-    if (!this.ai) {
+    if (!this.genAI) {
       return this.getMockProposal(formData);
     }
 
     try {
       const prompt = this.buildProposalPrompt(formData);
       
-      const model = this.ai.getGenerativeModel({ 
-        model: "gemini-2.0-flash-exp",
+      const model = this.genAI.getGenerativeModel({ 
+        model: "gemini-1.5-flash",
         systemInstruction: `Eres un consultor experto en IA empresarial que genera propuestas técnicas detalladas. Tu trabajo es crear propuestas profesionales, realistas y atractivas basadas en las necesidades del cliente. Incluye especificaciones técnicas, timeline, precios y entregables. Responde en español.`
       });
 
@@ -216,7 +221,6 @@ Responde SOLO con el JSON, sin texto adicional.
       email: formData.email,
       serviceType: formData.service,
       requirements: formData.message || "Implementación de soluciones de IA para optimizar procesos empresariales y mejorar la eficiencia operativa.",
-      timeline: duration,
       budget: `$${basePrice.toLocaleString()} - $${(basePrice * 1.5).toLocaleString()}`,
       technicalSpecs,
       deliverables,

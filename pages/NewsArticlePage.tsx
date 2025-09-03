@@ -124,7 +124,7 @@ const NewsArticlePage: React.FC = () => {
         author: "Ana García",
         readTime: "7 min"
       },
-      'n-002': {
+      'n-004': {
         content: `
           <p class="mb-6 text-zinc-700 dark:text-slate-300 leading-relaxed">
             Un gigante tecnológico ha anunciado una inversión histórica de $5 mil millones para acelerar el desarrollo de algoritmos de IA que aprovechen la computación cuántica, prometiendo resolver problemas que actualmente son intratables con tecnología convencional.
@@ -153,7 +153,7 @@ const NewsArticlePage: React.FC = () => {
         author: "Carmen Rodriguez",
         readTime: "6 min"
       },
-      'n-004': {
+      'n-005': {
         content: `
           <p class="mb-6 text-zinc-700 dark:text-slate-300 leading-relaxed">
             La Unión Europea ha finalizado el borrador de la primera Ley de Inteligencia Artificial a nivel mundial, estableciendo un marco regulatorio pionero que clasifica las aplicaciones de IA por nivel de riesgo y establece normas estrictas para sistemas considerados de "alto riesgo".
