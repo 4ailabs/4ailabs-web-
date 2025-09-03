@@ -24,7 +24,7 @@ const App: React.FC = () => {
       <HashRouter>
         <div className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-slate-300 transition-colors duration-300">
         <Header />
-        <main>
+        <main style={{ paddingTop: '4rem' }}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/servicios" element={<ServicesPage />} />

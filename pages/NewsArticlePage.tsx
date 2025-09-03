@@ -215,7 +215,7 @@ const NewsArticlePage: React.FC = () => {
         author: "Ana García",
         readTime: "5 min"
       },
-      'n-006': {
+      'n-007': {
         content: `
           <p class="mb-6 text-zinc-700 dark:text-slate-300 leading-relaxed">
             Un sistema de inteligencia artificial desarrollado por investigadores médicos ha logrado superar a radiólogos experimentados en la detección temprana de tumores, alcanzando una precisión del 95% en el diagnóstico de diferentes tipos de cáncer.
@@ -244,7 +244,7 @@ const NewsArticlePage: React.FC = () => {
         author: "Dr. Carlos Mendez",
         readTime: "7 min"
       },
-      'n-007': {
+      'n-008': {
         content: `
           <p class="mb-6 text-zinc-700 dark:text-slate-300 leading-relaxed">
             Microsoft ha anunciado la integración completa de inteligencia artificial en todas sus aplicaciones de Office 365, transformando fundamentalmente la productividad empresarial con asistentes de IA nativos en Word, Excel, PowerPoint y Teams.

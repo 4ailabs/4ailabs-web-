@@ -2,26 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award } from 'lucide-react';
 import { serviceCards, stats, testimonials, partners, technologies } from '../constants';
-import SEO from '../components/SEO';
-import { organizationSchema, websiteSchema } from '../utils/structuredData';
 
 const HomePage: React.FC = () => {
-  const combinedSchema = {
-    "@context": "https://schema.org",
-    "@graph": [organizationSchema, websiteSchema]
-  };
-
   return (
-    <>
-      <SEO
-        title="4ailabs | Especialistas en IA para Desarrollo Empresarial y Emprendimiento"
-        description="Transformamos empresas con agentes de IA personalizados. Consulta GRATUITA de 15 min. Expertise sólido en automatización, OpenAI, Gemini, Claude. ROI garantizado."
-        keywords="agentes IA, inteligencia artificial empresarial, automatización IA, chatbots inteligentes, OpenAI, Gemini, Claude, consultoría IA, desarrollo empresarial, emprendimiento, ROI IA"
-        ogUrl="https://4ailabs.vercel.app"
-        canonicalUrl="https://4ailabs.vercel.app"
-        structuredData={combinedSchema}
-      />
-      <div className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 dark:from-zinc-950 dark:via-black dark:to-zinc-950 transition-colors duration-300">
+    <div className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 dark:from-zinc-950 dark:via-black dark:to-zinc-950 transition-colors duration-300">
       
       {/* Hero Section */}
       <section className="py-12 sm:py-20 md:py-32">
@@ -275,8 +259,7 @@ const HomePage: React.FC = () => {
               </div>
             </section>
 
-      </div>
-    </>
+    </div>
   );
 };
 
