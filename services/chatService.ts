@@ -1,72 +1,57 @@
-import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
 import type { ChatResponse } from '../types';
 
-const SYSTEM_INSTRUCTION = `Eres un asistente virtual experto de 4ailabs, una agencia de IA especializada en el desarrollo de agentes inteligentes. Tu tono debe ser profesional, amigable y muy servicial.
-Tu objetivo principal es responder a las preguntas de los usuarios sobre 4ailabs y sus servicios, y guiarlos para que se pongan en contacto con el equipo de ventas.
-
-Información sobre 4ailabs:
-- Somos una agencia de IA especializada en desarrollo de agentes inteligentes y sistemas autónomos.
-- Misión: Transformar empresas con agentes de IA que automatizan procesos y optimizan operaciones.
-- Especialidades: Desarrollo de agentes conversacionales, agentes autónomos, IA médica, context engineering avanzado y sistemas inteligentes.
-- Expertise técnico: Utilizamos técnicas avanzadas de context engineering para optimizar el rendimiento de modelos de IA y crear agentes más precisos y eficientes.
-- Tecnologías: Trabajamos con OpenAI (GPT-4), Google Gemini, Anthropic (Claude), LangChain, Pinecone, TensorFlow, PyTorch y otras plataformas líderes en IA.
-
-Servicios Principales:
-1.  **Desarrollo de Agentes de IA**: Nuestra especialidad principal. Creamos agentes autónomos para ventas, atención al cliente, análisis de datos y automatización de procesos.
-2.  **Context Engineering Avanzado**: Optimizamos el rendimiento de modelos de IA mediante técnicas avanzadas de ingeniería de contexto, prompt engineering y fine-tuning.
-3.  **Asesoría Empresarial IA**: Ayudamos a las empresas a definir su estrategia de IA, identificar casos de uso y crear un roadmap de implementación.
-4.  **IA Médica y Healthcare**: Desarrollamos herramientas para diagnóstico por imágenes, gestión hospitalaria, investigación médica y descubrimiento de fármacos.
-5.  **Desarrollo de Sistemas IA**: Creamos soluciones personalizadas como chatbots, sistemas de recomendación y análisis predictivo.
-6.  **Educación y Capacitación**: Ofrecemos cursos y certificaciones para empresas y profesionales.
-
-Instrucciones de conversación:
-- Responde de forma concisa y clara.
-- Si te preguntan por precios o cotizaciones, explica que varían según el proyecto y recomienda firmemente que soliciten una 'Consulta Gratuita' a través de la página de contacto para obtener una cotización precisa.
-- Si te preguntan algo fuera de tu ámbito (IA, 4ailabs, tecnología), declina amablemente la respuesta y reenfoca la conversación. Por ejemplo: "Como asistente de 4ailabs, mi especialidad es la inteligencia artificial. ¿Puedo ayudarte con alguna consulta sobre nuestros servicios?".
-- Mantén las respuestas en español.`;
+// Mock responses for development - simulates AI responses
+const mockResponses: Record<string, string> = {
+  'consulta': '¡Perfecto! Puedes agendar tu **consulta GRATUITA de 15 minutos** visitando nuestra página de contacto. En esta consulta analizamos tu empresa y te damos un roadmap personalizado de implementación de IA. ¿Te gustaría que te ayude con algo más específico sobre nuestros servicios?',
+  'precio': 'Los precios varían según la complejidad del proyecto y las necesidades específicas de tu empresa. Para obtener una cotización precisa y personalizada, te recomiendo que solicites una **consulta gratuita** a través de nuestra página de contacto. Ahí podremos analizar tu caso y darte un presupuesto exacto. ¿Qué tipo de solución de IA te interesa más?',
+  'servicios': 'Nuestros servicios principales son:\n\n🤖 **Agentes de IA** - Nuestra especialidad\n💬 **Chatbots inteligentes** - Para atención al cliente\n🏥 **IA Médica** - Con experiencia clínica real\n⚙️ **Context Engineering** - Optimización de modelos\n🔄 **Automatización** - De procesos empresariales\n📚 **Educación en IA** - Capacitación empresarial\n\n¿Te interesa conocer más detalles sobre alguno?',
+  'agentes': '¡Excelente pregunta! Nuestros **Agentes de IA** son sistemas autónomos que pueden:\n\n• Ejecutar tareas complejas de forma independiente\n• Tomar decisiones basadas en datos\n• Integrarse con tus sistemas existentes\n• Aprender y adaptarse a tus procesos\n• Trabajar 24/7 sin supervisión\n\nSon ideales para ventas, análisis de datos, automatización de workflows y más. ¿Qué tipo de tareas te gustaría automatizar?',
+  'roi': 'Tenemos una **calculadora de ROI gratuita** que te muestra exactamente cuánto puedes ahorrar implementando IA en tu empresa. Te toma solo 3 minutos completarla y obtienes:\n\n• Ahorros mensuales estimados\n• Proyección a 3 años\n• Análisis personalizado por sector\n\n¡También incluye consulta GRATUITA para revisar los resultados! ¿Te gustaría calcular tu ROI ahora?',
+  'default': 'Como asistente de 4ailabs, estoy aquí para ayudarte con cualquier consulta sobre nuestros servicios de IA. Puedo ayudarte con:\n\n• Agendar una **consulta GRATUITA**\n• Información sobre nuestros **agentes de IA**\n• Calcular tu **ROI con IA**\n• Detalles sobre servicios específicos\n\n¿En qué puedo ayudarte específicamente?'
+};
 
 class ChatService {
-  private chat: Chat | null = null;
-  private initializationError: string | null = null;
+  private delay(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
-  constructor() {
-    try {
-      // The execution environment is expected to provide process.env.API_KEY.
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      this.chat = ai.chats.create({
-        model: 'gemini-2.5-flash',
-        config: {
-          systemInstruction: SYSTEM_INSTRUCTION,
-        },
-      });
-    } catch (e) {
-      const message = e instanceof Error ? e.message : "Error desconocido al inicializar el servicio de IA.";
-      this.initializationError = `Error de inicialización: ${message}`;
-      console.error(this.initializationError);
+  private getResponse(message: string): string {
+    const lowerMessage = message.toLowerCase();
+    
+    if (lowerMessage.includes('consulta') || lowerMessage.includes('gratis') || lowerMessage.includes('contacto')) {
+      return mockResponses['consulta'];
     }
+    if (lowerMessage.includes('precio') || lowerMessage.includes('costo') || lowerMessage.includes('cotizacion')) {
+      return mockResponses['precio'];
+    }
+    if (lowerMessage.includes('servicio') || lowerMessage.includes('que hacen')) {
+      return mockResponses['servicios'];
+    }
+    if (lowerMessage.includes('agente') || lowerMessage.includes('bot')) {
+      return mockResponses['agentes'];
+    }
+    if (lowerMessage.includes('roi') || lowerMessage.includes('calcul') || lowerMessage.includes('retorno')) {
+      return mockResponses['roi'];
+    }
+    
+    return mockResponses['default'];
   }
 
   async sendMessage(message: string): Promise<ChatResponse> {
-    if (!this.chat || this.initializationError) {
-       return {
-        text: `El asistente de IA no está configurado correctamente. Por favor, contacta al soporte técnico.`,
-        success: false,
-        error: this.initializationError || 'Chat client not initialized'
-      };
-    }
-
     try {
-      const response: GenerateContentResponse = await this.chat.sendMessage({ message });
-      const text = response.text;
-
+      // Simulate API delay for realistic experience
+      await this.delay(800 + Math.random() * 1200);
+      
+      const responseText = this.getResponse(message);
+      
       return {
-        text: text,
+        text: responseText,
         success: true,
       };
 
     } catch (error) {
-      console.error("Error calling Gemini API:", error);
-      const errorMessage = "Lo siento, estoy experimentando un problema técnico en este momento. Por favor, intenta de nuevo más tarde o contacta a nuestro equipo directamente a través de la página de contacto.";
+      console.error("Error in mock chat service:", error);
+      const errorMessage = "Lo siento, estoy experimentando un problema técnico. Por favor, contacta directamente a través de nuestra página de contacto para obtener asistencia inmediata.";
       return {
         text: errorMessage,
         success: false,

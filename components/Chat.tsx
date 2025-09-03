@@ -159,17 +159,18 @@ const Chat: React.FC = () => {
 
   return (
     <>
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2">
-        {/* Tooltip/Preview */}
-        <div className="bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white px-4 py-2 rounded-lg shadow-lg border border-zinc-200 dark:border-zinc-700 text-sm max-w-xs opacity-0 animate-pulse transition-opacity duration-500 hover:opacity-100">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999] flex flex-col items-end gap-2">
+        {/* Tooltip/Preview - Hidden on mobile to avoid covering content */}
+        <div className="hidden sm:block bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white px-4 py-2 rounded-lg shadow-lg border border-zinc-200 dark:border-zinc-700 text-sm max-w-xs opacity-0 transition-opacity duration-500 hover:opacity-100">
           ¿Necesitas ayuda? ¡Pregúntame sobre consultas GRATUITAS!
         </div>
         
         {/* Chat Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className="p-3 sm:p-4 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white rounded-full shadow-xl transition-all-smooth transform hover:scale-110 active:scale-95 group pulse-cta"
+          className="relative p-3 sm:p-4 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 active:scale-95 group pulse-cta z-[10000] !important"
           aria-label="Open chat"
+          style={{ position: 'relative', zIndex: 10000 }}
         >
           <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
           <div className="absolute inset-0 rounded-full bg-slate-400 animate-ping opacity-20"></div>
