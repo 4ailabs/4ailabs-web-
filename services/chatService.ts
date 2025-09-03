@@ -1,63 +1,85 @@
+import { GoogleGenAI } from "@google/genai";
 import type { ChatResponse } from '../types';
 
-// Mock responses for development - simulates AI responses
-const mockResponses: Record<string, string> = {
-  'consulta': '¡Perfecto! Puedes agendar tu **consulta GRATUITA de 15 minutos** visitando nuestra página de contacto. En esta consulta analizamos tu empresa y te damos un roadmap personalizado de implementación de IA. ¿Te gustaría que te ayude con algo más específico sobre nuestros servicios?',
-  'precio': 'Los precios varían según la complejidad del proyecto y las necesidades específicas de tu empresa. Para obtener una cotización precisa y personalizada, te recomiendo que solicites una **consulta gratuita** a través de nuestra página de contacto. Ahí podremos analizar tu caso y darte un presupuesto exacto. ¿Qué tipo de solución de IA te interesa más?',
-  'servicios': 'Nuestros servicios principales son:\n\n🤖 **Agentes de IA** - Nuestra especialidad\n💬 **Chatbots inteligentes** - Para atención al cliente\n🏥 **IA Médica** - Con experiencia clínica real\n⚙️ **Context Engineering** - Optimización de modelos\n🔄 **Automatización** - De procesos empresariales\n📚 **Educación en IA** - Capacitación empresarial\n\n¿Te interesa conocer más detalles sobre alguno?',
-  'agentes': '¡Excelente pregunta! Nuestros **Agentes de IA** son sistemas autónomos que pueden:\n\n• Ejecutar tareas complejas de forma independiente\n• Tomar decisiones basadas en datos\n• Integrarse con tus sistemas existentes\n• Aprender y adaptarse a tus procesos\n• Trabajar 24/7 sin supervisión\n\nSon ideales para ventas, análisis de datos, automatización de workflows y más. ¿Qué tipo de tareas te gustaría automatizar?',
-  'roi': 'Tenemos una **calculadora de ROI gratuita** que te muestra exactamente cuánto puedes ahorrar implementando IA en tu empresa. Te toma solo 3 minutos completarla y obtienes:\n\n• Ahorros mensuales estimados\n• Proyección a 3 años\n• Análisis personalizado por sector\n\n¡También incluye consulta GRATUITA para revisar los resultados! ¿Te gustaría calcular tu ROI ahora?',
-  'default': 'Como asistente de 4ailabs, estoy aquí para ayudarte con cualquier consulta sobre nuestros servicios de IA. Puedo ayudarte con:\n\n• Agendar una **consulta GRATUITA**\n• Información sobre nuestros **agentes de IA**\n• Calcular tu **ROI con IA**\n• Detalles sobre servicios específicos\n\n¿En qué puedo ayudarte específicamente?'
-};
-
 class ChatService {
-  private delay(ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms));
+  private ai: GoogleGenAI | null = null;
+
+  constructor() {
+    try {
+      this.ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+    } catch (error) {
+      console.error("Error initializing Chat Service:", error);
+    }
   }
 
-  private getResponse(message: string): string {
-    const lowerMessage = message.toLowerCase();
-    
-    if (lowerMessage.includes('consulta') || lowerMessage.includes('gratis') || lowerMessage.includes('contacto')) {
-      return mockResponses['consulta'];
-    }
-    if (lowerMessage.includes('precio') || lowerMessage.includes('costo') || lowerMessage.includes('cotizacion')) {
-      return mockResponses['precio'];
-    }
-    if (lowerMessage.includes('servicio') || lowerMessage.includes('que hacen')) {
-      return mockResponses['servicios'];
-    }
-    if (lowerMessage.includes('agente') || lowerMessage.includes('bot')) {
-      return mockResponses['agentes'];
-    }
-    if (lowerMessage.includes('roi') || lowerMessage.includes('calcul') || lowerMessage.includes('retorno')) {
-      return mockResponses['roi'];
-    }
-    
-    return mockResponses['default'];
+  private getSystemPrompt(): string {
+    return `Eres el asistente virtual de 4ailabs, una startup especializada en desarrollo de agentes de IA para empresas. Tu misión es ayudar a los clientes con información sobre nuestros servicios y guiarlos hacia una consulta gratuita.
+
+INFORMACIÓN DE LA EMPRESA:
+- Nombre: 4ailabs
+- Especialidad: Desarrollo de agentes de IA personalizados
+- Servicios principales:
+  * Agentes de IA autónomos
+  * Chatbots inteligentes
+  * IA Médica con experiencia clínica
+  * Context Engineering (optimización de prompts)
+  * Automatización de procesos empresariales
+  * Educación en IA
+
+SERVICIOS ESPECÍFICOS:
+- Consulta GRATUITA de 15 minutos
+- Calculadora de ROI gratuita
+- Propuestas técnicas personalizadas
+- Implementación por fases
+- Soporte técnico incluido
+
+DIRECTRICES:
+1. Siempre mantén un tono profesional pero amigable
+2. Enfócate en los beneficios para el negocio del cliente
+3. Menciona la consulta gratuita cuando sea relevante
+4. Proporciona información específica sobre nuestros servicios
+5. Si no sabes algo, sugiere agendar una consulta
+6. Usa emojis moderadamente para hacer el texto más atractivo
+7. Responde en español
+8. Mantén las respuestas concisas pero informativas (máximo 200 palabras)
+
+OBJETIVO PRINCIPAL: Guiar al cliente hacia una consulta gratuita donde podemos analizar sus necesidades específicas.`;
   }
 
   async sendMessage(message: string): Promise<ChatResponse> {
+    if (!this.ai) {
+      return this.getFallbackResponse();
+    }
+
     try {
-      // Simulate API delay for realistic experience
-      await this.delay(800 + Math.random() * 1200);
-      
-      const responseText = this.getResponse(message);
-      
+      const model = this.ai.getGenerativeModel({ 
+        model: "gemini-2.0-flash-exp",
+        systemInstruction: this.getSystemPrompt()
+      });
+
+      const result = await model.generateContent(message);
+      const response = await result.response;
+      const text = response.text();
+
       return {
-        text: responseText,
+        text: text.trim(),
         success: true,
       };
 
     } catch (error) {
-      console.error("Error in mock chat service:", error);
-      const errorMessage = "Lo siento, estoy experimentando un problema técnico. Por favor, contacta directamente a través de nuestra página de contacto para obtener asistencia inmediata.";
-      return {
-        text: errorMessage,
-        success: false,
-        error: error instanceof Error ? error.message : 'Unknown error'
-      };
+      console.error("Error in chat service:", error);
+      return this.getFallbackResponse();
     }
+  }
+
+  private getFallbackResponse(): ChatResponse {
+    const fallbackMessage = "Lo siento, estoy experimentando un problema técnico temporal. Por favor, contacta directamente a través de nuestra página de contacto para obtener asistencia inmediata. Te ofrecemos una **consulta GRATUITA de 15 minutos** donde podemos analizar tus necesidades de IA.";
+    
+    return {
+      text: fallbackMessage,
+      success: false,
+      error: 'API not available'
+    };
   }
 }
 
