@@ -14,7 +14,7 @@ const ChatWindow: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
     if(isOpen && messages.length === 0) {
         setMessages([{
             id: 'initial',
-            text: '¡Hola! Soy el asistente virtual de 4ailabs. ¿Cómo puedo ayudarte hoy?',
+            text: '¡Hola! Soy el asistente de 4ailabs. Te puedo ayudar con:\n\n• Agendar una consulta GRATUITA de 15 min\n• Calcular tu ROI con IA\n• Información sobre nuestros agentes\n• Solicitar una cotización\n\n¿Qué te interesa más?',
             isUser: false,
             timestamp: new Date()
         }])
@@ -159,14 +159,27 @@ const Chat: React.FC = () => {
 
   return (
     <>
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 p-3 sm:p-4 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white rounded-full shadow-lg transition-all-smooth transform hover:scale-110 active:scale-95 group"
-        aria-label="Open chat"
-      >
-        <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-        <div className="absolute inset-0 rounded-full bg-slate-400 animate-ping opacity-20"></div>
-      </button>
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2">
+        {/* Tooltip/Preview */}
+        <div className="bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white px-4 py-2 rounded-lg shadow-lg border border-zinc-200 dark:border-zinc-700 text-sm max-w-xs opacity-0 animate-pulse transition-opacity duration-500 hover:opacity-100">
+          ¿Necesitas ayuda? ¡Pregúntame sobre consultas GRATUITAS!
+        </div>
+        
+        {/* Chat Button */}
+        <button
+          onClick={() => setIsOpen(true)}
+          className="p-3 sm:p-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-full shadow-xl transition-all-smooth transform hover:scale-110 active:scale-95 group pulse-cta"
+          aria-label="Open chat"
+        >
+          <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
+          <div className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-20"></div>
+          
+          {/* Notification badge */}
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+            <span className="text-xs text-white font-bold">!</span>
+          </div>
+        </button>
+      </div>
 
       <ChatWindow isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>

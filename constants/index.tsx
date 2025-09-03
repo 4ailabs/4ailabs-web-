@@ -21,8 +21,8 @@ export const servicesSubmenu = [
   { name: 'Agentes de IA', path: '/agentes-ia' },
   { name: 'IA Médica', path: '/ia-medica' },
   { name: 'Context Engineering', path: '/context-engineering' },
-  { name: 'Educación', path: '/educacion' },
-  { name: 'Investigación', path: '/investigacion' },
+  { name: 'Educación IA', path: '/educacion' },
+  { name: 'Ver todos', path: '/servicios' },
 ];
 
 export const socialLinks = [
@@ -32,36 +32,48 @@ export const socialLinks = [
 ];
 
 export const serviceCards: { title: string; description: string; icon: LucideIcon; color: string; }[] = [
-  { title: 'Agentes de IA Inteligentes', description: 'Automatización avanzada con agentes que aprenden y colaboran.', icon: MessageSquare, color: '#c084fc' },
-  { title: 'Context Engineering Avanzado', description: 'Optimización de modelos IA mediante técnicas avanzadas de ingeniería de contexto.', icon: BrainCircuit, color: '#8b5cf6' },
-  { title: 'IA Médica y Healthcare', description: 'Innovación en diagnóstico, gestión, tratamiento e investigación médica.', icon: HeartPulse, color: '#f87171' },
-  { title: 'Desarrollo de Sistemas IA', description: 'Soluciones a medida, desde chatbots hasta análisis predictivo.', icon: Code, color: '#4ade80' },
-  { title: 'Asesoría Empresarial IA', description: 'Estrategias de IA para optimizar procesos y generar valor.', icon: Briefcase, color: '#38bdf8' },
-  { title: 'Educación y Capacitación', description: 'Programas para equipos y líderes sobre el poder de la IA.', icon: BookOpen, color: '#facc15' },
+  { title: 'Chatbots Inteligentes', description: 'Chatbots personalizados para atención al cliente y automatización de respuestas.', icon: MessageSquare, color: '#c084fc' },
+  { title: 'Agentes de IA', description: 'Agentes inteligentes que ejecutan tareas complejas y toman decisiones autónomas.', icon: Bot, color: '#8b5cf6' },
+  { title: 'IA Médica', description: 'Soluciones de inteligencia artificial aplicadas al sector salud con experiencia clínica real.', icon: HeartPulse, color: '#ef4444' },
+  { title: 'Context Engineering', description: 'Optimizamos prompts y contexto para maximizar el rendimiento de modelos de IA.', icon: BrainCircuit, color: '#38bdf8' },
+  { title: 'Automatización de Procesos', description: 'Automatizamos tareas repetitivas de tu negocio con IA práctica y efectiva.', icon: Zap, color: '#10b981' },
+  { title: 'Educación en IA', description: 'Cursos y capacitación especializada en inteligencia artificial para equipos y empresas.', icon: BookOpen, color: '#f59e0b' },
 ];
 
 export const stats = [
-  { value: '50+', label: 'Empresas asesoradas' },
-  { value: '120+', label: 'Proyectos completados' },
-  { value: '1.5k+', label: 'Estudiantes capacitados' },
-  { value: '15+', label: 'Instituciones colaboradoras' },
+  { value: '3', label: 'Empresas transformadas' },
+  { value: '100%', label: 'Clientes satisfechos' },
+  { value: '24/7', label: 'Soporte disponible' },
+  { value: '15 min', label: 'Primera consulta gratis' },
 ];
 
 export const testimonials = [
   {
-    quote: "La implementación de agentes de IA de 4ailabs revolucionó nuestro servicio al cliente. La eficiencia aumentó un 40%.",
-    name: "Ana García",
-    role: "CEO de Innovatech"
+    quote: "4ailabs nos ayudó a implementar nuestro primer chatbot de IA. Aunque son una startup joven, su conocimiento técnico es impresionante y nos dieron exactamente lo que necesitábamos.",
+    metrics: "Primer chatbot • Soporte excepcional • Resultados inmediatos",
+    name: "María López",
+    role: "Gerente de Operaciones",
+    company: "StartupTech",
+    photo: "/testimonials/maria-lopez.jpg",
+    industry: "Tecnología"
   },
   {
-    quote: "Su asesoría fue clave para nuestra transformación digital. Nos guiaron en cada paso con un profundo conocimiento técnico y de negocio.",
-    name: "Carlos Rodriguez",
-    role: "Director de Operaciones en LogiCore"
+    quote: "Trabajar con 4ailabs fue genial. Son una empresa nueva pero muy profesionales. Nos automatizaron el proceso de respuestas de cliente y nos ahorra mucho tiempo diario.",
+    metrics: "Proceso automatizado • Equipo joven • Gran comunicación",
+    name: "Roberto Silva", 
+    role: "Fundador",
+    company: "MiNegocio",
+    photo: "/testimonials/roberto-silva.jpg",
+    industry: "Servicios"
   },
   {
-    quote: "El sistema de diagnóstico médico que desarrollaron para nosotros ha mejorado la precisión y reducido los tiempos de espera drásticamente.",
-    name: "Dra. Elena Torres",
-    role: "Jefa de Radiología, Hospital Central"
+    quote: "Contraté a 4ailabs para un proyecto de IA personalizado. Aunque están empezando, demostraron ser muy competentes y entregaron exactamente lo prometido.",
+    metrics: "Proyecto personalizado • Entrega puntual • Excelente calidad",
+    name: "Ana Martínez",
+    role: "Directora de Innovación",
+    company: "InnovaCorp",
+    photo: "/testimonials/ana-martinez.jpg",
+    industry: "Consultoría"
   }
 ];
 
@@ -75,90 +87,93 @@ export const partners = [
 
 export const allServices = [
     {
-        icon: BrainCircuit,
-        title: "Context Engineering Avanzado",
-        description: "Optimizamos el rendimiento de modelos de IA mediante técnicas avanzadas de ingeniería de contexto, prompt engineering y fine-tuning para obtener resultados superiores.",
+        icon: MessageSquare,
+        title: "Chatbots Inteligentes",
+        description: "Desarrollamos chatbots personalizados para automatizar atención al cliente, respuestas frecuentes y procesos de ventas básicos.",
         points: [
-            "Prompt engineering y optimización de contextos.",
-            "Fine-tuning de modelos para casos específicos.",
-            "RAG (Retrieval-Augmented Generation) avanzado.",
-            "Chain-of-thought y reasoning patterns.",
-            "Optimización de tokens y eficiencia computacional.",
+            "Chatbots para WhatsApp y redes sociales",
+            "Automatización de respuestas frecuentes",
+            "Integración con bases de datos de productos/servicios",
+            "Escalamiento a agentes humanos cuando sea necesario",
+            "Reportes de conversaciones y mejoras continuas"
         ],
-        ctaText: "Optimiza tu modelo",
-        ctaLink: "/context-engineering",
-        imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
+        ctaText: "Crear mi chatbot",
+        ctaLink: "/contacto",
+        imageUrl: "https://images.unsplash.com/photo-1551818255-e6e10975846a?q=80&w=1974&auto=format&fit=crop"
     },
     {
-        icon: Briefcase,
-        title: "Asesoría Empresarial en IA",
-        description: "Guiamos tu transformación digital, identificando oportunidades y diseñando una hoja de ruta de IA alineada con tus objetivos de negocio.",
+        icon: Bot,
+        title: "Agentes de IA Personalizados",
+        description: "Desarrollamos agentes inteligentes que pueden ejecutar tareas complejas, tomar decisiones y actuar de forma autónoma en tu negocio.",
         points: [
-            "Diagnóstico empresarial y de madurez en IA.",
-            "Diseño de estrategia de implementación de IA.",
-            "Análisis de ROI y definición de casos de uso.",
-            "Roadmap de transformación digital e IA.",
-            "Consultoría en automatización de procesos.",
+            "Agentes para automatización de workflows complejos",
+            "Sistemas que aprenden y se adaptan a tus procesos",
+            "Integración con APIs y bases de datos existentes",
+            "Agentes para análisis y generación de reportes",
+            "Monitoreo y optimización continua del rendimiento"
         ],
-        ctaText: "Agenda tu diagnóstico",
+        ctaText: "Crear mi agente",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop"
     },
     {
         icon: HeartPulse,
         title: "IA Médica y Healthcare",
-        description: "Desarrollamos soluciones de vanguardia que apoyan al personal médico, mejoran la gestión hospitalaria y aceleran la investigación médica.",
+        description: "Aplicaciones especializadas de IA para el sector salud, desarrolladas con experiencia clínica real y conocimiento médico profundo.",
         points: [
-            "Diagnóstico asistido por IA (análisis de imágenes).",
-            "Gestión hospitalaria inteligente y predicción de demanda.",
-            "Drug discovery y análisis de ensayos clínicos.",
-            "Investigación médica con IA y análisis de literatura científica.",
-            "Telemedicina inteligente con chatbots y monitoreo remoto.",
+            "Análisis de historiales clínicos y datos médicos",
+            "Sistemas de apoyo al diagnóstico clínico",
+            "Automatización de procesos administrativos hospitalarios",
+            "Herramientas de triaje inteligente y priorización",
+            "Cumplimiento con regulaciones médicas y privacidad"
         ],
-        ctaText: "Consulta especializada",
-        ctaLink: "/ia-medica",
-        imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba9996a?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-        icon: Bot,
-        title: "Agentes de IA Inteligentes",
-        description: "Creamos agentes autónomos que automatizan tareas complejas, interactúan con clientes y colaboran en equipos de trabajo.",
-        points: [
-            "Agentes conversacionales avanzados (multimodales).",
-            "Agentes autónomos para ventas, marketing y soporte.",
-            "Sistemas multi-agente para tareas colaborativas.",
-            "Agentes especializados (financieros, investigación, creativos).",
-        ],
-        ctaText: "Desarrolla tu agente",
-        ctaLink: "/agentes-ia",
-        imageUrl: "https://images.unsplash.com/photo-1551818255-e6e10975846a?q=80&w=1974&auto=format&fit=crop"
-    },
-    {
-        icon: Code,
-        title: "Desarrollo de Sistemas IA",
-        description: "Construimos aplicaciones y software a medida, integrando la inteligencia artificial en el núcleo de tus operaciones.",
-        points: [
-            "Aplicaciones inteligentes (chatbots, sistemas de recomendación).",
-            "Software personalizado con integración a sistemas existentes.",
-            "Desarrollo de APIs de IA y dashboards analíticos.",
-            "Bases de datos inteligentes y procesamiento de big data.",
-        ],
-        ctaText: "Solicita una cotización",
+        ctaText: "Consulta médica especializada",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=2070&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+        icon: BrainCircuit,
+        title: "Context Engineering",
+        description: "Optimizamos prompts, contexto y configuraciones para maximizar el rendimiento de tus modelos de IA y obtener resultados precisos.",
+        points: [
+            "Diseño y optimización de prompts efectivos",
+            "Configuración de contexto para casos de uso específicos",
+            "Fine-tuning de modelos para tu dominio",
+            "Estrategias RAG (Retrieval-Augmented Generation)",
+            "Testing y validación de respuestas de IA"
+        ],
+        ctaText: "Optimizar mi IA",
+        ctaLink: "/contacto",
+        imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+        icon: Zap,
+        title: "Automatización de Procesos",
+        description: "Identificamos y automatizamos tareas repetitivas en tu negocio usando IA práctica que genere resultados inmediatos.",
+        points: [
+            "Análisis de procesos manuales repetitivos",
+            "Automatización de entrada y procesamiento de datos",
+            "Generación automática de reportes básicos",
+            "Clasificación y organización de información",
+            "Implementación paso a paso con capacitación"
+        ],
+        ctaText: "Automatizar procesos",
+        ctaLink: "/contacto",
+        imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
     },
     {
         icon: BookOpen,
-        title: "Educación y Capacitación",
-        description: "Empoderamos a tu equipo con el conocimiento y las habilidades necesarias para liderar en la era de la inteligencia artificial.",
+        title: "Educación y Capacitación en IA",
+        description: "Programas de formación especializados para equipos y empresas que quieren dominar la inteligencia artificial.",
         points: [
-            "Cursos empresariales para directivos y equipos técnicos.",
-            "Programas académicos y certificaciones en IA.",
-            "Workshops técnicos y bootcamps intensivos.",
-            "Talleres de implementación práctica de IA.",
+            "Cursos empresariales para directivos y equipos técnicos",
+            "Talleres prácticos de implementación de IA",
+            "Capacitación en herramientas específicas (ChatGPT, Claude, etc.)",
+            "Programas de certificación interna en IA",
+            "Asesoría continua post-capacitación"
         ],
-        ctaText: "Ver programas",
-        ctaLink: "/educacion",
+        ctaText: "Ver programas de formación",
+        ctaLink: "/contacto",
         imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2070&auto=format&fit=crop"
     },
 ];
@@ -319,5 +334,78 @@ export const newsItems = [
       source: 'The Guardian',
       summary: 'El marco regulatorio, pionero a nivel mundial, clasifica las aplicaciones de IA por nivel de riesgo y establece normas estrictas para sistemas considerados de "alto riesgo", como los utilizados en infraestructuras críticas.',
       imageUrl: 'https://images.unsplash.com/photo-1556155092-490a1ba16284?q=80&w=2070&auto=format&fit=crop'
+    },
+    {
+      id: 'n-005',
+      featured: true,
+      title: 'ChatGPT alcanza 180 millones de usuarios activos mensuales',
+      date: '2024-08-15',
+      category: 'Industria y Negocios',
+      source: 'TechCrunch',
+      summary: 'OpenAI reporta un crecimiento explosivo en el uso de ChatGPT, estableciendo nuevos récords en adopción de tecnología IA. El modelo GPT-4 se está integrando en miles de aplicaciones empresariales.',
+      imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop'
+    },
+    {
+      id: 'n-006',
+      title: 'IA revoluciona el diagnóstico médico: 95% de precisión en detección de cáncer',
+      date: '2024-08-12',
+      category: 'Aplicaciones Emergentes',
+      source: 'Nature Medicine',
+      summary: 'Nuevo sistema de IA desarrollado por investigadores médicos logra superar a radiólogos experimentados en la detección temprana de tumores, prometiendo transformar la medicina preventiva.',
+      imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop'
+    },
+    {
+      id: 'n-007',
+      title: 'Microsoft integra IA en todas sus aplicaciones de Office 365',
+      date: '2024-08-10',
+      category: 'Industria y Negocios',
+      source: 'Microsoft Blog',
+      summary: 'La suite Office ahora incluye asistentes de IA nativos en Word, Excel, PowerPoint y Teams, transformando la productividad empresarial con automatización inteligente.',
+      imageUrl: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=2070&auto=format&fit=crop'
+    },
+    {
+      id: 'n-008',
+      title: 'Google Gemini Pro supera a GPT-4 en benchmarks de razonamiento',
+      date: '2024-08-08',
+      category: 'Avances Tecnológicos',
+      source: 'Google DeepMind',
+      summary: 'El nuevo modelo Gemini Pro 1.5 demuestra capacidades superiores en matemáticas, código y razonamiento lógico, estableciendo nuevos estándares en la industria de modelos de lenguaje.',
+      imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop'
+    },
+    {
+      id: 'n-009',
+      title: 'Startup española desarrolla IA para optimizar cultivos y reducir desperdicio alimentario',
+      date: '2024-08-05',
+      category: 'Aplicaciones Emergentes',
+      source: 'El País Tecnología',
+      summary: 'Una empresa de Barcelona utiliza computer vision e IoT para monitorear cultivos en tiempo real, prediciendo enfermedades y optimizando el riego, reduciendo el desperdicio en un 40%.',
+      imageUrl: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=2070&auto=format&fit=crop'
+    },
+    {
+      id: 'n-010',
+      title: 'Meta lanza Code Llama 2: IA especializada en programación',
+      date: '2024-08-03',
+      category: 'Avances Tecnológicos',
+      source: 'Meta AI',
+      summary: 'El nuevo modelo open-source de Meta está optimizado para generar, explicar y debuggear código en más de 20 lenguajes de programación, compitiendo directamente con GitHub Copilot.',
+      imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop'
+    },
+    {
+      id: 'n-011',
+      title: 'IA detecta fraudes financieros en tiempo real, ahorrando millones a bancos',
+      date: '2024-07-30',
+      category: 'Aplicaciones Emergentes',
+      source: 'Financial Times',
+      summary: 'Sistemas de machine learning procesan transacciones bancarias en microsegundos, identificando patrones fraudulentos con 99.7% de precisión y reduciendo falsos positivos en un 60%.',
+      imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop'
+    },
+    {
+      id: 'n-012',
+      title: 'Anthropic lanza Claude 3.5 Sonnet: nuevo estándar en IA conversacional',
+      date: '2024-07-28',
+      category: 'Avances Tecnológicos',
+      source: 'Anthropic',
+      summary: 'El modelo más avanzado de Anthropic combina capacidades de razonamiento superiores con mayor seguridad y alineación, estableciendo nuevos benchmarks en tareas complejas.',
+      imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop'
     }
 ];

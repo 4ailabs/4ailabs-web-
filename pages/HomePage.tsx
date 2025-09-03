@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target } from 'lucide-react';
+import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award } from 'lucide-react';
 import { serviceCards, stats, testimonials, partners, technologies } from '../constants';
 
 const HomePage: React.FC = () => {
@@ -11,21 +11,68 @@ const HomePage: React.FC = () => {
       <section className="py-12 sm:py-20 md:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-zinc-900 dark:text-white leading-tight max-w-4xl mx-auto animate-slide-in-top">
-            Automatiza tu negocio con agentes de IA que trabajan 24/7
+            Especialistas en IA para pequeñas y medianas empresas
           </h1>
           <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-zinc-600 dark:text-slate-300 max-w-2xl mx-auto px-4 animate-fade-in-up animate-delay-200">
-            Reduce costos operativos hasta 60% con agentes inteligentes personalizados para ventas, soporte y automatización
+            Startup especializada en desarrollar agentes de IA personalizados. Tecnología avanzada con atención personal y precios accesibles.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col justify-center items-center gap-4 animate-fade-in-up animate-delay-400 px-4">
             <Link to="/contacto" className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-emerald-400/25 pulse-cta">
-              🚀 Consulta Gratuita - Ver mi ROI
+              Consulta Gratuita - Ver mi ROI
             </Link>
             <p className="text-sm text-zinc-500 dark:text-slate-400 mt-2">
-              ⏱️ Solo 15 minutos • 💬 Sin compromiso • 📈 Resultados garantizados
+              Solo 15 minutos • Sin compromiso • Resultados garantizados
             </p>
           </div>
           <div className="mt-12 sm:mt-16 animate-fade-in-scale animate-delay-600 px-4">
              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" alt="Demostración de soluciones IA" className="rounded-xl sm:rounded-2xl shadow-2xl mx-auto w-full max-w-4xl transition-transform-smooth" />
+          </div>
+        </div>
+      </section>
+
+      {/* Social Proof Section */}
+      <section className="py-8 sm:py-12 bg-white dark:bg-zinc-900 border-y border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-emerald-100 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full text-sm font-medium mb-4">
+              <Award className="w-4 h-4" />
+              Startup especializada en IA
+            </div>
+            <p className="text-sm text-zinc-600 dark:text-slate-400 mb-6">
+              3 clientes satisfechos al 100%
+            </p>
+          </div>
+          
+          {/* Stats */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            {stats.map((stat, index) => (
+              <div key={stat.label} className="text-center animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="text-2xl sm:text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-xs sm:text-sm text-zinc-600 dark:text-slate-400">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Quick Testimonial */}
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="flex justify-center mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+              ))}
+            </div>
+            <blockquote className="text-lg sm:text-xl text-zinc-700 dark:text-slate-300 italic mb-4">
+              "{testimonials[0].quote}"
+            </blockquote>
+            <div className="flex items-center justify-center gap-3">
+              <div>
+                <div className="font-semibold text-zinc-900 dark:text-white">{testimonials[0].name}</div>
+                <div className="text-sm text-zinc-600 dark:text-slate-400">{testimonials[0].role}</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -35,79 +82,96 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12 animate-fade-in-up px-4">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight">Lo que más demandan nuestros clientes</h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">Los 3 servicios que más impacto generan en tu negocio</p>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">Nuestros 6 servicios especializados que transforman negocios</p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
-            {serviceCards.slice(0, 3).map((service, index) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-12">
+            {serviceCards.map((service, index) => {
               const serviceColors = [
-                { bg: 'bg-purple-50 dark:bg-purple-900/20', border: 'border-purple-200 dark:border-purple-800', hover: 'hover:border-purple-400 dark:hover:border-purple-600', shadow: 'hover:shadow-purple-400/10 dark:hover:shadow-purple-400/10', iconBg: 'bg-purple-100 dark:bg-purple-500/10', iconHover: 'group-hover:bg-purple-200 dark:group-hover:bg-purple-500/20', iconColor: 'text-purple-600 dark:text-purple-400' }, // Agentes de IA
-                { bg: 'bg-indigo-50 dark:bg-indigo-900/20', border: 'border-indigo-200 dark:border-indigo-800', hover: 'hover:border-indigo-400 dark:hover:border-indigo-600', shadow: 'hover:shadow-indigo-400/10 dark:hover:shadow-indigo-400/10', iconBg: 'bg-indigo-100 dark:bg-indigo-500/10', iconHover: 'group-hover:bg-indigo-200 dark:group-hover:bg-indigo-500/20', iconColor: 'text-indigo-600 dark:text-indigo-400' }, // Context Engineering
-                { bg: 'bg-red-50 dark:bg-red-900/20', border: 'border-red-200 dark:border-red-800', hover: 'hover:border-red-400 dark:hover:border-red-600', shadow: 'hover:shadow-red-400/10 dark:hover:shadow-red-400/10', iconBg: 'bg-red-100 dark:bg-red-500/10', iconHover: 'group-hover:bg-red-200 dark:group-hover:bg-red-500/20', iconColor: 'text-red-600 dark:text-red-400' }, // IA Médica
-                { bg: 'bg-green-50 dark:bg-green-900/20', border: 'border-green-200 dark:border-green-800', hover: 'hover:border-green-400 dark:hover:border-green-600', shadow: 'hover:shadow-green-400/10 dark:hover:shadow-green-400/10', iconBg: 'bg-green-100 dark:bg-green-500/10', iconHover: 'group-hover:bg-green-200 dark:group-hover:bg-green-500/20', iconColor: 'text-green-600 dark:text-green-400' }, // Desarrollo de Sistemas
-                { bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'border-blue-200 dark:border-blue-800', hover: 'hover:border-blue-400 dark:hover:border-blue-600', shadow: 'hover:shadow-blue-400/10 dark:hover:shadow-blue-400/10', iconBg: 'bg-blue-100 dark:bg-blue-500/10', iconHover: 'group-hover:bg-blue-200 dark:group-hover:bg-blue-500/20', iconColor: 'text-blue-600 dark:text-blue-400' }, // Asesoría Empresarial
-                { bg: 'bg-yellow-50 dark:bg-yellow-900/20', border: 'border-yellow-200 dark:border-yellow-800', hover: 'hover:border-yellow-400 dark:hover:border-yellow-600', shadow: 'hover:shadow-yellow-400/10 dark:hover:shadow-yellow-400/10', iconBg: 'bg-yellow-100 dark:bg-yellow-500/10', iconHover: 'group-hover:bg-yellow-200 dark:group-hover:bg-yellow-500/20', iconColor: 'text-yellow-600 dark:text-yellow-400' }  // Educación
+                { bg: 'bg-gradient-to-br from-purple-50 to-purple-100/50 dark:from-purple-900/20 dark:to-purple-800/10', border: 'border-purple-200/50 dark:border-purple-700/50', hover: 'hover:border-purple-300 dark:hover:border-purple-600', shadow: 'hover:shadow-xl hover:shadow-purple-500/10', iconBg: 'bg-purple-500', iconColor: 'text-white' },
+                { bg: 'bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-900/20 dark:to-blue-800/10', border: 'border-blue-200/50 dark:border-blue-700/50', hover: 'hover:border-blue-300 dark:hover:border-blue-600', shadow: 'hover:shadow-xl hover:shadow-blue-500/10', iconBg: 'bg-blue-500', iconColor: 'text-white' },
+                { bg: 'bg-gradient-to-br from-red-50 to-red-100/50 dark:from-red-900/20 dark:to-red-800/10', border: 'border-red-200/50 dark:border-red-700/50', hover: 'hover:border-red-300 dark:hover:border-red-600', shadow: 'hover:shadow-xl hover:shadow-red-500/10', iconBg: 'bg-red-500', iconColor: 'text-white' },
+                { bg: 'bg-gradient-to-br from-cyan-50 to-cyan-100/50 dark:from-cyan-900/20 dark:to-cyan-800/10', border: 'border-cyan-200/50 dark:border-cyan-700/50', hover: 'hover:border-cyan-300 dark:hover:border-cyan-600', shadow: 'hover:shadow-xl hover:shadow-cyan-500/10', iconBg: 'bg-cyan-500', iconColor: 'text-white' },
+                { bg: 'bg-gradient-to-br from-emerald-50 to-emerald-100/50 dark:from-emerald-900/20 dark:to-emerald-800/10', border: 'border-emerald-200/50 dark:border-emerald-700/50', hover: 'hover:border-emerald-300 dark:hover:border-emerald-600', shadow: 'hover:shadow-xl hover:shadow-emerald-500/10', iconBg: 'bg-emerald-500', iconColor: 'text-white' },
+                { bg: 'bg-gradient-to-br from-yellow-50 to-yellow-100/50 dark:from-yellow-900/20 dark:to-yellow-800/10', border: 'border-yellow-200/50 dark:border-yellow-700/50', hover: 'hover:border-yellow-300 dark:hover:border-yellow-600', shadow: 'hover:shadow-xl hover:shadow-yellow-500/10', iconBg: 'bg-yellow-500', iconColor: 'text-white' }
               ];
-              const colors = serviceColors[index];
+              const colors = serviceColors[index % 6];
               
               return (
-                <div key={service.title} className={`${colors.bg} backdrop-blur-sm p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border ${colors.border} ${colors.hover} transition-all-smooth hover:shadow-lg ${colors.shadow} group animate-fade-in-up`} style={{animationDelay: `${(index + 1) * 0.1}s`}}>
-                  <div className="flex items-center mb-3 sm:mb-4">
-                    <div className={`p-2 sm:p-3 ${colors.iconBg} rounded-lg sm:rounded-xl ${colors.iconHover} transition-colors duration-300`}>
-                      <service.icon className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 ${colors.iconColor}`} />
+                <Link key={service.title} to="/servicios" className={`block ${colors.bg} backdrop-blur-sm p-5 rounded-xl border ${colors.border} ${colors.hover} transition-all duration-300 group animate-fade-in-up hover:transform hover:scale-105 cursor-pointer ${colors.shadow}`} style={{animationDelay: `${(index + 1) * 0.1}s`}}>
+                  <div className="text-center">
+                    <div className={`inline-flex p-3 ${colors.iconBg} rounded-xl mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                      <service.icon className={`w-6 h-6 ${colors.iconColor}`} />
+                    </div>
+                    <h3 className="text-base font-bold text-zinc-900 dark:text-white mb-2 group-hover:text-zinc-700 dark:group-hover:text-cyan-300 transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-zinc-600 dark:text-slate-400 text-sm leading-relaxed mb-3">
+                      {service.description}
+                    </p>
+                    <div className="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 group-hover:text-emerald-500 transition-colors">
+                      Ver detalles
+                      <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
-                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-zinc-900 dark:text-white mb-2 sm:mb-3 group-hover:text-zinc-600 dark:group-hover:text-cyan-400 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-zinc-600 dark:text-slate-400 text-xs sm:text-sm lg:text-base leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
+                </Link>
               );
             })}
           </div>
-          <div className="text-center">
-            <Link to="/servicios" className="inline-flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white font-semibold py-3 px-6 rounded-full transition-all-smooth">
-              Ver todos los servicios
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+          <div className="text-center mt-12">
+            <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-8 border border-emerald-200 dark:border-zinc-600 max-w-3xl mx-auto mb-8">
+              <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
+                ¿Cuál transformaría tu negocio?
+              </h3>
+              <p className="text-zinc-600 dark:text-slate-300 mb-6 text-lg">
+                Agenda una <strong>consulta gratuita de 15 minutos</strong> y descubre exactamente cómo implementar IA en tu empresa.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                <Link to="/contacto" className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 px-8 rounded-full transition-all-smooth transform hover:scale-105 shadow-xl shadow-emerald-400/25">
+                  Reservar Consulta GRATIS
+                </Link>
+                <Link to="/calculadora-roi" className="bg-white dark:bg-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-500 text-zinc-900 dark:text-white font-semibold py-4 px-8 rounded-full transition-all-smooth border border-zinc-200 dark:border-zinc-500">
+                  Calcular mi ROI
+                </Link>
+              </div>
+              <div className="flex items-center justify-center gap-6 text-sm text-zinc-500 dark:text-slate-400">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                  15 minutos
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                  100% gratis
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                  Roadmap incluido
+                </div>
+              </div>
+            </div>
+            <p className="text-sm text-zinc-500 dark:text-slate-500">
+              ¿Quieres ver todos los detalles? <Link to="/servicios" className="text-emerald-600 dark:text-emerald-400 hover:underline font-medium inline-flex items-center gap-1">
+                Explorar servicios <ArrowRight className="w-4 h-4" />
+              </Link>
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Tecnologías y APIs - Versión Simplificada */}
-      <section className="py-12 sm:py-16 md:py-24 bg-zinc-50 dark:bg-zinc-900 transition-colors duration-300">
+      {/* Tecnologías Simplificada */}
+      <section className="py-8 sm:py-12 bg-zinc-50 dark:bg-zinc-900 transition-colors duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12 animate-fade-in-up px-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight">Tecnologías de Vanguardia</h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">Trabajamos con OpenAI, Google Gemini, Anthropic y las mejores plataformas de IA del mercado.</p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
-            {technologies.slice(0, 4).map((tech, index) => {
-              const techColors = [
-                { bg: 'bg-green-50 dark:bg-green-900/20', border: 'border-green-200 dark:border-green-800', hover: 'hover:border-green-400 dark:hover:border-green-600', shadow: 'hover:shadow-green-400/10 dark:hover:shadow-green-400/10' }, // OpenAI
-                { bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'border-blue-200 dark:border-blue-800', hover: 'hover:border-blue-400 dark:hover:border-blue-600', shadow: 'hover:shadow-blue-400/10 dark:hover:shadow-blue-400/10' }, // Google Gemini
-                { bg: 'bg-purple-50 dark:bg-purple-900/20', border: 'border-purple-200 dark:border-purple-800', hover: 'hover:border-purple-400 dark:hover:border-purple-600', shadow: 'hover:shadow-purple-400/10 dark:hover:shadow-purple-400/10' }, // Anthropic
-                { bg: 'bg-orange-50 dark:bg-orange-900/20', border: 'border-orange-200 dark:border-orange-800', hover: 'hover:border-orange-400 dark:hover:border-orange-600', shadow: 'hover:shadow-orange-400/10 dark:hover:shadow-orange-400/10' }  // Hugging Face
-              ];
-              const colors = techColors[index];
-              
-              return (
-                <div key={tech.name} className={`${colors.bg} backdrop-blur-sm p-3 sm:p-4 rounded-lg sm:rounded-xl border ${colors.border} ${colors.hover} transition-all-smooth hover:shadow-lg ${colors.shadow} group animate-fade-in-up`} style={{animationDelay: `${(index + 1) * 0.1}s`}}>
-                  <div className="text-center">
-                    <img src={tech.logoUrl} alt={tech.name} className="h-6 sm:h-7 lg:h-8 mx-auto mb-1 sm:mb-2 opacity-80 group-hover:opacity-100 transition-opacity" />
-                    <h3 className="text-xs sm:text-sm font-semibold text-zinc-900 dark:text-white group-hover:text-zinc-700 dark:group-hover:text-cyan-400 transition-colors">
-                      {tech.name}
-                    </h3>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <div className="text-center mt-8">
-            <Link to="/tecnologias" className="text-zinc-600 dark:text-cyan-400 hover:text-zinc-500 dark:hover:text-cyan-300 transition-colors">
-              Ver todas las tecnologías →
-            </Link>
+          <div className="text-center">
+            <p className="text-sm text-zinc-600 dark:text-slate-400 mb-6">
+              Powered by las mejores plataformas de IA
+            </p>
+            <div className="flex justify-center items-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
+              <span className="text-lg font-semibold text-zinc-700 dark:text-slate-300">OpenAI</span>
+              <span className="text-lg font-semibold text-zinc-700 dark:text-slate-300">Google Gemini</span>
+              <span className="text-lg font-semibold text-zinc-700 dark:text-slate-300">Anthropic</span>
+              <Link to="/tecnologias" className="text-sm text-cyan-600 dark:text-cyan-400 hover:underline">
+                +5 más →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -153,23 +217,45 @@ const HomePage: React.FC = () => {
               </div>
             </section>
 
-            {/* CTA Final */}
-            <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-slate-50 to-zinc-100 dark:from-zinc-950 dark:to-zinc-900 transition-colors duration-300">
+            {/* CTA Final con Urgencia */}
+            <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-zinc-950 dark:to-zinc-900 transition-colors duration-300">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="inline-flex items-center gap-2 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                  Disponibilidad limitada
+                </div>
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight mb-4 sm:mb-6 animate-fade-in-up px-4">
-                  ¿Listo para transformar tu negocio con IA?
+                  Consultas gratuitas disponibles este mes
                 </h2>
                 <p className="text-sm sm:text-base lg:text-lg text-zinc-600 dark:text-slate-300 max-w-2xl mx-auto mb-6 sm:mb-8 animate-fade-in-up animate-delay-200 px-4">
-                  Agenda una consulta gratuita y descubre cómo nuestros agentes de IA pueden automatizar y optimizar tus procesos.
+                  <strong>Tiempo limitado:</strong> Consultas estratégicas gratuitas para empresas que quieran implementar IA. Incluye análisis personalizado y roadmap de implementación.
                 </p>
-                <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 animate-fade-in-up animate-delay-300 px-4">
-                  <Link to="/contacto" className="w-full sm:w-auto bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base lg:text-lg transition-all-smooth transform hover:scale-105 shadow-lg">
-                    Consulta Gratuita
-                  </Link>
-                  <Link to="/servicios" className="w-full sm:w-auto bg-zinc-200 dark:bg-zinc-800/50 hover:bg-zinc-300 dark:hover:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base lg:text-lg transition-all-smooth">
-                    Ver Servicios
-                  </Link>
+                <div className="bg-white dark:bg-zinc-800 rounded-2xl p-6 sm:p-8 shadow-xl border border-emerald-200 dark:border-zinc-700 max-w-xl mx-auto mb-8">
+                  <div className="flex items-center justify-center gap-4 mb-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">15 min</div>
+                      <div className="text-xs text-zinc-600 dark:text-slate-400">Duración</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">$0</div>
+                      <div className="text-xs text-zinc-600 dark:text-slate-400">Costo</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">Disponible</div>
+                      <div className="text-xs text-zinc-600 dark:text-slate-400">Este mes</div>
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <Link to="/contacto" className="w-full sm:w-auto bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-emerald-400/25 pulse-cta">
+                      Reservar mi consulta GRATIS
+                    </Link>
+                    <p className="text-xs text-zinc-500 dark:text-slate-500 mt-3">
+                      Sin compromiso • Resultados garantizados • Roadmap personalizado
+                    </p>
+                  </div>
                 </div>
+                <p className="text-sm text-zinc-500 dark:text-slate-500">
+                  O si prefieres, <Link to="/calculadora-roi" className="text-emerald-600 dark:text-emerald-400 hover:underline">calcula tu ROI en 3 minutos</Link>
+                </p>
               </div>
             </section>
 

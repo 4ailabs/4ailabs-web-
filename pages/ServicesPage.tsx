@@ -8,60 +8,124 @@ const ServicesPage: React.FC = () => {
     <div className="bg-white dark:bg-zinc-950 transition-colors duration-300">
       <section className="py-20 sm:py-28 bg-gradient-to-b from-slate-50 via-blue-50/30 to-indigo-50/50 dark:from-zinc-900 dark:to-zinc-950 transition-colors duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 bg-emerald-100 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full text-sm font-medium mb-6">
+            Startup innovadora con resultados reales
+          </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white fade-in">Nuestros Servicios de IA</h1>
-          <p className="mt-4 text-lg text-zinc-600 dark:text-slate-300 max-w-2xl mx-auto fade-in stagger-1">
-            Impulsamos la innovación y la eficiencia en tu empresa con soluciones de inteligencia artificial a la medida.
+          <p className="mt-4 text-lg text-zinc-600 dark:text-slate-300 max-w-3xl mx-auto fade-in stagger-1">
+            Soluciones de inteligencia artificial <strong>prácticas y efectivas</strong> para pequeñas y medianas empresas. Cada servicio está diseñado para generar resultados reales desde el primer mes.
           </p>
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto text-center">
+            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl border border-emerald-200 dark:border-zinc-700">
+              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">4</div>
+              <div className="text-sm text-zinc-600 dark:text-slate-400">Servicios especializados</div>
+            </div>
+            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl border border-emerald-200 dark:border-zinc-700">
+              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">15 min</div>
+              <div className="text-sm text-zinc-600 dark:text-slate-400">Consulta gratuita</div>
+            </div>
+            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl border border-emerald-200 dark:border-zinc-700">
+              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">100%</div>
+              <div className="text-sm text-zinc-600 dark:text-slate-400">Personalizado</div>
+            </div>
+            <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl border border-emerald-200 dark:border-zinc-700">
+              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">24/7</div>
+              <div className="text-sm text-zinc-600 dark:text-slate-400">Soporte incluido</div>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
+          <div className="space-y-12">
             {allServices.map((service, index) => {
               const colors = [
-                { iconBg: 'bg-purple-100/50 dark:bg-cyan-500/10', icon: 'text-purple-600 dark:text-cyan-400', buttonBg: 'bg-purple-100/50 dark:bg-cyan-500/20', buttonHover: 'hover:bg-purple-200/50 dark:hover:bg-cyan-500/30', buttonText: 'text-purple-700 dark:text-cyan-300' },
-                { iconBg: 'bg-indigo-100/50 dark:bg-cyan-500/10', icon: 'text-indigo-600 dark:text-cyan-400', buttonBg: 'bg-indigo-100/50 dark:bg-cyan-500/20', buttonHover: 'hover:bg-indigo-200/50 dark:hover:bg-cyan-500/30', buttonText: 'text-indigo-700 dark:text-cyan-300' },
-                { iconBg: 'bg-blue-100/50 dark:bg-cyan-500/10', icon: 'text-blue-600 dark:text-cyan-400', buttonBg: 'bg-blue-100/50 dark:bg-cyan-500/20', buttonHover: 'hover:bg-blue-200/50 dark:hover:bg-cyan-500/30', buttonText: 'text-blue-700 dark:text-cyan-300' },
-                { iconBg: 'bg-cyan-100/50 dark:bg-cyan-500/10', icon: 'text-cyan-600 dark:text-cyan-400', buttonBg: 'bg-cyan-100/50 dark:bg-cyan-500/20', buttonHover: 'hover:bg-cyan-200/50 dark:hover:bg-cyan-500/30', buttonText: 'text-cyan-700 dark:text-cyan-300' },
-                { iconBg: 'bg-emerald-100/50 dark:bg-cyan-500/10', icon: 'text-emerald-600 dark:text-cyan-400', buttonBg: 'bg-emerald-100/50 dark:bg-cyan-500/20', buttonHover: 'hover:bg-emerald-200/50 dark:hover:bg-cyan-500/30', buttonText: 'text-emerald-700 dark:text-cyan-300' },
-                { iconBg: 'bg-orange-100/50 dark:bg-cyan-500/10', icon: 'text-orange-600 dark:text-cyan-400', buttonBg: 'bg-orange-100/50 dark:bg-cyan-500/20', buttonHover: 'hover:bg-orange-200/50 dark:hover:bg-cyan-500/30', buttonText: 'text-orange-700 dark:text-cyan-300' }
-              ][index % 6];
+                { iconBg: 'bg-gradient-to-br from-purple-500 to-purple-600', icon: 'text-white', cardBg: 'bg-gradient-to-br from-purple-50/50 to-purple-100/50 dark:from-purple-900/20 dark:to-purple-800/20', border: 'border-purple-200 dark:border-purple-700', buttonBg: 'bg-purple-500 hover:bg-purple-600', buttonText: 'text-white' },
+                { iconBg: 'bg-gradient-to-br from-blue-500 to-blue-600', icon: 'text-white', cardBg: 'bg-gradient-to-br from-blue-50/50 to-blue-100/50 dark:from-blue-900/20 dark:to-blue-800/20', border: 'border-blue-200 dark:border-blue-700', buttonBg: 'bg-blue-500 hover:bg-blue-600', buttonText: 'text-white' },
+                { iconBg: 'bg-gradient-to-br from-cyan-500 to-cyan-600', icon: 'text-white', cardBg: 'bg-gradient-to-br from-cyan-50/50 to-cyan-100/50 dark:from-cyan-900/20 dark:to-cyan-800/20', border: 'border-cyan-200 dark:border-cyan-700', buttonBg: 'bg-cyan-500 hover:bg-cyan-600', buttonText: 'text-white' },
+                { iconBg: 'bg-gradient-to-br from-emerald-500 to-emerald-600', icon: 'text-white', cardBg: 'bg-gradient-to-br from-emerald-50/50 to-emerald-100/50 dark:from-emerald-900/20 dark:to-emerald-800/20', border: 'border-emerald-200 dark:border-emerald-700', buttonBg: 'bg-emerald-500 hover:bg-emerald-600', buttonText: 'text-white' }
+              ][index % 4];
               
               return (
-              <div key={service.title} className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center fade-in stagger-${index + 1}`}>
-                <div className={index % 2 === 0 ? 'order-1' : 'order-1 md:order-2'}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className={`p-3 ${colors.iconBg} rounded-xl`}>
-                      <service.icon className={`w-7 h-7 ${colors.icon}`} />
+              <div key={service.title} className={`${colors.cardBg} backdrop-blur-sm rounded-3xl p-8 border ${colors.border} transition-all duration-300 hover:shadow-xl fade-in`} style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                  <div className={index % 2 === 0 ? 'order-1' : 'order-1 lg:order-2'}>
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className={`p-4 ${colors.iconBg} rounded-2xl shadow-lg`}>
+                        <service.icon className={`w-8 h-8 ${colors.icon}`} />
+                      </div>
+                      <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">{service.title}</h2>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">{service.title}</h2>
-                  </div>
-                  <p className="text-zinc-600 dark:text-slate-400 mb-6">{service.description}</p>
-                  <ul className="space-y-4">
-                    {service.points.map((point, i) => (
-                      <li key={i} className="flex items-start">
-                        <ArrowRight className="w-5 h-5 text-zinc-600 dark:text-cyan-400 mt-1 mr-3 flex-shrink-0" />
-                        <span className="text-zinc-700 dark:text-slate-300">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-8">
+                    <p className="text-lg text-zinc-600 dark:text-slate-300 mb-6 leading-relaxed">{service.description}</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                      {service.points.map((point, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-zinc-700 dark:text-slate-300 text-sm">{point}</span>
+                        </div>
+                      ))}
+                    </div>
                     <Link
                       to={service.ctaLink}
-                      className={`inline-flex items-center ${colors.buttonBg} ${colors.buttonHover} ${colors.buttonText} font-bold py-3 px-6 rounded-full transition duration-300 group`}
+                      className={`inline-flex items-center ${colors.buttonBg} ${colors.buttonText} font-bold py-4 px-8 rounded-full transition-all duration-300 group shadow-lg hover:shadow-xl hover:scale-105`}
                     >
                       {service.ctaText}
                       <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
-                </div>
-                <div className={index % 2 === 0 ? 'order-2' : 'order-2 md:order-1'}>
-                  <img src={service.imageUrl} alt={service.title} className="rounded-2xl shadow-lg shadow-slate-400/10 dark:shadow-cyan-500/10 w-full h-auto object-cover" />
+                  <div className={index % 2 === 0 ? 'order-2' : 'order-2 lg:order-1'}>
+                    <div className="relative">
+                      <img src={service.imageUrl} alt={service.title} className="rounded-2xl w-full h-64 lg:h-80 object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section className="py-16 sm:py-24 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-zinc-900 dark:to-zinc-800 transition-colors duration-300">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-1 rounded-full text-sm font-medium mb-6">
+              Consultas gratuitas disponibles
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-6">
+              ¿Cuál de estos servicios transformaría tu negocio?
+            </h2>
+            <p className="text-lg text-zinc-600 dark:text-slate-300 mb-8">
+              Agenda una consulta de <strong>15 minutos completamente gratis</strong> y descubre exactamente cómo implementar IA en tu empresa con un roadmap personalizado.
+            </p>
+            <div className="bg-white dark:bg-zinc-800 rounded-2xl p-8 shadow-xl border border-emerald-200 dark:border-zinc-700 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">15 min</div>
+                  <div className="text-sm text-zinc-600 dark:text-slate-400">Duración de la consulta</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">100% Gratis</div>
+                  <div className="text-sm text-zinc-600 dark:text-slate-400">Sin compromisos</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">Roadmap</div>
+                  <div className="text-sm text-zinc-600 dark:text-slate-400">Plan personalizado incluido</div>
+                </div>
+              </div>
+              <Link to="/contacto" className="inline-block bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-emerald-400/25">
+                Reservar Mi Consulta GRATIS
+              </Link>
+              <p className="text-xs text-zinc-500 dark:text-slate-500 mt-4">
+                Análisis personalizado • Roadmap de implementación • Estimación de ROI
+              </p>
+            </div>
+            <p className="text-sm text-zinc-500 dark:text-slate-500">
+              ¿Prefieres ver números primero? <Link to="/calculadora-roi" className="text-emerald-600 dark:text-emerald-400 hover:underline">Calcula tu ROI en 3 minutos →</Link>
+            </p>
           </div>
         </div>
       </section>

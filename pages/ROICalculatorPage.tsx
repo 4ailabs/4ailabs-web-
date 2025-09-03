@@ -547,28 +547,45 @@ const ROICalculatorPage: React.FC = () => {
               </div>
 
               {/* CTA Section */}
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-500/10 dark:to-slate-600/10 rounded-2xl p-8 border border-blue-200 dark:border-slate-500/20">
+              <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/10 dark:to-teal-900/10 rounded-2xl p-8 border border-emerald-200 dark:border-emerald-800/30">
                 <div className="text-center">
+                  <div className="inline-flex items-center gap-2 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                    Consultas gratuitas disponibles
+                  </div>
                   <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
-                    ¿Listo para implementar IA en tu empresa?
+                    Basado en tus números: Podrías ahorrar <span className="text-emerald-600 dark:text-emerald-400">{formatCurrency(results.monthlySavings)}/mes</span>
                   </h3>
                   <p className="text-zinc-600 dark:text-slate-300 mb-6 max-w-2xl mx-auto">
-                    Nuestro equipo de expertos puede ayudarte a implementar las soluciones de IA que generarán estos ahorros y mejoras en tu empresa.
+                    <strong>Agenda una consulta de 15 minutos GRATIS</strong> y recibe un roadmap personalizado para implementar estas mejoras en tu empresa específica.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <div className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-lg border border-emerald-200 dark:border-zinc-700 mb-6">
+                    <div className="flex items-center justify-center gap-6 mb-4 text-sm">
+                      <div className="text-center">
+                        <div className="text-lg font-bold text-emerald-600 dark:text-emerald-400">15 min</div>
+                        <div className="text-xs text-zinc-600 dark:text-slate-400">Duración</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-lg font-bold text-emerald-600 dark:text-emerald-400">$0</div>
+                        <div className="text-xs text-zinc-600 dark:text-slate-400">Costo</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-lg font-bold text-emerald-600 dark:text-emerald-400">ROI {results.roiPercentage}%</div>
+                        <div className="text-xs text-zinc-600 dark:text-slate-400">Tu potencial</div>
+                      </div>
+                    </div>
                     <Link
                       to="/contacto"
-                      className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg"
+                      className="inline-block bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-emerald-400/25 pulse-cta"
                     >
-                      Consulta Gratuita
+                      Reservar Mi Consulta GRATIS
                     </Link>
-                    <Link
-                      to="/servicios"
-                      className="bg-blue-100/50 dark:bg-zinc-800/50 hover:bg-blue-200 dark:hover:bg-zinc-800 border border-blue-300 dark:border-zinc-700 text-blue-800 dark:text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300"
-                    >
-                      Ver Servicios
-                    </Link>
+                    <p className="text-xs text-zinc-500 dark:text-slate-500 mt-3">
+                      Roadmap personalizado • Análisis de tu industria • Plan de implementación
+                    </p>
                   </div>
+                  <p className="text-sm text-zinc-500 dark:text-slate-500">
+                    ¿Quieres ver cómo lo logramos? <Link to="/servicios" className="text-emerald-600 dark:text-emerald-400 hover:underline">Conoce nuestros servicios →</Link>
+                  </p>
                 </div>
               </div>
 
