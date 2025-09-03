@@ -159,7 +159,8 @@ const Chat: React.FC = () => {
 
   return (
     <>
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999] flex flex-col items-end gap-2">
+      {/* Chat Button - Hide on mobile when chat is open */}
+      <div className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999] flex flex-col items-end gap-2 transition-opacity duration-300 ${isOpen ? 'opacity-0 sm:opacity-100 pointer-events-none sm:pointer-events-auto' : 'opacity-100'}`}>
         {/* Tooltip/Preview - Hidden on mobile to avoid covering content */}
         <div className="hidden sm:block bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white px-4 py-2 rounded-lg shadow-lg border border-zinc-200 dark:border-zinc-700 text-sm max-w-xs opacity-0 transition-opacity duration-500 hover:opacity-100">
           ¿Necesitas ayuda? ¡Pregúntame sobre consultas GRATUITAS!
@@ -168,7 +169,7 @@ const Chat: React.FC = () => {
         {/* Chat Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className="relative p-3 sm:p-4 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 active:scale-95 group pulse-cta z-[10000] !important"
+          className="relative p-3 sm:p-4 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 active:scale-95 group pulse-cta z-[10000]"
           aria-label="Open chat"
           style={{ position: 'relative', zIndex: 10000 }}
         >
