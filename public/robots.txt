@@ -1,4 +1,21 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://4ailabs.com/sitemap.xml
+# Important pages
+Allow: /servicios
+Allow: /calculadora-roi
+Allow: /contacto
+Allow: /agentes-ia
+Allow: /ia-medica
+Allow: /context-engineering
+Allow: /educacion
+Allow: /tecnologias
+Allow: /investigacion
+Allow: /noticias
+Allow: /nosotros
+
+# Sitemap location
+Sitemap: https://4ailabs.vercel.app/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

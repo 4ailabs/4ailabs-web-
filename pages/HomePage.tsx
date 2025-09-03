@@ -2,10 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award } from 'lucide-react';
 import { serviceCards, stats, testimonials, partners, technologies } from '../constants';
+import SEO from '../components/SEO';
+import { organizationSchema, websiteSchema } from '../utils/structuredData';
 
 const HomePage: React.FC = () => {
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [organizationSchema, websiteSchema]
+  };
+
   return (
-    <div className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 dark:from-zinc-950 dark:via-black dark:to-zinc-950 transition-colors duration-300">
+    <>
+      <SEO
+        title="4ailabs | Especialistas en IA para Desarrollo Empresarial y Emprendimiento"
+        description="Transformamos empresas con agentes de IA personalizados. Consulta GRATUITA de 15 min. Expertise sólido en automatización, OpenAI, Gemini, Claude. ROI garantizado."
+        keywords="agentes IA, inteligencia artificial empresarial, automatización IA, chatbots inteligentes, OpenAI, Gemini, Claude, consultoría IA, desarrollo empresarial, emprendimiento, ROI IA"
+        ogUrl="https://4ailabs.vercel.app"
+        canonicalUrl="https://4ailabs.vercel.app"
+        structuredData={combinedSchema}
+      />
+      <div className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 dark:from-zinc-950 dark:via-black dark:to-zinc-950 transition-colors duration-300">
       
       {/* Hero Section */}
       <section className="py-12 sm:py-20 md:py-32">
@@ -25,7 +41,7 @@ const HomePage: React.FC = () => {
             </p>
           </div>
           <div className="mt-12 sm:mt-16 animate-fade-in-scale animate-delay-600 px-4">
-             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard de soluciones IA empresariales" className="rounded-xl sm:rounded-2xl shadow-2xl mx-auto w-full max-w-4xl transition-transform-smooth" />
+             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard empresarial con métricas de agentes de IA - automatización inteligente para empresas" className="rounded-xl sm:rounded-2xl shadow-2xl mx-auto w-full max-w-4xl transition-transform-smooth" loading="eager" />
           </div>
         </div>
       </section>
@@ -259,7 +275,8 @@ const HomePage: React.FC = () => {
               </div>
             </section>
 
-    </div>
+      </div>
+    </>
   );
 };
 
