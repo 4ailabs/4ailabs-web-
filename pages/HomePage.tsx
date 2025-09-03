@@ -44,10 +44,10 @@ const HomePage: React.FC = () => {
           </div>
           
           {/* Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-8">
             {stats.map((stat, index) => (
               <div key={stat.label} className="text-center animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
-                <div className="text-2xl sm:text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">
                   {stat.value}
                 </div>
                 <div className="text-xs sm:text-sm text-zinc-600 dark:text-slate-400">
@@ -84,7 +84,7 @@ const HomePage: React.FC = () => {
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight">Lo que más demandan nuestros clientes</h2>
             <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">Nuestros 6 servicios especializados que transforman negocios</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12">
             {serviceCards.map((service, index) => {
               const serviceColors = [
                 { bg: 'bg-gradient-to-br from-purple-50 to-purple-100/50 dark:from-purple-900/20 dark:to-purple-800/10', border: 'border-purple-200/50 dark:border-purple-700/50', hover: 'hover:border-purple-300 dark:hover:border-purple-600', shadow: 'hover:shadow-xl hover:shadow-purple-500/10', iconBg: 'bg-purple-500', iconColor: 'text-white' },
@@ -97,15 +97,15 @@ const HomePage: React.FC = () => {
               const colors = serviceColors[index % 6];
               
               return (
-                <Link key={service.title} to="/servicios" className={`block ${colors.bg} backdrop-blur-sm p-5 rounded-xl border ${colors.border} ${colors.hover} transition-all duration-300 group animate-fade-in-up hover:transform hover:scale-105 cursor-pointer ${colors.shadow}`} style={{animationDelay: `${(index + 1) * 0.1}s`}}>
+                <Link key={service.title} to="/servicios" className={`block ${colors.bg} backdrop-blur-sm p-4 sm:p-5 rounded-xl border ${colors.border} ${colors.hover} transition-all duration-300 group animate-fade-in-up hover:transform hover:scale-105 cursor-pointer ${colors.shadow}`} style={{animationDelay: `${(index + 1) * 0.1}s`}}>
                   <div className="text-center">
-                    <div className={`inline-flex p-3 ${colors.iconBg} rounded-xl mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                      <service.icon className={`w-6 h-6 ${colors.iconColor}`} />
+                    <div className={`inline-flex p-2 sm:p-3 ${colors.iconBg} rounded-xl mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                      <service.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${colors.iconColor}`} />
                     </div>
-                    <h3 className="text-base font-bold text-zinc-900 dark:text-white mb-2 group-hover:text-zinc-700 dark:group-hover:text-cyan-300 transition-colors">
+                    <h3 className="text-sm sm:text-base font-bold text-zinc-900 dark:text-white mb-2 group-hover:text-zinc-700 dark:group-hover:text-cyan-300 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-zinc-600 dark:text-slate-400 text-sm leading-relaxed mb-3">
+                    <p className="text-zinc-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-3">
                       {service.description}
                     </p>
                     <div className="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 group-hover:text-emerald-500 transition-colors">
@@ -164,11 +164,11 @@ const HomePage: React.FC = () => {
             <p className="text-sm text-zinc-600 dark:text-slate-400 mb-6">
               Powered by las mejores plataformas de IA
             </p>
-            <div className="flex justify-center items-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
-              <span className="text-lg font-semibold text-zinc-700 dark:text-slate-300">OpenAI</span>
-              <span className="text-lg font-semibold text-zinc-700 dark:text-slate-300">Google Gemini</span>
-              <span className="text-lg font-semibold text-zinc-700 dark:text-slate-300">Anthropic</span>
-              <Link to="/tecnologias" className="text-sm text-cyan-600 dark:text-cyan-400 hover:underline">
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 opacity-60 hover:opacity-100 transition-opacity">
+              <span className="text-sm sm:text-lg font-semibold text-zinc-700 dark:text-slate-300">OpenAI</span>
+              <span className="text-sm sm:text-lg font-semibold text-zinc-700 dark:text-slate-300">Google Gemini</span>
+              <span className="text-sm sm:text-lg font-semibold text-zinc-700 dark:text-slate-300">Anthropic</span>
+              <Link to="/tecnologias" className="text-xs sm:text-sm text-cyan-600 dark:text-cyan-400 hover:underline">
                 +5 más →
               </Link>
             </div>
@@ -191,7 +191,7 @@ const HomePage: React.FC = () => {
                     Descubre cuánto puedes ahorrar y el retorno de inversión que obtendrás al implementar soluciones de IA en tu empresa. 
                     <span className="text-zinc-600 dark:text-slate-300 font-semibold"> ¡Es gratis y toma solo 3 minutos!</span>
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 mb-6 sm:mb-8">
                     <div className="bg-yellow-50 dark:bg-zinc-900 backdrop-blur-sm p-4 sm:p-6 rounded-lg sm:rounded-xl border border-yellow-200 dark:border-zinc-800 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
                       <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-600 dark:text-slate-300 mb-2 sm:mb-3 mx-auto" />
                       <h3 className="text-sm sm:text-base font-semibold text-zinc-900 dark:text-white mb-1 sm:mb-2">Cálculo Rápido</h3>
@@ -208,7 +208,7 @@ const HomePage: React.FC = () => {
                       <p className="text-xs sm:text-sm text-zinc-600 dark:text-slate-400">Adaptado a tu sector y tamaño de empresa</p>
                     </div>
                   </div>
-                  <Link to="/calculadora-roi" className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base lg:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-emerald-400/25 animate-fade-in-up" style={{animationDelay: '0.7s'}}>
+                  <Link to="/calculadora-roi" className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 lg:px-8 rounded-full text-sm sm:text-base lg:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-emerald-400/25 animate-fade-in-up" style={{animationDelay: '0.7s'}}>
                     <Calculator className="w-4 h-4 sm:w-5 sm:h-5" />
                     Calcular mi ROI
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -229,23 +229,23 @@ const HomePage: React.FC = () => {
                 <p className="text-sm sm:text-base lg:text-lg text-zinc-600 dark:text-slate-300 max-w-2xl mx-auto mb-6 sm:mb-8 animate-fade-in-up animate-delay-200 px-4">
                   <strong>Tiempo limitado:</strong> Consultas estratégicas gratuitas para empresas que quieran implementar IA. Incluye análisis personalizado y roadmap de implementación.
                 </p>
-                <div className="bg-white dark:bg-zinc-800 rounded-2xl p-6 sm:p-8 shadow-xl border border-emerald-200 dark:border-zinc-700 max-w-xl mx-auto mb-8">
-                  <div className="flex items-center justify-center gap-4 mb-4">
+                <div className="bg-white dark:bg-zinc-800 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-xl border border-emerald-200 dark:border-zinc-700 max-w-xl mx-auto mb-8">
+                  <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">15 min</div>
+                      <div className="text-lg sm:text-2xl font-bold text-emerald-600 dark:text-emerald-400">15 min</div>
                       <div className="text-xs text-zinc-600 dark:text-slate-400">Duración</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">$0</div>
+                      <div className="text-lg sm:text-2xl font-bold text-emerald-600 dark:text-emerald-400">$0</div>
                       <div className="text-xs text-zinc-600 dark:text-slate-400">Costo</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">Disponible</div>
+                      <div className="text-lg sm:text-2xl font-bold text-emerald-600 dark:text-emerald-400">Disponible</div>
                       <div className="text-xs text-zinc-600 dark:text-slate-400">Este mes</div>
                     </div>
                   </div>
                   <div className="text-center">
-                    <Link to="/contacto" className="w-full sm:w-auto bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-emerald-400/25 pulse-cta">
+                    <Link to="/contacto" className="w-full sm:w-auto bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-emerald-400/25 pulse-cta">
                       Reservar mi consulta GRATIS
                     </Link>
                     <p className="text-xs text-zinc-500 dark:text-slate-500 mt-3">

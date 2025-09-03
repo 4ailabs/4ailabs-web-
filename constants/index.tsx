@@ -12,6 +12,7 @@ export const navLinks = [
 ];
 
 export const secondaryNavLinks = [
+  { name: 'Investigación', path: '/investigacion' },
   { name: 'Tecnologías', path: '/tecnologias' },
   { name: 'Nosotros', path: '/nosotros' },
   { name: 'Noticias', path: '/noticias' },
@@ -197,43 +198,123 @@ export const researchCategories = [
 export const researchArticles = [
     {
       id: 'r-001',
-      title: 'Modelos de Lenguaje para Diagnóstico Médico Asistido',
-      authors: ['Dra. Elena Torres', 'Juan Pérez'],
-      date: '2024-05-20',
-      category: 'IA Médica y Bioinformática',
-      summary: 'Este trabajo explora el uso de modelos de lenguaje a gran escala (LLMs) para analizar historiales clínicos no estructurados y sugerir posibles diagnósticos, mostrando una mejora del 15% en la precisión.',
-      pdfUrl: '#',
-      keywords: ['LLM', 'Diagnóstico Asistido', 'IA en Salud']
-    },
-    {
-      id: 'r-002',
-      title: 'Atención es Todo lo que Necesitas (Attention Is All You Need)',
-      authors: ['A. Vaswani', 'N. Shazeer', 'et al.'],
+      title: 'Attention Is All You Need',
+      authors: ['A. Vaswani', 'N. Shazeer', 'N. Parmar', 'J. Uszkoreit', 'L. Jones', 'A. N. Gomez', 'L. Kaiser', 'I. Polosukhin'],
       date: '2017-06-12',
       category: 'Machine Learning y Deep Learning',
       summary: 'Introducimos el Transformer, una nueva arquitectura de red basada únicamente en mecanismos de atención, prescindiendo de recurrencia y convoluciones, logrando el estado del arte en traducción automática.',
-      pdfUrl: '#',
-      keywords: ['Transformer', 'Attention', 'NLP']
+      pdfUrl: 'https://arxiv.org/abs/1706.03762',
+      keywords: ['Transformer', 'Attention', 'NLP', 'Neural Networks']
+    },
+    {
+      id: 'r-002',
+      title: 'BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding',
+      authors: ['J. Devlin', 'M. Chang', 'K. Lee', 'K. Toutanova'],
+      date: '2018-10-11',
+      category: 'Procesamiento de Lenguaje Natural (NLP)',
+      summary: 'Introducimos BERT (Bidirectional Encoder Representations from Transformers), diseñado para pre-entrenar representaciones bidireccionales profundas mediante el condicionamiento conjunto del contexto izquierdo y derecho en todas las capas.',
+      pdfUrl: 'https://arxiv.org/abs/1810.04805',
+      keywords: ['BERT', 'Transformer', 'Pre-training', 'Bidirectional', 'NLP']
     },
     {
       id: 'r-003',
-      title: 'Sistemas Multi-Agente para la Optimización de Cadenas de Suministro',
-      authors: ['Luis Martínez', 'Carlos Rodríguez'],
-      date: '2023-11-05',
-      category: 'Agentes Inteligentes',
-      summary: 'Presentamos un sistema de agentes colaborativos que negocian y toman decisiones de forma autónoma para optimizar la logística y reducir costos en cadenas de suministro complejas.',
-      pdfUrl: '#',
-      keywords: ['Multi-Agent Systems', 'Logística', 'Optimización']
+      title: 'Generative Adversarial Networks',
+      authors: ['I. Goodfellow', 'J. Pouget-Abadie', 'M. Mirza', 'B. Xu', 'D. Warde-Farley', 'S. Ozair', 'A. Courville', 'Y. Bengio'],
+      date: '2014-06-10',
+      category: 'Machine Learning y Deep Learning',
+      summary: 'Proponemos un nuevo framework para estimar modelos generativos mediante un proceso adversarial, donde entrenamos simultáneamente dos modelos: un generador G que captura la distribución de datos y un discriminador D que estima la probabilidad de que una muestra provenga de los datos de entrenamiento.',
+      pdfUrl: 'https://arxiv.org/abs/1406.2661',
+      keywords: ['GAN', 'Generative Models', 'Adversarial Training', 'Deep Learning']
     },
     {
       id: 'r-004',
-      title: 'Generative Adversarial Networks (GANs) para la Detección de Anomalías en Imágenes Médicas',
-      authors: ['Sofía Hernández', 'María González'],
-      date: '2024-02-18',
+      title: 'Deep Residual Learning for Image Recognition',
+      authors: ['K. He', 'X. Zhang', 'S. Ren', 'J. Sun'],
+      date: '2015-12-10',
       category: 'Visión por Computadora',
-      summary: 'Aplicamos GANs para generar datos sintéticos de imágenes médicas, mejorando el entrenamiento de modelos para la detección de patologías raras con datos limitados.',
-      pdfUrl: '#',
-      keywords: ['GANs', 'Computer Vision', 'IA Médica']
+      summary: 'Presentamos una arquitectura de red residual que es sustancialmente más profunda que las utilizadas anteriormente. Proporcionamos evidencia exhaustiva de que estas redes residuales son más fáciles de optimizar y pueden obtener precisión de redes sustancialmente más profundas.',
+      pdfUrl: 'https://arxiv.org/abs/1512.03385',
+      keywords: ['ResNet', 'Deep Learning', 'Computer Vision', 'CNN', 'Residual Networks']
+    },
+    {
+      id: 'r-005',
+      title: 'Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments',
+      authors: ['R. Lowe', 'Y. Wu', 'A. Tamar', 'J. Harb', 'P. Abbeel', 'I. Mordatch'],
+      date: '2017-06-07',
+      category: 'Agentes Inteligentes',
+      summary: 'Proponemos una extensión multi-agente de actor-critic que considera la información de acción de otros agentes y no requiere un modelo diferenciable del entorno. Demostramos que los agentes aprenden a cooperar y competir en entornos mixtos.',
+      pdfUrl: 'https://arxiv.org/abs/1706.02275',
+      keywords: ['Multi-Agent', 'Actor-Critic', 'Reinforcement Learning', 'MADDPG']
+    },
+    {
+      id: 'r-006',
+      title: 'CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning',
+      authors: ['P. Rajpurkar', 'J. Irvin', 'K. Zhu', 'B. Yang', 'H. Mehta', 'T. Duan', 'D. Ding', 'A. Bagul', 'C. Langlotz', 'K. Shpanskaya', 'M. P. Lungren', 'A. Y. Ng'],
+      date: '2017-11-14',
+      category: 'IA Médica y Bioinformática',
+      summary: 'Desarrollamos un algoritmo que puede detectar neumonía en radiografías de tórax a nivel de radiólogo. CheXNet es una red neuronal convolucional de 121 capas entrenada en ChestX-ray14, con más de 100,000 imágenes de rayos X frontales.',
+      pdfUrl: 'https://arxiv.org/abs/1711.05225',
+      keywords: ['Medical AI', 'Computer Vision', 'Pneumonia Detection', 'X-Ray', 'Deep Learning']
+    },
+    {
+      id: 'r-007',
+      title: 'Language Models are Few-Shot Learners',
+      authors: ['T. Brown', 'B. Mann', 'N. Ryder', 'M. Subbiah', 'J. D. Kaplan', 'P. Dhariwal', 'A. Neelakantan', 'et al.'],
+      date: '2020-05-28',
+      category: 'Procesamiento de Lenguaje Natural (NLP)',
+      summary: 'Entrenamos GPT-3, un modelo de lenguaje autoregresivo con 175 mil millones de parámetros, y evaluamos su rendimiento en más de dos docenas de tareas de NLP, demostrando capacidades de few-shot learning sin fine-tuning.',
+      pdfUrl: 'https://arxiv.org/abs/2005.14165',
+      keywords: ['GPT-3', 'Large Language Models', 'Few-Shot Learning', 'Autoregressive', 'NLP']
+    },
+    {
+      id: 'r-008',
+      title: 'CLIP: Learning Transferable Visual Representations from Natural Language Supervision',
+      authors: ['A. Radford', 'J. W. Kim', 'C. Hallacy', 'A. Ramesh', 'G. Goh', 'S. Agarwal', 'G. Sastry', 'A. Askell', 'P. Mishkin', 'J. Clark', 'G. Krueger', 'I. Sutskever'],
+      date: '2021-02-26',
+      category: 'Visión por Computadora',
+      summary: 'Pre-entrenamos CLIP en una variedad de pares (imagen, texto) disponibles públicamente en Internet. Después del pre-entrenamiento, se usa lenguaje natural para referenciar conceptos visuales aprendidos, permitiendo transferencia zero-shot del modelo a tareas downstream.',
+      pdfUrl: 'https://arxiv.org/abs/2103.00020',
+      keywords: ['CLIP', 'Vision-Language', 'Zero-Shot Learning', 'Multimodal', 'Transfer Learning']
+    },
+    {
+      id: 'r-009',
+      title: 'Training language models to follow instructions with human feedback',
+      authors: ['L. Ouyang', 'J. Wu', 'X. Jiang', 'D. Almeida', 'C. Wainwright', 'P. Mishkin', 'C. Zhang', 'S. Agarwal', 'K. Slama', 'A. Ray', 'et al.'],
+      date: '2022-03-04',
+      category: 'Machine Learning y Deep Learning',
+      summary: 'Presentamos InstructGPT, que hace que los modelos de lenguaje sean más útiles y menos dañinos mediante fine-tuning con retroalimentación humana. Utilizamos aprendizaje por refuerzo desde retroalimentación humana (RLHF) para entrenar modelos que siguen mejor las instrucciones.',
+      pdfUrl: 'https://arxiv.org/abs/2203.02155',
+      keywords: ['InstructGPT', 'RLHF', 'Human Feedback', 'Instruction Following', 'Alignment']
+    },
+    {
+      id: 'r-010',
+      title: 'Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks',
+      authors: ['P. Lewis', 'E. Perez', 'A. Piktus', 'F. Petroni', 'V. Karpukhin', 'N. Goyal', 'H. Küttler', 'M. Lewis', 'W. Yih', 'T. Rocktäschel', 'S. Riedel', 'D. Kiela'],
+      date: '2020-09-22',
+      category: 'Procesamiento de Lenguaje Natural (NLP)',
+      summary: 'Introducimos RAG, modelos que combinan recuperación paramétrica y no-paramétrica para tareas de NLP intensivas en conocimiento. Para tareas intensivas en conocimiento, demostramos que RAG logra estado del arte en tres benchmarks de Open-domain QA.',
+      pdfUrl: 'https://arxiv.org/abs/2005.11401',
+      keywords: ['RAG', 'Retrieval', 'Knowledge', 'Question Answering', 'Information Retrieval']
+    },
+    {
+      id: 'r-011',
+      title: 'Constitutional AI: Harmlessness from AI Feedback',
+      authors: ['Y. Bai', 'A. Jones', 'K. Ndousse', 'A. Askell', 'A. Chen', 'N. DasSarma', 'D. Drain', 'et al.'],
+      date: '2022-12-15',
+      category: 'Machine Learning y Deep Learning',
+      summary: 'Proponemos Constitutional AI (CAI), un método para entrenar un asistente de IA inofensivo usando solo retroalimentación de IA, sin etiquetas humanas que identifiquen contenido dañino. El método utiliza un conjunto de principios o "constitución" para hacer juicios sobre las salidas.',
+      pdfUrl: 'https://arxiv.org/abs/2212.08073',
+      keywords: ['Constitutional AI', 'AI Safety', 'Harmlessness', 'Self-Supervision', 'AI Alignment']
+    },
+    {
+      id: 'r-012',
+      title: 'Deep learning for healthcare: review, opportunities and challenges',
+      authors: ['B. Miotto', 'F. Wang', 'S. Wang', 'X. Jiang', 'J. T. Dudley'],
+      date: '2018-05-09',
+      category: 'IA Médica y Bioinformática',
+      summary: 'Proporcionamos una revisión completa de aplicaciones de deep learning en healthcare, incluyendo análisis de imágenes médicas, genomía, drug discovery y registros médicos electrónicos. Discutimos oportunidades y desafíos para la implementación clínica.',
+      pdfUrl: 'https://arxiv.org/abs/1806.05695',
+      keywords: ['Healthcare AI', 'Deep Learning', 'Medical Imaging', 'Genomics', 'Clinical Applications']
     }
 ];
 
