@@ -47,6 +47,11 @@ SERVICIOS PRINCIPALES:
 5. **Automatización Empresarial**: Procesos complejos automatizados con IA
 6. **Educación en IA**: Capacitación especializada para equipos técnicos
 
+CONTACTO DIRECTO:
+- WhatsApp: +52 5543417252 (respuesta inmediata)
+- Consulta GRATUITA de 15 minutos
+- Propuestas técnicas personalizadas
+
 TONO Y ESTILO:
 - Profesional pero accesible
 - Técnico pero comprensible
@@ -93,11 +98,11 @@ RESPUESTA MÁXIMA: 150 palabras.`;
 
   private getFallbackResponse(): ChatResponse {
     const responses = [
-      "¡Hola! Soy el asistente de 4ailabs, agencia especializada en desarrollo de agentes de IA. Aunque estoy en modo de demostración, puedo ayudarte con información sobre nuestros servicios técnicos. ¿Te interesa conocer sobre nuestros **agentes autónomos** o **Context Engineering avanzado**?",
-      "En 4ailabs desarrollamos **agentes de IA** que van más allá de chatbots simples - sistemas que toman decisiones y ejecutan tareas complejas. También ofrecemos **IA Médica** con experiencia clínica real. ¿Qué tipo de implementación técnica necesitas?",
-      "Nuestro equipo especializado en **Context Engineering** optimiza tus modelos de IA para obtener resultados superiores. Como agencia técnica, ofrecemos implementaciones reales, no solo consultoría. ¿Te gustaría agendar una **consulta GRATUITA** para analizar tus necesidades?",
-      "Ofrecemos **educación especializada en IA** para equipos técnicos y **automatización empresarial** con agentes inteligentes. Nuestra experiencia incluye casos clínicos reales en IA médica. ¿En qué área técnica te gustaría implementar IA?",
-      "¡Excelente pregunta! En 4ailabs combinamos **agentes autónomos**, **Context Engineering avanzado** y **IA médica con experiencia clínica** para transformar tu negocio. Como agencia especializada, ofrecemos implementaciones técnicas reales. ¿Te interesa conocer más sobre nuestros diferenciadores?"
+      "¡Hola! Soy el asistente de 4ailabs, agencia especializada en desarrollo de agentes de IA. Aunque estoy en modo de demostración, puedo ayudarte con información sobre nuestros servicios técnicos. ¿Te interesa conocer sobre nuestros **agentes autónomos** o **Context Engineering avanzado**? Para contacto directo: **WhatsApp +52 5543417252**",
+      "En 4ailabs desarrollamos **agentes de IA** que van más allá de chatbots simples - sistemas que toman decisiones y ejecutan tareas complejas. También ofrecemos **IA Médica** con experiencia clínica real. ¿Qué tipo de implementación técnica necesitas? Contacto: **+52 5543417252**",
+      "Nuestro equipo especializado en **Context Engineering** optimiza tus modelos de IA para obtener resultados superiores. Como agencia técnica, ofrecemos implementaciones reales, no solo consultoría. ¿Te gustaría agendar una **consulta GRATUITA**? **WhatsApp: +52 5543417252**",
+      "Ofrecemos **educación especializada en IA** para equipos técnicos y **automatización empresarial** con agentes inteligentes. Nuestra experiencia incluye casos clínicos reales en IA médica. ¿En qué área técnica te gustaría implementar IA? Contacto directo: **+52 5543417252**",
+      "¡Excelente pregunta! En 4ailabs combinamos **agentes autónomos**, **Context Engineering avanzado** y **IA médica con experiencia clínica** para transformar tu negocio. Como agencia especializada, ofrecemos implementaciones técnicas reales. ¿Te interesa conocer más? **WhatsApp: +52 5543417252**"
     ];
     
     const randomResponse = responses[Math.floor(Math.random() * responses.length)];

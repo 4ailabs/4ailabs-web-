@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Loader2, FileText } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2, FileText, MessageCircle } from 'lucide-react';
 import { proposalGeneratorService, ProposalData } from '../services/proposalGeneratorService';
 import ProposalGenerator from '../components/ProposalGenerator';
 
@@ -171,6 +171,14 @@ const ContactPage: React.FC = () => {
                   <div>
                     <h3 className="font-semibold text-zinc-900 dark:text-white">Teléfono</h3>
                     <p>+1 (123) 456-7890</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 p-4 bg-green-50/50 dark:bg-zinc-800/50 rounded-lg border border-green-200 dark:border-zinc-700">
+                  <MessageCircle className="w-8 h-8 text-green-600 dark:text-cyan-400 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-zinc-900 dark:text-white">WhatsApp</h3>
+                    <p className="text-green-600 dark:text-green-400 font-medium">+52 5543417252</p>
+                    <p className="text-sm text-zinc-500 dark:text-slate-400">Respuesta inmediata</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 p-4 bg-purple-50/50 dark:bg-zinc-800/50 rounded-lg border border-purple-200 dark:border-zinc-700">
