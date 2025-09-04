@@ -54,7 +54,17 @@ class ProposalGeneratorService {
       
       const model = this.genAI.getGenerativeModel({ 
         model: "gemini-1.5-flash",
-        systemInstruction: `Eres un consultor experto en IA empresarial que genera propuestas técnicas detalladas. Tu trabajo es crear propuestas profesionales, realistas y atractivas basadas en las necesidades del cliente. Incluye especificaciones técnicas, timeline, precios y entregables. Responde en español.`
+        systemInstruction: `Eres un consultor experto en IA empresarial que genera propuestas técnicas detalladas. Tu trabajo es crear propuestas profesionales, realistas y atractivas basadas en las necesidades del cliente. 
+
+PRECIOS REALISTAS (USD):
+- Chatbots Inteligentes: $3,000 - $5,000
+- Agentes de IA: $8,000 - $12,000  
+- IA Médica: $15,000 - $25,000
+- Context Engineering: $3,000 - $5,000
+- Automatización: $4,000 - $8,000
+- Educación IA: $2,000 - $4,000
+
+Incluye especificaciones técnicas, timeline, precios en USD y entregables. Responde en español.`
       });
 
       const result = await model.generateContent(prompt);
@@ -99,12 +109,13 @@ Genera una propuesta estructurada en el siguiente formato JSON:
     "Entregable 3"
   ],
   "pricing": {
-    "basePrice": 15000,
+    "basePrice": 5000,
     "additionalServices": [
-      {"name": "Servicio adicional 1", "price": 5000},
-      {"name": "Servicio adicional 2", "price": 3000}
+      {"name": "Soporte extendido (6 meses)", "price": 1500},
+      {"name": "Capacitación adicional", "price": 1000},
+      {"name": "Integración con sistemas legacy", "price": 2000}
     ],
-    "totalPrice": 23000
+    "totalPrice": 9500
   },
   "timeline": {
     "phases": [
@@ -138,15 +149,15 @@ Responde SOLO con el JSON, sin texto adicional.
 
   private getMockProposal(formData: ContactFormData): ProposalData {
     const serviceType = formData.service.toLowerCase();
-    let basePrice = 15000;
-    let duration = "6-8 semanas";
+    let basePrice = 5000;
+    let duration = "4-6 semanas";
     let technicalSpecs: string[] = [];
     let deliverables: string[] = [];
 
     // Personalizar según el tipo de servicio
     if (serviceType.includes('agente') || serviceType.includes('chatbot')) {
-      basePrice = 20000;
-      duration = "8-10 semanas";
+      basePrice = 8000;
+      duration = "6-8 semanas";
       technicalSpecs = [
         "Integración con APIs de IA (OpenAI, Gemini, Claude)",
         "Sistema de entrenamiento y fine-tuning",
@@ -161,8 +172,8 @@ Responde SOLO con el JSON, sin texto adicional.
         "Soporte técnico por 3 meses"
       ];
     } else if (serviceType.includes('medica') || serviceType.includes('healthcare')) {
-      basePrice = 35000;
-      duration = "12-16 semanas";
+      basePrice = 15000;
+      duration = "8-12 semanas";
       technicalSpecs = [
         "Cumplimiento con regulaciones médicas",
         "Integración con sistemas hospitalarios",
@@ -177,8 +188,8 @@ Responde SOLO con el JSON, sin texto adicional.
         "Certificación y validación clínica"
       ];
     } else if (serviceType.includes('context') || serviceType.includes('engineering')) {
-      basePrice = 12000;
-      duration = "4-6 semanas";
+      basePrice = 5000;
+      duration = "3-4 semanas";
       technicalSpecs = [
         "Optimización de prompts y contextos",
         "Fine-tuning de modelos de IA",
@@ -210,9 +221,9 @@ Responde SOLO con el JSON, sin texto adicional.
     }
 
     const additionalServices = [
-      { name: "Soporte extendido (6 meses)", price: basePrice * 0.3 },
-      { name: "Capacitación adicional", price: 3000 },
-      { name: "Integración con sistemas legacy", price: 5000 }
+      { name: "Soporte extendido (6 meses)", price: Math.round(basePrice * 0.2) },
+      { name: "Capacitación adicional", price: 1000 },
+      { name: "Integración con sistemas legacy", price: 2000 }
     ];
 
     return {
