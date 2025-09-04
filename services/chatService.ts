@@ -6,11 +6,16 @@ class ChatService {
 
   constructor() {
     try {
-      const apiKey = process.env.GEMINI_API_KEY;
-      if (apiKey && apiKey !== 'your_gemini_api_key_here') {
+      // En Vercel, las variables de entorno se acceden con import.meta.env
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
+      console.log("API Key status:", apiKey ? "Found" : "Not found");
+      
+      if (apiKey && apiKey !== 'your_gemini_api_key_here' && apiKey.length > 10) {
         this.genAI = new GoogleGenerativeAI(apiKey);
+        console.log("Gemini AI initialized successfully");
       } else {
-        console.warn("GEMINI_API_KEY not configured, using fallback responses");
+        console.warn("GEMINI_API_KEY not configured properly, using fallback responses");
+        console.log("API Key value:", apiKey ? "Present but invalid" : "Missing");
       }
     } catch (error) {
       console.error("Error initializing Chat Service:", error);
