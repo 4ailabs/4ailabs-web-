@@ -373,12 +373,11 @@ const HomePage: React.FC = () => {
               <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
               Especialistas en IA
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-white leading-tight mb-6">
-              Creamos <span className="text-indigo-600 dark:text-indigo-400">Agentes de IA</span> y <span className="text-purple-600 dark:text-purple-400">Apps Inteligentes</span> que Transforman tu Negocio
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white leading-tight mb-6">
+              <span className="text-indigo-600 dark:text-indigo-400">Agentes de IA</span> y <span className="text-purple-600 dark:text-purple-400">Apps Inteligentes</span>
             </h2>
-            <p className="text-base sm:text-lg text-zinc-600 dark:text-slate-400 max-w-4xl mx-auto">
-              Desarrollamos soluciones de IA personalizadas que van desde agentes autónomos hasta aplicaciones completas, 
-              diseñadas específicamente para las necesidades de tu empresa y sector.
+            <p className="text-base sm:text-lg text-zinc-600 dark:text-slate-400 max-w-3xl mx-auto">
+              Soluciones de IA personalizadas para tu empresa.
             </p>
           </div>
 
