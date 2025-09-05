@@ -271,7 +271,7 @@ Te enviaré un presupuesto detallado basado en esta propuesta técnica, ajustado
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col">
+      <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl w-full max-h-[90vh] flex flex-col mx-2 sm:mx-4">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-zinc-200 dark:border-zinc-700 flex-shrink-0">
           <div>
@@ -299,7 +299,7 @@ Te enviaré un presupuesto detallado basado en esta propuesta técnica, ajustado
                 <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
                   1. ¿Qué tipo de consulta necesitas?
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {consultationTypes.map((type) => {
                     const Icon = type.icon;
                     return (
@@ -365,7 +365,7 @@ Te enviaré un presupuesto detallado basado en esta propuesta técnica, ajustado
                 <h4 className="font-semibold text-cyan-900 dark:text-cyan-100 mb-3">
                   ¿Qué incluye tu consulta gratuita?
                 </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
                     <span className="text-sm text-cyan-800 dark:text-cyan-200">Análisis de tu negocio</span>
@@ -455,7 +455,7 @@ Te enviaré un presupuesto detallado basado en esta propuesta técnica, ajustado
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                 <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
                   <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Información del Proyecto</h4>
                   <div className="space-y-2 text-sm">

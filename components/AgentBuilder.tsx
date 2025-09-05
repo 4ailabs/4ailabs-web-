@@ -86,7 +86,7 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden">
+      <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl w-full max-h-[90vh] overflow-hidden mx-2 sm:mx-4">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-zinc-200 dark:border-zinc-700">
           <div>
@@ -113,7 +113,7 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
         <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
           {step === 'form' && (
             <div className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-2">
                     Nombre completo *
@@ -157,7 +157,7 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
                 <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-2">
                   Tipo de Agente de IA *
                 </label>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {agentTypes.map((type) => (
                     <label
                       key={type.value}
@@ -221,7 +221,7 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-2">
                     Timeline deseado
@@ -332,8 +332,8 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+                <div className="bg-white dark:bg-zinc-800 p-4 sm:p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
                   <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Información del Proyecto</h4>
                   <div className="space-y-2 text-sm">
                     <div><span className="font-medium">Empresa:</span> {proposalData.companyName}</div>
@@ -367,7 +367,7 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
 
               <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
                 <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Capacidades del Agente</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <h5 className="font-medium text-zinc-900 dark:text-white mb-2">Especificaciones Técnicas</h5>
                     <ul className="space-y-2 text-sm text-zinc-700 dark:text-slate-300">
