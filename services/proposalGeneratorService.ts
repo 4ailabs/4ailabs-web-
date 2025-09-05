@@ -265,13 +265,13 @@ Responde SOLO con el JSON, sin texto adicional.
       email: formData.email,
       serviceType: formData.service,
       requirements: formData.message || "Implementación de soluciones de IA para optimizar procesos empresariales y mejorar la eficiencia operativa.",
-      budget: pricing.range,
+      budget: "Presupuesto personalizado",
       technicalSpecs,
       deliverables,
       pricing: {
-        basePrice: pricing.base,
-        additionalServices: pricing.additionalServices,
-        totalPrice: totalPrice
+        basePrice: 0,
+        additionalServices: [],
+        totalPrice: 0
       },
       timeline: {
         phases: [

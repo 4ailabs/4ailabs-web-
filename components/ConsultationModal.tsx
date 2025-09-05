@@ -145,10 +145,10 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
         'Capacitación del equipo'
       ],
       pricing: {
-        basePrice: pricing.base,
-        range: pricing.range,
-        additionalServices: pricing.additionalServices,
-        totalPrice: totalPrice
+        basePrice: 0,
+        range: "Presupuesto personalizado",
+        additionalServices: [],
+        totalPrice: 0
       },
       timeline: {
         phases: [
@@ -176,9 +176,13 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
       if (proposalData) {
         message += `
 
-💰 *Presupuesto estimado:* $${proposalData.pricing.totalPrice.toLocaleString()}
-⏱️ *Timeline:* ${proposalData.timeline.totalDuration}
-📋 *Incluye:* ${proposalData.deliverables.slice(0, 3).join(', ')}`;
+📋 *Propuesta Técnica Generada:*
+• Servicio: ${proposalData.serviceType}
+• Timeline: ${proposalData.timeline.totalDuration}
+• Incluye: ${proposalData.deliverables.slice(0, 3).join(', ')}
+
+💰 *Presupuesto Personalizado:*
+Te enviaré un presupuesto detallado basado en esta propuesta técnica, ajustado a tu presupuesto y necesidades específicas.`;
       }
 
       message += `
@@ -461,14 +465,42 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
-                  <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Presupuesto Estimado</h4>
-                  <div className="space-y-2 text-sm">
-                    <div><span className="font-medium">Precio base:</span> ${proposalData.pricing.basePrice.toLocaleString()}</div>
-                    <div><span className="font-medium">Servicios adicionales:</span> ${proposalData.pricing.additionalServices.reduce((sum: number, service: any) => sum + service.price, 0).toLocaleString()}</div>
-                    <div className="border-t pt-2 font-semibold text-lg">
-                      <span className="font-medium">Total:</span> ${proposalData.pricing.totalPrice.toLocaleString()}
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+                      <Calculator className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                     </div>
+                    <div>
+                      <h4 className="font-semibold text-blue-900 dark:text-blue-100 text-lg">Presupuesto Personalizado</h4>
+                      <p className="text-blue-700 dark:text-blue-300 text-sm">
+                        Nos ajustamos a tu presupuesto y necesidades
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
+                      <CheckCircle className="w-4 h-4 text-blue-600" />
+                      <span>Pago escalonado (50% inicio, 50% entrega)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
+                      <CheckCircle className="w-4 h-4 text-blue-600" />
+                      <span>Descuentos por proyectos a largo plazo</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
+                      <CheckCircle className="w-4 h-4 text-blue-600" />
+                      <span>Opciones de financiamiento disponibles</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
+                      <CheckCircle className="w-4 h-4 text-blue-600" />
+                      <span>Garantía de satisfacción incluida</span>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-4 p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                    <p className="text-blue-800 dark:text-blue-200 text-sm font-medium">
+                      💬 <strong>Contacta por WhatsApp</strong> para recibir tu presupuesto personalizado basado en esta propuesta técnica
+                    </p>
                   </div>
                 </div>
               </div>

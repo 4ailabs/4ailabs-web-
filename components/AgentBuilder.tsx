@@ -239,19 +239,23 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-2">
-                    Presupuesto estimado (USD)
+                    Presupuesto aproximado (USD)
                   </label>
                   <select
                     value={formData.budget}
                     onChange={(e) => handleInputChange('budget', e.target.value)}
                     className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent dark:bg-zinc-800 dark:text-white"
                   >
-                    {BUDGET_RANGES.map((range) => (
-                      <option key={range.value} value={range.value}>
-                        {range.label}
-                      </option>
-                    ))}
+                    <option value="flexible">Presupuesto flexible - Nos ajustamos</option>
+                    <option value="300-500">$300 - $500</option>
+                    <option value="500-1000">$500 - $1,000</option>
+                    <option value="1000-1500">$1,000 - $1,500</option>
+                    <option value="1500-2500">$1,500 - $2,500</option>
+                    <option value="2500+">$2,500+</option>
                   </select>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                    💡 Selecciona "Presupuesto flexible" para que nos ajustemos a tu presupuesto
+                  </p>
                 </div>
               </div>
 

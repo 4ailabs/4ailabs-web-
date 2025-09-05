@@ -273,23 +273,41 @@ const ServiceQuickStart: React.FC<ServiceQuickStartProps> = ({
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
-                  <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Presupuesto</h4>
-                  <div className="space-y-2 text-sm">
-                    <div><span className="font-medium">Precio base:</span> ${proposalData.pricing.basePrice.toLocaleString()}</div>
-                    <div><span className="font-medium">Servicios adicionales:</span> ${proposalData.pricing.additionalServices.reduce((sum: number, service: any) => sum + service.price, 0).toLocaleString()}</div>
-                    <div className="border-t pt-2 font-semibold text-lg">
-                      <span className="font-medium">Total:</span> ${proposalData.pricing.totalPrice.toLocaleString()}
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+                      <span className="text-blue-600 dark:text-blue-400 text-lg">💰</span>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-blue-900 dark:text-blue-100 text-lg">Presupuesto Personalizado</h4>
+                      <p className="text-blue-700 dark:text-blue-300 text-sm">
+                        Nos ajustamos a tu presupuesto y necesidades
+                      </p>
                     </div>
                   </div>
                   
-                  <div className="mt-4 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-700">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-green-600 dark:text-green-400 text-lg">💰</span>
-                      <span className="font-semibold text-green-900 dark:text-green-100 text-sm">Precios Flexibles</span>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
+                      <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                      <span>Pago escalonado (50% inicio, 50% entrega)</span>
                     </div>
-                    <p className="text-xs text-green-800 dark:text-green-200">
-                      <strong>Nos ajustamos a tu presupuesto.</strong> Ofrecemos opciones de pago escalonado y descuentos por proyectos a largo plazo.
+                    <div className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
+                      <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                      <span>Descuentos por proyectos a largo plazo</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
+                      <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                      <span>Opciones de financiamiento disponibles</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
+                      <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                      <span>Garantía de satisfacción incluida</span>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-4 p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                    <p className="text-blue-800 dark:text-blue-200 text-sm font-medium">
+                      💬 <strong>Contacta por WhatsApp</strong> para recibir tu presupuesto personalizado basado en esta propuesta técnica
                     </p>
                   </div>
                 </div>
@@ -359,8 +377,10 @@ const ServiceQuickStart: React.FC<ServiceQuickStartProps> = ({
 
 📋 *${proposalData.serviceType}*
 🏢 *Empresa:* ${proposalData.companyName}
-💰 *Presupuesto:* $${proposalData.pricing.totalPrice.toLocaleString()}
 ⏱️ *Timeline:* ${proposalData.timeline.totalDuration}
+
+💰 *Presupuesto Personalizado:*
+Te enviaré un presupuesto detallado basado en esta propuesta técnica, ajustado a tu presupuesto y necesidades específicas.
 
 ¿Podemos agendar una reunión para discutir los detalles?`;
                       
