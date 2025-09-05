@@ -497,27 +497,23 @@ const HomePage: React.FC = () => {
       </section>
       
 
-      {/* Colaboración Académica */}
-      <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/20 dark:via-indigo-950/20 dark:to-purple-950/20 transition-colors duration-300 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5 dark:opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
-          <div className="absolute top-1/3 right-0 w-96 h-96 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)] rounded-full"></div>
-          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.1),transparent_50%)] rounded-full"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-8 sm:mb-12 animate-fade-in-up px-4">
-            <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-4">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-              Colaboración Académica
-            </div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight mb-4">
-              Desarrollando el Futuro de la IA con <span className="text-blue-600 dark:text-blue-400">Universidades e Institutos</span>
+      {/* Colaboración Académica - Ultra Simplificada */}
+      <section className="py-8 sm:py-12 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 transition-colors duration-300">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-xl mx-auto">
+            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-3">
+              ¿Eres de una <span className="text-blue-600 dark:text-blue-400">Universidad o Instituto</span>?
             </h2>
-            <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Colaboramos activamente con instituciones académicas para impulsar la investigación en IA, formar talento especializado y desarrollar soluciones innovadoras que transformen la industria.
+            <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 mb-6">
+              Colaboramos con instituciones académicas para impulsar la investigación en IA.
             </p>
+            <button 
+              onClick={() => setAcademicModalOpen(true)}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+            >
+              <GraduationCap className="w-5 h-5" />
+              Colaborar con nosotros
+            </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
