@@ -110,7 +110,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Servicios Principales */}
-      <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-zinc-50 via-zinc-100 to-zinc-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 transition-colors duration-300 relative overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-br from-zinc-50 via-zinc-100 to-zinc-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 transition-colors duration-300 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5 dark:opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
@@ -254,7 +254,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* IA Médica - Nueva Sección */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-br from-cyan-50 via-teal-50 to-blue-50 dark:from-cyan-950/20 dark:via-teal-950/20 dark:to-blue-950/20 transition-colors duration-300 relative overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-gradient-to-br from-cyan-50 via-teal-50 to-blue-50 dark:from-cyan-950/20 dark:via-teal-950/20 dark:to-blue-950/20 transition-colors duration-300 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5 dark:opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(6,182,212,0.1),transparent_50%)]"></div>
@@ -480,7 +480,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Creación de Agentes de IA y Apps con IA */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-950/20 dark:via-purple-950/20 dark:to-pink-950/20 transition-colors duration-300 relative overflow-hidden">
+      <section className="py-20 sm:py-24 md:py-28 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-950/20 dark:via-purple-950/20 dark:to-pink-950/20 transition-colors duration-300 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5 dark:opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(99,102,241,0.1),transparent_50%)]"></div>
@@ -728,7 +728,7 @@ const HomePage: React.FC = () => {
                       <Target className="w-4 h-4 flex-shrink-0" />
                       <span>Financiamiento conjunto</span>
                     </div>
-                  </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -864,7 +864,7 @@ const HomePage: React.FC = () => {
                 Explorar Nuestras Tecnologías
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
-            </div>
+              </div>
           </div>
         </div>
       </section>
