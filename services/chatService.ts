@@ -45,8 +45,9 @@ class ChatService {
     return `Eres el asistente virtual de 4ailabs. Responde de forma natural y conversacional, adaptándote a cada pregunta específica.
 
 INFORMACIÓN CLAVE:
-- 4ailabs es una agencia especializada en agentes de IA autónomos
+- 4ailabs es una agencia especializada en agentes de IA autónomos y desarrollo de aplicaciones con IA
 - Tenemos experiencia real en IA médica y Context Engineering
+- Desarrollamos aplicaciones completas: web, móviles, APIs y microservicios con IA integrada
 - Ofrecemos implementaciones técnicas, no solo consultoría
 - WhatsApp: +52 5534403571 para consultas
 
@@ -66,6 +67,11 @@ CONCEPTOS A EXPLICAR SIMPLEMENTE:
 - Agentes de IA = Sistemas que toman decisiones automáticamente
 - Chatbot = Asistente virtual que responde preguntas
 - IA Médica = Inteligencia artificial especializada en salud
+- App con IA = Aplicación que usa inteligencia artificial para funcionar mejor
+- API de IA = Servicio que permite a otras apps usar IA
+- Microservicio = Pequeña aplicación que hace una tarea específica
+- App web inteligente = Sitio web que usa IA para personalizar la experiencia
+- App móvil con IA = Aplicación para celular que incluye funciones de IA
 
 MÁXIMO 100 palabras por respuesta.`;
   }
@@ -128,6 +134,8 @@ MÁXIMO 100 palabras por respuesta.`;
       this.conversationContext.userProfile.industry = 'healthcare';
     } else if (lowerMessage.includes('chatbot') || lowerMessage.includes('agente')) {
       this.conversationContext.userIntent = 'ai_agents';
+    } else if (lowerMessage.includes('app') || lowerMessage.includes('aplicación') || lowerMessage.includes('móvil') || lowerMessage.includes('web')) {
+      this.conversationContext.userIntent = 'app_development';
     } else if (lowerMessage.includes('automati') || lowerMessage.includes('proceso')) {
       this.conversationContext.userIntent = 'automation';
     }
@@ -223,6 +231,14 @@ MÁXIMO 100 palabras por respuesta.`;
     if (lowerMessage.includes('agente') || lowerMessage.includes('automatiz')) {
       return {
         text: "Un agente de IA es como un empleado virtual que puede tomar decisiones y ejecutar tareas complejas automáticamente. Por ejemplo, puede procesar documentos, responder emails, o incluso hacer diagnósticos médicos. ¿Qué procesos te gustaría automatizar?",
+        success: true,
+        error: 'API not available - using enhanced fallback'
+      };
+    }
+    
+    if (lowerMessage.includes('app') || lowerMessage.includes('aplicación') || lowerMessage.includes('móvil') || lowerMessage.includes('web')) {
+      return {
+        text: "Desarrollamos aplicaciones completas con IA integrada: apps web, móviles, APIs y microservicios. Cada app se personaliza para tu negocio y puede incluir chatbots, análisis de datos, o automatización. ¿Qué tipo de aplicación necesitas?",
         success: true,
         error: 'API not available - using enhanced fallback'
       };
