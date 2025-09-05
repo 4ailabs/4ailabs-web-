@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award, Play, Clock, Eye, ExternalLink } from 'lucide-react';
+import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award, Play, Clock, Eye, ExternalLink, GraduationCap, BookOpen, Microscope, Users2 } from 'lucide-react';
 import { serviceCards, stats, testimonials, partners, technologies } from '../constants';
 
 const HomePage: React.FC = () => {
@@ -350,6 +350,126 @@ const HomePage: React.FC = () => {
             <a href="https://wa.me/+525543417252?text=Hola! Me interesa ver más ejemplos de sus agentes de IA en acción." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-400/25 animate-fade-in-up min-h-[48px] w-full sm:w-auto justify-center" style={{animationDelay: '0.4s'}}>
               <Play className="w-4 h-4 sm:w-5 sm:h-5" />
               Ver Más Ejemplos
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Colaboración Académica */}
+      <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/20 dark:via-indigo-950/20 dark:to-purple-950/20 transition-colors duration-300 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+          <div className="absolute top-1/3 right-0 w-96 h-96 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)] rounded-full"></div>
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.1),transparent_50%)] rounded-full"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-8 sm:mb-12 animate-fade-in-up px-4">
+            <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              Colaboración Académica
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight mb-4">
+              Desarrollando el Futuro de la IA con <span className="text-blue-600 dark:text-blue-400">Universidades e Institutos</span>
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-3xl mx-auto">
+              Colaboramos activamente con instituciones académicas para impulsar la investigación en IA, formar talento especializado y desarrollar soluciones innovadoras que transformen la industria.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+            {/* Investigación Conjunta */}
+            <div className="group bg-white/60 dark:bg-zinc-800/60 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-blue-200/50 dark:border-blue-700/50 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                  <Microscope className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">Investigación Conjunta</h3>
+              </div>
+              <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                Proyectos de investigación colaborativos en IA médica, procesamiento de lenguaje natural y sistemas autónomos.
+              </p>
+              <div className="flex items-center text-xs text-blue-600 dark:text-blue-400 font-medium">
+                <BookOpen className="w-4 h-4 mr-1" />
+                Publicaciones científicas
+              </div>
+            </div>
+
+            {/* Programas de Formación */}
+            <div className="group bg-white/60 dark:bg-zinc-800/60 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-indigo-200/50 dark:border-indigo-700/50 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                  <GraduationCap className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">Programas de Formación</h3>
+              </div>
+              <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                Cursos especializados, talleres prácticos y programas de capacitación para estudiantes y profesionales.
+              </p>
+              <div className="flex items-center text-xs text-indigo-600 dark:text-indigo-400 font-medium">
+                <Users2 className="w-4 h-4 mr-1" />
+                Certificaciones profesionales
+              </div>
+            </div>
+
+            {/* Transferencia Tecnológica */}
+            <div className="group bg-white/60 dark:bg-zinc-800/60 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-purple-200/50 dark:border-purple-700/50 hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 animate-fade-in-up md:col-span-2 lg:col-span-1" style={{animationDelay: '0.3s'}}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                  <Zap className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">Transferencia Tecnológica</h3>
+              </div>
+              <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                Convertimos investigación académica en soluciones comerciales viables para empresas e industrias.
+              </p>
+              <div className="flex items-center text-xs text-purple-600 dark:text-purple-400 font-medium">
+                <Target className="w-4 h-4 mr-1" />
+                Innovación aplicada
+              </div>
+            </div>
+          </div>
+
+          {/* Instituciones Colaboradoras */}
+          <div className="bg-white/40 dark:bg-zinc-800/40 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-blue-200/30 dark:border-blue-700/30 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+            <div className="text-center mb-6">
+              <h3 className="text-lg sm:text-xl font-semibold text-zinc-900 dark:text-white mb-2">
+                Instituciones Colaboradoras
+              </h3>
+              <p className="text-sm text-zinc-600 dark:text-slate-400">
+                Trabajamos con universidades e institutos de investigación líderes en México y Latinoamérica
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+              {[
+                { name: "UNAM", type: "Universidad Nacional" },
+                { name: "IPN", type: "Instituto Politécnico" },
+                { name: "ITESM", type: "Tecnológico de Monterrey" },
+                { name: "UAM", type: "Universidad Autónoma" },
+                { name: "CINVESTAV", type: "Centro de Investigación" },
+                { name: "CONACYT", type: "Consejo Nacional" },
+                { name: "UABC", type: "Universidad Autónoma" },
+                { name: "UDG", type: "Universidad de Guadalajara" }
+              ].map((institution, index) => (
+                <div key={institution.name} className="text-center p-3 rounded-lg bg-white/60 dark:bg-zinc-700/60 hover:bg-white/80 dark:hover:bg-zinc-600/80 transition-colors duration-300 animate-fade-in-up" style={{animationDelay: `${0.5 + index * 0.1}s`}}>
+                  <div className="text-sm font-semibold text-zinc-900 dark:text-white mb-1">
+                    {institution.name}
+                  </div>
+                  <div className="text-xs text-zinc-600 dark:text-slate-400">
+                    {institution.type}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center mt-8 sm:mt-12">
+            <a href="https://wa.me/+525543417252?text=Hola! Soy de una universidad/instituto y me interesa colaborar en proyectos de investigación en IA." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-blue-500/25 animate-fade-in-up min-h-[48px] w-full sm:w-auto justify-center" style={{animationDelay: '0.6s'}}>
+              <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
+              Colaborar con Nosotros
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
           </div>
