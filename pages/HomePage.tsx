@@ -516,7 +516,6 @@ const HomePage: React.FC = () => {
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
             {/* Investigación Conjunta */}
             <div className="group bg-white/60 dark:bg-zinc-800/60 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-blue-200/50 dark:border-blue-700/50 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
               <div className="flex items-center gap-3 mb-4">
