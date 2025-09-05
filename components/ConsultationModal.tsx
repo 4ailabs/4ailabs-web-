@@ -497,19 +497,19 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
             <Clock className="w-4 h-4" />
             <span>Duración: 15 minutos</span>
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             {step === 'form' && (
               <>
                 <button
                   onClick={handleClose}
-                  className="px-6 py-3 text-zinc-600 dark:text-slate-400 hover:text-zinc-800 dark:hover:text-slate-200 transition-colors"
+                  className="px-6 py-3 text-zinc-600 dark:text-slate-400 hover:text-zinc-800 dark:hover:text-slate-200 transition-colors order-2 sm:order-1"
                 >
                   Cancelar
                 </button>
                 <button
                   onClick={handleWhatsAppRedirect}
                   disabled={!selectedType}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 disabled:from-zinc-300 disabled:to-zinc-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 disabled:from-zinc-300 disabled:to-zinc-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors order-1 sm:order-2"
                 >
                   <MessageCircle className="w-5 h-5" />
                   Enviar por WhatsApp
@@ -517,7 +517,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
                 <button
                   onClick={handleGenerateProposal}
                   disabled={!selectedType}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 disabled:from-zinc-300 disabled:to-zinc-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 disabled:from-zinc-300 disabled:to-zinc-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors order-3"
                 >
                   <FileText className="w-5 h-5" />
                   Ver Propuesta
@@ -536,19 +536,19 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
               <>
                 <button
                   onClick={() => setStep('form')}
-                  className="px-6 py-3 text-zinc-600 dark:text-slate-400 hover:text-zinc-800 dark:hover:text-slate-200 transition-colors"
+                  className="px-6 py-3 text-zinc-600 dark:text-slate-400 hover:text-zinc-800 dark:hover:text-slate-200 transition-colors order-2 sm:order-1"
                 >
                   ← Volver
                 </button>
                 <button
                   onClick={handleClose}
-                  className="px-6 py-3 text-zinc-600 dark:text-slate-400 hover:text-zinc-800 dark:hover:text-slate-200 transition-colors"
+                  className="px-6 py-3 text-zinc-600 dark:text-slate-400 hover:text-zinc-800 dark:hover:text-slate-200 transition-colors order-3 sm:order-2"
                 >
                   Cerrar
                 </button>
                 <button
                   onClick={handleWhatsAppRedirect}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors order-1 sm:order-3"
                 >
                   <MessageCircle className="w-5 h-5" />
                   Contactar por WhatsApp
