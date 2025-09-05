@@ -270,9 +270,9 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+      <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-zinc-200 dark:border-zinc-700">
+        <div className="flex items-center justify-between p-6 border-b border-zinc-200 dark:border-zinc-700 flex-shrink-0">
           <div>
             <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
               Agenda tu Consulta Gratuita
@@ -290,7 +290,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
         </div>
 
         {/* Content */}
-        <div className="p-6 overflow-y-auto max-h-[calc(90vh-180px)]">
+        <div className="p-6 overflow-y-auto flex-1">
           {step === 'form' && (
             <div className="space-y-6">
               {/* Step 1: Select consultation type */}
@@ -492,7 +492,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between p-6 border-t border-zinc-200 dark:border-zinc-700">
+        <div className="flex items-center justify-between p-6 border-t border-zinc-200 dark:border-zinc-700 flex-shrink-0">
           <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-slate-400">
             <Clock className="w-4 h-4" />
             <span>Duración: 15 minutos</span>
