@@ -492,8 +492,8 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-end p-6 border-t border-zinc-200 dark:border-zinc-700 flex-shrink-0">
-          <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex items-center justify-center p-6 border-t border-zinc-200 dark:border-zinc-700 flex-shrink-0">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             {step === 'form' && (
               <>
                 <button
