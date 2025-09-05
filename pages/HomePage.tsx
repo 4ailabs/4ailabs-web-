@@ -257,6 +257,281 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* IA Médica - Nueva Sección */}
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-br from-cyan-50 via-teal-50 to-blue-50 dark:from-cyan-950/20 dark:via-teal-950/20 dark:to-blue-950/20 transition-colors duration-300 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(6,182,212,0.1),transparent_50%)]"></div>
+          <div className="absolute top-1/3 right-0 w-96 h-96 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)] rounded-full"></div>
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.1),transparent_50%)] rounded-full"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16 animate-fade-in-up px-2">
+            <div className="inline-flex items-center gap-2 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-500 rounded-full animate-pulse"></div>
+              <span className="hidden sm:inline">IA Médica Especializada</span>
+              <span className="sm:hidden">🏥 IA Médica</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-zinc-900 dark:text-white leading-tight mb-4 sm:mb-6">
+              <span className="text-cyan-600 dark:text-cyan-400 block sm:inline">Soluciones de IA</span>
+              <span className="block sm:inline"> para </span>
+              <span className="text-teal-600 dark:text-teal-400 block sm:inline">Profesionales Médicos</span>
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg text-zinc-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed">
+              Desarrollamos herramientas de IA específicamente diseñadas para médicos, clínicas y hospitales. 
+              <br className="hidden sm:block" />
+              <span className="block sm:inline mt-2 sm:mt-0">Potencia tu práctica médica con tecnología de vanguardia que mejora diagnósticos y optimiza la atención al paciente.</span>
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-12 sm:mb-16">
+            {/* Agentes de IA Médica */}
+            <div className="group bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm p-6 sm:p-8 lg:p-10 rounded-xl sm:rounded-2xl border border-cyan-200/50 dark:border-cyan-700/50 hover:border-cyan-300 dark:hover:border-cyan-600 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+              <div className="text-center mb-6 sm:mb-8">
+                <div className="inline-flex p-3 sm:p-4 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Heart className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white" />
+                </div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-zinc-900 dark:text-white mb-3 sm:mb-4">
+                  Asistentes de IA Médica
+                </h3>
+                <p className="text-zinc-600 dark:text-slate-400 text-sm sm:text-base lg:text-lg leading-relaxed">
+                  Agentes inteligentes que asisten en diagnósticos, análisis de síntomas, gestión de historiales 
+                  médicos y seguimiento de tratamientos para mejorar la precisión clínica.
+                </p>
+              </div>
+              
+              <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                {[
+                  { icon: Microscope, text: "Análisis de síntomas y diagnóstico diferencial" },
+                  { icon: Brain, text: "Interpretación de estudios e imágenes médicas" },
+                  { icon: Database, text: "Gestión inteligente de historiales clínicos" },
+                  { icon: Target, text: "Seguimiento personalizado de tratamientos" }
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-start sm:items-center gap-3 p-3 sm:p-3 rounded-lg bg-cyan-50/50 dark:bg-cyan-900/20 group-hover:bg-cyan-100/50 dark:group-hover:bg-cyan-800/30 transition-colors duration-300">
+                    <div className="p-1.5 sm:p-2 bg-cyan-100 dark:bg-cyan-800 rounded-lg flex-shrink-0">
+                      <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-600 dark:text-cyan-400" />
+                    </div>
+                    <span className="text-xs sm:text-sm font-medium text-zinc-700 dark:text-slate-300 leading-tight">{feature.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="text-center">
+                {/* Badge móvil */}
+                <div className="flex justify-center mb-2 sm:hidden">
+                  <div className="bg-cyan-100 text-cyan-700 text-xs font-medium px-2 py-1 rounded-full">
+                    ⚕️ Especializada para médicos
+                  </div>
+                </div>
+                
+                <button 
+                  onClick={() => {
+                    setSelectedService({ type: 'medical', title: 'IA Médica' });
+                    setConsultationOpen(true);
+                  }}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 text-white font-bold py-4 px-4 sm:px-6 rounded-2xl text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-cyan-500/25 min-h-[56px] w-full justify-center max-w-xs mx-auto sm:max-w-none relative"
+                >
+                  {/* Badge desktop */}
+                  <div className="hidden sm:block absolute -top-2 -right-2 bg-cyan-100 text-cyan-700 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
+                    MÉDICO
+                  </div>
+                  
+                  <Heart className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                  <span className="text-center leading-tight">
+                    <span className="block text-sm sm:text-base">IA Médica</span>
+                    <span className="block text-xs opacity-75 font-normal sm:hidden">Consulta especializada</span>
+                    <span className="text-xs opacity-75 font-normal hidden sm:inline">→ Consulta médica</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            {/* Apps Médicas */}
+            <div className="group bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm p-6 sm:p-8 lg:p-10 rounded-xl sm:rounded-2xl border border-teal-200/50 dark:border-teal-700/50 hover:border-teal-300 dark:hover:border-teal-600 transition-all duration-300 hover:shadow-xl hover:shadow-teal-500/10 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              <div className="text-center mb-6 sm:mb-8">
+                <div className="inline-flex p-3 sm:p-4 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Smartphone className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white" />
+                </div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-zinc-900 dark:text-white mb-3 sm:mb-4">
+                  Plataformas Médicas IA
+                </h3>
+                <p className="text-zinc-600 dark:text-slate-400 text-sm sm:text-base lg:text-lg leading-relaxed">
+                  Sistemas completos para consultorios y clínicas: gestión de pacientes, telemedicina, 
+                  análisis predictivo y herramientas de apoyo al diagnóstico integradas.
+                </p>
+              </div>
+              
+              <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                {[
+                  { icon: Globe, text: "Plataformas de telemedicina inteligente" },
+                  { icon: Users, text: "Gestión automatizada de pacientes" },
+                  { icon: BarChart3, text: "Análisis predictivo de salud poblacional" },
+                  { icon: Code2, text: "Integración con equipos médicos existentes" }
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-start sm:items-center gap-3 p-3 sm:p-3 rounded-lg bg-teal-50/50 dark:bg-teal-900/20 group-hover:bg-teal-100/50 dark:group-hover:bg-teal-800/30 transition-colors duration-300">
+                    <div className="p-1.5 sm:p-2 bg-teal-100 dark:bg-teal-800 rounded-lg flex-shrink-0">
+                      <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-teal-600 dark:text-teal-400" />
+                    </div>
+                    <span className="text-xs sm:text-sm font-medium text-zinc-700 dark:text-slate-300 leading-tight">{feature.text}</span>
+              </div>
+            ))}
+              </div>
+
+              <div className="text-center">
+                {/* Badge móvil */}
+                <div className="flex justify-center mb-2 sm:hidden">
+                  <div className="bg-teal-100 text-teal-700 text-xs font-medium px-2 py-1 rounded-full">
+                    🏥 Plataforma completa
+                  </div>
+                </div>
+                
+                <button 
+                  onClick={() => {
+                    setSelectedService({ type: 'medical-platform', title: 'Plataforma Médica IA' });
+                    setConsultationOpen(true);
+                  }}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white font-bold py-4 px-4 sm:px-6 rounded-2xl text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-teal-500/25 min-h-[56px] w-full justify-center max-w-xs mx-auto sm:max-w-none relative"
+                >
+                  {/* Badge desktop */}
+                  <div className="hidden sm:block absolute -top-2 -right-2 bg-teal-100 text-teal-700 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
+                    CLÍNICA
+                  </div>
+                  
+                  <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                  <span className="text-center leading-tight">
+                    <span className="block text-sm sm:text-base">Plataforma Médica</span>
+                    <span className="block text-xs opacity-75 font-normal sm:hidden">Demo personalizada</span>
+                    <span className="text-xs opacity-75 font-normal hidden sm:inline">→ Demo personalizada</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Beneficios para Médicos */}
+          <div className="bg-white/60 dark:bg-zinc-800/60 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 border border-cyan-200/30 dark:border-cyan-700/30 animate-fade-in-up mb-8 sm:mb-12" style={{animationDelay: '0.3s'}}>
+            <div className="text-center mb-6 sm:mb-8">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-50 to-teal-50 dark:from-cyan-900/20 dark:to-teal-900/20 text-cyan-700 dark:text-cyan-300 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-500 rounded-full animate-pulse"></div>
+                <span className="hidden sm:inline">Impacto Real en tu Práctica Médica</span>
+                <span className="sm:hidden">💡 Impacto Real</span>
+              </div>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-zinc-900 dark:text-white mb-2 sm:mb-4">
+                ¿Por qué los médicos eligen nuestras soluciones de IA?
+              </h3>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              {[
+                {
+                  icon: Clock,
+                  title: "Ahorra 40% del tiempo",
+                  description: "Automatiza documentación y tareas administrativas"
+                },
+                {
+                  icon: Target,
+                  title: "Mejora precisión diagnóstica",
+                  description: "Reduce errores con análisis de IA como segunda opinión"
+                },
+                {
+                  icon: Heart,
+                  title: "Mejor atención al paciente",
+                  description: "Más tiempo para lo que realmente importa: tus pacientes"
+                },
+                {
+                  icon: BarChart3,
+                  title: "Aumenta ingresos 30%",
+                  description: "Optimiza agenda y reduce tiempos muertos"
+                },
+                {
+                  icon: Users,
+                  title: "Gestión inteligente",
+                  description: "Seguimiento automático de tratamientos y citas"
+                },
+                {
+                  icon: Globe,
+                  title: "Telemedicina avanzada",
+                  description: "Consultas remotas con herramientas de diagnóstico IA"
+                }
+              ].map((benefit, index) => (
+                <div key={index} className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg bg-cyan-50/30 dark:bg-cyan-900/10 hover:bg-cyan-100/50 dark:hover:bg-cyan-800/20 transition-colors duration-300">
+                  <div className="p-1.5 sm:p-2 bg-cyan-100 dark:bg-cyan-800 rounded-lg flex-shrink-0 mt-0.5">
+                    <benefit.icon className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-cyan-600 dark:text-cyan-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-zinc-900 dark:text-white text-xs sm:text-sm mb-1 leading-tight">{benefit.title}</h4>
+                    <p className="text-xs sm:text-xs text-zinc-600 dark:text-slate-400 leading-tight">{benefit.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Específico para Médicos */}
+          <div className="text-center px-2">
+            <div className="bg-gradient-to-r from-cyan-500/10 to-teal-500/10 dark:from-cyan-500/5 dark:to-teal-500/5 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 border border-cyan-200/50 dark:border-cyan-700/50 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+              <div className="inline-flex items-center gap-2 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                <Heart className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Oferta Especial para Médicos</span>
+                <span className="sm:hidden">⚕️ Para Médicos</span>
+              </div>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-zinc-900 dark:text-white mb-3 sm:mb-4">
+                Consulta Médica Especializada - Sin Costo
+              </h3>
+              <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 mb-4 sm:mb-6 max-w-2xl mx-auto leading-relaxed">
+                Como médico, sabemos que tu tiempo es valioso. Te ofrecemos una <strong>consulta gratuita de 20 minutos</strong> 
+                para mostrar exactamente cómo la IA puede transformar tu práctica médica.
+              </p>
+              
+              <div className="flex flex-col gap-2 sm:gap-3 justify-center items-center mb-4 sm:mb-6 text-center">
+                <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-cyan-600 dark:text-cyan-400">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-500 rounded-full flex-shrink-0"></div>
+                  <span>Demo personalizada para tu especialidad</span>
+                </div>
+                <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-cyan-600 dark:text-cyan-400">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-500 rounded-full flex-shrink-0"></div>
+                  <span>Análisis de ROI específico para consultorios</span>
+                </div>
+                <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-cyan-600 dark:text-cyan-400">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-500 rounded-full flex-shrink-0"></div>
+                  <span>Plan de implementación paso a paso</span>
+                </div>
+              </div>
+
+              <div className="relative">
+                {/* Badge móvil */}
+                <div className="flex justify-center mb-2 sm:hidden">
+                  <div className="bg-yellow-300 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full animate-bounce">
+                    ⚡ ESPECIALIZADO MÉDICO
+                  </div>
+                </div>
+                
+                <button
+                  onClick={() => {
+                    setSelectedService({ type: 'medical', title: 'Consulta Médica IA' });
+                    setConsultationOpen(true);
+                  }}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-700 hover:to-teal-700 text-white font-bold py-4 px-4 sm:px-6 lg:px-8 rounded-2xl text-sm sm:text-base lg:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-cyan-500/25 min-h-[56px] w-full max-w-sm mx-auto sm:max-w-md lg:max-w-lg justify-center relative"
+                >
+                  {/* Badge desktop */}
+                  <div className="hidden sm:block absolute -top-2 -right-2 bg-yellow-300 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
+                    MÉDICOS
+                  </div>
+                  
+                  <Heart className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                  <span className="text-center leading-tight">
+                    <span className="block text-sm sm:text-base lg:text-lg">Agendar Consulta Médica</span>
+                    <span className="block text-xs sm:text-sm opacity-90">20 min • 100% Gratuita</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 hidden sm:block" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Creación de Agentes de IA y Apps con IA */}
       <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-950/20 dark:via-purple-950/20 dark:to-pink-950/20 transition-colors duration-300 relative overflow-hidden">
         {/* Background Pattern */}
