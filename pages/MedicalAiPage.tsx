@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Stethoscope, BrainCircuit, Microscope, HeartPulse, FileText, Bot, Search, FlaskConical, BookOpen, TrendingUp } from 'lucide-react';
+import { Stethoscope, BrainCircuit, Microscope, HeartPulse, FileText, Bot, Search, FlaskConical, BookOpen, TrendingUp, MessageCircle } from 'lucide-react';
+import ConsultationModal from '../components/ConsultationModal';
 
 const MedicalAiPage: React.FC = () => {
+  const [consultationOpen, setConsultationOpen] = useState(false);
 
   const useCases = [
     { icon: BrainCircuit, title: "Diagnóstico por imágenes", description: "Análisis de rayos X, tomografías y resonancias con precisión sobrehumana." },
@@ -50,9 +52,18 @@ const MedicalAiPage: React.FC = () => {
               {/* Subtle glow effect */}
               <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-xl scale-150"></div>
             </div>
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-blue-900/20 dark:to-emerald-900/20 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-              Especialistas en IA para el Sector Salud
+            <div className="flex flex-col items-center gap-2 mb-6">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
+                <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
+                <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
+                <span className="text-xs text-slate-500 ml-1 sm:ml-2">2/3</span>
+              </div>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-blue-900/20 dark:to-emerald-900/20 text-blue-700 dark:text-blue-300 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                <span className="hidden sm:inline">Especialistas en IA para el Sector Salud</span>
+                <span className="sm:hidden">IA Médica Especializada</span>
+              </div>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white leading-tight max-w-4xl mx-auto mb-6">
               Inteligencia Artificial para la Medicina
@@ -83,12 +94,41 @@ const MedicalAiPage: React.FC = () => {
           </div>
 
           <div className="text-center">
-            <Link to="/contacto" className="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-md text-base transition duration-300 shadow-md hover:shadow-lg">
-              Consulta Especializada
-            </Link>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-8">
-              Certificación médica • Cumplimiento normativo • Soporte especializado
-            </p>
+            <div className="relative">
+              {/* Badge móvil arriba del botón */}
+              <div className="flex justify-center mb-3 sm:hidden">
+                <div className="bg-blue-300 text-blue-900 text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                  🏥 ESPECIALIZADA MÉDICA
+                </div>
+              </div>
+              
+              <button
+                onClick={() => setConsultationOpen(true)}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white font-bold py-4 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-blue-400/25 min-h-[60px] w-full max-w-sm mx-auto sm:w-auto justify-center relative"
+              >
+                {/* Badge desktop */}
+                <div className="hidden sm:block absolute -top-2 -right-2 bg-green-400 text-green-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
+                  MÉDICA
+                </div>
+                
+                <MessageCircle className="w-5 h-5 flex-shrink-0" />
+                <span className="text-center leading-tight">
+                  <span className="block text-sm sm:text-base">Consulta Médica</span>
+                  <span className="block text-xs sm:text-sm opacity-90">Especializada GRATIS</span>
+                </span>
+              </button>
+            </div>
+            
+            <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-4 text-center space-y-1 sm:space-y-0">
+              <div className="sm:hidden">
+                <div>✓ Certificación médica</div>
+                <div>✓ Cumplimiento normativo</div>
+                <div>✓ Soporte especializado</div>
+              </div>
+              <div className="hidden sm:block">
+                Certificación médica • Cumplimiento normativo • Soporte especializado
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -400,15 +440,38 @@ const MedicalAiPage: React.FC = () => {
               </div>
             </div>
             
-            <Link to="/contacto" className="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-md text-base transition duration-300 shadow-md hover:shadow-lg">
-              Agendar Consulta Especializada
-            </Link>
+            <div className="relative">
+              {/* Badge móvil arriba del botón */}
+              <div className="flex justify-center mb-3 sm:hidden">
+                <div className="bg-green-300 text-green-900 text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                  ⚕️ CONSULTA MÉDICA
+                </div>
+              </div>
+              
+              <button
+                onClick={() => setConsultationOpen(true)}
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white font-bold py-5 sm:py-6 px-8 sm:px-10 rounded-2xl text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-blue-400/30 min-h-[64px] sm:min-h-[72px] w-full max-w-sm sm:max-w-lg mx-auto justify-center relative"
+              >
+                <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                <span className="text-center leading-tight">
+                  <span className="block text-base sm:text-lg">Agendar Consulta</span>
+                  <span className="block text-sm sm:text-base opacity-90">Médica Especializada</span>
+                </span>
+              </button>
+            </div>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-8">
               Certificación ISO 13485 • Cumplimiento HIPAA • Soporte especializado
             </p>
           </div>
         </div>
       </section>
+      
+      {/* Consultation Modal */}
+      <ConsultationModal
+        isOpen={consultationOpen}
+        onClose={() => setConsultationOpen(false)}
+        presetType="medical"
+      />
     </div>
   );
 };

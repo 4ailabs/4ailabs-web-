@@ -58,15 +58,25 @@ const ContactPage: React.FC = () => {
     <div className="bg-white dark:bg-zinc-950 transition-colors duration-300">
       <section className="py-20 sm:py-28 bg-gradient-to-b from-slate-50 via-slate-100/30 to-blue-50/50 dark:from-zinc-900 dark:to-zinc-950 transition-colors duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-1 rounded-full text-sm font-medium mb-6">
-            Consultas gratuitas disponibles
+          <div className="flex flex-col items-center gap-2 mb-6">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
+              <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
+              <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
+              <span className="text-xs text-slate-500 ml-1 sm:ml-2">3/3</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium animate-pulse">
+              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+              <span className="hidden sm:inline">🔥 PASO FINAL - Consultas gratuitas disponibles</span>
+              <span className="sm:hidden">🔥 PASO FINAL</span>
+            </div>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white fade-in">
             Agenda tu Consulta GRATUITA de 15 minutos
           </h1>
           <p className="mt-4 text-lg text-zinc-600 dark:text-slate-300 max-w-2xl mx-auto fade-in stagger-1">
             Recibe un <strong>análisis personalizado y roadmap de implementación</strong> para automatizar tu negocio con IA. 
-            <span className="text-slate-600 dark:text-slate-400 font-semibold"> Startup especializada - Atención personalizada garantizada.</span>
+            <span className="text-slate-600 dark:text-slate-400 font-semibold"> Agencia especializada - Atención personalizada garantizada.</span>
           </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
             <div className="bg-white dark:bg-zinc-800 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-zinc-700">
@@ -121,43 +131,113 @@ const ContactPage: React.FC = () => {
                 
                 {/* Generador de Propuestas */}
                 <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/10 dark:to-teal-900/10 rounded-xl p-4 border border-emerald-200 dark:border-emerald-700/30 mb-4">
-                  <button
-                    type="button"
-                    onClick={generateProposal}
-                    disabled={isGeneratingProposal}
-                    className="w-full flex justify-center items-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-95 disabled:bg-zinc-400 dark:disabled:bg-zinc-600 text-white font-bold py-3 px-6 rounded-full text-base transition-all-smooth shadow-lg shadow-emerald-400/25"
-                  >
-                    {isGeneratingProposal ? (
-                      <>
-                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        Generando Propuesta...
-                      </>
-                    ) : (
-                      <>
-                        <FileText className="w-5 h-5" />
-                        Generar Propuesta Técnica
-                      </>
-                    )}
-                  </button>
-                  <p className="text-xs text-center text-zinc-500 dark:text-slate-500 mt-2">
-                    Propuesta personalizada con IA • Precios y timeline • Especificaciones técnicas
-                  </p>
+                  <div className="relative">
+                    {/* Badge móvil arriba del botón */}
+                    <div className="flex justify-center mb-2 sm:hidden">
+                      <div className="bg-emerald-300 text-emerald-900 text-xs font-bold px-2 py-1 rounded-full">
+                        💰 VER PRECIOS
+                      </div>
+                    </div>
+                    
+                    <button
+                      type="button"
+                      onClick={generateProposal}
+                      disabled={isGeneratingProposal}
+                      className="w-full flex justify-center items-center gap-2 sm:gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-95 disabled:bg-zinc-400 dark:disabled:bg-zinc-600 text-white font-bold py-4 sm:py-5 px-6 rounded-2xl text-sm sm:text-base transition-all-smooth shadow-lg shadow-emerald-400/25 min-h-[56px] relative"
+                    >
+                      {/* Badge desktop */}
+                      <div className="hidden sm:block absolute -top-2 -right-2 bg-blue-400 text-blue-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
+                        PRECIOS
+                      </div>
+                      
+                      {isGeneratingProposal ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          <span>Generando...</span>
+                        </>
+                      ) : (
+                        <>
+                          <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                          <span className="text-center leading-tight">
+                            <span className="block text-sm sm:text-base">Generar Propuesta</span>
+                            <span className="block text-xs sm:text-sm opacity-90">con Precios</span>
+                          </span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                  
+                  <div className="text-xs text-center text-zinc-500 dark:text-slate-500 mt-3 space-y-1 sm:space-y-0">
+                    <div className="sm:hidden">
+                      <div>• IA personalizada</div>
+                      <div>• Precios y timeline</div>
+                    </div>
+                    <div className="hidden sm:block">
+                      Propuesta personalizada con IA • Precios y timeline • Especificaciones técnicas
+                    </div>
+                  </div>
                 </div>
 
                 <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-900/10 dark:to-slate-800/10 rounded-xl p-4 border border-slate-200 dark:border-slate-700/30">
-                  <button type="submit" disabled={formState === 'loading'} className="w-full flex justify-center items-center gap-3 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 active:scale-95 disabled:bg-zinc-400 dark:disabled:bg-zinc-600 text-white font-bold py-4 px-6 rounded-full text-lg transition-all-smooth shadow-xl shadow-slate-400/25 pulse-cta">
-                    {formState === 'loading' ? <><Loader2 className="animate-spin" /> Procesando...</> : <>Reservar Mi Consulta GRATIS <Send className="w-5 h-5" /></>}
-                  </button>
-                  <p className="text-xs text-center text-zinc-500 dark:text-slate-500 mt-3">
-                    Respuesta en 24h • Sin compromisos • Roadmap incluido
-                  </p>
+                  <div className="relative">
+                    {/* Badge móvil arriba del botón */}
+                    <div className="flex justify-center mb-3 sm:hidden">
+                      <div className="bg-red-300 text-red-900 text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                        🚨 RESERVAR AHORA
+                      </div>
+                    </div>
+                    
+                    <button 
+                      type="submit" 
+                      disabled={formState === 'loading'} 
+                      className="w-full flex justify-center items-center gap-3 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 active:scale-95 disabled:bg-zinc-400 dark:disabled:bg-zinc-600 text-white font-bold py-5 sm:py-6 px-6 sm:px-8 rounded-2xl text-lg sm:text-xl transition-all-smooth shadow-xl shadow-red-400/30 pulse-cta min-h-[64px] relative"
+                    >
+                      {/* Badge desktop */}
+                      <div className="hidden sm:block absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
+                        ¡AHORA!
+                      </div>
+                      
+                      {formState === 'loading' ? (
+                        <>
+                          <Loader2 className="animate-spin w-5 h-5" /> 
+                          <span>Procesando...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5 flex-shrink-0" />
+                          <span className="text-center leading-tight">
+                            <span className="block text-base sm:text-lg">Reservar Mi Consulta</span>
+                            <span className="block text-sm sm:text-base opacity-90">100% GRATIS</span>
+                          </span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                  
+                  <div className="text-xs text-center text-zinc-500 dark:text-slate-500 mt-4 space-y-1 sm:space-y-0">
+                    <div className="sm:hidden">
+                      <div>✓ Respuesta en 24h</div>
+                      <div>✓ Sin compromisos</div>
+                      <div>✓ Roadmap incluido</div>
+                    </div>
+                    <div className="hidden sm:block">
+                      Respuesta en 24h • Sin compromisos • Roadmap incluido
+                    </div>
+                  </div>
                 </div>
                 {formState === 'success' && <p className="text-slate-600 dark:text-slate-400 text-center">¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto pronto.</p>}
                 {formState === 'error' && <p className="text-red-600 dark:text-red-400 text-center">Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.</p>}
               </form>
             </div>
             <div className="fade-in stagger-1">
-              <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-6">Información de Contacto</h2>
+              <div className="text-center sm:text-left mb-6">
+                <div className="flex justify-center sm:justify-start mb-2 sm:hidden">
+                  <div className="bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium px-3 py-1 rounded-full">
+                    📞 CONTACTO DIRECTO
+                  </div>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">Información de Contacto</h2>
+              </div>
               <div className="space-y-6 text-zinc-600 dark:text-slate-300">
                 <div className="flex items-start gap-4 p-4 bg-blue-50/50 dark:bg-zinc-800/50 rounded-lg border border-blue-200 dark:border-zinc-700">
                   <MapPin className="w-8 h-8 text-blue-600 dark:text-cyan-400 flex-shrink-0" />
@@ -171,12 +251,12 @@ const ContactPage: React.FC = () => {
                   <div>
                     <h3 className="font-semibold text-zinc-900 dark:text-white">WhatsApp</h3>
                     <a 
-                      href="https://wa.me/+525534403571?text=Hola! Me interesa conocer más sobre los servicios de IA de 4ailabs." 
+                      href="https://wa.me/525534403571?text=Hola! Me interesa conocer más sobre los servicios de IA de 4ailabs." 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-green-600 dark:text-green-400 font-medium hover:text-green-700 dark:hover:text-green-300 transition-colors duration-300"
                     >
-                      +52 5543417252
+                      +52 55 3440 3571
                     </a>
                     <p className="text-sm text-zinc-500 dark:text-slate-400">Respuesta inmediata</p>
                   </div>

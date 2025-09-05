@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { allServices } from '../constants';
 import ServiceQuickStart from '../components/ServiceQuickStart';
+import ConsultationModal from '../components/ConsultationModal';
 
 const ServicesPage: React.FC = () => {
   const [quickStartOpen, setQuickStartOpen] = useState(false);
+  const [consultationOpen, setConsultationOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<{type: string, title: string} | null>(null);
 
   const handleQuickStart = (serviceType: string, serviceTitle: string) => {
@@ -19,8 +21,18 @@ const ServicesPage: React.FC = () => {
     <div className="bg-white dark:bg-zinc-950 transition-colors duration-300">
       <section className="py-20 sm:py-28 bg-gradient-to-b from-slate-50 via-blue-50/30 to-indigo-50/50 dark:from-zinc-900 dark:to-zinc-950 transition-colors duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-900/20 text-slate-700 dark:text-slate-300 px-3 py-1 rounded-full text-sm font-medium mb-6">
-            Startup innovadora con resultados reales
+          <div className="flex flex-col items-center gap-2 mb-6">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
+              <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
+              <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
+              <span className="text-xs text-slate-500 ml-1 sm:ml-2">2/3</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-900/20 text-slate-700 dark:text-slate-300 px-3 py-1 rounded-full text-sm font-medium">
+              <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse"></div>
+              <span className="hidden sm:inline">Agencia especializada en IA con resultados reales</span>
+              <span className="sm:hidden">Servicios Especializados</span>
+            </div>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white fade-in">Nuestros Servicios de IA</h1>
           <p className="mt-4 text-lg text-zinc-600 dark:text-slate-300 max-w-3xl mx-auto fade-in stagger-1">
@@ -77,13 +89,34 @@ const ServicesPage: React.FC = () => {
                         </div>
                       ))}
                     </div>
-                    <button
-                      onClick={() => handleQuickStart(service.title, service.title)}
-                      className={`inline-flex items-center ${colors.buttonBg} ${colors.buttonText} font-bold py-4 px-8 rounded-full transition-all duration-300 group shadow-lg hover:shadow-xl hover:scale-105`}
-                    >
-                      {service.ctaText}
-                      <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <button
+                        onClick={() => {
+                          setSelectedService({ type: service.title.toLowerCase().replace(/\s+/g, ''), title: service.title });
+                          setConsultationOpen(true);
+                        }}
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 rounded-2xl transition-all-smooth transform hover:scale-105 shadow-lg min-h-[56px] w-full sm:w-auto justify-center relative"
+                      >
+                        {/* Badge móvil */}
+                        <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white sm:hidden">
+                          GRATIS
+                        </div>
+                        
+                        <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                        <span className="text-center text-sm sm:text-base">
+                          <span className="block sm:inline">Consulta Estratégica</span>
+                          <span className="block sm:inline sm:ml-1">Gratuita</span>
+                        </span>
+                      </button>
+                      
+                      <button
+                        onClick={() => handleQuickStart(service.title, service.title)}
+                        className={`inline-flex items-center ${colors.buttonBg} ${colors.buttonText} font-semibold py-3 px-6 rounded-2xl transition-all duration-300 group shadow-md hover:shadow-lg text-sm sm:text-base min-h-[52px] w-full sm:w-auto justify-center`}
+                      >
+                        Ver Detalles
+                        <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </div>
                   </div>
                   <div className={index % 2 === 0 ? 'order-2' : 'order-2 lg:order-1'}>
                     <div className="relative">
@@ -156,9 +189,28 @@ const ServicesPage: React.FC = () => {
                 </p>
               </div>
               
-              <Link to="/contacto" className="inline-block bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25">
-                Reservar Mi Consulta GRATIS
-              </Link>
+              <div className="relative">
+                {/* Badge móvil arriba del botón */}
+                <div className="flex justify-center mb-3 sm:hidden">
+                  <div className="bg-red-300 text-red-900 text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                    🔥 ACCIÓN FINAL
+                  </div>
+                </div>
+                
+                <button
+                  onClick={() => {
+                    setSelectedService({ type: 'strategy', title: 'Estrategia de IA' });
+                    setConsultationOpen(true);
+                  }}
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-bold py-5 sm:py-6 px-8 sm:px-10 rounded-2xl text-lg sm:text-xl transition-all-smooth transform hover:scale-105 sm:hover:scale-110 shadow-xl shadow-red-400/30 pulse-cta min-h-[64px] sm:min-h-[72px] w-full max-w-sm sm:max-w-lg mx-auto justify-center relative"
+                >
+                  <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                  <span className="text-center leading-tight">
+                    <span className="block text-base sm:text-lg">Reservar Mi Consulta</span>
+                    <span className="block text-sm sm:text-base opacity-90">100% GRATIS</span>
+                  </span>
+                </button>
+              </div>
               <p className="text-xs text-zinc-500 dark:text-slate-500 mt-4">
                 Análisis personalizado • Roadmap de implementación • Estimación de ROI
               </p>
@@ -179,6 +231,13 @@ const ServicesPage: React.FC = () => {
           serviceTitle={selectedService.title}
         />
       )}
+      
+      {/* Consultation Modal */}
+      <ConsultationModal
+        isOpen={consultationOpen}
+        onClose={() => setConsultationOpen(false)}
+        presetType={selectedService?.type}
+      />
     </div>
   );
 };
