@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award, Play, Clock, Eye, ExternalLink, GraduationCap, BookOpen, Microscope, Users2, MessageCircle } from 'lucide-react';
+import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award, Play, Clock, Eye, ExternalLink, GraduationCap, BookOpen, Microscope, Users2, MessageCircle, Bot, Brain, Crosshair, Heart, Link as LinkIcon, Database, Search, Waves } from 'lucide-react';
 import { serviceCards, stats, testimonials, partners, technologies } from '../constants';
 
 const HomePage: React.FC = () => {
@@ -472,65 +472,68 @@ const HomePage: React.FC = () => {
                 name: "OpenAI", 
                 description: "GPT-4, DALL-E, Whisper",
                 color: "from-green-500 to-emerald-600",
-                icon: "🤖"
+                icon: Bot
               },
               { 
                 name: "Google Gemini", 
                 description: "Gemini Pro, Bard, PaLM",
                 color: "from-blue-500 to-cyan-600",
-                icon: "🧠"
+                icon: Brain
               },
               { 
                 name: "Anthropic", 
                 description: "Claude, Constitutional AI",
                 color: "from-purple-500 to-violet-600",
-                icon: "🎯"
+                icon: Crosshair
               },
               { 
                 name: "Hugging Face", 
                 description: "Transformers, Datasets",
                 color: "from-yellow-500 to-orange-600",
-                icon: "🤗"
+                icon: Heart
               },
               { 
                 name: "LangChain", 
                 description: "Framework de desarrollo",
                 color: "from-red-500 to-pink-600",
-                icon: "⛓️"
+                icon: LinkIcon
               },
               { 
                 name: "Pinecone", 
                 description: "Vector Database",
                 color: "from-indigo-500 to-blue-600",
-                icon: "📊"
+                icon: Database
               },
               { 
                 name: "Weaviate", 
                 description: "GraphQL Vector Search",
                 color: "from-teal-500 to-green-600",
-                icon: "🔍"
+                icon: Search
               },
               { 
                 name: "Flowise", 
                 description: "Low-code AI workflows",
                 color: "from-rose-500 to-pink-600",
-                icon: "🌊"
+                icon: Waves
               }
-            ].map((tech, index) => (
-              <div key={tech.name} className="group bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm p-6 rounded-xl border border-slate-200/50 dark:border-slate-700/50 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 hover:shadow-xl hover:shadow-slate-500/10 animate-fade-in-up" style={{animationDelay: `${0.1 + index * 0.1}s`}}>
-                <div className="text-center">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300`}>
-                    {tech.icon}
+            ].map((tech, index) => {
+              const IconComponent = tech.icon;
+              return (
+                <div key={tech.name} className="group bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm p-6 rounded-xl border border-slate-200/50 dark:border-slate-700/50 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 hover:shadow-xl hover:shadow-slate-500/10 animate-fade-in-up" style={{animationDelay: `${0.1 + index * 0.1}s`}}>
+                  <div className="text-center">
+                    <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${tech.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <IconComponent className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-2 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors">
+                      {tech.name}
+                    </h3>
+                    <p className="text-xs text-zinc-600 dark:text-slate-400 leading-relaxed">
+                      {tech.description}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-2 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors">
-                    {tech.name}
-                  </h3>
-                  <p className="text-xs text-zinc-600 dark:text-slate-400 leading-relaxed">
-                    {tech.description}
-                  </p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* CTA Section */}
