@@ -27,7 +27,7 @@ const HomePage: React.FC = () => {
             Especialistas en <span className="text-blue-600 dark:text-blue-400">creación de agentes de IA</span> para empresas y emprendedores
           </h1>
           <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-zinc-600 dark:text-slate-300 max-w-2xl mx-auto px-4 animate-fade-in-up animate-delay-200">
-            Creamos <strong>agentes de IA autónomos</strong> que automatizan procesos complejos, toman decisiones inteligentes y transforman tu negocio. Tecnología avanzada con atención personal y precios que se ajustan a tu presupuesto.
+            Creamos <strong>agentes de IA autónomos</strong> que automatizan procesos complejos y transforman tu negocio. Tecnología avanzada con precios que se ajustan a tu presupuesto.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col justify-center items-center gap-6 animate-fade-in-up animate-delay-400 px-4">
             <div className="relative">
@@ -135,8 +135,8 @@ const HomePage: React.FC = () => {
                 <span className="sm:hidden">Paso 2: Servicios</span>
               </div>
             </div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight">Agentes de IA que más demandan nuestros clientes</h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">6 tipos de agentes inteligentes especializados que automatizan y transforman tu negocio</p>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight">Agentes de IA más demandados</h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">6 tipos de agentes inteligentes que automatizan tu negocio</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12">
             {serviceCards.map((service, index) => {
@@ -769,10 +769,10 @@ const HomePage: React.FC = () => {
               Tecnologías de Vanguardia
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-white leading-tight mb-6">
-              Powered by las <span className="text-slate-600 dark:text-slate-300">mejores plataformas</span> de IA del mundo
+              Powered by las <span className="text-slate-600 dark:text-slate-300">mejores plataformas</span> de IA
             </h2>
             <p className="text-base sm:text-lg text-zinc-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Utilizamos las tecnologías más avanzadas y confiables para crear agentes de IA que superen las expectativas de nuestros clientes.
+              Utilizamos las tecnologías más avanzadas para crear agentes de IA que superen las expectativas.
             </p>
           </div>
 
