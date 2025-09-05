@@ -89,33 +89,12 @@ const ServicesPage: React.FC = () => {
                         </div>
                       ))}
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <button
-                        onClick={() => {
-                          setSelectedService({ type: service.title.toLowerCase().replace(/\s+/g, ''), title: service.title });
-                          setConsultationOpen(true);
-                        }}
-                        className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 rounded-2xl transition-all-smooth transform hover:scale-105 shadow-lg min-h-[56px] w-full sm:w-auto justify-center relative"
-                      >
-                        {/* Badge móvil */}
-                        <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white sm:hidden">
-                          GRATIS
-                        </div>
-                        
-                        <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                        <span className="text-center text-sm sm:text-base">
-                          <span className="block sm:inline">Consulta Estratégica</span>
-                          <span className="block sm:inline sm:ml-1">Gratuita</span>
-                        </span>
-                      </button>
-                      
-                      <button
-                        onClick={() => handleQuickStart(service.title, service.title)}
-                        className={`inline-flex items-center ${colors.buttonBg} ${colors.buttonText} font-semibold py-3 px-6 rounded-2xl transition-all duration-300 group shadow-md hover:shadow-lg text-sm sm:text-base min-h-[52px] w-full sm:w-auto justify-center`}
-                      >
-                        Ver Detalles
-                        <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
-                      </button>
+                    {/* Información del servicio sin botones */}
+                    <div className="bg-white/50 dark:bg-zinc-800/50 rounded-xl p-4 border border-slate-200/50 dark:border-zinc-700/50">
+                      <div className="flex items-center gap-2 text-sm text-zinc-600 dark:text-slate-400">
+                        <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
+                        <span>Consulta gratuita disponible</span>
+                      </div>
                     </div>
                   </div>
                   <div className={index % 2 === 0 ? 'order-2' : 'order-2 lg:order-1'}>
