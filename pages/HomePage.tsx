@@ -936,11 +936,98 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
-            <a href="https://wa.me/+525534403571?text=Hola! Soy de una universidad/instituto y me interesa colaborar en proyectos de investigación en IA." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-blue-500/25 animate-fade-in-up min-h-[48px] w-full sm:w-auto justify-center" style={{animationDelay: '0.6s'}}>
-              <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
-              Colaborar con Nosotros
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-            </a>
+            {/* Premium University Collaboration CTA */}
+            <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/30 dark:via-indigo-950/30 dark:to-purple-950/30 rounded-2xl p-6 sm:p-8 border border-blue-200/50 dark:border-blue-700/50 max-w-2xl mx-auto mb-6 animate-fade-in-up" style={{animationDelay: '0.5s'}}>
+              <div className="flex flex-col items-center gap-4">
+                {/* Academic Badge */}
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-semibold border border-blue-200/50 dark:border-blue-700/50">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                  <BookOpen className="w-4 h-4" />
+                  Alianzas Académicas Estratégicas
+                </div>
+                
+                {/* Premium Content */}
+                <div className="text-center">
+                  <h4 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-white mb-2">
+                    ¿Representas una Universidad o Instituto de Investigación?
+                  </h4>
+                  <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4 max-w-md mx-auto">
+                    Únete a nuestro programa de colaboración académica y desarrollemos juntos el futuro de la IA aplicada.
+                  </p>
+                  
+                  {/* Benefits Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                    <div className="flex items-center gap-2 text-xs sm:text-sm text-blue-700 dark:text-blue-300">
+                      <Microscope className="w-4 h-4 flex-shrink-0" />
+                      <span>Proyectos de investigación</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs sm:text-sm text-blue-700 dark:text-blue-300">
+                      <Users2 className="w-4 h-4 flex-shrink-0" />
+                      <span>Intercambio académico</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs sm:text-sm text-blue-700 dark:text-blue-300">
+                      <Target className="w-4 h-4 flex-shrink-0" />
+                      <span>Financiamiento conjunto</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Enhanced Collaboration Button */}
+            <div className="relative inline-block group">
+              {/* Multiple Glow Effects */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-2xl blur-lg opacity-20 scale-110 animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 rounded-2xl blur-md opacity-15 scale-105 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+              
+              <a 
+                href="https://wa.me/+525534403571?text=Hola! Soy de una universidad/instituto y me interesa colaborar en proyectos de investigación en IA." 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="relative inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white font-bold py-4 sm:py-5 px-8 sm:px-12 rounded-2xl text-base sm:text-lg transition-all duration-500 transform hover:scale-105 hover:shadow-2xl shadow-blue-500/30 min-h-[60px] w-full max-w-md mx-auto sm:w-auto justify-center group overflow-hidden border-2 border-blue-400/20 hover:border-blue-300/40" 
+                style={{
+                  animation: 'fadeInUp 0.8s ease-out 0.6s both, float 3s ease-in-out infinite 2s'
+                }}
+              >
+                {/* Shine Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                
+                {/* Floating Particles */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="absolute top-2 left-4 w-1 h-1 bg-white/30 rounded-full animate-ping" style={{animationDelay: '0s'}}></div>
+                  <div className="absolute top-4 right-6 w-1 h-1 bg-white/30 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+                  <div className="absolute bottom-3 left-8 w-1 h-1 bg-white/30 rounded-full animate-ping" style={{animationDelay: '2s'}}></div>
+                </div>
+                
+                {/* Academic Icons with Animation */}
+                <div className="flex items-center gap-2 relative z-10">
+                  <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce" style={{animationDuration: '2s'}} />
+                  <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 opacity-75 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                
+                <span className="relative z-10 text-center">
+                  <span className="block text-base sm:text-lg font-bold group-hover:text-blue-100 transition-colors duration-300">Iniciar Colaboración</span>
+                  <span className="block text-xs sm:text-sm opacity-90 font-normal group-hover:opacity-100 transition-opacity duration-300">Universidad • Instituto • Centro de Investigación</span>
+                </span>
+                
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+                
+                {/* Premium Badge with Animation */}
+                <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white shadow-lg animate-pulse">
+                  🎓 VIP
+                </div>
+                
+                {/* Hover Ripple Effect */}
+                <div className="absolute inset-0 rounded-2xl bg-white/10 scale-0 group-hover:scale-100 transition-transform duration-500 origin-center"></div>
+              </a>
+            </div>
+            
+            {/* Additional Academic Context */}
+            <div className="mt-4 text-center">
+              <p className="text-xs text-zinc-500 dark:text-slate-500 max-w-lg mx-auto">
+                Programa exclusivo para instituciones académicas • Respuesta prioritaria en 24h • Director de Investigación dedicado
+              </p>
+            </div>
           </div>
         </div>
       </section>
