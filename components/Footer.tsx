@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Bot, Mail, MapPin } from 'lucide-react';
-import { navLinks, socialLinks } from '../constants';
+import { navLinks } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -17,14 +17,6 @@ const Footer: React.FC = () => {
             <p className="text-zinc-600 dark:text-slate-400 text-xs sm:text-sm">
               Asesoría especializada, desarrollo de sistemas IA y educación tecnológica para impulsar tu negocio al futuro.
             </p>
-            {/* Redes sociales temporalmente deshabilitadas */}
-            {/* <div className="flex space-x-3 sm:space-x-4">
-              {socialLinks.map((social) => (
-                <a key={social.name} href={`https://${social.name.toLowerCase()}.com/4ailabs`} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-slate-400 hover:text-slate-600 dark:hover:text-cyan-400 transition-colors duration-300">
-                  <social.icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                </a>
-              ))}
-            </div> */}
           </div>
 
           <div>
