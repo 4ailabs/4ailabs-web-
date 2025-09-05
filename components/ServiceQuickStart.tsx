@@ -205,6 +205,28 @@ const ServiceQuickStart: React.FC<ServiceQuickStartProps> = ({
                   <li>• Entregables y resultados esperados</li>
                 </ul>
               </div>
+
+              <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-700">
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-green-600 dark:text-green-400 text-sm font-bold">$</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">
+                      💰 Nos ajustamos a tu presupuesto
+                    </h4>
+                    <p className="text-sm text-green-800 dark:text-green-200 mb-2">
+                      Entendemos que cada empresa tiene diferentes capacidades de inversión. Por eso ofrecemos:
+                    </p>
+                    <ul className="text-xs text-green-700 dark:text-green-300 space-y-1">
+                      <li>• <strong>Precios flexibles</strong> según tu presupuesto</li>
+                      <li>• <strong>Pago escalonado</strong> (50% inicio, 50% entrega)</li>
+                      <li>• <strong>Descuentos</strong> por proyectos a largo plazo</li>
+                      <li>• <strong>Opciones de financiamiento</strong> disponibles</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
@@ -259,6 +281,16 @@ const ServiceQuickStart: React.FC<ServiceQuickStartProps> = ({
                     <div className="border-t pt-2 font-semibold text-lg">
                       <span className="font-medium">Total:</span> ${proposalData.pricing.totalPrice.toLocaleString()}
                     </div>
+                  </div>
+                  
+                  <div className="mt-4 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-700">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-green-600 dark:text-green-400 text-lg">💰</span>
+                      <span className="font-semibold text-green-900 dark:text-green-100 text-sm">Precios Flexibles</span>
+                    </div>
+                    <p className="text-xs text-green-800 dark:text-green-200">
+                      <strong>Nos ajustamos a tu presupuesto.</strong> Ofrecemos opciones de pago escalonado y descuentos por proyectos a largo plazo.
+                    </p>
                   </div>
                 </div>
               </div>

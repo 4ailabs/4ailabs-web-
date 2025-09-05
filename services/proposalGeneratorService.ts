@@ -67,6 +67,12 @@ PRECIOS REALISTAS (USD):
 - Automatización: $1,500 - $3,500
 - Educación IA: $500 - $1,500
 
+IMPORTANTE: 
+- Los precios son FLEXIBLES y nos ajustamos al presupuesto del cliente
+- Ofrecemos opciones de pago escalonado (50% inicio, 50% entrega)
+- Incluimos descuentos por proyectos a largo plazo
+- Siempre menciona que "Nos adaptamos a tu presupuesto"
+
 Incluye especificaciones técnicas, timeline, precios en USD y entregables. Responde en español.`
       });
 

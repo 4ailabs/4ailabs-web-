@@ -140,6 +140,22 @@ const ServicesPage: React.FC = () => {
                   <div className="text-sm text-zinc-600 dark:text-slate-400">Plan personalizado incluido</div>
                 </div>
               </div>
+              
+              {/* Flexibilidad de precios */}
+              <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-700 mb-6 relative z-10">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                    <span className="text-green-600 dark:text-green-400 text-lg font-bold">💰</span>
+                  </div>
+                  <h4 className="font-semibold text-green-900 dark:text-green-100">
+                    Nos ajustamos a tu presupuesto
+                  </h4>
+                </div>
+                <p className="text-sm text-green-800 dark:text-green-200">
+                  <strong>Precios flexibles, pago escalonado y descuentos disponibles.</strong> Trabajamos con tu presupuesto para encontrar la mejor solución.
+                </p>
+              </div>
+              
               <Link to="/contacto" className="inline-block bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25">
                 Reservar Mi Consulta GRATIS
               </Link>
