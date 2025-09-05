@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { allServices } from '../constants';
+import ServiceQuickStart from '../components/ServiceQuickStart';
 
 const ServicesPage: React.FC = () => {
+  const [quickStartOpen, setQuickStartOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<{type: string, title: string} | null>(null);
+
+  const handleQuickStart = (serviceType: string, serviceTitle: string) => {
+    setSelectedService({ type: serviceType, title: serviceTitle });
+    setQuickStartOpen(true);
+  };
+
   return (
     <div className="bg-white dark:bg-zinc-950 transition-colors duration-300">
       <section className="py-20 sm:py-28 bg-gradient-to-b from-slate-50 via-blue-50/30 to-indigo-50/50 dark:from-zinc-900 dark:to-zinc-950 transition-colors duration-300">
@@ -66,13 +75,13 @@ const ServicesPage: React.FC = () => {
                         </div>
                       ))}
                     </div>
-                    <Link
-                      to={service.ctaLink}
+                    <button
+                      onClick={() => handleQuickStart(service.title, service.title)}
                       className={`inline-flex items-center ${colors.buttonBg} ${colors.buttonText} font-bold py-4 px-8 rounded-full transition-all duration-300 group shadow-lg hover:shadow-xl hover:scale-105`}
                     >
                       {service.ctaText}
                       <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                    </button>
                   </div>
                   <div className={index % 2 === 0 ? 'order-2' : 'order-2 lg:order-1'}>
                     <div className="relative">
@@ -142,6 +151,16 @@ const ServicesPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Service Quick Start Modal */}
+      {selectedService && (
+        <ServiceQuickStart
+          isOpen={quickStartOpen}
+          onClose={() => setQuickStartOpen(false)}
+          serviceType={selectedService.type}
+          serviceTitle={selectedService.title}
+        />
+      )}
     </div>
   );
 };
