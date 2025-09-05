@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, Calendar, Tag, ExternalLink, Share2, Bookmark } from 'lucide-react';
 import { newsItems } from '../constants';
+import BackToHome from '../components/BackToHome';
 
 const NewsArticlePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -273,7 +274,7 @@ const NewsArticlePage: React.FC = () => {
         author: "Roberto Sanchez",
         readTime: "6 min"
       },
-      'n-008': {
+      'n-010': {
         content: `
           <p class="mb-6 text-zinc-700 dark:text-slate-300 leading-relaxed">
             Google DeepMind ha presentado Gemini Pro 1.5, su modelo de lenguaje más avanzado que supera a GPT-4 en múltiples benchmarks de razonamiento, matemáticas y programación, estableciendo nuevos estándares en la industria.
@@ -331,7 +332,7 @@ const NewsArticlePage: React.FC = () => {
         author: "Miguel Torres",
         readTime: "6 min"
       },
-      'n-010': {
+      'n-011': {
         content: `
           <p class="mb-6 text-zinc-700 dark:text-slate-300 leading-relaxed">
             Meta ha lanzado Code Llama 2, un modelo de inteligencia artificial open-source especializado en programación que está optimizado para generar, explicar y debuggear código en más de 20 lenguajes de programación, compitiendo directamente con GitHub Copilot.
@@ -360,7 +361,7 @@ const NewsArticlePage: React.FC = () => {
         author: "David Rodriguez",
         readTime: "7 min"
       },
-      'n-011': {
+      'n-012': {
         content: `
           <p class="mb-6 text-zinc-700 dark:text-slate-300 leading-relaxed">
             Sistemas avanzados de machine learning están revolucionando la detección de fraudes financieros, procesando transacciones bancarias en microsegundos e identificando patrones fraudulentos con una precisión del 99.7%, ahorrando millones de dólares a instituciones financieras globales.
@@ -389,7 +390,7 @@ const NewsArticlePage: React.FC = () => {
         author: "Patricia Silva",
         readTime: "8 min"
       },
-      'n-012': {
+      'n-013': {
         content: `
           <p class="mb-6 text-zinc-700 dark:text-slate-300 leading-relaxed">
             Anthropic ha lanzado Claude 3.5 Sonnet, su modelo de IA conversacional más avanzado que establece nuevos estándares en seguridad, alineación y capacidades de razonamiento, posicionándose como una alternativa robusta en el competitivo mercado de asistentes de IA.
@@ -503,7 +504,7 @@ const NewsArticlePage: React.FC = () => {
                 <p className="text-slate-400 text-sm">Publicado el {article.date}</p>
               </div>
               <a 
-                href="#" 
+                href="mailto:info@4ailabs.com" 
                 className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors"
               >
                 Ver fuente original <ExternalLink className="w-4 h-4 ml-2" />
@@ -555,6 +556,9 @@ const NewsArticlePage: React.FC = () => {
           </div>
         </div>
       </article>
+      
+      {/* Botón flotante para volver al inicio */}
+      <BackToHome variant="floating" />
     </div>
   );
 };

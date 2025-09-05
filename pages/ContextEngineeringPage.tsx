@@ -134,7 +134,7 @@ const ContextEngineeringPage: React.FC = () => {
               </div>
             </div>
             <div className="fade-in stagger-1">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop" alt="Optimización de modelos de IA y context engineering" className="rounded-2xl shadow-xl w-full h-80 object-cover" />
+              <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2070&auto=format&fit=crop" alt="Optimización de modelos de IA y context engineering" className="rounded-2xl shadow-xl w-full h-80 object-cover" />
             </div>
           </div>
         </div>

@@ -35,11 +35,23 @@ const MedicalAiPage: React.FC = () => {
   
   return (
     <div className="bg-white dark:bg-zinc-950 transition-colors duration-300">
-      <section className="relative py-24 sm:py-32 bg-gradient-to-b from-slate-50 to-white dark:from-zinc-900 dark:to-zinc-950 transition-colors duration-300">
+      <section className="relative py-24 sm:py-32 bg-gradient-to-br from-slate-50 via-blue-50/30 to-white dark:from-zinc-900 dark:via-blue-900/10 dark:to-zinc-950 transition-colors duration-300 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+          <div className="absolute top-1/4 right-0 w-96 h-96 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_50%)] rounded-full"></div>
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.1),transparent_50%)] rounded-full"></div>
+        </div>
+        
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <Stethoscope className="mx-auto h-12 w-12 text-blue-700 dark:text-blue-400 mb-6" />
-            <div className="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-md text-sm font-medium mb-6">
+            <div className="relative inline-block mb-6">
+              <Stethoscope className="mx-auto h-12 w-12 text-blue-700 dark:text-blue-400 relative z-10" />
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-xl scale-150"></div>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-blue-900/20 dark:to-emerald-900/20 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
               Especialistas en IA para el Sector Salud
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white leading-tight max-w-4xl mx-auto mb-6">
@@ -82,21 +94,41 @@ const MedicalAiPage: React.FC = () => {
       </section>
       
       {/* Aplicaciones Médicas Principales */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50/50 dark:from-zinc-950 dark:to-zinc-900/50 transition-colors duration-300">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-slate-50/50 to-white dark:from-zinc-950 dark:via-zinc-900/50 dark:to-zinc-950 transition-colors duration-300 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)] rounded-full"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_50%)] rounded-full"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-50 to-blue-50 dark:from-emerald-900/20 dark:to-blue-900/20 text-emerald-700 dark:text-emerald-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+              Aplicaciones Clínicas
+            </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-4">Aplicaciones Clínicas</h2>
             <p className="text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">Soluciones de IA especializadas para mejorar la atención médica y los resultados clínicos.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {useCases.map((useCase, index) => (
-              <div key={useCase.title} className="bg-white dark:bg-zinc-900 p-8 rounded-lg border border-slate-200 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-colors duration-300 hover:shadow-lg">
-                <div className="w-12 h-12 bg-slate-100 dark:bg-zinc-800 rounded-lg flex items-center justify-center mb-6">
-                  <useCase.icon className="w-6 h-6 text-slate-600 dark:text-slate-400" />
+              <div key={useCase.title} className="bg-gradient-to-br from-white to-slate-50/50 dark:from-zinc-900 dark:to-zinc-800/50 p-8 rounded-xl border border-slate-200 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 relative overflow-hidden group">
+                {/* Subtle background decoration */}
+                <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/20 to-transparent rounded-full -translate-y-10 translate-x-10"></div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-emerald-500/20 to-transparent rounded-full translate-y-8 -translate-x-8"></div>
                 </div>
-                <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-4">{useCase.title}</h3>
-                <p className="text-zinc-600 dark:text-slate-400 leading-relaxed">{useCase.description}</p>
+                
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-emerald-100 dark:from-blue-900/30 dark:to-emerald-900/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative">
+                    <useCase.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                    {/* Subtle glow effect */}
+                    <div className="absolute inset-0 bg-blue-500/20 rounded-xl blur-sm opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                  </div>
+                  <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{useCase.title}</h3>
+                  <p className="text-zinc-600 dark:text-slate-400 leading-relaxed">{useCase.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -265,21 +297,45 @@ const MedicalAiPage: React.FC = () => {
       </section>
 
       {/* Sección de Investigación Médica */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50/50 dark:from-zinc-950 dark:to-zinc-900/50 transition-colors duration-300">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-slate-50/50 to-white dark:from-zinc-950 dark:via-zinc-900/50 dark:to-zinc-950 transition-colors duration-300 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)] rounded-full"></div>
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)] rounded-full"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <FlaskConical className="mx-auto h-12 w-12 text-slate-600 dark:text-slate-400 mb-4" />
+            <div className="relative inline-block mb-6">
+              <FlaskConical className="mx-auto h-12 w-12 text-purple-600 dark:text-purple-400 relative z-10" />
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 bg-purple-500/20 rounded-full blur-xl scale-150"></div>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+              Investigación Médica
+            </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white">IA para Investigación Médica</h2>
             <p className="mt-4 text-zinc-600 dark:text-slate-400 max-w-3xl mx-auto">Aceleramos el descubrimiento científico y el desarrollo de nuevos tratamientos con inteligencia artificial avanzada.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {researchServices.map((service, index) => (
-              <div key={service.title} className="bg-white dark:bg-zinc-900 p-8 rounded-lg border border-slate-200 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-colors duration-300 hover:shadow-lg">
-                <div className="w-12 h-12 bg-slate-100 dark:bg-zinc-800 rounded-lg flex items-center justify-center mb-6">
-                  <service.icon className="w-6 h-6 text-slate-600 dark:text-slate-400" />
+              <div key={service.title} className="bg-gradient-to-br from-white to-purple-50/30 dark:from-zinc-900 dark:to-purple-900/20 p-8 rounded-xl border border-slate-200 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 relative overflow-hidden group">
+                {/* Subtle background decoration */}
+                <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-purple-500/20 to-transparent rounded-full -translate-y-10 translate-x-10"></div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full translate-y-8 -translate-x-8"></div>
                 </div>
-                <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-4">{service.title}</h3>
-                <p className="text-zinc-600 dark:text-slate-400 leading-relaxed">{service.description}</p>
+                
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative">
+                    <service.icon className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                    {/* Subtle glow effect */}
+                    <div className="absolute inset-0 bg-purple-500/20 rounded-xl blur-sm opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                  </div>
+                  <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-4 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">{service.title}</h3>
+                  <p className="text-zinc-600 dark:text-slate-400 leading-relaxed">{service.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -300,7 +356,7 @@ const MedicalAiPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1">
-              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?q=80&w=2070&auto=format&fit=crop" alt="Profesionales médicos utilizando tecnología IA" className="rounded-2xl shadow-2xl w-full h-80 object-cover"/>
+              <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop" alt="Profesionales médicos utilizando tecnología IA" className="rounded-2xl shadow-2xl w-full h-80 object-cover"/>
             </div>
             <div className="order-1 md:order-2">
               <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-6">Nuestros Servicios Médicos</h3>

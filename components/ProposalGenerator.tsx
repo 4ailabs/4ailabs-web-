@@ -8,7 +8,7 @@ interface ProposalGeneratorProps {
 }
 
 const ProposalGenerator: React.FC<ProposalGeneratorProps> = ({ proposal, onClose }) => {
-  const [activeSection, setActiveSection] = useState<'overview' | 'technical' | 'pricing' | 'timeline'>('overview');
+  const [activeSection, setActiveSection] = useState<'overview' | 'technical' | 'timeline'>('overview');
 
   const downloadProposal = () => {
     const proposalContent = `
@@ -30,11 +30,9 @@ ${proposal.technicalSpecs.map((spec, i) => `${i + 1}. ${spec}`).join('\n')}
 ENTREGABLES:
 ${proposal.deliverables.map((deliverable, i) => `${i + 1}. ${deliverable}`).join('\n')}
 
-PRECIOS:
-- Precio base: $${proposal.pricing.basePrice.toLocaleString()}
-- Servicios adicionales:
-${proposal.pricing.additionalServices.map(service => `  - ${service.name}: $${service.price.toLocaleString()}`).join('\n')}
-- TOTAL: $${proposal.pricing.totalPrice.toLocaleString()}
+PRESUPUESTO:
+Los precios se discutirán en una consulta personalizada de 15 minutos.
+Agenda tu consulta gratuita para recibir una cotización detallada.
 
 TIMELINE:
 ${proposal.timeline.phases.map((phase, i) => `${i + 1}. ${phase.name} (${phase.duration}): ${phase.description}`).join('\n')}
@@ -107,7 +105,6 @@ Fecha: ${new Date().toLocaleDateString('es-MX')}
             {[
               { id: 'overview', label: 'Resumen', icon: FileText },
               { id: 'technical', label: 'Técnico', icon: CheckCircle },
-              { id: 'pricing', label: 'Precios', icon: DollarSign },
               { id: 'timeline', label: 'Timeline', icon: Clock }
             ].map(({ id, label, icon: Icon }) => (
               <button
@@ -160,6 +157,16 @@ Fecha: ${new Date().toLocaleDateString('es-MX')}
                   ))}
                 </div>
               </div>
+
+              <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-xl border border-orange-200 dark:border-orange-800">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3">Presupuesto</h3>
+                <p className="text-zinc-700 dark:text-zinc-300 mb-3">{proposal.budget}</p>
+                <div className="bg-white dark:bg-zinc-800 p-4 rounded-lg border border-orange-200 dark:border-orange-700">
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                    <strong>💡 Consulta Personalizada:</strong> Los precios específicos se discutirán en una consulta gratuita de 15 minutos donde evaluaremos tus necesidades exactas y te proporcionaremos una cotización detallada.
+                  </p>
+                </div>
+              </div>
             </div>
           )}
 
@@ -177,45 +184,6 @@ Fecha: ${new Date().toLocaleDateString('es-MX')}
             </div>
           )}
 
-          {activeSection === 'pricing' && (
-            <div className="space-y-6">
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-xl border border-green-200 dark:border-green-800">
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">Estructura de Precios</h3>
-                
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center p-4 bg-white dark:bg-zinc-800 rounded-lg">
-                    <span className="font-medium text-zinc-900 dark:text-white">Precio Base</span>
-                    <span className="text-xl font-bold text-green-600 dark:text-green-400">
-                      ${proposal.pricing.basePrice.toLocaleString()}
-                    </span>
-                  </div>
-
-                  {proposal.pricing.additionalServices.map((service, index) => (
-                    <div key={index} className="flex justify-between items-center p-4 bg-white dark:bg-zinc-800 rounded-lg">
-                      <span className="text-zinc-700 dark:text-zinc-300">{service.name}</span>
-                      <span className="font-semibold text-zinc-900 dark:text-white">
-                        ${service.price.toLocaleString()}
-                      </span>
-                    </div>
-                  ))}
-
-                  <div className="border-t border-zinc-200 dark:border-zinc-700 pt-4">
-                    <div className="flex justify-between items-center p-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg">
-                      <span className="text-lg font-semibold">Total</span>
-                      <span className="text-2xl font-bold">
-                        ${proposal.pricing.totalPrice.toLocaleString()}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-xl border border-blue-200 dark:border-blue-800">
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3">Rango de Presupuesto</h3>
-                <p className="text-zinc-700 dark:text-zinc-300">{proposal.budget}</p>
-              </div>
-            </div>
-          )}
 
           {activeSection === 'timeline' && (
             <div className="space-y-6">

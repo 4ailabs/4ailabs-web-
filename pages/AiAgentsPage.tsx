@@ -72,7 +72,7 @@ const AiAgentsPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
            <div className="grid md:grid-cols-2 gap-12 items-center">
              <div className="fade-in stagger-1">
-                <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2126&auto=format&fit=crop" alt="Sistema de agentes IA automatizados" className="rounded-2xl shadow-xl w-full h-80 object-cover" />
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" alt="Sistema de agentes IA automatizados" className="rounded-2xl shadow-xl w-full h-80 object-cover" />
              </div>
              <div className="fade-in">
                 <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-4">Showcase Interactivo</h2>

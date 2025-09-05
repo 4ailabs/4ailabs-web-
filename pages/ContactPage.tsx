@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Loader2, FileText, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, Send, Loader2, FileText, MessageCircle } from 'lucide-react';
 import { proposalGeneratorService, ProposalData } from '../services/proposalGeneratorService';
 import ProposalGenerator from '../components/ProposalGenerator';
 
@@ -163,14 +163,7 @@ const ContactPage: React.FC = () => {
                   <MapPin className="w-8 h-8 text-blue-600 dark:text-cyan-400 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-zinc-900 dark:text-white">Oficina Principal</h3>
-                    <p>Acapulco 36, Colonia Roma, Ciudad de México</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4 p-4 bg-indigo-50/50 dark:bg-zinc-800/50 rounded-lg border border-indigo-200 dark:border-zinc-700">
-                  <Phone className="w-8 h-8 text-indigo-600 dark:text-cyan-400 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-zinc-900 dark:text-white">Teléfono</h3>
-                    <p>+1 (123) 456-7890</p>
+                    <p>Ciudad de México</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 p-4 bg-green-50/50 dark:bg-zinc-800/50 rounded-lg border border-green-200 dark:border-zinc-700">

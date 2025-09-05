@@ -6,6 +6,7 @@ import {
 import type { LucideIcon } from 'lucide-react';
 
 export const navLinks = [
+  { name: 'Inicio', path: '/' },
   { name: 'Servicios', path: '/servicios' },
   { name: 'ROI', path: '/calculadora-roi' },
   { name: 'Contacto', path: '/contacto' },
@@ -50,12 +51,12 @@ export const stats = [
 
 export const testimonials = [
   {
-    quote: "4ailabs nos ayudó a implementar nuestro primer chatbot de IA. Aunque son una startup joven, su conocimiento técnico es impresionante y nos dieron exactamente lo que necesitábamos.",
+    quote: "4ailabs nos ayudó a implementar nuestro primer chatbot de IA. Su conocimiento técnico es impresionante y nos dieron exactamente lo que necesitábamos.",
     metrics: "Primer chatbot • Soporte excepcional • Resultados inmediatos",
-    name: "María López",
-    role: "Gerente de Operaciones",
+    name: "Pino Rizzo",
+    role: "Director General",
     company: "StartupTech",
-    photo: "/testimonials/maria-lopez.jpg",
+    photo: "/testimonials/pino-rizzo.jpg",
     industry: "Tecnología"
   },
   {
@@ -100,7 +101,7 @@ export const allServices = [
         ],
         ctaText: "Crear mi chatbot",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop"
     },
     {
         icon: Bot,
@@ -115,7 +116,7 @@ export const allServices = [
         ],
         ctaText: "Crear mi agente",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2126&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
     },
     {
         icon: HeartPulse,
@@ -130,7 +131,7 @@ export const allServices = [
         ],
         ctaText: "Consulta médica especializada",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?q=80&w=2070&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop"
     },
     {
         icon: BrainCircuit,
@@ -145,7 +146,7 @@ export const allServices = [
         ],
         ctaText: "Optimizar mi IA",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2070&auto=format&fit=crop"
     },
     {
         icon: Zap,
@@ -160,7 +161,7 @@ export const allServices = [
         ],
         ctaText: "Automatizar procesos",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
     },
     {
         icon: BookOpen,
@@ -175,15 +176,15 @@ export const allServices = [
         ],
         ctaText: "Ver programas de formación",
         ctaLink: "/contacto",
-        imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=2070&auto=format&fit=crop"
     },
 ];
 
 export const teamMembers = [
-    { name: "Juan Pérez", role: "Director de IA", imageUrl: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop" },
-    { name: "María González", role: "Líder de Ciencia de Datos", imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop" },
-    { name: "Luis Martínez", role: "Arquitecto de Software IA", imageUrl: "https://images.unsplash.com/photo-1566753323558-f4e0952af115?q=80&w=1921&auto=format&fit=crop" },
-    { name: "Sofía Hernández", role: "Especialista en NLP", imageUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop" },
+    { name: "Dr. Miguel Ojedarios", role: "Director de IA", imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop" },
+    { name: "Dra. Ana García", role: "Líder de Ciencia de Datos", imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop" },
+    { name: "Ing. Carlos Ruiz", role: "Arquitecto de Software IA", imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" },
+    { name: "Dra. Laura Martínez", role: "Especialista en NLP", imageUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop" },
 ];
 
 export const researchCategories = [
@@ -387,7 +388,7 @@ export const newsItems = [
       category: 'Aplicaciones Emergentes',
       source: 'Science Daily',
       summary: 'Investigadores han utilizado un modelo de IA para diseñar una nueva molécula candidata a fármaco en un tiempo récord, reduciendo potencialmente años del ciclo de descubrimiento de medicamentos.',
-      imageUrl: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 'n-002',
@@ -396,7 +397,7 @@ export const newsItems = [
       category: 'Industria y Negocios',
       source: 'Reuters',
       summary: 'La inversión busca acelerar el desarrollo de algoritmos de IA que puedan resolver problemas actualmente intratables, con aplicaciones en finanzas, materiales y salud.',
-      imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 'n-003',
@@ -405,7 +406,7 @@ export const newsItems = [
       category: 'Avances Tecnológicos',
       source: 'MIT Technology Review',
       summary: 'Un reciente paper demuestra cómo los nuevos modelos de "árbol de pensamiento" permiten a la IA explorar múltiples líneas de razonamiento antes de llegar a una conclusión, mejorando drásticamente su rendimiento.',
-      imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 'n-004',
@@ -414,7 +415,7 @@ export const newsItems = [
       category: 'Regulación y Ética',
       source: 'The Guardian',
       summary: 'El marco regulatorio, pionero a nivel mundial, clasifica las aplicaciones de IA por nivel de riesgo y establece normas estrictas para sistemas considerados de "alto riesgo", como los utilizados en infraestructuras críticas.',
-      imageUrl: 'https://images.unsplash.com/photo-1589994965851-a8f479c573a9?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: 'https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 'n-005',

@@ -89,10 +89,18 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 sm:py-24 bg-gradient-to-r from-slate-50 to-slate-100 dark:from-zinc-900 dark:to-zinc-800 transition-colors duration-300">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+          <div className="absolute top-1/3 right-0 w-80 h-80 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)] rounded-full"></div>
+          <div className="absolute bottom-0 left-1/3 w-64 h-64 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.1),transparent_50%)] rounded-full"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <div className="max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-1 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 text-red-700 dark:text-red-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
               Consultas gratuitas disponibles
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-6">
@@ -101,8 +109,13 @@ const ServicesPage: React.FC = () => {
             <p className="text-lg text-zinc-600 dark:text-slate-300 mb-8">
               Agenda una consulta de <strong>15 minutos completamente gratis</strong> y descubre exactamente cómo implementar IA en tu empresa con un roadmap personalizado.
             </p>
-            <div className="bg-white dark:bg-zinc-800 rounded-2xl p-8 shadow-xl border border-emerald-200 dark:border-zinc-700 mb-8">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+            <div className="bg-gradient-to-br from-white to-slate-50 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-8 shadow-xl border border-emerald-200 dark:border-zinc-700 mb-8 relative overflow-hidden">
+              {/* Subtle background decoration */}
+              <div className="absolute inset-0 opacity-5 dark:opacity-10">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-emerald-500/20 to-transparent rounded-full -translate-y-12 translate-x-12"></div>
+                <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full translate-y-10 -translate-x-10"></div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6 relative z-10">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-slate-600 dark:text-slate-400 mb-2">15 min</div>
                   <div className="text-sm text-zinc-600 dark:text-slate-400">Duración de la consulta</div>

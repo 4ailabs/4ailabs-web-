@@ -266,11 +266,30 @@ const ROICalculatorPage: React.FC = () => {
                 Información de tu Empresa
               </h2>
               
+              {/* Explicación general */}
+              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 mb-8">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3 flex items-center gap-2">
+                  <Target className="w-5 h-5 text-blue-600" />
+                  ¿Cómo funciona esta calculadora?
+                </h3>
+                <p className="text-sm text-zinc-700 dark:text-slate-300 mb-3">
+                  Te ayudamos a calcular cuánto dinero puede ahorrar tu PYME con IA. Solo necesitamos algunos datos básicos sobre tu empresa y procesos actuales.
+                </p>
+                <div className="bg-white dark:bg-zinc-800 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+                  <p className="text-sm text-zinc-600 dark:text-slate-400">
+                    <strong>Ejemplo:</strong> Si ahorras 20 horas/semana a $50/hora = $1,000/semana = $52,000/año
+                  </p>
+                </div>
+              </div>
+              
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-3">
                     Sector de tu empresa
                   </label>
+                  <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                    Selecciona tu sector para obtener cálculos más precisos. Cada industria tiene diferentes niveles de automatización.
+                  </p>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                     {sectors.map((sector, index) => {
                       const sectorColors = [
@@ -307,17 +326,25 @@ const ROICalculatorPage: React.FC = () => {
                   <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-3">
                     Número de empleados: {formatNumber(roiData.companySize)}
                   </label>
+                  <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                    Perfecto para PYMES (5-200 empleados). El tamaño afecta el potencial de ahorro - empresas más grandes tienen más procesos repetitivos que automatizar.
+                  </p>
                   <input
                     type="range"
                     min="5"
-                    max="1000"
+                    max="200"
                     value={roiData.companySize}
                     onChange={(e) => handleInputChange('companySize', parseInt(e.target.value))}
                     className="w-full h-2 bg-blue-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer slider"
                   />
                   <div className="flex justify-between text-xs text-zinc-500 dark:text-slate-400 mt-1">
-                    <span>5</span>
-                    <span>1000+</span>
+                    <span>5 empleados</span>
+                    <span>200+ empleados</span>
+                  </div>
+                  <div className="mt-3 bg-slate-50 dark:bg-zinc-800 rounded-lg p-3">
+                    <p className="text-xs text-zinc-600 dark:text-slate-400">
+                      <strong>Tip para PYMES:</strong> Incluye solo empleados administrativos (contabilidad, atención al cliente, gestión). No cuentes vendedores o personal de campo.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -343,11 +370,42 @@ const ROICalculatorPage: React.FC = () => {
                 Procesos Actuales
               </h2>
               
+              {/* Explicación de procesos repetitivos */}
+              <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 mb-8">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3 flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-yellow-600" />
+                  ¿Qué son tareas repetitivas?
+                </h3>
+                <p className="text-sm text-zinc-700 dark:text-slate-300 mb-3">
+                  Son actividades que se hacen de la misma manera una y otra vez, como responder emails similares, procesar facturas, o llenar formularios.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-white dark:bg-zinc-800 rounded-lg p-3 border border-yellow-200 dark:border-yellow-800">
+                    <p className="text-xs font-semibold text-zinc-600 dark:text-slate-400 mb-2">Ejemplos comunes:</p>
+                    <ul className="text-xs text-zinc-600 dark:text-slate-400 space-y-1">
+                      <li>• Responder consultas de clientes</li>
+                      <li>• Procesar pedidos</li>
+                      <li>• Actualizar inventarios</li>
+                      <li>• Generar reportes</li>
+                    </ul>
+                  </div>
+                  <div className="bg-white dark:bg-zinc-800 rounded-lg p-3 border border-yellow-200 dark:border-yellow-800">
+                    <p className="text-xs font-semibold text-zinc-600 dark:text-slate-400 mb-2">¿Cómo calcular?</p>
+                    <p className="text-xs text-zinc-600 dark:text-slate-400">
+                      Suma las horas que tu equipo dedica a estas tareas cada semana. Si no estás seguro, estima conservadoramente.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-3">
                     Horas por semana dedicadas a tareas repetitivas: {roiData.repetitiveHours}
                   </label>
+                  <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                    Esta es la base de tu ahorro potencial. La IA puede automatizar gran parte de estas tareas.
+                  </p>
                   <input
                     type="range"
                     min="5"
@@ -360,12 +418,20 @@ const ROICalculatorPage: React.FC = () => {
                     <span>5 horas</span>
                     <span>80+ horas</span>
                   </div>
+                  <div className="mt-3 bg-green-50 dark:bg-green-900/20 rounded-lg p-3 border border-green-200 dark:border-green-800">
+                    <p className="text-xs text-green-700 dark:text-green-300">
+                      <strong>Potencial de ahorro:</strong> Con IA podrías reducir estas horas en un 60-80%
+                    </p>
+                  </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-3">
                     Costo promedio por hora de personal: {formatCurrency(roiData.hourlyCost)}
                   </label>
+                  <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                    Incluye salario + beneficios + costos indirectos. Si no estás seguro, usa el salario base por hora.
+                  </p>
                   <input
                     type="range"
                     min="10"
@@ -377,6 +443,11 @@ const ROICalculatorPage: React.FC = () => {
                   <div className="flex justify-between text-xs text-zinc-500 dark:text-slate-400 mt-1">
                     <span>$10/h</span>
                     <span>$100+/h</span>
+                  </div>
+                  <div className="mt-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+                    <p className="text-xs text-blue-700 dark:text-blue-300">
+                      <strong>Fórmula:</strong> (Salario mensual ÷ 160 horas) + 30% beneficios + 20% costos indirectos
+                    </p>
                   </div>
                 </div>
               </div>
@@ -407,11 +478,39 @@ const ROICalculatorPage: React.FC = () => {
                 Costos y Oportunidades
               </h2>
               
+              {/* Explicación de costos ocultos */}
+              <div className="bg-red-50 dark:bg-red-900/20 rounded-xl p-6 mb-8">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3 flex items-center gap-2">
+                  <AlertCircle className="w-5 h-5 text-red-600" />
+                  Costos ocultos que no ves
+                </h3>
+                <p className="text-sm text-zinc-700 dark:text-slate-300 mb-3">
+                  Los procesos manuales generan costos ocultos que no siempre contabilizas. La IA puede reducir significativamente estos costos.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-white dark:bg-zinc-800 rounded-lg p-3 border border-red-200 dark:border-red-800">
+                    <p className="text-xs font-semibold text-red-600 dark:text-red-400 mb-2">Errores humanos</p>
+                    <p className="text-xs text-zinc-600 dark:text-slate-400">Facturas incorrectas, datos duplicados, omisiones</p>
+                  </div>
+                  <div className="bg-white dark:bg-zinc-800 rounded-lg p-3 border border-red-200 dark:border-red-800">
+                    <p className="text-xs font-semibold text-red-600 dark:text-red-400 mb-2">Tiempo de respuesta</p>
+                    <p className="text-xs text-zinc-600 dark:text-slate-400">Clientes que esperan respuestas lentas</p>
+                  </div>
+                  <div className="bg-white dark:bg-zinc-800 rounded-lg p-3 border border-red-200 dark:border-red-800">
+                    <p className="text-xs font-semibold text-red-600 dark:text-red-400 mb-2">Oportunidades perdidas</p>
+                    <p className="text-xs text-zinc-600 dark:text-slate-400">Ventas que no se concretan por lentitud</p>
+                  </div>
+                </div>
+              </div>
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-3">
                     Errores mensuales por procesos manuales: {roiData.currentErrors}
                   </label>
+                  <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                    Cuenta errores que requieren corrección: facturas incorrectas, datos duplicados, omisiones.
+                  </p>
                   <input
                     type="range"
                     min="0"
@@ -420,12 +519,19 @@ const ROICalculatorPage: React.FC = () => {
                     onChange={(e) => handleInputChange('currentErrors', parseInt(e.target.value))}
                     className="w-full h-2 bg-blue-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer slider"
                   />
+                  <div className="flex justify-between text-xs text-zinc-500 dark:text-slate-400 mt-1">
+                    <span>0 errores</span>
+                    <span>50+ errores</span>
+                  </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-3">
                     Costo promedio por error: {formatCurrency(roiData.errorCost)}
                   </label>
+                  <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                    Tiempo para corregir + impacto en cliente + costos de reproceso.
+                  </p>
                   <input
                     type="range"
                     min="50"
@@ -434,12 +540,19 @@ const ROICalculatorPage: React.FC = () => {
                     onChange={(e) => handleInputChange('errorCost', parseInt(e.target.value))}
                     className="w-full h-2 bg-blue-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer slider"
                   />
+                  <div className="flex justify-between text-xs text-zinc-500 dark:text-slate-400 mt-1">
+                    <span>$50</span>
+                    <span>$1000+</span>
+                  </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-3">
                     Tiempo de respuesta actual (horas): {roiData.responseTime}
                   </label>
+                  <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                    Tiempo promedio para responder consultas de clientes o procesar solicitudes.
+                  </p>
                   <input
                     type="range"
                     min="1"
@@ -448,12 +561,19 @@ const ROICalculatorPage: React.FC = () => {
                     onChange={(e) => handleInputChange('responseTime', parseInt(e.target.value))}
                     className="w-full h-2 bg-blue-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer slider"
                   />
+                  <div className="flex justify-between text-xs text-zinc-500 dark:text-slate-400 mt-1">
+                    <span>1 hora</span>
+                    <span>24+ horas</span>
+                  </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-3">
                     Oportunidades perdidas por mes: {roiData.lostOpportunities}
                   </label>
+                  <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                    Ventas o clientes que se pierden por lentitud en procesos (% del total).
+                  </p>
                   <input
                     type="range"
                     min="0"
@@ -462,6 +582,10 @@ const ROICalculatorPage: React.FC = () => {
                     onChange={(e) => handleInputChange('lostOpportunities', parseInt(e.target.value))}
                     className="w-full h-2 bg-blue-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer slider"
                   />
+                  <div className="flex justify-between text-xs text-zinc-500 dark:text-slate-400 mt-1">
+                    <span>0%</span>
+                    <span>20%+</span>
+                  </div>
                 </div>
               </div>
 
@@ -496,6 +620,34 @@ const ROICalculatorPage: React.FC = () => {
           {/* Step 4: Results */}
           {currentStep === 4 && results && (
             <div className="space-y-6">
+              {/* Explicación de cómo se calcula el ROI */}
+              <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl p-6 border border-green-200 dark:border-green-800">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3 flex items-center gap-2">
+                  <Calculator className="w-5 h-5 text-green-600" />
+                  ¿Cómo calculamos tu ROI?
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-white dark:bg-zinc-800 rounded-lg p-4 border border-green-200 dark:border-green-800">
+                    <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-2">Ahorros calculados:</p>
+                    <ul className="text-xs text-zinc-600 dark:text-slate-400 space-y-1">
+                      <li>• Horas ahorradas × costo por hora</li>
+                      <li>• Reducción de errores × costo por error</li>
+                      <li>• Mejora en tiempo de respuesta</li>
+                      <li>• Recuperación de oportunidades perdidas</li>
+                    </ul>
+                  </div>
+                  <div className="bg-white dark:bg-zinc-800 rounded-lg p-4 border border-green-200 dark:border-green-800">
+                    <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-2">Fórmula del ROI:</p>
+                    <p className="text-xs text-zinc-600 dark:text-slate-400 mb-2">
+                      <strong>ROI = (Ahorros - Inversión) / Inversión × 100</strong>
+                    </p>
+                    <p className="text-xs text-zinc-600 dark:text-slate-400">
+                      Incluye costos de implementación y mantenimiento de la IA.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               {/* Main Results */}
               <div className="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm rounded-2xl p-8 border border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
                 <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-6 flex items-center gap-3">

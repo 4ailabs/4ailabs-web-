@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bot, Mail, Phone, MapPin } from 'lucide-react';
+import { Bot, Mail, MapPin } from 'lucide-react';
 import { navLinks, socialLinks } from '../constants';
 
 const Footer: React.FC = () => {
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-3 sm:space-x-4">
               {socialLinks.map((social) => (
-                <a key={social.name} href="#" className="text-zinc-600 dark:text-slate-400 hover:text-slate-600 dark:hover:text-cyan-400 transition-colors duration-300">
+                <a key={social.name} href={`https://${social.name.toLowerCase()}.com/4ailabs`} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-slate-400 hover:text-slate-600 dark:hover:text-cyan-400 transition-colors duration-300">
                   <social.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               ))}
@@ -54,11 +54,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-zinc-600 dark:text-slate-400">
               <li className="flex items-start gap-2 sm:gap-3">
                 <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mt-1 text-slate-600 dark:text-cyan-400 flex-shrink-0" />
-                <span>Acapulco 36, Colonia Roma, Ciudad de México</span>
-              </li>
-              <li className="flex items-start gap-2 sm:gap-3">
-                <Phone className="w-3 h-3 sm:w-4 sm:h-4 mt-1 text-slate-600 dark:text-cyan-400 flex-shrink-0" />
-                <span>+1 (123) 456-7890</span>
+                <span>Ciudad de México</span>
               </li>
               <li className="flex items-start gap-2 sm:gap-3">
                 <Mail className="w-3 h-3 sm:w-4 sm:h-4 mt-1 text-slate-600 dark:text-cyan-400 flex-shrink-0" />

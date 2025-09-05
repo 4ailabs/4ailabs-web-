@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Breadcrumbs from './components/Breadcrumbs';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import MedicalAiPage from './pages/MedicalAiPage';
@@ -24,6 +25,7 @@ const App: React.FC = () => {
       <HashRouter>
         <div className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-slate-300 transition-colors duration-300">
         <Header />
+        <Breadcrumbs />
         <main style={{ paddingTop: '4rem' }}>
           <Routes>
             <Route path="/" element={<HomePage />} />

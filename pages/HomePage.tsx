@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award } from 'lucide-react';
+import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award, Play, Clock, Eye, ExternalLink } from 'lucide-react';
 import { serviceCards, stats, testimonials, partners, technologies } from '../constants';
 
 const HomePage: React.FC = () => {
@@ -11,21 +11,21 @@ const HomePage: React.FC = () => {
       <section className="py-12 sm:py-20 md:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-zinc-900 dark:text-white leading-tight max-w-4xl mx-auto animate-slide-in-top">
-            Especialistas en IA para el desarrollo empresarial y emprendimiento
+            Especialistas en <span className="text-blue-600 dark:text-blue-400">creación de agentes de IA</span> para empresas y emprendedores
           </h1>
           <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-zinc-600 dark:text-slate-300 max-w-2xl mx-auto px-4 animate-fade-in-up animate-delay-200">
-            Agencia especializada en desarrollar agentes de IA personalizados. Tecnología avanzada con atención personal y precios accesibles.
+            Creamos <strong>agentes de IA autónomos</strong> que automatizan procesos complejos, toman decisiones inteligentes y transforman tu negocio. Tecnología avanzada con atención personal y precios accesibles.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col justify-center items-center gap-4 animate-fade-in-up animate-delay-400 px-4">
-            <Link to="/contacto" className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-8 rounded-full text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta">
+            <Link to="/contacto" className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[48px] flex items-center justify-center w-full sm:w-auto">
               Consulta Gratuita - Ver mi ROI
             </Link>
-            <p className="text-sm text-zinc-500 dark:text-slate-400 mt-2">
+            <p className="text-sm sm:text-base text-zinc-500 dark:text-slate-400 mt-2 text-center">
               Solo 15 minutos • Sin compromiso • Resultados garantizados
             </p>
           </div>
           <div className="mt-12 sm:mt-16 animate-fade-in-scale animate-delay-600 px-4">
-             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard empresarial con métricas de agentes de IA - automatización inteligente para empresas" className="rounded-xl sm:rounded-2xl shadow-2xl mx-auto w-full max-w-4xl transition-transform-smooth" loading="eager" />
+             <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" alt="Agentes de IA autónomos trabajando en procesos empresariales - automatización inteligente" className="rounded-xl sm:rounded-2xl shadow-2xl mx-auto w-full max-w-4xl transition-transform-smooth" loading="eager" />
           </div>
         </div>
       </section>
@@ -78,11 +78,22 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Servicios Principales */}
-      <section className="py-12 sm:py-16 md:py-24 bg-zinc-100 dark:bg-zinc-950 transition-colors duration-300">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-zinc-50 via-zinc-100 to-zinc-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 transition-colors duration-300 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+          <div className="absolute top-1/4 right-0 w-96 h-96 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)] rounded-full"></div>
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.1),transparent_50%)] rounded-full"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-8 sm:mb-12 animate-fade-in-up px-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight">Lo que más demandan nuestros clientes</h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">Nuestros 6 servicios especializados que transforman negocios</p>
+            <div className="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              Servicios Especializados
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight">Agentes de IA que más demandan nuestros clientes</h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">6 tipos de agentes inteligentes especializados que automatizan y transforman tu negocio</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12">
             {serviceCards.map((service, index) => {
@@ -97,10 +108,18 @@ const HomePage: React.FC = () => {
               const colors = serviceColors[index % 6];
               
               return (
-                <Link key={service.title} to="/servicios" className={`block ${colors.bg} backdrop-blur-sm p-4 sm:p-5 rounded-xl border ${colors.border} ${colors.hover} transition-all duration-300 group animate-fade-in-up hover:transform hover:scale-105 cursor-pointer ${colors.shadow}`} style={{animationDelay: `${(index + 1) * 0.1}s`}}>
-                  <div className="text-center">
-                    <div className={`inline-flex p-2 sm:p-3 ${colors.iconBg} rounded-xl mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                <Link key={service.title} to="/servicios" className={`block ${colors.bg} backdrop-blur-sm p-4 sm:p-5 rounded-xl border ${colors.border} ${colors.hover} transition-all duration-300 group animate-fade-in-up hover:transform hover:scale-105 cursor-pointer ${colors.shadow} relative overflow-hidden`} style={{animationDelay: `${(index + 1) * 0.1}s`}}>
+                  {/* Subtle background pattern */}
+                  <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-white/20 to-transparent rounded-full -translate-y-10 translate-x-10"></div>
+                    <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-white/20 to-transparent rounded-full translate-y-8 -translate-x-8"></div>
+                  </div>
+                  
+                  <div className="text-center relative z-10">
+                    <div className={`inline-flex p-2 sm:p-3 ${colors.iconBg} rounded-xl mb-3 group-hover:scale-110 transition-transform duration-300 relative`}>
                       <service.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${colors.iconColor}`} />
+                      {/* Subtle glow effect */}
+                      <div className={`absolute inset-0 ${colors.iconBg} rounded-xl blur-sm opacity-0 group-hover:opacity-30 transition-opacity duration-300`}></div>
                     </div>
                     <h3 className="text-sm sm:text-base font-bold text-zinc-900 dark:text-white mb-2 group-hover:text-zinc-700 dark:group-hover:text-cyan-300 transition-colors">
                       {service.title}
@@ -118,33 +137,45 @@ const HomePage: React.FC = () => {
             })}
           </div>
           <div className="text-center mt-12">
-            <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-8 border border-slate-200 dark:border-zinc-600 max-w-3xl mx-auto mb-8">
-              <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
-                ¿Cuál transformaría tu negocio?
-              </h3>
-              <p className="text-zinc-600 dark:text-slate-300 mb-6 text-lg">
-                Agenda una <strong>consulta gratuita de 15 minutos</strong> y descubre exactamente cómo implementar IA en tu empresa.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                <Link to="/contacto" className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-8 rounded-full transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25">
-                  Reservar Consulta GRATIS
-                </Link>
-                <Link to="/calculadora-roi" className="bg-white dark:bg-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-500 text-zinc-900 dark:text-white font-semibold py-4 px-8 rounded-full transition-all-smooth border border-zinc-200 dark:border-zinc-500">
-                  Calcular mi ROI
-                </Link>
+            <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-8 border border-slate-200 dark:border-zinc-600 max-w-3xl mx-auto mb-8 relative overflow-hidden">
+              {/* Subtle background decoration */}
+              <div className="absolute inset-0 opacity-5 dark:opacity-10">
+                <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-transparent rounded-full -translate-x-16 -translate-y-16"></div>
+                <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-purple-500/20 to-transparent rounded-full translate-x-12 translate-y-12"></div>
               </div>
-              <div className="flex items-center justify-center gap-6 text-sm text-zinc-500 dark:text-slate-400">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
-                  15 minutos
+              
+              <div className="relative z-10">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                  Consulta Personalizada
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
-                  100% gratis
+                <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
+                  ¿Cuál transformaría tu negocio?
+                </h3>
+                <p className="text-zinc-600 dark:text-slate-300 mb-6 text-lg">
+                  Agenda una <strong>consulta gratuita de 15 minutos</strong> y descubre exactamente cómo implementar IA en tu empresa.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                  <Link to="/contacto" className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-8 rounded-full transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25">
+                    Reservar Consulta GRATIS
+                  </Link>
+                  <Link to="/calculadora-roi" className="bg-white dark:bg-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-500 text-zinc-900 dark:text-white font-semibold py-4 px-8 rounded-full transition-all-smooth border border-zinc-200 dark:border-zinc-500">
+                    Calcular mi ROI
+                  </Link>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
-                  Roadmap incluido
+                <div className="flex items-center justify-center gap-6 text-sm text-zinc-500 dark:text-slate-400">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
+                    15 minutos
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
+                    100% gratis
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
+                    Roadmap incluido
+                  </div>
                 </div>
               </div>
             </div>
@@ -153,6 +184,174 @@ const HomePage: React.FC = () => {
                 Explorar servicios <ArrowRight className="w-4 h-4" />
               </Link>
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Videos de Ejemplos */}
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-zinc-900 transition-colors duration-300">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12 animate-fade-in-up px-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight mb-4">
+              Agentes de IA en Acción
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">
+              Ve cómo nuestros agentes de IA transforman procesos empresariales reales. Ejemplos prácticos de automatización inteligente.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            {/* Video 1: Agentes de IA */}
+            <a 
+              href="https://youtu.be/F8NKVhkZZWI?si=U4ait5B8RS2nOmkq" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group bg-gradient-to-br from-green-50 to-green-100/50 dark:from-green-900/20 dark:to-green-800/10 rounded-xl overflow-hidden border border-green-200/50 dark:border-green-700/50 hover:border-green-300 dark:hover:border-green-600 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10 animate-fade-in-up block" 
+              style={{animationDelay: '0.1s'}}
+            >
+              <div className="relative aspect-video overflow-hidden">
+                <img 
+                  src="https://img.youtube.com/vi/F8NKVhkZZWI/maxresdefault.jpg" 
+                  alt="Agentes de IA en Acción" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 min-h-[56px] min-w-[56px] sm:min-h-[64px] sm:min-w-[64px]">
+                    <Play className="w-5 h-5 sm:w-6 sm:h-6 text-green-600 ml-1" />
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1">
+                  <ExternalLink className="w-3 h-3" />
+                  YouTube
+                </div>
+                <div className="absolute bottom-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                  Agentes de IA
+                </div>
+              </div>
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                  Agentes de IA en Acción
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                  Descubre cómo funcionan los agentes de IA autónomos y cómo pueden transformar tu negocio.
+                </p>
+                <div className="flex items-center justify-between text-xs text-zinc-500 dark:text-slate-500">
+                  <div className="flex items-center gap-1">
+                    <Eye className="w-3 h-3" />
+                    Tutorial
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    Ver en YouTube
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            {/* Video 2: MCP - Integración con Bases de Datos */}
+            <a 
+              href="https://youtu.be/eur8dUO9mvE?si=p85nrAQlBt_53XQ4" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group bg-gradient-to-br from-purple-50 to-purple-100/50 dark:from-purple-900/20 dark:to-purple-800/10 rounded-xl overflow-hidden border border-purple-200/50 dark:border-purple-700/50 hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 animate-fade-in-up block" 
+              style={{animationDelay: '0.2s'}}
+            >
+              <div className="relative aspect-video overflow-hidden">
+                <img 
+                  src="https://img.youtube.com/vi/eur8dUO9mvE/maxresdefault.jpg" 
+                  alt="¿Qué es MCP? Integración con Bases de Datos" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 min-h-[56px] min-w-[56px] sm:min-h-[64px] sm:min-w-[64px]">
+                    <Play className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 ml-1" />
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1">
+                  <ExternalLink className="w-3 h-3" />
+                  YouTube
+                </div>
+                <div className="absolute bottom-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                  MCP Protocol
+                </div>
+              </div>
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                  ¿Qué es MCP? Integración con Bases de Datos
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                  Aprende cómo integrar agentes de IA con bases de datos y APIs usando el Model Context Protocol (MCP).
+                </p>
+                <div className="flex items-center justify-between text-xs text-zinc-500 dark:text-slate-500">
+                  <div className="flex items-center gap-1">
+                    <Eye className="w-3 h-3" />
+                    Tutorial
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    Ver en YouTube
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            {/* Video 3: Flowise - Agentes de IA */}
+            <a 
+              href="https://youtu.be/TbZaj5SZcbM?si=jlcwdcfkSky6UPJZ" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group bg-gradient-to-br from-orange-50 to-orange-100/50 dark:from-orange-900/20 dark:to-orange-800/10 rounded-xl overflow-hidden border border-orange-200/50 dark:border-orange-700/50 hover:border-orange-300 dark:hover:border-orange-600 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10 animate-fade-in-up block" 
+              style={{animationDelay: '0.3s'}}
+            >
+              <div className="relative aspect-video overflow-hidden">
+                <img 
+                  src="https://img.youtube.com/vi/TbZaj5SZcbM/maxresdefault.jpg" 
+                  alt="Agentes de IA con Flowise" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 min-h-[56px] min-w-[56px] sm:min-h-[64px] sm:min-w-[64px]">
+                    <Play className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600 ml-1" />
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1">
+                  <ExternalLink className="w-3 h-3" />
+                  YouTube
+                </div>
+                <div className="absolute bottom-4 left-4 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                  Flowise
+                </div>
+              </div>
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                  Agentes de IA con Flowise
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+                  Aprende a crear agentes de IA avanzados usando Flowise, la plataforma visual para construir flujos de trabajo inteligentes.
+                </p>
+                <div className="flex items-center justify-between text-xs text-zinc-500 dark:text-slate-500">
+                  <div className="flex items-center gap-1">
+                    <Eye className="w-3 h-3" />
+                    Tutorial
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    Ver en YouTube
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div className="text-center mt-8 sm:mt-12">
+            <Link to="/contacto" className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-400/25 animate-fade-in-up min-h-[48px] w-full sm:w-auto justify-center" style={{animationDelay: '0.4s'}}>
+              <Play className="w-4 h-4 sm:w-5 sm:h-5" />
+              Ver Más Ejemplos
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+            </Link>
           </div>
         </div>
       </section>
@@ -190,7 +389,26 @@ const HomePage: React.FC = () => {
                   <p className="text-sm sm:text-base lg:text-lg text-zinc-600 dark:text-slate-300 max-w-2xl mx-auto mb-6 sm:mb-8 animate-fade-in-up animate-delay-300 px-4">
                     Descubre cuánto puedes ahorrar y el retorno de inversión que obtendrás al implementar soluciones de IA en tu empresa. 
                     <span className="text-zinc-600 dark:text-slate-300 font-semibold"> ¡Es gratis y toma solo 3 minutos!</span>
-                  </p>
+                  </p>                  
+                  {/* Explicación simple de ROI */}
+                  <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 mb-8 max-w-3xl mx-auto animate-fade-in-up animate-delay-400">
+                    <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-3 flex items-center gap-2">
+                      <Target className="w-5 h-5 text-blue-600" />
+                      ¿Qué es el ROI?
+                    </h3>
+                    <p className="text-sm text-zinc-700 dark:text-slate-300 mb-3">
+                      <strong>ROI = Retorno de Inversión</strong> - Te dice cuánto dinero ganas o ahorras por cada peso que inviertes.
+                    </p>
+                    <div className="bg-white dark:bg-zinc-800 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+                      <p className="text-sm text-zinc-600 dark:text-slate-400 mb-2">
+                        <strong>Ejemplo:</strong> Si inviertes $10,000 en IA y ahorras $15,000 al año:
+                      </p>
+                      <div className="text-center">
+                        <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">ROI = 50%</span>
+                        <p className="text-xs text-zinc-500 dark:text-slate-500 mt-1">Por cada $1 invertido, recuperas $1.50</p>
+                      </div>
+                    </div>
+                  </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 mb-6 sm:mb-8">
                     <div className="bg-yellow-50 dark:bg-zinc-900 backdrop-blur-sm p-4 sm:p-6 rounded-lg sm:rounded-xl border border-yellow-200 dark:border-zinc-800 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
                       <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-600 dark:text-slate-300 mb-2 sm:mb-3 mx-auto" />
@@ -208,7 +426,7 @@ const HomePage: React.FC = () => {
                       <p className="text-xs sm:text-sm text-zinc-600 dark:text-slate-400">Adaptado a tu sector y tamaño de empresa</p>
                     </div>
                   </div>
-                  <Link to="/calculadora-roi" className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 lg:px-8 rounded-full text-sm sm:text-base lg:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-400/25 animate-fade-in-up" style={{animationDelay: '0.7s'}}>
+                  <Link to="/calculadora-roi" className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 lg:px-8 rounded-full text-sm sm:text-base lg:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-400/25 animate-fade-in-up min-h-[48px] w-full sm:w-auto justify-center" style={{animationDelay: '0.7s'}}>
                     <Calculator className="w-4 h-4 sm:w-5 sm:h-5" />
                     Calcular mi ROI
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -245,7 +463,7 @@ const HomePage: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-center">
-                    <Link to="/contacto" className="w-full sm:w-auto bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 sm:py-5 px-8 sm:px-10 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta">
+                    <Link to="/contacto" className="w-full sm:w-auto bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 sm:py-5 px-8 sm:px-10 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[56px] flex items-center justify-center">
                       Reservar mi consulta GRATIS
                     </Link>
                     <p className="text-sm text-zinc-500 dark:text-slate-500 mt-6 sm:mt-8">

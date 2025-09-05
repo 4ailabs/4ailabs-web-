@@ -27,9 +27,14 @@ const Header: React.FC = () => {
   }, []);
 
   const Logo = () => (
-    <Link to="/" className="flex items-center gap-2 transition-all duration-300" onClick={() => setIsMenuOpen(false)}>
-      <Bot className="w-8 h-8 text-cyan-400 dark:text-cyan-400" />
-      <span className="text-2xl font-bold text-zinc-900 dark:text-white">4ailabs</span>
+    <Link 
+      to="/" 
+      className="flex items-center gap-2 transition-all duration-300 hover:scale-105 group" 
+      onClick={() => setIsMenuOpen(false)}
+      title="Ir al inicio"
+    >
+      <Bot className="w-8 h-8 text-cyan-400 dark:text-cyan-400 group-hover:text-cyan-300 transition-colors" />
+      <span className="text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">4ailabs</span>
     </Link>
   );
   

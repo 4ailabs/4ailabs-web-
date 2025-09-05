@@ -31,6 +31,24 @@ interface ROIAnalysis {
   nextSteps: string[];
   priorityActions: string[];
   marketInsights: string;
+  competitiveAdvantage: string[];
+  implementationRoadmap: {
+    phase: string;
+    duration: string;
+    tasks: string[];
+    expectedROI: number;
+  }[];
+  costBreakdown: {
+    category: string;
+    amount: number;
+    description: string;
+  }[];
+  kpiMetrics: {
+    metric: string;
+    baseline: number;
+    target: number;
+    timeframe: string;
+  }[];
 }
 
 class ROIAnalysisService {
@@ -38,11 +56,15 @@ class ROIAnalysisService {
 
   constructor() {
     try {
-      const apiKey = process.env.GEMINI_API_KEY;
-      if (apiKey && apiKey !== 'your_gemini_api_key_here') {
+      // Intentar múltiples fuentes de API key
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
+      console.log("ROI Analysis API Key status:", apiKey ? "Found" : "Not found");
+      
+      if (apiKey && apiKey !== 'your_gemini_api_key_here' && apiKey.length > 10) {
         this.genAI = new GoogleGenerativeAI(apiKey);
+        console.log("ROI Analysis AI initialized successfully");
       } else {
-        console.warn("GEMINI_API_KEY not configured, using fallback responses");
+        console.warn("GEMINI_API_KEY not configured, using enhanced fallback responses");
       }
     } catch (error) {
       console.error("Error initializing ROI Analysis Service:", error);
