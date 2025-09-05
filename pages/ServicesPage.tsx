@@ -9,8 +9,10 @@ const ServicesPage: React.FC = () => {
   const [selectedService, setSelectedService] = useState<{type: string, title: string} | null>(null);
 
   const handleQuickStart = (serviceType: string, serviceTitle: string) => {
+    console.log('handleQuickStart called with:', { serviceType, serviceTitle });
     setSelectedService({ type: serviceType, title: serviceTitle });
     setQuickStartOpen(true);
+    console.log('Modal should be open now');
   };
 
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { X, Send, Loader2, FileText, Download } from 'lucide-react';
+import { X, Send, Loader2, FileText, Download, MessageCircle } from 'lucide-react';
 import { proposalGeneratorService } from '../services/proposalGeneratorService';
-import { ProposalGenerator } from './ProposalGenerator';
+// import { ProposalGenerator } from './ProposalGenerator';
 
 interface ServiceQuickStartProps {
   isOpen: boolean;
@@ -74,6 +74,8 @@ const ServiceQuickStart: React.FC<ServiceQuickStartProps> = ({
     onClose();
   };
 
+  console.log('ServiceQuickStart render:', { isOpen, serviceType, serviceTitle });
+  
   if (!isOpen) return null;
 
   return (
@@ -221,11 +223,132 @@ const ServiceQuickStart: React.FC<ServiceQuickStartProps> = ({
           )}
 
           {step === 'proposal' && proposalData && (
-            <div>
-              <ProposalGenerator 
-                proposalData={proposalData}
-                onClose={handleClose}
-              />
+            <div className="space-y-6">
+              <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-700">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                    <FileText className="w-6 h-6 text-green-600 dark:text-green-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-green-900 dark:text-green-100">
+                      Propuesta Técnica Generada
+                    </h3>
+                    <p className="text-green-700 dark:text-green-300">
+                      Tu propuesta personalizada está lista
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+                  <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Información del Proyecto</h4>
+                  <div className="space-y-2 text-sm">
+                    <div><span className="font-medium">Empresa:</span> {proposalData.companyName}</div>
+                    <div><span className="font-medium">Contacto:</span> {proposalData.contactPerson}</div>
+                    <div><span className="font-medium">Servicio:</span> {proposalData.serviceType}</div>
+                    <div><span className="font-medium">Timeline:</span> {proposalData.timeline.totalDuration}</div>
+                  </div>
+                </div>
+
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+                  <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Presupuesto</h4>
+                  <div className="space-y-2 text-sm">
+                    <div><span className="font-medium">Precio base:</span> ${proposalData.pricing.basePrice.toLocaleString()}</div>
+                    <div><span className="font-medium">Servicios adicionales:</span> ${proposalData.pricing.additionalServices.reduce((sum: number, service: any) => sum + service.price, 0).toLocaleString()}</div>
+                    <div className="border-t pt-2 font-semibold text-lg">
+                      <span className="font-medium">Total:</span> ${proposalData.pricing.totalPrice.toLocaleString()}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+                <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Requerimientos</h4>
+                <p className="text-zinc-700 dark:text-slate-300 text-sm">{proposalData.requirements}</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+                  <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Especificaciones Técnicas</h4>
+                  <ul className="space-y-2 text-sm text-zinc-700 dark:text-slate-300">
+                    {proposalData.technicalSpecs.map((spec: string, index: number) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                        {spec}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+                  <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Entregables</h4>
+                  <ul className="space-y-2 text-sm text-zinc-700 dark:text-slate-300">
+                    {proposalData.deliverables.map((deliverable: string, index: number) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                        {deliverable}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+                <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Timeline del Proyecto</h4>
+                <div className="space-y-3">
+                  {proposalData.timeline.phases.map((phase: any, index: number) => (
+                    <div key={index} className="flex items-center gap-4">
+                      <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-sm font-semibold text-blue-600 dark:text-blue-400">
+                        {index + 1}
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-zinc-900 dark:text-white">{phase.name}</div>
+                        <div className="text-sm text-zinc-600 dark:text-slate-400">{phase.duration} - {phase.description}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg border border-blue-200 dark:border-blue-700">
+                <div>
+                  <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-1">
+                    ¿Te interesa esta propuesta?
+                  </h4>
+                  <p className="text-blue-700 dark:text-blue-300 text-sm">
+                    Agenda una consulta gratuita para discutir los detalles
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => {
+                      const message = `Hola! Me interesa esta propuesta técnica de IA:
+
+📋 *${proposalData.serviceType}*
+🏢 *Empresa:* ${proposalData.companyName}
+💰 *Presupuesto:* $${proposalData.pricing.totalPrice.toLocaleString()}
+⏱️ *Timeline:* ${proposalData.timeline.totalDuration}
+
+¿Podemos agendar una reunión para discutir los detalles?`;
+                      
+                      const whatsappUrl = `https://wa.me/+525534417252?text=${encodeURIComponent(message)}`;
+                      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+                    }}
+                    className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                  >
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    Contactar por WhatsApp
+                  </button>
+                  <button
+                    onClick={handleClose}
+                    className="inline-flex items-center bg-zinc-600 hover:bg-zinc-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                  >
+                    <Download className="w-5 h-5 mr-2" />
+                    Cerrar
+                  </button>
+                </div>
+              </div>
             </div>
           )}
         </div>
