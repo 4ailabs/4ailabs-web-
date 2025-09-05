@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { X, MessageCircle, Calculator, Bot, Brain, Target, Zap, Clock, CheckCircle } from 'lucide-react';
+import { X, MessageCircle, Calculator, Bot, Brain, Target, Zap, Clock, CheckCircle, Loader2, FileText, ArrowRight } from 'lucide-react';
+import { proposalGeneratorService } from '../services/proposalGeneratorService';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -10,6 +11,9 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
   const [selectedType, setSelectedType] = useState<string>('');
   const [company, setCompany] = useState('');
   const [needs, setNeeds] = useState('');
+  const [step, setStep] = useState<'form' | 'generating' | 'proposal'>('form');
+  const [proposalData, setProposalData] = useState<any>(null);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   const consultationTypes = [
     {
@@ -68,6 +72,35 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
     }
   ];
 
+  const handleGenerateProposal = async () => {
+    if (!selectedType) return;
+    
+    setIsGenerating(true);
+    setStep('generating');
+    
+    try {
+      const selectedConsultation = consultationTypes.find(type => type.id === selectedType);
+      const contactFormData = {
+        name: 'Cliente Potencial',
+        email: 'consulta@empresa.com',
+        service: selectedConsultation?.title || 'Consulta General',
+        message: `Tipo de consulta: ${selectedConsultation?.title}
+Empresa: ${company || 'Por definir'}
+Necesidades: ${needs || 'Por discutir en la consulta'}`
+      };
+
+      const proposal = await proposalGeneratorService.generateProposal(contactFormData);
+      setProposalData(proposal);
+      setStep('proposal');
+    } catch (error) {
+      console.error('Error generating proposal:', error);
+      // Fallback to direct WhatsApp if generation fails
+      handleWhatsAppRedirect();
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
   const handleWhatsAppRedirect = () => {
     const selectedConsultation = consultationTypes.find(type => type.id === selectedType);
     const message = `Hola! Me interesa agendar una consulta gratuita de 15 minutos.
@@ -80,6 +113,16 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
     
     const whatsappUrl = `https://wa.me/+525534417252?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    onClose();
+  };
+
+  const handleClose = () => {
+    setStep('form');
+    setSelectedType('');
+    setCompany('');
+    setNeeds('');
+    setProposalData(null);
+    setIsGenerating(false);
     onClose();
   };
 
@@ -99,7 +142,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
             </p>
           </div>
           <button
-            onClick={onClose}
+            onClick={handleClose}
             className="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition-colors"
           >
             <X className="w-6 h-6 text-zinc-500" />
@@ -108,98 +151,168 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
 
         {/* Content */}
         <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
-          <div className="space-y-6">
-            {/* Step 1: Select consultation type */}
-            <div>
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
-                1. ¿Qué tipo de consulta necesitas?
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {consultationTypes.map((type) => {
-                  const Icon = type.icon;
-                  return (
-                    <button
-                      key={type.id}
-                      onClick={() => setSelectedType(type.id)}
-                      className={`p-4 rounded-lg border-2 transition-all text-left ${
-                        selectedType === type.id
-                          ? `${type.borderColor} ${type.bgColor} ring-2 ring-offset-2 ring-current`
-                          : 'border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600'
-                      }`}
-                    >
-                      <div className="flex items-start gap-3">
-                        <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${type.color} flex items-center justify-center flex-shrink-0`}>
-                          <Icon className="w-5 h-5 text-white" />
+          {step === 'form' && (
+            <div className="space-y-6">
+              {/* Step 1: Select consultation type */}
+              <div>
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
+                  1. ¿Qué tipo de consulta necesitas?
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {consultationTypes.map((type) => {
+                    const Icon = type.icon;
+                    return (
+                      <button
+                        key={type.id}
+                        onClick={() => setSelectedType(type.id)}
+                        className={`p-4 rounded-lg border-2 transition-all text-left ${
+                          selectedType === type.id
+                            ? `${type.borderColor} ${type.bgColor} ring-2 ring-offset-2 ring-current`
+                            : 'border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600'
+                        }`}
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${type.color} flex items-center justify-center flex-shrink-0`}>
+                            <Icon className="w-5 h-5 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-zinc-900 dark:text-white">{type.title}</h4>
+                            <p className="text-sm text-zinc-600 dark:text-slate-400 mt-1">{type.description}</p>
+                          </div>
                         </div>
-                        <div>
-                          <h4 className="font-semibold text-zinc-900 dark:text-white">{type.title}</h4>
-                          <p className="text-sm text-zinc-600 dark:text-slate-400 mt-1">{type.description}</p>
-                        </div>
-                      </div>
-                    </button>
-                  );
-                })}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Step 2: Company info */}
+              <div>
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
+                  2. Información básica (opcional)
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-2">
+                      Nombre de tu empresa
+                    </label>
+                    <input
+                      type="text"
+                      value={company}
+                      onChange={(e) => setCompany(e.target.value)}
+                      className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent dark:bg-zinc-800 dark:text-white"
+                      placeholder="Ej: Mi Empresa S.A."
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-2">
+                      ¿Qué necesitas resolver con IA?
+                    </label>
+                    <textarea
+                      value={needs}
+                      onChange={(e) => setNeeds(e.target.value)}
+                      rows={3}
+                      className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent dark:bg-zinc-800 dark:text-white"
+                      placeholder="Describe brevemente tu desafío o objetivo..."
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Benefits */}
+              <div className="bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 p-6 rounded-lg border border-cyan-200 dark:border-cyan-700">
+                <h4 className="font-semibold text-cyan-900 dark:text-cyan-100 mb-3">
+                  ¿Qué incluye tu consulta gratuita?
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
+                    <span className="text-sm text-cyan-800 dark:text-cyan-200">Análisis de tu negocio</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
+                    <span className="text-sm text-cyan-800 dark:text-cyan-200">Roadmap personalizado</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
+                    <span className="text-sm text-cyan-800 dark:text-cyan-200">Cálculo de ROI estimado</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
+                    <span className="text-sm text-cyan-800 dark:text-cyan-200">Propuesta técnica básica</span>
+                  </div>
+                </div>
               </div>
             </div>
+          )}
 
-            {/* Step 2: Company info */}
-            <div>
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
-                2. Información básica (opcional)
+          {step === 'generating' && (
+            <div className="text-center py-12">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-100 dark:bg-cyan-900/30 rounded-full mb-6">
+                <Loader2 className="w-8 h-8 text-cyan-600 dark:text-cyan-400 animate-spin" />
+              </div>
+              <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-2">
+                Generando tu propuesta personalizada...
               </h3>
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-2">
-                    Nombre de tu empresa
-                  </label>
-                  <input
-                    type="text"
-                    value={company}
-                    onChange={(e) => setCompany(e.target.value)}
-                    className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent dark:bg-zinc-800 dark:text-white"
-                    placeholder="Ej: Mi Empresa S.A."
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-2">
-                    ¿Qué necesitas resolver con IA?
-                  </label>
-                  <textarea
-                    value={needs}
-                    onChange={(e) => setNeeds(e.target.value)}
-                    rows={3}
-                    className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent dark:bg-zinc-800 dark:text-white"
-                    placeholder="Describe brevemente tu desafío o objetivo..."
-                  />
-                </div>
-              </div>
+              <p className="text-zinc-600 dark:text-slate-400">
+                Nuestra IA está analizando tus necesidades y creando una propuesta técnica
+              </p>
             </div>
+          )}
 
-            {/* Benefits */}
-            <div className="bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 p-6 rounded-lg border border-cyan-200 dark:border-cyan-700">
-              <h4 className="font-semibold text-cyan-900 dark:text-cyan-100 mb-3">
-                ¿Qué incluye tu consulta gratuita?
-              </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
-                  <span className="text-sm text-cyan-800 dark:text-cyan-200">Análisis de tu negocio</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
-                  <span className="text-sm text-cyan-800 dark:text-cyan-200">Roadmap personalizado</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
-                  <span className="text-sm text-cyan-800 dark:text-cyan-200">Cálculo de ROI estimado</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
-                  <span className="text-sm text-cyan-800 dark:text-cyan-200">Propuesta técnica básica</span>
+          {step === 'proposal' && proposalData && (
+            <div className="space-y-6">
+              <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-700">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                    <FileText className="w-6 h-6 text-green-600 dark:text-green-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-green-900 dark:text-green-100">
+                      Propuesta Generada
+                    </h3>
+                    <p className="text-green-700 dark:text-green-300">
+                      Basada en tu consulta de {consultationTypes.find(t => t.id === selectedType)?.title}
+                    </p>
+                  </div>
                 </div>
               </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+                  <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Información del Proyecto</h4>
+                  <div className="space-y-2 text-sm">
+                    <div><span className="font-medium">Empresa:</span> {proposalData.companyName}</div>
+                    <div><span className="font-medium">Servicio:</span> {proposalData.serviceType}</div>
+                    <div><span className="font-medium">Timeline:</span> {proposalData.timeline.totalDuration}</div>
+                  </div>
+                </div>
+
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+                  <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Presupuesto Estimado</h4>
+                  <div className="space-y-2 text-sm">
+                    <div><span className="font-medium">Precio base:</span> ${proposalData.pricing.basePrice.toLocaleString()}</div>
+                    <div><span className="font-medium">Servicios adicionales:</span> ${proposalData.pricing.additionalServices.reduce((sum: number, service: any) => sum + service.price, 0).toLocaleString()}</div>
+                    <div className="border-t pt-2 font-semibold text-lg">
+                      <span className="font-medium">Total:</span> ${proposalData.pricing.totalPrice.toLocaleString()}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+                <h4 className="font-semibold text-zinc-900 dark:text-white mb-3">Próximos Pasos</h4>
+                <ul className="space-y-2 text-sm text-zinc-700 dark:text-slate-300">
+                  {proposalData.deliverables.slice(0, 3).map((deliverable: string, index: number) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0"></div>
+                      {deliverable}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Footer */}
@@ -209,20 +322,49 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
             <span>Duración: 15 minutos</span>
           </div>
           <div className="flex gap-3">
-            <button
-              onClick={onClose}
-              className="px-6 py-3 text-zinc-600 dark:text-slate-400 hover:text-zinc-800 dark:hover:text-slate-200 transition-colors"
-            >
-              Cancelar
-            </button>
-            <button
-              onClick={handleWhatsAppRedirect}
-              disabled={!selectedType}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 disabled:from-zinc-300 disabled:to-zinc-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Ir a WhatsApp
-            </button>
+            {step === 'form' && (
+              <>
+                <button
+                  onClick={handleClose}
+                  className="px-6 py-3 text-zinc-600 dark:text-slate-400 hover:text-zinc-800 dark:hover:text-slate-200 transition-colors"
+                >
+                  Cancelar
+                </button>
+                <button
+                  onClick={handleGenerateProposal}
+                  disabled={!selectedType}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 disabled:from-zinc-300 disabled:to-zinc-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                >
+                  <FileText className="w-5 h-5" />
+                  Generar Propuesta
+                </button>
+              </>
+            )}
+            {step === 'generating' && (
+              <button
+                onClick={handleClose}
+                className="px-6 py-3 text-zinc-600 dark:text-slate-400 hover:text-zinc-800 dark:hover:text-slate-200 transition-colors"
+              >
+                Cancelar
+              </button>
+            )}
+            {step === 'proposal' && (
+              <>
+                <button
+                  onClick={() => setStep('form')}
+                  className="px-6 py-3 text-zinc-600 dark:text-slate-400 hover:text-zinc-800 dark:hover:text-slate-200 transition-colors"
+                >
+                  ← Volver
+                </button>
+                <button
+                  onClick={handleWhatsAppRedirect}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Contactar por WhatsApp
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>
