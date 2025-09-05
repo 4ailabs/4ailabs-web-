@@ -6,6 +6,7 @@ import ServiceQuickStart from '../components/ServiceQuickStart';
 import AgentBuilder from '../components/AgentBuilder';
 import ConsultationModal from '../components/ConsultationModal';
 import AcademicModal from '../components/AcademicModal';
+import MedicalConsultationModal from '../components/MedicalConsultationModal';
 import UnifiedCTA from '../components/UnifiedCTA';
 
 const HomePage: React.FC = () => {
@@ -13,6 +14,7 @@ const HomePage: React.FC = () => {
   const [agentBuilderOpen, setAgentBuilderOpen] = useState(false);
   const [consultationOpen, setConsultationOpen] = useState(false);
   const [academicModalOpen, setAcademicModalOpen] = useState(false);
+  const [medicalModalOpen, setMedicalModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<{type: string, title: string} | null>(null);
 
   return (
@@ -502,10 +504,7 @@ const HomePage: React.FC = () => {
                 </div>
                 
                 <button
-                  onClick={() => {
-                    setSelectedService({ type: 'medical', title: 'Consulta Médica IA' });
-                    setConsultationOpen(true);
-                  }}
+                  onClick={() => setMedicalModalOpen(true)}
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-700 hover:to-teal-700 text-white font-bold py-4 px-4 sm:px-6 lg:px-8 rounded-2xl text-sm sm:text-base lg:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-cyan-500/25 min-h-[56px] w-full max-w-sm mx-auto sm:max-w-md lg:max-w-lg justify-center relative"
                 >
                   {/* Badge desktop */}
@@ -515,8 +514,8 @@ const HomePage: React.FC = () => {
                   
                   <Heart className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                   <span className="text-center leading-tight">
-                    <span className="block text-sm sm:text-base lg:text-lg">Agendar Consulta Médica</span>
-                    <span className="block text-xs sm:text-sm opacity-90">20 min • 100% Gratuita</span>
+                    <span className="block text-sm sm:text-base lg:text-lg">Consulta Médica Especializada</span>
+                    <span className="block text-xs sm:text-sm opacity-90">Formulario especializado</span>
                   </span>
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 hidden sm:block" />
                 </button>
@@ -1257,6 +1256,10 @@ const HomePage: React.FC = () => {
       <AcademicModal
         isOpen={academicModalOpen}
         onClose={() => setAcademicModalOpen(false)}
+      />
+      <MedicalConsultationModal
+        isOpen={medicalModalOpen}
+        onClose={() => setMedicalModalOpen(false)}
       />
     </div>
   );
