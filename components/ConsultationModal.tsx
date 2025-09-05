@@ -113,12 +113,12 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
 
   const generateBasicProposal = (consultation: any, companyName: string, needs: string) => {
     const basePrices = {
-      'roi': { base: 1500, range: '$1,000 - $2,000' },
-      'chatbot': { base: 2200, range: '$1,500 - $3,000' },
-      'agent': { base: 3500, range: '$2,500 - $5,000' },
-      'strategy': { base: 1800, range: '$1,200 - $2,500' },
-      'automation': { base: 2800, range: '$2,000 - $4,000' },
-      'general': { base: 1200, range: '$800 - $2,000' }
+      'roi': { base: 750, range: '$500 - $1,000' },
+      'chatbot': { base: 1100, range: '$750 - $1,500' },
+      'agent': { base: 1750, range: '$1,250 - $2,500' },
+      'strategy': { base: 900, range: '$600 - $1,250' },
+      'automation': { base: 1400, range: '$1,000 - $2,000' },
+      'general': { base: 600, range: '$400 - $1,000' }
     };
 
     const price = basePrices[selectedType as keyof typeof basePrices] || basePrices.general;
