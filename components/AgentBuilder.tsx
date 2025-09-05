@@ -29,7 +29,7 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
     useCase: '',
     requirements: '',
     timeline: '4-6 semanas',
-    budget: '500-1000'
+    budget: 'personalizado'
   });
   const [proposalData, setProposalData] = useState<any>(null);
 
@@ -76,7 +76,7 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
       useCase: '',
       requirements: '',
       timeline: '4-6 semanas',
-      budget: '500-1000'
+      budget: 'personalizado'
     });
     setProposalData(null);
     onClose();
@@ -239,23 +239,40 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-2">
-                    Presupuesto aproximado (USD)
+                    Presupuesto
                   </label>
-                  <select
-                    value={formData.budget}
-                    onChange={(e) => handleInputChange('budget', e.target.value)}
-                    className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent dark:bg-zinc-800 dark:text-white"
-                  >
-                    <option value="flexible">Presupuesto flexible - Nos ajustamos</option>
-                    <option value="300-500">$300 - $500</option>
-                    <option value="500-1000">$500 - $1,000</option>
-                    <option value="1000-1500">$1,000 - $1,500</option>
-                    <option value="1500-2500">$1,500 - $2,500</option>
-                    <option value="2500+">$2,500+</option>
-                  </select>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                    💡 Selecciona "Presupuesto flexible" para que nos ajustemos a tu presupuesto
-                  </p>
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+                        <span className="text-blue-600 dark:text-blue-400 text-lg">💰</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-blue-900 dark:text-blue-100">Presupuesto Personalizado</h4>
+                        <p className="text-sm text-blue-700 dark:text-blue-300">Nos ajustamos a tu presupuesto</p>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
+                        <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                        <span>Pago escalonado (50% inicio, 50% entrega)</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
+                        <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                        <span>Descuentos por proyectos a largo plazo</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
+                        <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                        <span>Opciones de financiamiento disponibles</span>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-3 p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                      <p className="text-blue-800 dark:text-blue-200 text-xs font-medium">
+                        💬 Te enviaremos un presupuesto detallado basado en tus necesidades específicas
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
