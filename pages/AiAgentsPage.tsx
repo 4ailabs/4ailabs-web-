@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MessageSquare, ShoppingCart, Headset, BarChart, PenTool, TrendingUp } from 'lucide-react';
+import { MessageSquare, ShoppingCart, Headset, BarChart, PenTool, TrendingUp, Bot } from 'lucide-react';
+import AgentBuilder from '../components/AgentBuilder';
 
 const AiAgentsPage: React.FC = () => {
+  const [agentBuilderOpen, setAgentBuilderOpen] = useState(false);
 
   const agentTypes = [
     { icon: MessageSquare, title: "Agentes conversacionales", description: "Chatbots avanzados para engagement y soporte multimodal." },
@@ -30,9 +32,13 @@ const AiAgentsPage: React.FC = () => {
             Somos expertos en crear agentes inteligentes autónomos que automatizan procesos, mejoran la experiencia del cliente y escalan tus operaciones 24/7.
           </p>
           <div className="mt-10 fade-in stagger-2">
-            <Link to="/contacto" className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg">
-              Desarrolla tu Agente
-            </Link>
+            <button
+              onClick={() => setAgentBuilderOpen(true)}
+              className="bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg inline-flex items-center gap-2"
+            >
+              <Bot className="w-6 h-6" />
+              Construye tu Agente
+            </button>
           </div>
         </div>
       </section>
@@ -89,6 +95,12 @@ const AiAgentsPage: React.FC = () => {
            </div>
         </div>
       </section>
+
+      {/* Agent Builder Modal */}
+      <AgentBuilder
+        isOpen={agentBuilderOpen}
+        onClose={() => setAgentBuilderOpen(false)}
+      />
     </div>
   );
 };
