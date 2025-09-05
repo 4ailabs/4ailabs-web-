@@ -17,7 +17,6 @@ interface AcademicFormData {
   researchArea: string;
   collaborationType: string;
   projectDescription: string;
-  budget: string;
   timeline: string;
   additionalInfo: string;
 }
@@ -34,7 +33,6 @@ const AcademicModal: React.FC<AcademicModalProps> = ({ isOpen, onClose }) => {
     researchArea: '',
     collaborationType: 'investigacion',
     projectDescription: '',
-    budget: '',
     timeline: '',
     additionalInfo: ''
   });
@@ -88,7 +86,6 @@ ${collaborationTypes.find(t => t.value === formData.collaborationType)?.label}
 📝 *Descripción del Proyecto:*
 ${formData.projectDescription}
 
-💰 *Presupuesto Estimado:* ${formData.budget}
 ⏱️ *Timeline:* ${formData.timeline}
 
 📌 *Información Adicional:*
@@ -311,32 +308,17 @@ ${formData.additionalInfo}
                   />
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-2">
-                      Presupuesto Estimado
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.budget}
-                      onChange={(e) => handleInputChange('budget', e.target.value)}
-                      className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-zinc-800 dark:text-white"
-                      placeholder="$50,000 - $100,000 USD"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-2">
-                      Timeline del Proyecto
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.timeline}
-                      onChange={(e) => handleInputChange('timeline', e.target.value)}
-                      className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-zinc-800 dark:text-white"
-                      placeholder="6-12 meses"
-                    />
-                  </div>
+                <div>
+                  <label className="block text-sm font-medium text-zinc-700 dark:text-slate-300 mb-2">
+                    Timeline del Proyecto
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.timeline}
+                    onChange={(e) => handleInputChange('timeline', e.target.value)}
+                    className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-zinc-800 dark:text-white"
+                    placeholder="6-12 meses"
+                  />
                 </div>
                 
                 <div>
