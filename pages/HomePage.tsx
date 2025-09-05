@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award, Play, Clock, Eye, ExternalLink, GraduationCap, BookOpen, Microscope, Users2, MessageCircle, Bot, Brain, Crosshair, Heart, Link as LinkIcon, Database, Search, Waves } from 'lucide-react';
+import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award, Play, Clock, Eye, ExternalLink, GraduationCap, BookOpen, Microscope, Users2, MessageCircle, Bot, Brain, Crosshair, Heart, Link as LinkIcon, Database, Search, Waves, Cpu, Smartphone, Globe, Code2 } from 'lucide-react';
 import { serviceCards, stats, testimonials, partners, technologies } from '../constants';
 
 const HomePage: React.FC = () => {
@@ -184,6 +184,131 @@ const HomePage: React.FC = () => {
                 Explorar servicios <ArrowRight className="w-4 h-4" />
               </Link>
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Creación de Agentes de IA y Apps con IA */}
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-950/20 dark:via-purple-950/20 dark:to-pink-950/20 transition-colors duration-300 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(99,102,241,0.1),transparent_50%)]"></div>
+          <div className="absolute top-1/2 right-0 w-96 h-96 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.1),transparent_50%)] rounded-full"></div>
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.1),transparent_50%)] rounded-full"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
+              Especialistas en IA
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-white leading-tight mb-6">
+              Creamos <span className="text-indigo-600 dark:text-indigo-400">Agentes de IA</span> y <span className="text-purple-600 dark:text-purple-400">Apps Inteligentes</span> que Transforman tu Negocio
+            </h2>
+            <p className="text-base sm:text-lg text-zinc-600 dark:text-slate-400 max-w-4xl mx-auto">
+              Desarrollamos soluciones de IA personalizadas que van desde agentes autónomos hasta aplicaciones completas, 
+              diseñadas específicamente para las necesidades de tu empresa y sector.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-16">
+            {/* Agentes de IA */}
+            <div className="group bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm p-8 sm:p-10 rounded-2xl border border-indigo-200/50 dark:border-indigo-700/50 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+              <div className="text-center mb-8">
+                <div className="inline-flex p-4 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Bot className="w-12 h-12 text-white" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mb-4">
+                  Agentes de IA Autónomos
+                </h3>
+                <p className="text-zinc-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed">
+                  Desarrollamos agentes inteligentes que ejecutan tareas complejas, toman decisiones autónomas 
+                  y aprenden de cada interacción para optimizar su rendimiento.
+                </p>
+              </div>
+              
+              <div className="space-y-4 mb-8">
+                {[
+                  { icon: Cpu, text: "Procesamiento de datos en tiempo real" },
+                  { icon: Brain, text: "Toma de decisiones inteligente" },
+                  { icon: Zap, text: "Automatización de procesos complejos" },
+                  { icon: Target, text: "Optimización continua de resultados" }
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-indigo-50/50 dark:bg-indigo-900/20 group-hover:bg-indigo-100/50 dark:group-hover:bg-indigo-800/30 transition-colors duration-300">
+                    <div className="p-2 bg-indigo-100 dark:bg-indigo-800 rounded-lg">
+                      <feature.icon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                    </div>
+                    <span className="text-sm font-medium text-zinc-700 dark:text-slate-300">{feature.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="text-center">
+                <a href="https://wa.me/+525534403571?text=Hola! Me interesa desarrollar un agente de IA autónomo para mi empresa." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-indigo-500/25 min-h-[48px] w-full sm:w-auto justify-center">
+                  <Bot className="w-4 h-4 sm:w-5 sm:h-5" />
+                  Crear mi Agente de IA
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Apps con IA */}
+            <div className="group bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm p-8 sm:p-10 rounded-2xl border border-purple-200/50 dark:border-purple-700/50 hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              <div className="text-center mb-8">
+                <div className="inline-flex p-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Smartphone className="w-12 h-12 text-white" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mb-4">
+                  Aplicaciones con IA
+                </h3>
+                <p className="text-zinc-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed">
+                  Creamos aplicaciones completas integradas con IA, desde interfaces web hasta apps móviles, 
+                  que ofrecen experiencias inteligentes y personalizadas.
+                </p>
+              </div>
+              
+              <div className="space-y-4 mb-8">
+                {[
+                  { icon: Globe, text: "Aplicaciones web inteligentes" },
+                  { icon: Smartphone, text: "Apps móviles con IA integrada" },
+                  { icon: Code2, text: "APIs y microservicios de IA" },
+                  { icon: Users, text: "Interfaces conversacionales" }
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-purple-50/50 dark:bg-purple-900/20 group-hover:bg-purple-100/50 dark:group-hover:bg-purple-800/30 transition-colors duration-300">
+                    <div className="p-2 bg-purple-100 dark:bg-purple-800 rounded-lg">
+                      <feature.icon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <span className="text-sm font-medium text-zinc-700 dark:text-slate-300">{feature.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="text-center">
+                <a href="https://wa.me/+525534403571?text=Hola! Me interesa desarrollar una aplicación con IA para mi negocio." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-purple-500/25 min-h-[48px] w-full sm:w-auto justify-center">
+                  <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />
+                  Desarrollar mi App con IA
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center">
+            <div className="bg-white/60 dark:bg-zinc-800/60 backdrop-blur-sm rounded-2xl p-8 sm:p-12 border border-indigo-200/30 dark:border-indigo-700/30 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+              <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-4">
+                ¿No estás seguro qué necesitas?
+              </h3>
+              <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
+                Agenda una consulta gratuita de 15 minutos y te ayudamos a identificar la mejor solución de IA para tu empresa.
+              </p>
+              <a href="https://wa.me/+525534403571?text=Hola! Me interesa una consulta gratuita para identificar la mejor solución de IA para mi empresa." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-500/25 min-h-[48px] w-full sm:w-auto justify-center">
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                Consulta Gratuita - 15 min
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
