@@ -196,7 +196,7 @@ const HomePage: React.FC = () => {
                   ¿Cuál transformaría tu negocio?
                 </h3>
                 <p className="text-zinc-600 dark:text-slate-300 mb-6 text-lg">
-                  Agenda una <strong>consulta gratuita de 15 minutos</strong> y descubre exactamente cómo implementar IA en tu empresa.
+                  Descubre exactamente cómo implementar IA en tu empresa con nuestra <strong>evaluación personalizada</strong>.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 items-center justify-center mt-4">
                   <div className="flex flex-col items-center gap-1">
@@ -476,7 +476,7 @@ const HomePage: React.FC = () => {
                 Consulta Médica Especializada - Sin Costo
               </h3>
               <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 mb-4 sm:mb-6 max-w-2xl mx-auto leading-relaxed">
-                Como médico, sabemos que tu tiempo es valioso. Te ofrecemos una <strong>consulta gratuita de 20 minutos</strong> 
+                Como médico, sabemos que tu tiempo es valioso. Te ofrecemos una <strong>evaluación especializada</strong> 
                 para mostrar exactamente cómo la IA puede transformar tu práctica médica.
               </p>
               
@@ -662,17 +662,24 @@ const HomePage: React.FC = () => {
                 ¿Necesitas ayuda para decidir?
               </h3>
               <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
-                Agenda una consulta gratuita de 15 minutos y te ayudamos a identificar la mejor solución de IA para tu empresa.
+                Explora nuestras calculadoras especializadas y herramientas de análisis para encontrar la solución perfecta.
               </p>
-              <UnifiedCTA
-                variant="primary"
-                size="lg"
-                onConsultationClick={() => {
-                  setSelectedService({ type: 'strategy', title: 'Estrategia de IA' });
-                  setConsultationOpen(true);
-                }}
-                className="w-full max-w-sm mx-auto sm:w-auto"
-              />
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Link 
+                  to="/calculadora-roi" 
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                >
+                  <Calculator className="w-5 h-5" />
+                  Calculadora ROI
+                </Link>
+                <Link 
+                  to="/agentes-ia" 
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                >
+                  <Bot className="w-5 h-5" />
+                  Crear Agente IA
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -837,13 +844,25 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
-            <UnifiedCTA
-              variant="primary"
-              size="lg"
-              onConsultationClick={() => setConsultationOpen(true)}
-              className="w-full max-w-sm mx-auto sm:w-auto animate-fade-in-up"
-              style={{animationDelay: '0.4s'}}
-            />
+            <p className="text-sm text-zinc-600 dark:text-slate-400 mb-4">
+              ¿Listo para transformar tu empresa con IA?
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link 
+                to="/servicios" 
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+              >
+                <Zap className="w-5 h-5" />
+                Ver Servicios
+              </Link>
+              <Link 
+                to="/contacto" 
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-zinc-600 hover:from-slate-700 hover:to-zinc-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Contactar
+              </Link>
+            </div>
           </div>
         </div>
       </section>
