@@ -536,20 +536,9 @@ const HomePage: React.FC = () => {
               </div>
 
               <div className="text-center">
-                <button 
-                  onClick={() => {
-                    setSelectedService({ type: 'agent', title: 'Agente de IA Autónomo' });
-                    setConsultationOpen(true);
-                  }}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold py-4 px-4 sm:px-6 rounded-2xl text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-indigo-500/25 min-h-[56px] w-full justify-center max-w-xs mx-auto sm:max-w-none"
-                >
-                  <Bot className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-1 text-center">
-                    <span className="text-sm sm:text-base">Agente de IA</span>
-                    <span className="text-xs opacity-75 font-normal sm:hidden">Consulta gratis</span>
-                    <span className="text-xs opacity-75 font-normal hidden sm:inline">→ Consulta especializada</span>
-                  </span>
-                </button>
+                <div className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-sm font-medium px-4 py-2 rounded-lg">
+                  🤖 Agentes autónomos especializados
+                </div>
               </div>
             </div>
 
@@ -585,20 +574,9 @@ const HomePage: React.FC = () => {
               </div>
 
               <div className="text-center">
-                <button 
-                  onClick={() => {
-                    setSelectedService({ type: 'chatbot', title: 'Desarrollo de Chatbot' });
-                    setConsultationOpen(true);
-                  }}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-4 px-4 sm:px-6 rounded-2xl text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-purple-500/25 min-h-[56px] w-full justify-center max-w-xs mx-auto sm:max-w-none"
-                >
-                  <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-1 text-center">
-                    <span className="text-sm sm:text-base">App con IA</span>
-                    <span className="text-xs opacity-75 font-normal sm:hidden">Consulta gratis</span>
-                    <span className="text-xs opacity-75 font-normal hidden sm:inline">→ Consulta especializada</span>
-                  </span>
-                </button>
+                <div className="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium px-4 py-2 rounded-lg">
+                  📱 Apps inteligentes personalizadas
+                </div>
               </div>
             </div>
           </div>
@@ -607,32 +585,32 @@ const HomePage: React.FC = () => {
           <div className="text-center">
             <div className="bg-white/60 dark:bg-zinc-800/60 backdrop-blur-sm rounded-2xl p-8 sm:p-12 border border-indigo-200/30 dark:border-indigo-700/30 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
               <div className="flex items-center justify-center gap-2 mb-4">
-                <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
-                <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
-                <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
-                <span className="text-xs text-slate-500 ml-1 sm:ml-2">3/3</span>
+                <div className="w-2 h-2 bg-indigo-300 rounded-full"></div>
+                <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
+                <span className="text-xs text-slate-500 ml-1 sm:ml-2">Especialistas</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-4">
-                ¿Necesitas ayuda para decidir?
+                ¿Listo para crear tu solución de IA?
               </h3>
               <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
-                Explora nuestras calculadoras especializadas y herramientas de análisis para encontrar la solución perfecta.
+                Desde agentes autónomos hasta aplicaciones completas, desarrollamos la solución perfecta para tu negocio.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Link 
-                  to="/calculadora-roi" 
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-                >
-                  <Calculator className="w-5 h-5" />
-                  Calculadora ROI
-                </Link>
-                <Link 
-                  to="/agentes-ia" 
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                <button
+                  onClick={() => setAgentBuilderOpen(true)}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                 >
                   <Bot className="w-5 h-5" />
-                  Crear Agente IA
-                </Link>
+                  Crear mi Agente IA
+                </button>
+                <button
+                  onClick={() => setQuickStartOpen(true)}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                >
+                  <Smartphone className="w-5 h-5" />
+                  Desarrollar mi App
+                </button>
               </div>
             </div>
           </div>
