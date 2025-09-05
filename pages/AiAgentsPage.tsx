@@ -81,20 +81,21 @@ const AiAgentsPage: React.FC = () => {
                 <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" alt="Sistema de agentes IA automatizados" className="rounded-2xl shadow-xl w-full h-80 object-cover" />
              </div>
              <div className="fade-in">
-                <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-4">Showcase Interactivo</h2>
-                <p className="text-zinc-600 dark:text-slate-400 mb-6">Experimenta el poder de nuestros agentes en tiempo real. Prueba nuestro showcase para ver cómo pueden interactuar, analizar y ejecutar tareas de forma autónoma.</p>
-                <ul className="space-y-3 text-zinc-700 dark:text-slate-300 mb-8">
-                  <li className="flex items-center gap-3">Métricas de rendimiento en vivo</li>
-                  <li className="flex items-center gap-3">Casos de uso por industria</li>
-                  <li className="flex items-center gap-3">Cálculo de ROI instantáneo</li>
-                </ul>
+                <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-4">Configura tu Agente</h2>
+                <p className="text-zinc-600 dark:text-slate-400 mb-6">Diseña tu agente de IA personalizado con nuestras herramientas de configuración. Define sus capacidades y obtén una propuesta detallada.</p>
+                <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 mb-8">
+                  <div className="flex items-center gap-2 text-blue-700 dark:text-blue-300 text-sm font-medium">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span>Configuración personalizada</span>
+                  </div>
+                </div>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button
                     onClick={() => setAgentBuilderOpen(true)}
                     className="bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center justify-center gap-2"
                   >
                     <Bot className="w-5 h-5" />
-                    Demo Interactivo
+                    Desarrolla tu Agente
                   </button>
                   <div className="flex gap-2">
                     <a 
