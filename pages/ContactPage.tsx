@@ -171,7 +171,7 @@ const ContactPage: React.FC = () => {
                   <div>
                     <h3 className="font-semibold text-zinc-900 dark:text-white">WhatsApp</h3>
                     <a 
-                      href="https://wa.me/+525543417252?text=Hola! Me interesa conocer más sobre los servicios de IA de 4ailabs." 
+                      href="https://wa.me/+525534403571?text=Hola! Me interesa conocer más sobre los servicios de IA de 4ailabs." 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-green-600 dark:text-green-400 font-medium hover:text-green-700 dark:hover:text-green-300 transition-colors duration-300"

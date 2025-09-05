@@ -48,7 +48,7 @@ INFORMACIÓN CLAVE:
 - 4ailabs es una agencia especializada en agentes de IA autónomos
 - Tenemos experiencia real en IA médica y Context Engineering
 - Ofrecemos implementaciones técnicas, no solo consultoría
-- WhatsApp: +52 5543417252 para consultas
+- WhatsApp: +52 5534403571 para consultas
 
 INSTRUCCIONES:
 1. Responde directamente a la pregunta del usuario

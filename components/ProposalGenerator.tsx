@@ -26,7 +26,7 @@ ${proposal.technical.services.map(service => `• ${service.name}`).join('\n')}
 
 ¿Podemos agendar una reunión para discutir los detalles?`;
     
-    const whatsappUrl = `https://wa.me/+525543417252?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/+525534403571?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
