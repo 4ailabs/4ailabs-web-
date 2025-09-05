@@ -179,74 +179,21 @@ const HomePage: React.FC = () => {
               );
             })}
           </div>
-          <div className="text-center mt-12">
-            <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-8 border border-slate-200 dark:border-zinc-600 max-w-3xl mx-auto mb-8 relative overflow-hidden">
-              {/* Subtle background decoration */}
-              <div className="absolute inset-0 opacity-5 dark:opacity-10">
-                <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-transparent rounded-full -translate-x-16 -translate-y-16"></div>
-                <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-purple-500/20 to-transparent rounded-full translate-x-12 translate-y-12"></div>
-              </div>
-              
-              <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-4">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                  Consulta Personalizada
-                </div>
-                <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
-                  ¿Cuál transformaría tu negocio?
-                </h3>
-                <p className="text-zinc-600 dark:text-slate-300 mb-6 text-lg">
-                  Descubre exactamente cómo implementar IA en tu empresa con nuestra <strong>evaluación personalizada</strong>.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 items-center justify-center mt-4">
-                  <div className="flex flex-col items-center gap-1">
-                    {/* Badge móvil - arriba */}
-                    <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium px-2 py-1 rounded-full sm:hidden">
-                      👆 Recomendado para principiantes
-                    </div>
-                    
-                    <Link 
-                      to="/calculadora-roi" 
-                      className="inline-flex items-center gap-2 bg-white dark:bg-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white font-semibold py-3 px-4 sm:px-6 rounded-2xl transition-all duration-300 border border-zinc-200 dark:border-zinc-600 hover:shadow-lg text-sm sm:text-base min-h-[52px] w-full max-w-xs sm:w-auto justify-center relative"
-                    >
-                      {/* Badge desktop */}
-                      <div className="hidden sm:block absolute -top-2 -right-2 bg-blue-400 text-blue-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
-                        INICIO
-                      </div>
-                      
-                      <Calculator className="w-4 h-4 flex-shrink-0" />
-                      <span className="text-center">
-                        <span className="block sm:inline">Calcular ROI</span>
-                        <span className="hidden sm:inline ml-1">Primero</span>
-                      </span>
-                    </Link>
-                  </div>
-                  <span className="text-xs text-zinc-400 dark:text-slate-500">¿No estás seguro? Empieza aquí</span>
-                </div>
-                <div className="flex items-center justify-center gap-6 text-sm text-zinc-500 dark:text-slate-400">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
-                    15 minutos
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
-                    100% gratis
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
-                    Roadmap incluido
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="mt-6">
+          {/* CTA simplificado */}
+          <div className="text-center mt-8">
+            <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-zinc-800 dark:to-zinc-700 rounded-xl p-6 border border-slate-200 dark:border-zinc-600 max-w-2xl mx-auto">
+              <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-3">
+                ¿Cuál transformaría tu negocio?
+              </h3>
+              <p className="text-zinc-600 dark:text-slate-300 mb-4 text-sm">
+                Descubre cómo implementar IA en tu empresa con nuestra evaluación personalizada.
+              </p>
               <Link 
-                to="/servicios" 
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-slate-500/25 min-h-[56px] w-full max-w-xs mx-auto sm:w-auto justify-center text-sm sm:text-base"
+                to="/calculadora-roi" 
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-sm"
               >
-                <Eye className="w-5 h-5" />
-                Explorar Todos los Servicios
-                <ArrowRight className="w-4 h-4" />
+                <Calculator className="w-4 h-4" />
+                Calcular ROI
               </Link>
             </div>
           </div>
