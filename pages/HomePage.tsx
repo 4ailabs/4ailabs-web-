@@ -381,79 +381,78 @@ const HomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-16">
-            {/* Agentes de IA */}
-            <div className="group bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm p-8 sm:p-10 rounded-2xl border border-indigo-200/50 dark:border-indigo-700/50 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+          {/* Tarjeta unificada */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="group bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm p-8 sm:p-12 rounded-2xl border border-indigo-200/50 dark:border-indigo-700/50 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 animate-fade-in-up">
               <div className="text-center mb-8">
-                <div className="inline-flex p-4 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Bot className="w-12 h-12 text-white" />
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mb-4">
-                  Agentes de IA Autónomos
-                </h3>
-                <p className="text-zinc-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed">
-                  Desarrollamos agentes inteligentes que ejecutan tareas complejas, toman decisiones autónomas 
-                  y aprenden de cada interacción para optimizar su rendimiento.
-                </p>
-              </div>
-              
-              <div className="space-y-4 mb-8">
-                {[
-                  { icon: Cpu, text: "Procesamiento de datos en tiempo real" },
-                  { icon: Brain, text: "Toma de decisiones inteligente" },
-                  { icon: Zap, text: "Automatización de procesos complejos" },
-                  { icon: Target, text: "Optimización continua de resultados" }
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-indigo-50/50 dark:bg-indigo-900/20 group-hover:bg-indigo-100/50 dark:group-hover:bg-indigo-800/30 transition-colors duration-300">
-                    <div className="p-2 bg-indigo-100 dark:bg-indigo-800 rounded-lg">
-                      <feature.icon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                    </div>
-                    <span className="text-sm font-medium text-zinc-700 dark:text-slate-300">{feature.text}</span>
+                <div className="inline-flex items-center gap-4 mb-6">
+                  <div className="p-4 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                    <Bot className="w-8 h-8 text-white" />
                   </div>
-                ))}
-              </div>
-
-              <div className="text-center">
-                <div className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-sm font-medium px-4 py-2 rounded-lg">
-                  🤖 Agentes autónomos especializados
-                </div>
-              </div>
-            </div>
-
-            {/* Apps con IA */}
-            <div className="group bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm p-8 sm:p-10 rounded-2xl border border-purple-200/50 dark:border-purple-700/50 hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-              <div className="text-center mb-8">
-                <div className="inline-flex p-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Smartphone className="w-12 h-12 text-white" />
+                  <div className="p-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                    <Smartphone className="w-8 h-8 text-white" />
+                  </div>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mb-4">
-                  Aplicaciones con IA
+                  <span className="text-indigo-600 dark:text-indigo-400">Agentes de IA</span> y <span className="text-purple-600 dark:text-purple-400">Apps Inteligentes</span>
                 </h3>
-                <p className="text-zinc-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed">
-                  Creamos aplicaciones completas integradas con IA, desde interfaces web hasta apps móviles, 
-                  que ofrecen experiencias inteligentes y personalizadas.
+                <p className="text-zinc-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+                  Desarrollamos agentes inteligentes autónomos y aplicaciones completas con IA integrada, 
+                  diseñadas para automatizar procesos complejos y ofrecer experiencias personalizadas.
                 </p>
               </div>
               
-              <div className="space-y-4 mb-8">
-                {[
-                  { icon: Globe, text: "Aplicaciones web inteligentes" },
-                  { icon: Smartphone, text: "Apps móviles con IA integrada" },
-                  { icon: Code2, text: "APIs y microservicios de IA" },
-                  { icon: Users, text: "Interfaces conversacionales" }
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-purple-50/50 dark:bg-purple-900/20 group-hover:bg-purple-100/50 dark:group-hover:bg-purple-800/30 transition-colors duration-300">
-                    <div className="p-2 bg-purple-100 dark:bg-purple-800 rounded-lg">
-                      <feature.icon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                {/* Características de Agentes */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-indigo-600 dark:text-indigo-400 mb-4 flex items-center gap-2">
+                    <Bot className="w-5 h-5" />
+                    Agentes Autónomos
+                  </h4>
+                  {[
+                    { icon: Cpu, text: "Procesamiento de datos en tiempo real" },
+                    { icon: Brain, text: "Toma de decisiones inteligente" },
+                    { icon: Zap, text: "Automatización de procesos complejos" },
+                    { icon: Target, text: "Optimización continua de resultados" }
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-indigo-50/50 dark:bg-indigo-900/20 group-hover:bg-indigo-100/50 dark:group-hover:bg-indigo-800/30 transition-colors duration-300">
+                      <div className="p-2 bg-indigo-100 dark:bg-indigo-800 rounded-lg">
+                        <feature.icon className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                      </div>
+                      <span className="text-sm font-medium text-zinc-700 dark:text-slate-300">{feature.text}</span>
                     </div>
-                    <span className="text-sm font-medium text-zinc-700 dark:text-slate-300">{feature.text}</span>
-              </div>
-            ))}
+                  ))}
+                </div>
+
+                {/* Características de Apps */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-4 flex items-center gap-2">
+                    <Smartphone className="w-5 h-5" />
+                    Aplicaciones Inteligentes
+                  </h4>
+                  {[
+                    { icon: Globe, text: "Aplicaciones web inteligentes" },
+                    { icon: Smartphone, text: "Apps móviles con IA integrada" },
+                    { icon: Code2, text: "APIs y microservicios de IA" },
+                    { icon: Users, text: "Interfaces conversacionales" }
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-purple-50/50 dark:bg-purple-900/20 group-hover:bg-purple-100/50 dark:group-hover:bg-purple-800/30 transition-colors duration-300">
+                      <div className="p-2 bg-purple-100 dark:bg-purple-800 rounded-lg">
+                        <feature.icon className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                      </div>
+                      <span className="text-sm font-medium text-zinc-700 dark:text-slate-300">{feature.text}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="text-center">
-                <div className="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium px-4 py-2 rounded-lg">
-                  📱 Apps inteligentes personalizadas
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-700 dark:text-indigo-300 text-sm font-medium px-6 py-3 rounded-lg">
+                  <Bot className="w-4 h-4" />
+                  <span>🤖 Agentes autónomos especializados</span>
+                  <span className="mx-2">•</span>
+                  <Smartphone className="w-4 h-4" />
+                  <span>📱 Apps inteligentes personalizadas</span>
                 </div>
               </div>
             </div>
