@@ -314,32 +314,9 @@ const HomePage: React.FC = () => {
               </div>
 
               <div className="text-center">
-                {/* Badge móvil */}
-                <div className="flex justify-center mb-2 sm:hidden">
-                  <div className="bg-cyan-100 text-cyan-700 text-xs font-medium px-2 py-1 rounded-full">
-                    ⚕️ Especializada para médicos
-                  </div>
+                <div className="bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 text-sm font-medium px-4 py-2 rounded-lg">
+                  ⚕️ Especializada para médicos
                 </div>
-                
-                <button 
-                  onClick={() => {
-                    setSelectedService({ type: 'medical', title: 'IA Médica' });
-                    setConsultationOpen(true);
-                  }}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 text-white font-bold py-4 px-4 sm:px-6 rounded-2xl text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-cyan-500/25 min-h-[56px] w-full justify-center max-w-xs mx-auto sm:max-w-none relative"
-                >
-                  {/* Badge desktop */}
-                  <div className="hidden sm:block absolute -top-2 -right-2 bg-cyan-100 text-cyan-700 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
-                    MÉDICO
-                  </div>
-                  
-                  <Heart className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                  <span className="text-center leading-tight">
-                    <span className="block text-sm sm:text-base">IA Médica</span>
-                    <span className="block text-xs opacity-75 font-normal sm:hidden">Consulta especializada</span>
-                    <span className="text-xs opacity-75 font-normal hidden sm:inline">→ Consulta médica</span>
-                  </span>
-                </button>
               </div>
             </div>
 
@@ -375,32 +352,9 @@ const HomePage: React.FC = () => {
               </div>
 
               <div className="text-center">
-                {/* Badge móvil */}
-                <div className="flex justify-center mb-2 sm:hidden">
-                  <div className="bg-teal-100 text-teal-700 text-xs font-medium px-2 py-1 rounded-full">
-                    🏥 Plataforma completa
-                  </div>
+                <div className="bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 text-sm font-medium px-4 py-2 rounded-lg">
+                  🏥 Plataforma completa
                 </div>
-                
-                <button 
-                  onClick={() => {
-                    setSelectedService({ type: 'medical-platform', title: 'Plataforma Médica IA' });
-                    setConsultationOpen(true);
-                  }}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white font-bold py-4 px-4 sm:px-6 rounded-2xl text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-teal-500/25 min-h-[56px] w-full justify-center max-w-xs mx-auto sm:max-w-none relative"
-                >
-                  {/* Badge desktop */}
-                  <div className="hidden sm:block absolute -top-2 -right-2 bg-teal-100 text-teal-700 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
-                    CLÍNICA
-                  </div>
-                  
-                  <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                  <span className="text-center leading-tight">
-                    <span className="block text-sm sm:text-base">Plataforma Médica</span>
-                    <span className="block text-xs opacity-75 font-normal sm:hidden">Demo personalizada</span>
-                    <span className="text-xs opacity-75 font-normal hidden sm:inline">→ Demo personalizada</span>
-                  </span>
-                </button>
               </div>
             </div>
           </div>
