@@ -170,7 +170,14 @@ const ContactPage: React.FC = () => {
                   <MessageCircle className="w-8 h-8 text-green-600 dark:text-cyan-400 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-zinc-900 dark:text-white">WhatsApp</h3>
-                    <p className="text-green-600 dark:text-green-400 font-medium">+52 5543417252</p>
+                    <a 
+                      href="https://wa.me/+525543417252?text=Hola! Me interesa conocer más sobre los servicios de IA de 4ailabs." 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-green-600 dark:text-green-400 font-medium hover:text-green-700 dark:hover:text-green-300 transition-colors duration-300"
+                    >
+                      +52 5543417252
+                    </a>
                     <p className="text-sm text-zinc-500 dark:text-slate-400">Respuesta inmediata</p>
                   </div>
                 </div>
