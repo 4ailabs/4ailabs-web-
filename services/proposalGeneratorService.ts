@@ -1,4 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { getServicePricing, calculateTotalPrice, PRICING_FLEXIBILITY_MESSAGE } from '../constants/pricing';
 
 interface ContactFormData {
   name: string;
@@ -155,99 +156,122 @@ Responde SOLO con el JSON, sin texto adicional.
   }
 
   private getMockProposal(formData: ContactFormData): ProposalData {
-    const serviceType = formData.service.toLowerCase();
-    let basePrice = 375;
-    let duration = "3-4 semanas";
-    let technicalSpecs: string[] = [];
-    let deliverables: string[] = [];
+    // Mapear tipos de servicio a tipos de pricing
+    const serviceTypeMap: Record<string, string> = {
+      'agente': 'agent',
+      'chatbot': 'chatbot',
+      'medica': 'medical',
+      'healthcare': 'medical',
+      'context': 'context-engineering',
+      'engineering': 'context-engineering',
+      'automatizacion': 'automation',
+      'educacion': 'education',
+      'roi': 'roi-analysis'
+    };
 
-    // Personalizar según el tipo de servicio
-    if (serviceType.includes('agente') || serviceType.includes('chatbot')) {
-      basePrice = 625;
-      duration = "4-6 semanas";
-      technicalSpecs = [
-        "Integración con APIs de IA (OpenAI, Gemini, Claude)",
-        "Sistema de entrenamiento y fine-tuning",
-        "Interfaz de administración personalizada",
-        "Analytics y métricas de rendimiento"
-      ];
-      deliverables = [
-        "Agente de IA completamente funcional",
-        "Documentación técnica completa",
-        "Panel de administración",
-        "Capacitación del equipo (4 horas)",
-        "Soporte técnico por 3 meses"
-      ];
-    } else if (serviceType.includes('medica') || serviceType.includes('healthcare')) {
-      basePrice = 1250;
-      duration = "6-8 semanas";
-      technicalSpecs = [
-        "Cumplimiento con regulaciones médicas",
-        "Integración con sistemas hospitalarios",
-        "Algoritmos de diagnóstico asistido",
-        "Sistema de auditoría y trazabilidad"
-      ];
-      deliverables = [
-        "Sistema de IA médica certificado",
-        "Documentación de cumplimiento",
-        "Integración con sistemas existentes",
-        "Capacitación médica especializada",
-        "Certificación y validación clínica"
-      ];
-    } else if (serviceType.includes('context') || serviceType.includes('engineering')) {
-      basePrice = 300;
-      duration = "2-3 semanas";
-      technicalSpecs = [
-        "Optimización de prompts y contextos",
-        "Fine-tuning de modelos de IA",
-        "Sistema de evaluación de rendimiento",
-        "Documentación de mejores prácticas"
-      ];
-      deliverables = [
-        "Modelos optimizados",
-        "Guía de mejores prácticas",
-        "Herramientas de evaluación",
-        "Capacitación técnica (8 horas)",
-        "Soporte por 2 meses"
-      ];
-    } else {
-      // Servicio general
-      basePrice = 500;
-      duration = "4-5 semanas";
-      technicalSpecs = [
-        "Análisis de procesos empresariales",
-        "Diseño de arquitectura de IA",
-        "Implementación de soluciones",
-        "Integración con sistemas existentes"
-      ];
-      deliverables = [
-        "Solución de IA personalizada",
-        "Documentación técnica",
-        "Capacitación del equipo",
-        "Soporte técnico inicial",
-        "Plan de mantenimiento"
-      ];
+    // Determinar el tipo de servicio
+    const serviceType = formData.service.toLowerCase();
+    let mappedType = 'general';
+    
+    for (const [key, value] of Object.entries(serviceTypeMap)) {
+      if (serviceType.includes(key)) {
+        mappedType = value;
+        break;
+      }
     }
 
-    const additionalServices = [
-      { name: "Soporte extendido (6 meses)", price: Math.round(basePrice * 0.15) },
-      { name: "Capacitación adicional", price: 75 },
-      { name: "Integración con sistemas legacy", price: 125 }
-    ];
+    // Obtener precios centralizados
+    const pricing = getServicePricing(mappedType);
+    const totalPrice = calculateTotalPrice(mappedType, true);
+
+    // Definir especificaciones técnicas y entregables según el tipo
+    let technicalSpecs: string[] = [];
+    let deliverables: string[] = [];
+    let duration = "4-6 semanas";
+
+    switch (mappedType) {
+      case 'agent':
+      case 'chatbot':
+        technicalSpecs = [
+          "Integración con APIs de IA (OpenAI, Gemini, Claude)",
+          "Sistema de entrenamiento y fine-tuning",
+          "Interfaz de administración personalizada",
+          "Analytics y métricas de rendimiento"
+        ];
+        deliverables = [
+          "Agente de IA completamente funcional",
+          "Documentación técnica completa",
+          "Panel de administración",
+          "Capacitación del equipo (4 horas)",
+          "Soporte técnico por 3 meses"
+        ];
+        duration = "4-6 semanas";
+        break;
+      
+      case 'medical':
+        technicalSpecs = [
+          "Cumplimiento con regulaciones médicas",
+          "Integración con sistemas hospitalarios",
+          "Algoritmos de diagnóstico asistido",
+          "Sistema de auditoría y trazabilidad"
+        ];
+        deliverables = [
+          "Sistema de IA médica certificado",
+          "Documentación de cumplimiento",
+          "Integración con sistemas existentes",
+          "Capacitación médica especializada",
+          "Certificación y validación clínica"
+        ];
+        duration = "6-8 semanas";
+        break;
+      
+      case 'context-engineering':
+        technicalSpecs = [
+          "Optimización de prompts y contextos",
+          "Fine-tuning de modelos de IA",
+          "Sistema de evaluación de rendimiento",
+          "Documentación de mejores prácticas"
+        ];
+        deliverables = [
+          "Modelos optimizados",
+          "Guía de mejores prácticas",
+          "Herramientas de evaluación",
+          "Capacitación técnica (8 horas)",
+          "Soporte por 2 meses"
+        ];
+        duration = "2-3 semanas";
+        break;
+      
+      default:
+        technicalSpecs = [
+          "Análisis de procesos empresariales",
+          "Diseño de arquitectura de IA",
+          "Implementación de soluciones",
+          "Integración con sistemas existentes"
+        ];
+        deliverables = [
+          "Solución de IA personalizada",
+          "Documentación técnica",
+          "Capacitación del equipo",
+          "Soporte técnico inicial",
+          "Plan de mantenimiento"
+        ];
+        duration = "4-5 semanas";
+    }
 
     return {
-      companyName: formData.name.split(' ')[0] + " Company", // Inferir nombre de empresa
+      companyName: formData.name.split(' ')[0] + " Company",
       contactPerson: formData.name,
       email: formData.email,
       serviceType: formData.service,
       requirements: formData.message || "Implementación de soluciones de IA para optimizar procesos empresariales y mejorar la eficiencia operativa.",
-      budget: `$${basePrice.toLocaleString()} - $${(basePrice * 1.3).toLocaleString()}`,
+      budget: pricing.range,
       technicalSpecs,
       deliverables,
       pricing: {
-        basePrice,
-        additionalServices,
-        totalPrice: basePrice + additionalServices.reduce((sum, service) => sum + service.price, 0)
+        basePrice: pricing.base,
+        additionalServices: pricing.additionalServices,
+        totalPrice: totalPrice
       },
       timeline: {
         phases: [

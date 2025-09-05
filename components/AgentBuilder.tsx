@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Bot, Loader2, FileText, MessageCircle, Zap, Brain, Target } from 'lucide-react';
 import { proposalGeneratorService } from '../services/proposalGeneratorService';
+import { BUDGET_RANGES, PRICING_FLEXIBILITY_MESSAGE } from '../constants/pricing';
 
 interface AgentBuilderProps {
   isOpen: boolean;
@@ -245,11 +246,11 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
                     onChange={(e) => handleInputChange('budget', e.target.value)}
                     className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent dark:bg-zinc-800 dark:text-white"
                   >
-                    <option value="300-500">$300 - $500</option>
-                    <option value="500-1000">$500 - $1,000</option>
-                    <option value="1000-1500">$1,000 - $1,500</option>
-                    <option value="1500-2500">$1,500 - $2,500</option>
-                    <option value="2500+">$2,500+</option>
+                    {BUDGET_RANGES.map((range) => (
+                      <option key={range.value} value={range.value}>
+                        {range.label}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, MessageCircle, Calculator, Bot, Brain, Target, Zap, CheckCircle, Loader2, FileText, ArrowRight } from 'lucide-react';
 import { proposalGeneratorService } from '../services/proposalGeneratorService';
+import { getServicePricing, calculateTotalPrice, PRICING_FLEXIBILITY_MESSAGE } from '../constants/pricing';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -107,24 +108,19 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
   };
 
   const generateBasicProposal = (consultation: any, companyName: string, needs: string) => {
-    const basePrices = {
-      'roi': { base: 375, range: '$250 - $500' },
-      'chatbot': { base: 550, range: '$375 - $750' },
-      'agent': { base: 875, range: '$625 - $1,250' },
-      'strategy': { base: 450, range: '$300 - $625' },
-      'automation': { base: 700, range: '$500 - $1,000' },
-      'general': { base: 300, range: '$200 - $500' }
+    // Mapear tipos de consulta a tipos de servicio
+    const serviceTypeMap: Record<string, string> = {
+      'roi': 'roi-analysis',
+      'chatbot': 'chatbot',
+      'agent': 'agent',
+      'strategy': 'general',
+      'automation': 'automation',
+      'general': 'general'
     };
 
-    const price = basePrices[selectedType as keyof typeof basePrices] || basePrices.general;
-    const additionalServices = [
-      { name: 'Soporte técnico 30 días', price: Math.round(price.base * 0.2) },
-      { name: 'Capacitación del equipo', price: Math.round(price.base * 0.15) },
-      { name: 'Documentación técnica', price: Math.round(price.base * 0.1) }
-    ];
-
-    const totalAdditional = additionalServices.reduce((sum, service) => sum + service.price, 0);
-    const totalPrice = price.base + totalAdditional;
+    const serviceType = serviceTypeMap[selectedType] || 'general';
+    const pricing = getServicePricing(serviceType);
+    const totalPrice = calculateTotalPrice(serviceType, true);
 
     return {
       companyName: companyName || 'Tu Empresa',
@@ -132,7 +128,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
       email: 'consulta@empresa.com',
       serviceType: consultation?.title || 'Consulta General',
       requirements: needs || 'Por discutir en la consulta',
-      budget: price.range,
+      budget: pricing.range,
       technicalSpecs: [
         'Análisis de requerimientos técnicos',
         'Arquitectura de solución personalizada',
@@ -149,8 +145,9 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
         'Capacitación del equipo'
       ],
       pricing: {
-        basePrice: price.base,
-        additionalServices: additionalServices,
+        basePrice: pricing.base,
+        range: pricing.range,
+        additionalServices: pricing.additionalServices,
         totalPrice: totalPrice
       },
       timeline: {
