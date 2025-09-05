@@ -17,9 +17,9 @@ const HomePage: React.FC = () => {
             Creamos <strong>agentes de IA autónomos</strong> que automatizan procesos complejos, toman decisiones inteligentes y transforman tu negocio. Tecnología avanzada con atención personal y precios accesibles.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col justify-center items-center gap-4 animate-fade-in-up animate-delay-400 px-4">
-            <Link to="/contacto" className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[48px] flex items-center justify-center w-full sm:w-auto">
+            <a href="https://wa.me/+525543417252?text=Hola! Me interesa agendar una consulta gratuita de 15 minutos para conocer más sobre sus servicios de IA y calcular mi ROI." target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[48px] flex items-center justify-center w-full sm:w-auto">
               Consulta Gratuita - Ver mi ROI
-            </Link>
+            </a>
             <p className="text-sm sm:text-base text-zinc-500 dark:text-slate-400 mt-2 text-center">
               Solo 15 minutos • Sin compromiso • Resultados garantizados
             </p>
@@ -156,9 +156,9 @@ const HomePage: React.FC = () => {
                   Agenda una <strong>consulta gratuita de 15 minutos</strong> y descubre exactamente cómo implementar IA en tu empresa.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                  <Link to="/contacto" className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-8 rounded-full transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25">
+                  <a href="https://wa.me/+525543417252?text=Hola! Me interesa reservar una consulta gratuita de 15 minutos para conocer más sobre sus servicios de IA." target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-8 rounded-full transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25">
                     Reservar Consulta GRATIS
-                  </Link>
+                  </a>
                   <Link to="/calculadora-roi" className="bg-white dark:bg-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-500 text-zinc-900 dark:text-white font-semibold py-4 px-8 rounded-full transition-all-smooth border border-zinc-200 dark:border-zinc-500">
                     Calcular mi ROI
                   </Link>
@@ -347,11 +347,11 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
-            <Link to="/contacto" className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-400/25 animate-fade-in-up min-h-[48px] w-full sm:w-auto justify-center" style={{animationDelay: '0.4s'}}>
+            <a href="https://wa.me/+525543417252?text=Hola! Me interesa ver más ejemplos de sus agentes de IA en acción." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-400/25 animate-fade-in-up min-h-[48px] w-full sm:w-auto justify-center" style={{animationDelay: '0.4s'}}>
               <Play className="w-4 h-4 sm:w-5 sm:h-5" />
               Ver Más Ejemplos
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -463,9 +463,9 @@ const HomePage: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-center">
-                    <Link to="/contacto" className="w-full sm:w-auto bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 sm:py-5 px-8 sm:px-10 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[56px] flex items-center justify-center">
+                    <a href="https://wa.me/+525543417252?text=Hola! Me interesa reservar mi consulta gratuita de 15 minutos para conocer más sobre sus servicios de IA." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 sm:py-5 px-8 sm:px-10 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[56px] flex items-center justify-center">
                       Reservar mi consulta GRATIS
-                    </Link>
+                    </a>
                     <p className="text-sm text-zinc-500 dark:text-slate-500 mt-6 sm:mt-8">
                       Sin compromiso • Resultados garantizados • Roadmap personalizado
                     </p>

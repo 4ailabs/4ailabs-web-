@@ -180,9 +180,9 @@ const Header: React.FC = () => {
                 </span>
               </button>
               <ThemeToggle size="sm" />
-              <Link to="/contacto" className="ml-4 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-2 px-4 rounded-full text-sm transition-all-smooth transform hover:scale-105 shadow-lg">
+              <a href="https://wa.me/+525543417252?text=Hola! Me interesa agendar una consulta gratuita de 15 minutos para conocer más sobre sus servicios de IA." target="_blank" rel="noopener noreferrer" className="ml-4 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-2 px-4 rounded-full text-sm transition-all-smooth transform hover:scale-105 shadow-lg">
                 Consulta Gratuita
-              </Link>
+              </a>
             </div>
             <div className="md:hidden">
               <button
