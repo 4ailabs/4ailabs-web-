@@ -97,11 +97,6 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
       setProposalData(proposal);
       setStep('proposal');
       
-      // Auto-enviar a WhatsApp después de mostrar la propuesta
-      setTimeout(() => {
-        handleWhatsAppRedirect();
-      }, 2000);
-      
     } catch (error) {
       console.error('Error generating proposal:', error);
       // Fallback to direct WhatsApp if generation fails
@@ -193,21 +188,71 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
 
 ¿Podemos agendar una reunión para discutir cómo la IA puede transformar mi negocio?`;
       
-      console.log('Opening WhatsApp with message:', message);
-      
       const whatsappUrl = `https://wa.me/525534403571?text=${encodeURIComponent(message)}`;
-      console.log('WhatsApp URL:', whatsappUrl);
       
+      // Intentar abrir WhatsApp
       const opened = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
       
+      // Si no se pudo abrir, mostrar un modal más amigable en lugar de alert
       if (!opened) {
-        alert('No se pudo abrir WhatsApp. Por favor, permite ventanas emergentes o copia este enlace: ' + whatsappUrl);
+        // Crear un modal personalizado para mostrar el enlace
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-[9999]';
+        modal.innerHTML = `
+          <div class="bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl max-w-md w-full p-6">
+            <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-4">
+              📱 Abrir WhatsApp
+            </h3>
+            <p class="text-zinc-600 dark:text-slate-400 mb-4">
+              No se pudo abrir WhatsApp automáticamente. Copia el enlace o ábrelo manualmente:
+            </p>
+            <div class="bg-zinc-100 dark:bg-zinc-800 p-3 rounded-lg mb-4">
+              <code class="text-xs break-all text-zinc-700 dark:text-zinc-300">${whatsappUrl}</code>
+            </div>
+            <div class="flex gap-3">
+              <button onclick="navigator.clipboard.writeText('${whatsappUrl}'); this.textContent='¡Copiado!'; setTimeout(() => this.textContent='Copiar Enlace', 2000)" 
+                      class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+                Copiar Enlace
+              </button>
+              <button onclick="this.closest('.fixed').remove()" 
+                      class="flex-1 bg-zinc-600 hover:bg-zinc-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+                Cerrar
+              </button>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+        
+        // Auto-cerrar el modal después de 10 segundos
+        setTimeout(() => {
+          if (modal.parentNode) {
+            modal.remove();
+          }
+        }, 10000);
+      } else {
+        // Si se abrió correctamente, cerrar el modal principal
+        onClose();
       }
-      
-      onClose();
     } catch (error) {
       console.error('Error opening WhatsApp:', error);
-      alert('Error al abrir WhatsApp. Por favor, contacta directamente al +52 55 3440 3571');
+      // Mostrar un modal de error más amigable
+      const modal = document.createElement('div');
+      modal.className = 'fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-[9999]';
+      modal.innerHTML = `
+        <div class="bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl max-w-md w-full p-6">
+          <h3 class="text-xl font-bold text-red-600 dark:text-red-400 mb-4">
+            ⚠️ Error al abrir WhatsApp
+          </h3>
+          <p class="text-zinc-600 dark:text-slate-400 mb-4">
+            Contacta directamente al: <strong>+52 55 3440 3571</strong>
+          </p>
+          <button onclick="this.closest('.fixed').remove()" 
+                  class="w-full bg-zinc-600 hover:bg-zinc-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+            Cerrar
+          </button>
+        </div>
+      `;
+      document.body.appendChild(modal);
     }
   };
 
@@ -393,17 +438,17 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
                 </div>
               </div>
 
-              <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
+              <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-700">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
-                    <MessageCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                    <FileText className="w-5 h-5 text-green-600 dark:text-green-400" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-900 dark:text-blue-100">
-                      🚀 Abriendo WhatsApp automáticamente...
+                    <h4 className="font-semibold text-green-900 dark:text-green-100">
+                      ✅ Propuesta generada exitosamente
                     </h4>
-                    <p className="text-sm text-blue-700 dark:text-blue-300">
-                      Te redirigimos a WhatsApp con toda la información de tu propuesta
+                    <p className="text-sm text-green-700 dark:text-green-300">
+                      Revisa los detalles y contacta por WhatsApp cuando estés listo
                     </p>
                   </div>
                 </div>
