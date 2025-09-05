@@ -6,6 +6,7 @@ import ServiceQuickStart from '../components/ServiceQuickStart';
 import AgentBuilder from '../components/AgentBuilder';
 import ConsultationModal from '../components/ConsultationModal';
 import AcademicModal from '../components/AcademicModal';
+import UnifiedCTA from '../components/UnifiedCTA';
 
 const HomePage: React.FC = () => {
   const [quickStartOpen, setQuickStartOpen] = useState(false);
@@ -35,21 +36,12 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
               
-              <button
-                onClick={() => setConsultationOpen(true)}
-                className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[60px] flex items-center justify-center w-full max-w-sm sm:w-auto gap-2 mx-auto relative"
-              >
-                {/* Badge desktop - solo visible en sm+ */}
-                <div className="hidden sm:block absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
-                  ¡GRATIS!
-                </div>
-                
-                <MessageCircle className="w-5 h-5 flex-shrink-0" />
-                <span className="text-center leading-tight">
-                  <span className="block text-sm sm:text-base">Consulta Estratégica</span>
-                  <span className="block text-xs sm:text-sm opacity-90">15 min • Sin compromiso</span>
-                </span>
-              </button>
+              <UnifiedCTA
+                variant="hero"
+                size="lg"
+                onConsultationClick={() => setConsultationOpen(true)}
+                className="w-full max-w-sm sm:w-auto mx-auto relative"
+              />
             </div>
             <div className="text-xs sm:text-sm text-zinc-500 dark:text-slate-400 mt-3 text-center space-y-1 sm:space-y-0">
               <div className="sm:hidden">
@@ -673,17 +665,15 @@ const HomePage: React.FC = () => {
               <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
                 Agenda una consulta gratuita de 15 minutos y te ayudamos a identificar la mejor solución de IA para tu empresa.
               </p>
-              <button
-                onClick={() => {
+              <UnifiedCTA
+                variant="primary"
+                size="lg"
+                onConsultationClick={() => {
                   setSelectedService({ type: 'strategy', title: 'Estrategia de IA' });
                   setConsultationOpen(true);
                 }}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-500/25 min-h-[56px] w-full max-w-sm mx-auto sm:w-auto justify-center"
-              >
-                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-                Consulta Estratégica - 15 min
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </button>
+                className="w-full max-w-sm mx-auto sm:w-auto"
+              />
             </div>
           </div>
         </div>
@@ -848,15 +838,13 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
-            <button
-              onClick={() => setConsultationOpen(true)}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-400/25 animate-fade-in-up min-h-[56px] w-full max-w-sm mx-auto sm:w-auto justify-center"
+            <UnifiedCTA
+              variant="primary"
+              size="lg"
+              onConsultationClick={() => setConsultationOpen(true)}
+              className="w-full max-w-sm mx-auto sm:w-auto animate-fade-in-up"
               style={{animationDelay: '0.4s'}}
-            >
-              <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-              Consulta Estratégica Gratuita
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
+            />
           </div>
         </div>
       </section>
