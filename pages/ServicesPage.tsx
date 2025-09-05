@@ -181,11 +181,11 @@ const ServicesPage: React.FC = () => {
                     <span className="text-green-600 dark:text-green-400 text-lg font-bold">💰</span>
                   </div>
                   <h4 className="font-semibold text-green-900 dark:text-green-100">
-                    Nos ajustamos a tu presupuesto
+                    Presupuesto Personalizado
                   </h4>
                 </div>
                 <p className="text-sm text-green-800 dark:text-green-200">
-                  <strong>Precios flexibles, pago escalonado y descuentos disponibles.</strong> Trabajamos con tu presupuesto para encontrar la mejor solución.
+                  <strong>Presupuesto personalizado, pago escalonado y descuentos disponibles.</strong> Trabajamos con tu presupuesto para encontrar la mejor solución.
                 </p>
               </div>
               

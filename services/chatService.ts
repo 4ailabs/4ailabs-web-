@@ -182,7 +182,7 @@ MÁXIMO 100 palabras por respuesta.`;
     // Respuestas específicas por intención
     if (intent === 'pricing' || lowerMessage.includes('precio') || lowerMessage.includes('costo')) {
       return {
-        text: "Nuestros precios van desde $3,000 para chatbots básicos hasta $25,000 para sistemas de IA médica complejos. Los agentes de IA autónomos están entre $8,000-12,000. ¿Qué tipo de proyecto tienes en mente?",
+        text: "Ofrecemos precios personalizados que se ajustan a tu presupuesto y necesidades específicas. Tenemos opciones flexibles de pago escalonado, descuentos por proyectos a largo plazo y opciones de financiamiento. ¿Qué tipo de proyecto tienes en mente? Te puedo ayudar a generar una propuesta técnica personalizada.",
         success: true,
         error: 'API not available - using enhanced fallback'
       };

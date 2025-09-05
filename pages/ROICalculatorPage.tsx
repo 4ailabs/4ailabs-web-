@@ -277,7 +277,7 @@ const ROICalculatorPage: React.FC = () => {
                 </p>
                 <div className="bg-white dark:bg-zinc-800 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
                   <p className="text-sm text-zinc-600 dark:text-slate-400">
-                    <strong>Ejemplo:</strong> Si ahorras 20 horas/semana a $50/hora = $1,000/semana = $52,000/año
+                    <strong>Ejemplo:</strong> Si ahorras 20 horas/semana a $50/hora = $1,000/semana = $52,000/año (ejemplo ilustrativo)
                   </p>
                 </div>
               </div>
@@ -441,8 +441,8 @@ const ROICalculatorPage: React.FC = () => {
                     className="w-full h-2 bg-blue-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer slider"
                   />
                   <div className="flex justify-between text-xs text-zinc-500 dark:text-slate-400 mt-1">
-                    <span>$10/h</span>
-                    <span>$100+/h</span>
+                    <span>Bajo</span>
+                    <span>Alto</span>
                   </div>
                   <div className="mt-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
                     <p className="text-xs text-blue-700 dark:text-blue-300">
@@ -541,8 +541,8 @@ const ROICalculatorPage: React.FC = () => {
                     className="w-full h-2 bg-blue-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer slider"
                   />
                   <div className="flex justify-between text-xs text-zinc-500 dark:text-slate-400 mt-1">
-                    <span>$50</span>
-                    <span>$1000+</span>
+                    <span>Bajo</span>
+                    <span>Alto</span>
                   </div>
                 </div>
 

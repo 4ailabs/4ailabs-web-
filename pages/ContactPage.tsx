@@ -135,7 +135,7 @@ const ContactPage: React.FC = () => {
                     {/* Badge móvil arriba del botón */}
                     <div className="flex justify-center mb-2 sm:hidden">
                       <div className="bg-emerald-300 text-emerald-900 text-xs font-bold px-2 py-1 rounded-full">
-                        💰 VER PRECIOS
+                        💰 PRESUPUESTO
                       </div>
                     </div>
                     
@@ -147,7 +147,7 @@ const ContactPage: React.FC = () => {
                     >
                       {/* Badge desktop */}
                       <div className="hidden sm:block absolute -top-2 -right-2 bg-blue-400 text-blue-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
-                        PRECIOS
+                        PRESUPUESTO
                       </div>
                       
                       {isGeneratingProposal ? (
@@ -160,7 +160,7 @@ const ContactPage: React.FC = () => {
                           <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                           <span className="text-center leading-tight">
                             <span className="block text-sm sm:text-base">Generar Propuesta</span>
-                            <span className="block text-xs sm:text-sm opacity-90">con Precios</span>
+                            <span className="block text-xs sm:text-sm opacity-90">Personalizada</span>
                           </span>
                         </>
                       )}
@@ -170,10 +170,10 @@ const ContactPage: React.FC = () => {
                   <div className="text-xs text-center text-zinc-500 dark:text-slate-500 mt-3 space-y-1 sm:space-y-0">
                     <div className="sm:hidden">
                       <div>• IA personalizada</div>
-                      <div>• Precios y timeline</div>
+                      <div>• Presupuesto y timeline</div>
                     </div>
                     <div className="hidden sm:block">
-                      Propuesta personalizada con IA • Precios y timeline • Especificaciones técnicas
+                      Propuesta personalizada con IA • Presupuesto y timeline • Especificaciones técnicas
                     </div>
                   </div>
                 </div>

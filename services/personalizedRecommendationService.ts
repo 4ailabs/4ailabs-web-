@@ -86,12 +86,14 @@ class PersonalizedRecommendationService {
         - Casos de éxito en industrias similares
 
         SERVICIOS DISPONIBLES DE 4AILABS:
-        1. Chatbots Inteligentes ($3,000-5,000) - Automatización de atención al cliente
-        2. Agentes de IA ($8,000-12,000) - Automatización de procesos complejos
-        3. IA Médica ($15,000-25,000) - Soluciones especializadas en salud
-        4. Context Engineering ($3,000-5,000) - Optimización de prompts y modelos
-        5. Automatización Empresarial ($4,000-8,000) - Workflows inteligentes
-        6. Educación en IA ($2,000-4,000) - Capacitación técnica
+        1. Chatbots Inteligentes - Automatización de atención al cliente
+        2. Agentes de IA - Automatización de procesos complejos
+        3. IA Médica - Soluciones especializadas en salud
+        4. Context Engineering - Optimización de prompts y modelos
+        5. Automatización Empresarial - Workflows inteligentes
+        6. Educación en IA - Capacitación técnica
+        
+        NOTA: Todos nuestros servicios tienen precios personalizados que se ajustan a tu presupuesto y necesidades específicas.
 
         Proporciona recomendaciones específicas, accionables y justificadas. Responde en español.`
       });

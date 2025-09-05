@@ -24,7 +24,7 @@ const HomePage: React.FC = () => {
             Especialistas en <span className="text-blue-600 dark:text-blue-400">creación de agentes de IA</span> para empresas y emprendedores
           </h1>
           <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-zinc-600 dark:text-slate-300 max-w-2xl mx-auto px-4 animate-fade-in-up animate-delay-200">
-            Creamos <strong>agentes de IA autónomos</strong> que automatizan procesos complejos, toman decisiones inteligentes y transforman tu negocio. Tecnología avanzada con atención personal y precios accesibles.
+            Creamos <strong>agentes de IA autónomos</strong> que automatizan procesos complejos, toman decisiones inteligentes y transforman tu negocio. Tecnología avanzada con atención personal y precios que se ajustan a tu presupuesto.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col justify-center items-center gap-6 animate-fade-in-up animate-delay-400 px-4">
             <div className="relative">
