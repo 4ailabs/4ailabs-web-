@@ -78,18 +78,14 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
     setIsGenerating(true);
     setStep('generating');
     
+    // Simular tiempo de generación
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
     try {
       const selectedConsultation = consultationTypes.find(type => type.id === selectedType);
-      const contactFormData = {
-        name: 'Cliente Potencial',
-        email: 'consulta@empresa.com',
-        service: selectedConsultation?.title || 'Consulta General',
-        message: `Tipo de consulta: ${selectedConsultation?.title}
-Empresa: ${company || 'Por definir'}
-Necesidades: ${needs || 'Por discutir en la consulta'}`
-      };
-
-      const proposal = await proposalGeneratorService.generateProposal(contactFormData);
+      
+      // Generar propuesta básica sin API
+      const proposal = generateBasicProposal(selectedConsultation, company, needs);
       setProposalData(proposal);
       setStep('proposal');
     } catch (error) {
@@ -99,6 +95,65 @@ Necesidades: ${needs || 'Por discutir en la consulta'}`
     } finally {
       setIsGenerating(false);
     }
+  };
+
+  const generateBasicProposal = (consultation: any, companyName: string, needs: string) => {
+    const basePrices = {
+      'roi': { base: 1500, range: '$1,000 - $2,000' },
+      'chatbot': { base: 2200, range: '$1,500 - $3,000' },
+      'agent': { base: 3500, range: '$2,500 - $5,000' },
+      'strategy': { base: 1800, range: '$1,200 - $2,500' },
+      'automation': { base: 2800, range: '$2,000 - $4,000' },
+      'general': { base: 1200, range: '$800 - $2,000' }
+    };
+
+    const price = basePrices[selectedType as keyof typeof basePrices] || basePrices.general;
+    const additionalServices = [
+      { name: 'Soporte técnico 30 días', price: Math.round(price.base * 0.2) },
+      { name: 'Capacitación del equipo', price: Math.round(price.base * 0.15) },
+      { name: 'Documentación técnica', price: Math.round(price.base * 0.1) }
+    ];
+
+    const totalAdditional = additionalServices.reduce((sum, service) => sum + service.price, 0);
+    const totalPrice = price.base + totalAdditional;
+
+    return {
+      companyName: companyName || 'Tu Empresa',
+      contactPerson: 'Cliente Potencial',
+      email: 'consulta@empresa.com',
+      serviceType: consultation?.title || 'Consulta General',
+      requirements: needs || 'Por discutir en la consulta',
+      budget: price.range,
+      technicalSpecs: [
+        'Análisis de requerimientos técnicos',
+        'Arquitectura de solución personalizada',
+        'Integración con sistemas existentes',
+        'Implementación de mejores prácticas de IA',
+        'Monitoreo y optimización continua'
+      ],
+      deliverables: [
+        'Propuesta técnica detallada',
+        'Roadmap de implementación',
+        'Cálculo de ROI personalizado',
+        'Demo funcional del sistema',
+        'Documentación completa',
+        'Capacitación del equipo'
+      ],
+      pricing: {
+        basePrice: price.base,
+        additionalServices: additionalServices,
+        totalPrice: totalPrice
+      },
+      timeline: {
+        phases: [
+          { name: 'Análisis y Planificación', duration: '1-2 semanas', description: 'Evaluación de necesidades y diseño de solución' },
+          { name: 'Desarrollo', duration: '3-4 semanas', description: 'Implementación de la solución de IA' },
+          { name: 'Pruebas y Optimización', duration: '1 semana', description: 'Testing y ajustes finales' },
+          { name: 'Entrega y Capacitación', duration: '1 semana', description: 'Implementación y entrenamiento del equipo' }
+        ],
+        totalDuration: '6-8 semanas'
+      }
+    };
   };
 
   const handleWhatsAppRedirect = () => {
