@@ -541,6 +541,12 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
                   ← Volver
                 </button>
                 <button
+                  onClick={handleClose}
+                  className="px-6 py-3 text-zinc-600 dark:text-slate-400 hover:text-zinc-800 dark:hover:text-slate-200 transition-colors"
+                >
+                  Cerrar
+                </button>
+                <button
                   onClick={handleWhatsAppRedirect}
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                 >
