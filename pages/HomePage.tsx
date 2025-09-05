@@ -432,40 +432,6 @@ const HomePage: React.FC = () => {
             </div>
           </div>
 
-          {/* Instituciones Colaboradoras */}
-          <div className="bg-white/40 dark:bg-zinc-800/40 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-blue-200/30 dark:border-blue-700/30 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
-            <div className="text-center mb-6">
-              <h3 className="text-lg sm:text-xl font-semibold text-zinc-900 dark:text-white mb-2">
-                Instituciones Colaboradoras
-              </h3>
-              <p className="text-sm text-zinc-600 dark:text-slate-400">
-                Trabajamos con universidades e institutos de investigación líderes en México y Latinoamérica
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-              {[
-                { name: "UNAM", type: "Universidad Nacional" },
-                { name: "IPN", type: "Instituto Politécnico" },
-                { name: "ITESM", type: "Tecnológico de Monterrey" },
-                { name: "UAM", type: "Universidad Autónoma" },
-                { name: "CINVESTAV", type: "Centro de Investigación" },
-                { name: "CONACYT", type: "Consejo Nacional" },
-                { name: "UABC", type: "Universidad Autónoma" },
-                { name: "UDG", type: "Universidad de Guadalajara" }
-              ].map((institution, index) => (
-                <div key={institution.name} className="text-center p-3 rounded-lg bg-white/60 dark:bg-zinc-700/60 hover:bg-white/80 dark:hover:bg-zinc-600/80 transition-colors duration-300 animate-fade-in-up" style={{animationDelay: `${0.5 + index * 0.1}s`}}>
-                  <div className="text-sm font-semibold text-zinc-900 dark:text-white mb-1">
-                    {institution.name}
-                  </div>
-                  <div className="text-xs text-zinc-600 dark:text-slate-400">
-                    {institution.type}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
           <div className="text-center mt-8 sm:mt-12">
             <a href="https://wa.me/+525543417252?text=Hola! Soy de una universidad/instituto y me interesa colaborar en proyectos de investigación en IA." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-blue-500/25 animate-fade-in-up min-h-[48px] w-full sm:w-auto justify-center" style={{animationDelay: '0.6s'}}>
               <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
