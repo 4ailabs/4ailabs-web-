@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award, Play, Clock, Eye, ExternalLink, GraduationCap, BookOpen, Microscope, Users2, MessageCircle, Bot, Brain, Crosshair, Heart, Link as LinkIcon, Database, Search, Waves, Cpu, Smartphone, Globe, Code2 } from 'lucide-react';
 import { serviceCards, stats, testimonials, partners, technologies } from '../constants';
-import InteractiveButtons from '../components/InteractiveButtons';
 import ServiceQuickStart from '../components/ServiceQuickStart';
 import AgentBuilder from '../components/AgentBuilder';
 import ConsultationModal from '../components/ConsultationModal';
@@ -25,13 +24,16 @@ const HomePage: React.FC = () => {
           <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-zinc-600 dark:text-slate-300 max-w-2xl mx-auto px-4 animate-fade-in-up animate-delay-200">
             Creamos <strong>agentes de IA autónomos</strong> que automatizan procesos complejos, toman decisiones inteligentes y transforman tu negocio. Tecnología avanzada con atención personal y precios accesibles.
           </p>
-          <div className="mt-8 sm:mt-10 flex flex-col justify-center items-center gap-4 animate-fade-in-up animate-delay-400 px-4">
+          <div className="mt-8 sm:mt-10 flex flex-col justify-center items-center gap-6 animate-fade-in-up animate-delay-400 px-4">
             <button
               onClick={() => setConsultationOpen(true)}
-              className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[48px] flex items-center justify-center w-full sm:w-auto gap-2"
+              className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[56px] flex items-center justify-center w-full max-w-sm sm:w-auto gap-2 mx-auto"
             >
-              <MessageCircle className="w-5 h-5" />
-              Consulta Gratuita - Ver mi ROI
+              <MessageCircle className="w-5 h-5 flex-shrink-0" />
+              <span className="text-center">
+                <span className="block sm:inline">Consulta Gratuita</span>
+                <span className="block sm:inline sm:ml-1">- Ver mi ROI</span>
+              </span>
             </button>
             <p className="text-sm sm:text-base text-zinc-500 dark:text-slate-400 mt-2 text-center">
               Solo 15 minutos • Sin compromiso • Resultados garantizados
@@ -168,14 +170,12 @@ const HomePage: React.FC = () => {
                 <p className="text-zinc-600 dark:text-slate-300 mb-6 text-lg">
                   Agenda una <strong>consulta gratuita de 15 minutos</strong> y descubre exactamente cómo implementar IA en tu empresa.
                 </p>
-                <InteractiveButtons 
-                  type="hero" 
-                  onQuickStart={(serviceType, serviceTitle) => {
-                    setSelectedService({ type: serviceType, title: serviceTitle });
-                    setQuickStartOpen(true);
-                  }}
-                  onAgentBuilder={() => setAgentBuilderOpen(true)}
-                />
+                <p className="text-sm text-zinc-500 dark:text-slate-400 mt-4">
+                  ¿Prefieres calcular primero tu ROI potencial? 
+                  <Link to="/calculadora-roi" className="text-slate-600 dark:text-slate-300 hover:underline font-medium ml-1">
+                    Haz clic aquí →
+                  </Link>
+                </p>
                 <div className="flex items-center justify-center gap-6 text-sm text-zinc-500 dark:text-slate-400">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
@@ -193,14 +193,14 @@ const HomePage: React.FC = () => {
               </div>
             </div>
             <div className="mt-6">
-              <InteractiveButtons 
-                type="services" 
-                onQuickStart={(serviceType, serviceTitle) => {
-                  setSelectedService({ type: serviceType, title: serviceTitle });
-                  setQuickStartOpen(true);
-                }}
-                onAgentBuilder={() => setAgentBuilderOpen(true)}
-              />
+              <Link 
+                to="/servicios" 
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-slate-500/25 min-h-[56px] w-full max-w-xs mx-auto sm:w-auto justify-center text-sm sm:text-base"
+              >
+                <Eye className="w-5 h-5" />
+                Explorar Todos los Servicios
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
@@ -268,7 +268,7 @@ const HomePage: React.FC = () => {
                     setSelectedService({ type: 'agent', title: 'Agente de IA Autónomo' });
                     setConsultationOpen(true);
                   }}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-indigo-500/25 min-h-[48px] w-full sm:w-auto justify-center"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold py-4 px-4 sm:px-6 rounded-2xl text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-indigo-500/25 min-h-[56px] w-full justify-center max-w-xs mx-auto sm:max-w-none"
                 >
                   <Bot className="w-4 h-4 sm:w-5 sm:h-5" />
                   Crear mi Agente de IA
@@ -314,7 +314,7 @@ const HomePage: React.FC = () => {
                     setSelectedService({ type: 'chatbot', title: 'Desarrollo de Chatbot' });
                     setConsultationOpen(true);
                   }}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-purple-500/25 min-h-[48px] w-full sm:w-auto justify-center"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-4 px-4 sm:px-6 rounded-2xl text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-purple-500/25 min-h-[56px] w-full justify-center max-w-xs mx-auto sm:max-w-none"
                 >
                   <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />
                   Desarrollar mi App con IA
@@ -333,11 +333,17 @@ const HomePage: React.FC = () => {
               <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
                 Agenda una consulta gratuita de 15 minutos y te ayudamos a identificar la mejor solución de IA para tu empresa.
               </p>
-              <a href="https://wa.me/+525534403571?text=Hola! Me interesa una consulta gratuita para identificar la mejor solución de IA para mi empresa." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-500/25 min-h-[48px] w-full sm:w-auto justify-center">
+              <button
+                onClick={() => {
+                  setSelectedService({ type: 'strategy', title: 'Estrategia de IA' });
+                  setConsultationOpen(true);
+                }}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-500/25 min-h-[56px] w-full max-w-sm mx-auto sm:w-auto justify-center"
+              >
                 <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-                Consulta Gratuita - 15 min
+                Consulta Estratégica - 15 min
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -502,11 +508,15 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
-            <a href="https://wa.me/+525534403571?text=Hola! Me interesa ver más ejemplos de sus agentes de IA en acción." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-400/25 animate-fade-in-up min-h-[48px] w-full sm:w-auto justify-center" style={{animationDelay: '0.4s'}}>
-              <Play className="w-4 h-4 sm:w-5 sm:h-5" />
-              Ver Más Ejemplos
+            <button
+              onClick={() => setConsultationOpen(true)}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-400/25 animate-fade-in-up min-h-[56px] w-full max-w-sm mx-auto sm:w-auto justify-center"
+              style={{animationDelay: '0.4s'}}
+            >
+              <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+              Consulta Estratégica Gratuita
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -700,14 +710,14 @@ const HomePage: React.FC = () => {
               <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
                 Explora en detalle cómo utilizamos cada plataforma para crear soluciones de IA personalizadas y de alto rendimiento.
               </p>
-              <InteractiveButtons 
-                type="technologies" 
-                onQuickStart={(serviceType, serviceTitle) => {
-                  setSelectedService({ type: serviceType, title: serviceTitle });
-                  setQuickStartOpen(true);
-                }}
-                onAgentBuilder={() => setAgentBuilderOpen(true)}
-              />
+              <Link 
+                to="/tecnologias" 
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-500/25 min-h-[56px] w-full max-w-sm mx-auto sm:w-auto justify-center"
+              >
+                <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
+                Explorar Nuestras Tecnologías
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </Link>
             </div>
           </div>
         </div>
@@ -764,7 +774,7 @@ const HomePage: React.FC = () => {
                       <p className="text-xs sm:text-sm text-zinc-600 dark:text-slate-400">Adaptado a tu sector y tamaño de empresa</p>
                     </div>
                   </div>
-                  <Link to="/calculadora-roi" className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 lg:px-8 rounded-full text-sm sm:text-base lg:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-400/25 animate-fade-in-up min-h-[48px] w-full sm:w-auto justify-center" style={{animationDelay: '0.7s'}}>
+                  <Link to="/calculadora-roi" className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-2xl text-base sm:text-lg lg:text-xl transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-400/25 animate-fade-in-up min-h-[60px] w-full max-w-sm mx-auto sm:w-auto justify-center" style={{animationDelay: '0.7s'}}>
                     <Calculator className="w-4 h-4 sm:w-5 sm:h-5" />
                     Calcular mi ROI
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -801,15 +811,17 @@ const HomePage: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-center">
-                    <InteractiveButtons 
-                      type="cta" 
-                      onQuickStart={(serviceType, serviceTitle) => {
-                        setSelectedService({ type: serviceType, title: serviceTitle });
-                        setQuickStartOpen(true);
+                    <button
+                      onClick={() => {
+                        setSelectedService({ type: 'strategy', title: 'Estrategia de IA' });
+                        setConsultationOpen(true);
                       }}
-                      onAgentBuilder={() => setAgentBuilderOpen(true)}
-                    />
-                    <p className="text-sm text-zinc-500 dark:text-slate-500 mt-6 sm:mt-8">
+                      className="inline-flex items-center gap-3 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-5 px-8 rounded-2xl text-lg sm:text-xl transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta mb-4 min-h-[64px] w-full max-w-md mx-auto sm:w-auto justify-center"
+                    >
+                      <Zap className="w-5 h-5" />
+                      ¡Comenzar mi Transformación con IA!
+                    </button>
+                    <p className="text-sm text-zinc-500 dark:text-slate-500 mt-4">
                       Sin compromiso • Resultados garantizados • Roadmap personalizado
                     </p>
                   </div>
