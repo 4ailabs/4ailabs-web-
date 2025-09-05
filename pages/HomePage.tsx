@@ -25,23 +25,40 @@ const HomePage: React.FC = () => {
             Creamos <strong>agentes de IA autónomos</strong> que automatizan procesos complejos, toman decisiones inteligentes y transforman tu negocio. Tecnología avanzada con atención personal y precios accesibles.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col justify-center items-center gap-6 animate-fade-in-up animate-delay-400 px-4">
-            <button
-              onClick={() => setConsultationOpen(true)}
-              className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[56px] flex items-center justify-center w-full max-w-sm sm:w-auto gap-2 mx-auto relative"
-            >
-              {/* Badge de prioridad */}
-              <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
-                ¡GRATIS!
+            <div className="relative">
+              {/* Badge móvil - arriba del botón */}
+              <div className="flex justify-center mb-2 sm:hidden">
+                <div className="bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full border-2 border-yellow-300 animate-bounce">
+                  ✨ CONSULTA 100% GRATUITA
+                </div>
               </div>
-              <MessageCircle className="w-5 h-5 flex-shrink-0" />
-              <span className="text-center">
-                <span className="block sm:inline">Agendar Consulta</span>
-                <span className="block sm:inline sm:ml-1">Estratégica GRATIS</span>
-              </span>
-            </button>
-            <p className="text-sm sm:text-base text-zinc-500 dark:text-slate-400 mt-2 text-center">
-              Solo 15 minutos • Sin compromiso • Resultados garantizados
-            </p>
+              
+              <button
+                onClick={() => setConsultationOpen(true)}
+                className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[60px] flex items-center justify-center w-full max-w-sm sm:w-auto gap-2 mx-auto relative"
+              >
+                {/* Badge desktop - solo visible en sm+ */}
+                <div className="hidden sm:block absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
+                  ¡GRATIS!
+                </div>
+                
+                <MessageCircle className="w-5 h-5 flex-shrink-0" />
+                <span className="text-center leading-tight">
+                  <span className="block text-sm sm:text-base">Consulta Estratégica</span>
+                  <span className="block text-xs sm:text-sm opacity-90">15 min • Sin compromiso</span>
+                </span>
+              </button>
+            </div>
+            <div className="text-xs sm:text-sm text-zinc-500 dark:text-slate-400 mt-3 text-center space-y-1 sm:space-y-0">
+              <div className="sm:hidden">
+                <div>✓ Solo 15 minutos</div>
+                <div>✓ Sin compromiso</div>
+                <div>✓ Resultados garantizados</div>
+              </div>
+              <div className="hidden sm:block">
+                Solo 15 minutos • Sin compromiso • Resultados garantizados
+              </div>
+            </div>
           </div>
           <div className="mt-12 sm:mt-16 animate-fade-in-scale animate-delay-600 px-4">
              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" alt="Agentes de IA autónomos trabajando en procesos empresariales - automatización inteligente" className="rounded-xl sm:rounded-2xl shadow-2xl mx-auto w-full max-w-4xl transition-transform-smooth" loading="eager" />
@@ -107,16 +124,19 @@ const HomePage: React.FC = () => {
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-8 sm:mb-12 animate-fade-in-up px-4">
-            <div className="flex flex-col items-center gap-3 mb-4">
+            <div className="flex flex-col items-center gap-2 mb-4">
+              {/* Progreso compacto */}
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
                 <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
                 <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
-                <span className="text-xs text-slate-500 ml-2">PASO 2 DE 3</span>
+                <span className="text-xs text-slate-500 ml-1 sm:ml-2">2/3</span>
               </div>
-              <div className="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium">
+              
+              <div className="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
                 <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                Servicios Especializados
+                <span className="hidden sm:inline">Servicios Especializados</span>
+                <span className="sm:hidden">Paso 2: Servicios</span>
               </div>
             </div>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight">Agentes de IA que más demandan nuestros clientes</h2>
@@ -183,17 +203,28 @@ const HomePage: React.FC = () => {
                   Agenda una <strong>consulta gratuita de 15 minutos</strong> y descubre exactamente cómo implementar IA en tu empresa.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 items-center justify-center mt-4">
-                  <Link 
-                    to="/calculadora-roi" 
-                    className="inline-flex items-center gap-2 bg-white dark:bg-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-zinc-200 dark:border-zinc-600 hover:shadow-lg text-sm sm:text-base min-h-[48px] w-full max-w-xs sm:w-auto justify-center relative"
-                  >
-                    {/* Badge de opción alternativa */}
-                    <div className="absolute -top-2 -right-2 bg-blue-400 text-blue-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
-                      INICIO
+                  <div className="flex flex-col items-center gap-1">
+                    {/* Badge móvil - arriba */}
+                    <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium px-2 py-1 rounded-full sm:hidden">
+                      👆 Recomendado para principiantes
                     </div>
-                    <Calculator className="w-4 h-4" />
-                    Calcular ROI Primero
-                  </Link>
+                    
+                    <Link 
+                      to="/calculadora-roi" 
+                      className="inline-flex items-center gap-2 bg-white dark:bg-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white font-semibold py-3 px-4 sm:px-6 rounded-2xl transition-all duration-300 border border-zinc-200 dark:border-zinc-600 hover:shadow-lg text-sm sm:text-base min-h-[52px] w-full max-w-xs sm:w-auto justify-center relative"
+                    >
+                      {/* Badge desktop */}
+                      <div className="hidden sm:block absolute -top-2 -right-2 bg-blue-400 text-blue-900 text-xs font-bold px-2 py-1 rounded-full border-2 border-white">
+                        INICIO
+                      </div>
+                      
+                      <Calculator className="w-4 h-4 flex-shrink-0" />
+                      <span className="text-center">
+                        <span className="block sm:inline">Calcular ROI</span>
+                        <span className="hidden sm:inline ml-1">Primero</span>
+                      </span>
+                    </Link>
+                  </div>
                   <span className="text-xs text-zinc-400 dark:text-slate-500">¿No estás seguro? Empieza aquí</span>
                 </div>
                 <div className="flex items-center justify-center gap-6 text-sm text-zinc-500 dark:text-slate-400">
@@ -291,9 +322,10 @@ const HomePage: React.FC = () => {
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold py-4 px-4 sm:px-6 rounded-2xl text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-indigo-500/25 min-h-[56px] w-full justify-center max-w-xs mx-auto sm:max-w-none"
                 >
                   <Bot className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="flex flex-col sm:flex-row sm:items-center sm:gap-1">
-                    <span>Crear mi Agente de IA</span>
-                    <span className="text-xs opacity-75 font-normal">→ Consulta especializada</span>
+                  <span className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-1 text-center">
+                    <span className="text-sm sm:text-base">Agente de IA</span>
+                    <span className="text-xs opacity-75 font-normal sm:hidden">Consulta gratis</span>
+                    <span className="text-xs opacity-75 font-normal hidden sm:inline">→ Consulta especializada</span>
                   </span>
                 </button>
               </div>
@@ -339,9 +371,10 @@ const HomePage: React.FC = () => {
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-4 px-4 sm:px-6 rounded-2xl text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-purple-500/25 min-h-[56px] w-full justify-center max-w-xs mx-auto sm:max-w-none"
                 >
                   <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="flex flex-col sm:flex-row sm:items-center sm:gap-1">
-                    <span>Desarrollar mi App con IA</span>
-                    <span className="text-xs opacity-75 font-normal">→ Consulta especializada</span>
+                  <span className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-1 text-center">
+                    <span className="text-sm sm:text-base">App con IA</span>
+                    <span className="text-xs opacity-75 font-normal sm:hidden">Consulta gratis</span>
+                    <span className="text-xs opacity-75 font-normal hidden sm:inline">→ Consulta especializada</span>
                   </span>
                 </button>
               </div>
@@ -355,7 +388,7 @@ const HomePage: React.FC = () => {
                 <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
                 <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
                 <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
-                <span className="text-xs text-slate-500 ml-2">PASO 3 DE 3</span>
+                <span className="text-xs text-slate-500 ml-1 sm:ml-2">3/3</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-4">
                 ¿Necesitas ayuda para decidir?
@@ -757,16 +790,19 @@ const HomePage: React.FC = () => {
             <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-slate-50/50 to-slate-100/50 dark:from-slate-900 dark:to-zinc-900 transition-colors duration-300">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto text-center">
-                  <div className="flex flex-col items-center gap-3 mb-4 sm:mb-6">
-                    <div className="flex items-center gap-2">
+                  <div className="flex flex-col items-center gap-2 mb-4 sm:mb-6">
+                    {/* Progreso compacto para móvil */}
+                    <div className="flex items-center gap-2 sm:gap-3">
                       <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
                       <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
                       <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
-                      <span className="text-xs text-slate-500 ml-2">PASO 1 DE 3</span>
+                      <span className="text-xs text-slate-500 ml-1 sm:ml-2">1/3</span>
                     </div>
-                    <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-500/10 text-slate-700 dark:text-slate-300 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium animate-fade-in-up">
+                    
+                    <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-500/10 text-slate-700 dark:text-slate-300 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium animate-fade-in-up">
                       <Calculator className="w-3 h-3 sm:w-4 sm:h-4" />
-                      Comienza Aquí: Calcula tu Potencial
+                      <span className="hidden sm:inline">Comienza Aquí: Calcula tu Potencial</span>
+                      <span className="sm:hidden">Paso 1: Calcula ROI</span>
                     </div>
                   </div>
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight mb-4 sm:mb-6 animate-fade-in-up animate-delay-200 px-4">
@@ -824,8 +860,9 @@ const HomePage: React.FC = () => {
             {/* CTA Final con Urgencia */}
             <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-zinc-950 dark:to-zinc-900 transition-colors duration-300">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div className="inline-flex items-center gap-2 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-4 py-2 rounded-full text-sm font-bold mb-4 animate-pulse">
-                  🔥 ÚLTIMAS PLAZAS DISPONIBLES - DICIEMBRE 2024
+                <div className="inline-flex items-center gap-2 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold mb-4 animate-pulse">
+                  <span className="hidden sm:inline">🔥 ÚLTIMAS PLAZAS DISPONIBLES - DICIEMBRE 2024</span>
+                  <span className="sm:hidden">🔥 ÚLTIMAS PLAZAS - DIC 2024</span>
                 </div>
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white leading-tight mb-4 sm:mb-6 animate-fade-in-up px-4">
                   Consultas gratuitas disponibles este mes
@@ -849,18 +886,31 @@ const HomePage: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-center">
-                    <button
-                      onClick={() => {
-                        setSelectedService({ type: 'strategy', title: 'Estrategia de IA' });
-                        setConsultationOpen(true);
-                      }}
-                      className="inline-flex items-center gap-3 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-bold py-6 px-10 rounded-2xl text-xl sm:text-2xl transition-all-smooth transform hover:scale-110 shadow-2xl shadow-red-400/30 pulse-cta mb-4 min-h-[72px] w-full max-w-lg mx-auto sm:w-auto justify-center border-2 border-red-400/20 relative overflow-hidden"
-                    >
-                      {/* Efecto de brillo */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                      <Zap className="w-6 h-6 animate-bounce" />
-                      <span className="relative z-10">¡Comenzar mi Transformación con IA!</span>
-                    </button>
+                    <div className="relative">
+                      {/* Badge móvil arriba del botón */}
+                      <div className="flex justify-center mb-3 sm:hidden">
+                        <div className="bg-yellow-300 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                          ⚡ ACCIÓN REQUERIDA
+                        </div>
+                      </div>
+                      
+                      <button
+                        onClick={() => {
+                          setSelectedService({ type: 'strategy', title: 'Estrategia de IA' });
+                          setConsultationOpen(true);
+                        }}
+                        className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-bold py-5 sm:py-6 px-6 sm:px-10 rounded-2xl text-base sm:text-xl lg:text-2xl transition-all-smooth transform hover:scale-105 sm:hover:scale-110 shadow-2xl shadow-red-400/30 pulse-cta mb-4 min-h-[64px] sm:min-h-[72px] w-full max-w-sm sm:max-w-lg mx-auto justify-center border-2 border-red-400/20 relative overflow-hidden"
+                      >
+                        {/* Efecto de brillo - solo desktop */}
+                        <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        
+                        <Zap className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce flex-shrink-0" />
+                        <span className="relative z-10 text-center leading-tight">
+                          <span className="block text-base sm:text-xl">¡Comenzar mi</span>
+                          <span className="block text-sm sm:text-lg opacity-90">Transformación con IA!</span>
+                        </span>
+                      </button>
+                    </div>
                     <p className="text-sm text-zinc-500 dark:text-slate-500 mt-4">
                       Sin compromiso • Resultados garantizados • Roadmap personalizado
                     </p>
