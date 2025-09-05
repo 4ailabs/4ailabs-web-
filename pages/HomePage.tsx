@@ -497,22 +497,48 @@ const HomePage: React.FC = () => {
       </section>
       
 
-      {/* Colaboración Académica - Ultra Simplificada */}
-      <section className="py-8 sm:py-12 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 transition-colors duration-300">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-xl mx-auto">
-            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-3">
+      {/* Colaboración Académica - Equilibrada */}
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 transition-colors duration-300">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              Colaboración Académica
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mb-4">
               ¿Eres de una <span className="text-blue-600 dark:text-blue-400">Universidad o Instituto</span>?
             </h2>
-            <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 mb-6">
-              Colaboramos con instituciones académicas para impulsar la investigación en IA.
+            <p className="text-base sm:text-lg text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto mb-8">
+              Colaboramos con instituciones académicas para impulsar la investigación en IA, formar talento especializado y desarrollar soluciones innovadoras.
             </p>
+          </div>
+
+          {/* Características principales */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[
+              { icon: Microscope, title: "Investigación Conjunta", desc: "Proyectos colaborativos en IA médica y sistemas autónomos" },
+              { icon: GraduationCap, title: "Formación Especializada", desc: "Cursos y programas de capacitación en tecnologías de IA" },
+              { icon: Zap, title: "Transferencia Tecnológica", desc: "Convertimos investigación en soluciones comerciales viables" }
+            ].map((feature, index) => (
+              <div key={index} className="text-center p-6 bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm rounded-xl border border-blue-200/50 dark:border-blue-700/50 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <feature.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-semibold text-zinc-900 dark:text-white mb-2">{feature.title}</h3>
+                <p className="text-sm text-zinc-600 dark:text-slate-400">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
             <button 
               onClick={() => setAcademicModalOpen(true)}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors shadow-lg"
             >
               <GraduationCap className="w-5 h-5" />
               Colaborar con nosotros
+              <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </div>
