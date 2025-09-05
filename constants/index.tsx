@@ -53,10 +53,10 @@ export const testimonials = [
   {
     quote: "4ailabs nos ayudó a implementar nuestro primer chatbot de IA. Su conocimiento técnico es impresionante y nos dieron exactamente lo que necesitábamos.",
     metrics: "Primer chatbot • Soporte excepcional • Resultados inmediatos",
-    name: "Pino Rizzo",
-    role: "Director General",
+    name: "Carlos Bustamante",
+    role: "Director Comercial",
     company: "StartupTech",
-    photo: "/testimonials/pino-rizzo.jpg",
+    photo: "/testimonials/carlos-bustamante.jpg",
     industry: "Tecnología"
   },
   {
