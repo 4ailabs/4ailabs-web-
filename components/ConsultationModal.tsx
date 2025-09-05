@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, MessageCircle, Calculator, Bot, Brain, Target, Zap, Clock, CheckCircle, Loader2, FileText, ArrowRight } from 'lucide-react';
+import { X, MessageCircle, Calculator, Bot, Brain, Target, Zap, CheckCircle, Loader2, FileText, ArrowRight } from 'lucide-react';
 import { proposalGeneratorService } from '../services/proposalGeneratorService';
 
 interface ConsultationModalProps {
@@ -492,11 +492,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between p-6 border-t border-zinc-200 dark:border-zinc-700 flex-shrink-0">
-          <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-slate-400">
-            <Clock className="w-4 h-4" />
-            <span>Duración: 15 minutos</span>
-          </div>
+        <div className="flex items-center justify-end p-6 border-t border-zinc-200 dark:border-zinc-700 flex-shrink-0">
           <div className="flex flex-col sm:flex-row gap-3">
             {step === 'form' && (
               <>
