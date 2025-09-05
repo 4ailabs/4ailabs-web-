@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MessageSquare, ShoppingCart, Headset, BarChart, PenTool, TrendingUp, Bot } from 'lucide-react';
+import { MessageSquare, ShoppingCart, Headset, BarChart, PenTool, TrendingUp, Bot, Phone } from 'lucide-react';
 import AgentBuilder from '../components/AgentBuilder';
 
 const AiAgentsPage: React.FC = () => {
@@ -88,9 +88,35 @@ const AiAgentsPage: React.FC = () => {
                   <li className="flex items-center gap-3">Casos de uso por industria</li>
                   <li className="flex items-center gap-3">Cálculo de ROI instantáneo</li>
                 </ul>
-                <Link to="#" className="bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white font-bold py-3 px-6 rounded-full transition duration-300">
-                    Probar Demo
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button
+                    onClick={() => setAgentBuilderOpen(true)}
+                    className="bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center justify-center gap-2"
+                  >
+                    <Bot className="w-5 h-5" />
+                    Demo Interactivo
+                  </button>
+                  <div className="flex gap-2">
+                    <a 
+                      href="tel:+525534403571"
+                      className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-full transition duration-300 inline-flex items-center justify-center gap-2 flex-1"
+                      title="Llamar ahora"
+                    >
+                      <Phone className="w-5 h-5" />
+                      Llamar
+                    </a>
+                    <a 
+                      href="https://wa.me/525534403571?text=Hola! Me interesa ver una demo personalizada de sus agentes de IA para mi empresa."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-full transition duration-300 inline-flex items-center justify-center gap-2 flex-1"
+                      title="Enviar mensaje por WhatsApp"
+                    >
+                      <MessageSquare className="w-5 h-5" />
+                      WhatsApp
+                    </a>
+                  </div>
+                </div>
              </div>
            </div>
         </div>

@@ -263,11 +263,17 @@ const HomePage: React.FC = () => {
               </div>
 
               <div className="text-center">
-                <a href="https://wa.me/+525534403571?text=Hola! Me interesa desarrollar un agente de IA autónomo para mi empresa." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-indigo-500/25 min-h-[48px] w-full sm:w-auto justify-center">
+                <button 
+                  onClick={() => {
+                    setSelectedService({ type: 'agent', title: 'Agente de IA Autónomo' });
+                    setConsultationOpen(true);
+                  }}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-indigo-500/25 min-h-[48px] w-full sm:w-auto justify-center"
+                >
                   <Bot className="w-4 h-4 sm:w-5 sm:h-5" />
                   Crear mi Agente de IA
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
+                </button>
               </div>
             </div>
 
@@ -303,11 +309,17 @@ const HomePage: React.FC = () => {
               </div>
 
               <div className="text-center">
-                <a href="https://wa.me/+525534403571?text=Hola! Me interesa desarrollar una aplicación con IA para mi negocio." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-purple-500/25 min-h-[48px] w-full sm:w-auto justify-center">
+                <button 
+                  onClick={() => {
+                    setSelectedService({ type: 'chatbot', title: 'Desarrollo de Chatbot' });
+                    setConsultationOpen(true);
+                  }}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-purple-500/25 min-h-[48px] w-full sm:w-auto justify-center"
+                >
                   <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />
                   Desarrollar mi App con IA
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -824,6 +836,7 @@ const HomePage: React.FC = () => {
       <ConsultationModal
         isOpen={consultationOpen}
         onClose={() => setConsultationOpen(false)}
+        presetType={selectedService?.type}
       />
     </div>
   );

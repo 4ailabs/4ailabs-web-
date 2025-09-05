@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, MessageCircle, Calculator, Bot, Brain, Target, Zap, Clock, CheckCircle, Loader2, FileText, ArrowRight } from 'lucide-react';
 import { proposalGeneratorService } from '../services/proposalGeneratorService';
 
 interface ConsultationModalProps {
   isOpen: boolean;
   onClose: () => void;
+  presetType?: string;
 }
 
-const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }) => {
-  const [selectedType, setSelectedType] = useState<string>('');
+const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, presetType }) => {
+  const [selectedType, setSelectedType] = useState<string>(presetType || '');
   const [company, setCompany] = useState('');
   const [needs, setNeeds] = useState('');
   const [step, setStep] = useState<'form' | 'generating' | 'proposal'>('form');
   const [proposalData, setProposalData] = useState<any>(null);
   const [isGenerating, setIsGenerating] = useState(false);
+
+  // Update selectedType when presetType changes
+  useEffect(() => {
+    if (presetType) {
+      setSelectedType(presetType);
+    }
+  }, [presetType]);
 
   const consultationTypes = [
     {
@@ -163,35 +171,49 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
   };
 
   const handleWhatsAppRedirect = () => {
-    const selectedConsultation = consultationTypes.find(type => type.id === selectedType);
-    
-    let message = `Hola! Me interesa agendar una consulta gratuita de 15 minutos.
+    try {
+      const selectedConsultation = consultationTypes.find(type => type.id === selectedType);
+      
+      let message = `Hola! Me interesa agendar una consulta gratuita de 15 minutos.
 
 📋 *Tipo de consulta:* ${selectedConsultation?.title || 'Consulta General'}
 🏢 *Empresa:* ${company || 'Por definir'}
 🎯 *Necesidades:* ${needs || 'Por discutir en la consulta'}`;
 
-    // Si hay propuesta generada, incluir información de presupuesto
-    if (proposalData) {
-      message += `
+      // Si hay propuesta generada, incluir información de presupuesto
+      if (proposalData) {
+        message += `
 
 💰 *Presupuesto estimado:* $${proposalData.pricing.totalPrice.toLocaleString()}
 ⏱️ *Timeline:* ${proposalData.timeline.totalDuration}
 📋 *Incluye:* ${proposalData.deliverables.slice(0, 3).join(', ')}`;
-    }
+      }
 
-    message += `
+      message += `
 
 ¿Podemos agendar una reunión para discutir cómo la IA puede transformar mi negocio?`;
-    
-    const whatsappUrl = `https://wa.me/+525534417252?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    onClose();
+      
+      console.log('Opening WhatsApp with message:', message);
+      
+      const whatsappUrl = `https://wa.me/525534403571?text=${encodeURIComponent(message)}`;
+      console.log('WhatsApp URL:', whatsappUrl);
+      
+      const opened = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      
+      if (!opened) {
+        alert('No se pudo abrir WhatsApp. Por favor, permite ventanas emergentes o copia este enlace: ' + whatsappUrl);
+      }
+      
+      onClose();
+    } catch (error) {
+      console.error('Error opening WhatsApp:', error);
+      alert('Error al abrir WhatsApp. Por favor, contacta directamente al +52 55 3440 3571');
+    }
   };
 
   const handleClose = () => {
     setStep('form');
-    setSelectedType('');
+    setSelectedType(presetType || '');
     setCompany('');
     setNeeds('');
     setProposalData(null);
@@ -223,7 +245,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
         </div>
 
         {/* Content */}
-        <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+        <div className="p-6 overflow-y-auto max-h-[calc(90vh-180px)]">
           {step === 'form' && (
             <div className="space-y-6">
               {/* Step 1: Select consultation type */}
@@ -297,7 +319,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                 <h4 className="font-semibold text-cyan-900 dark:text-cyan-100 mb-3">
                   ¿Qué incluye tu consulta gratuita?
                 </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
                     <span className="text-sm text-cyan-800 dark:text-cyan-200">Análisis de tu negocio</span>
@@ -314,6 +336,26 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                     <CheckCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
                     <span className="text-sm text-cyan-800 dark:text-cyan-200">Propuesta técnica básica</span>
                   </div>
+                </div>
+                
+                {/* Botones de acción dentro del formulario */}
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <button
+                    onClick={handleWhatsAppRedirect}
+                    disabled={!selectedType}
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 disabled:from-zinc-300 disabled:to-zinc-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors justify-center"
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    Enviar Consulta por WhatsApp
+                  </button>
+                  <button
+                    onClick={handleGenerateProposal}
+                    disabled={!selectedType}
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 disabled:from-zinc-300 disabled:to-zinc-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors justify-center"
+                  >
+                    <FileText className="w-5 h-5" />
+                    Generar Propuesta Primero
+                  </button>
                 </div>
               </div>
             </div>
@@ -420,12 +462,20 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                   Cancelar
                 </button>
                 <button
+                  onClick={handleWhatsAppRedirect}
+                  disabled={!selectedType}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 disabled:from-zinc-300 disabled:to-zinc-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Enviar por WhatsApp
+                </button>
+                <button
                   onClick={handleGenerateProposal}
                   disabled={!selectedType}
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 disabled:from-zinc-300 disabled:to-zinc-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                 >
                   <FileText className="w-5 h-5" />
-                  Generar Propuesta
+                  Ver Propuesta
                 </button>
               </>
             )}
