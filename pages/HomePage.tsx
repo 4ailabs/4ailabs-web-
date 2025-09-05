@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Quote, Calculator, Zap, BarChart3, Target, Users, Star, Award, Play, Clock, Eye, ExternalLink, GraduationCap, BookOpen, Microscope, Users2, MessageCircle, Bot, Brain, Crosshair, Heart, Link as LinkIcon, Database, Search, Waves, Cpu, Smartphone, Globe, Code2 } from 'lucide-react';
 import { serviceCards, stats, testimonials, partners, technologies } from '../constants';
+import InteractiveButtons from '../components/InteractiveButtons';
+import ServiceQuickStart from '../components/ServiceQuickStart';
+import AgentBuilder from '../components/AgentBuilder';
 
 const HomePage: React.FC = () => {
+  const [quickStartOpen, setQuickStartOpen] = useState(false);
+  const [agentBuilderOpen, setAgentBuilderOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<{type: string, title: string} | null>(null);
+
   return (
     <div className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 dark:from-zinc-950 dark:via-black dark:to-zinc-950 transition-colors duration-300">
       
@@ -155,14 +162,14 @@ const HomePage: React.FC = () => {
                 <p className="text-zinc-600 dark:text-slate-300 mb-6 text-lg">
                   Agenda una <strong>consulta gratuita de 15 minutos</strong> y descubre exactamente cómo implementar IA en tu empresa.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                  <a href="https://wa.me/+525534403571?text=Hola! Me interesa reservar una consulta gratuita de 15 minutos para conocer más sobre sus servicios de IA." target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-8 rounded-full transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25">
-                    Reservar Consulta GRATIS
-                  </a>
-                  <Link to="/calculadora-roi" className="bg-white dark:bg-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-500 text-zinc-900 dark:text-white font-semibold py-4 px-8 rounded-full transition-all-smooth border border-zinc-200 dark:border-zinc-500">
-                    Calcular mi ROI
-                  </Link>
-                </div>
+                <InteractiveButtons 
+                  type="hero" 
+                  onQuickStart={(serviceType, serviceTitle) => {
+                    setSelectedService({ type: serviceType, title: serviceTitle });
+                    setQuickStartOpen(true);
+                  }}
+                  onAgentBuilder={() => setAgentBuilderOpen(true)}
+                />
                 <div className="flex items-center justify-center gap-6 text-sm text-zinc-500 dark:text-slate-400">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
@@ -179,11 +186,16 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <p className="text-sm text-zinc-500 dark:text-slate-500">
-              ¿Quieres ver todos los detalles? <Link to="/servicios" className="text-slate-600 dark:text-slate-400 hover:underline font-medium inline-flex items-center gap-1">
-                Explorar servicios <ArrowRight className="w-4 h-4" />
-              </Link>
-            </p>
+            <div className="mt-6">
+              <InteractiveButtons 
+                type="services" 
+                onQuickStart={(serviceType, serviceTitle) => {
+                  setSelectedService({ type: serviceType, title: serviceTitle });
+                  setQuickStartOpen(true);
+                }}
+                onAgentBuilder={() => setAgentBuilderOpen(true)}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -280,8 +292,8 @@ const HomePage: React.FC = () => {
                       <feature.icon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                     </div>
                     <span className="text-sm font-medium text-zinc-700 dark:text-slate-300">{feature.text}</span>
-                  </div>
-                ))}
+              </div>
+            ))}
               </div>
 
               <div className="text-center">
@@ -312,7 +324,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Videos de Ejemplos */}
       <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-zinc-900 transition-colors duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -670,17 +682,14 @@ const HomePage: React.FC = () => {
               <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
                 Explora en detalle cómo utilizamos cada plataforma para crear soluciones de IA personalizadas y de alto rendimiento.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link to="/tecnologias" className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-500/25 min-h-[48px] w-full sm:w-auto justify-center">
-                  <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
-                  Ver Todas las Tecnologías
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                </Link>
-                <a href="https://wa.me/+525534403571?text=Hola! Me interesa conocer más sobre las tecnologías de IA que utilizan." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-all-smooth transform hover:scale-105 shadow-lg shadow-green-500/25 min-h-[48px] w-full sm:w-auto justify-center">
-                  <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-                  Consulta Técnica
-                </a>
-              </div>
+              <InteractiveButtons 
+                type="technologies" 
+                onQuickStart={(serviceType, serviceTitle) => {
+                  setSelectedService({ type: serviceType, title: serviceTitle });
+                  setQuickStartOpen(true);
+                }}
+                onAgentBuilder={() => setAgentBuilderOpen(true)}
+              />
             </div>
           </div>
         </div>
@@ -774,9 +783,14 @@ const HomePage: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-center">
-                    <a href="https://wa.me/+525534403571?text=Hola! Me interesa reservar mi consulta gratuita de 15 minutos para conocer más sobre sus servicios de IA." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 sm:py-5 px-8 sm:px-10 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[56px] flex items-center justify-center">
-                      Reservar mi consulta GRATIS
-                    </a>
+                    <InteractiveButtons 
+                      type="cta" 
+                      onQuickStart={(serviceType, serviceTitle) => {
+                        setSelectedService({ type: serviceType, title: serviceTitle });
+                        setQuickStartOpen(true);
+                      }}
+                      onAgentBuilder={() => setAgentBuilderOpen(true)}
+                    />
                     <p className="text-sm text-zinc-500 dark:text-slate-500 mt-6 sm:mt-8">
                       Sin compromiso • Resultados garantizados • Roadmap personalizado
                     </p>
@@ -785,9 +799,22 @@ const HomePage: React.FC = () => {
                 <p className="text-sm text-zinc-500 dark:text-slate-500">
                   O si prefieres, <Link to="/calculadora-roi" className="text-slate-600 dark:text-slate-400 hover:underline">calcula tu ROI en 3 minutos</Link>
                 </p>
-              </div>
-            </section>
+        </div>
+      </section>
 
+      {/* Modals */}
+      {selectedService && (
+        <ServiceQuickStart
+          isOpen={quickStartOpen}
+          onClose={() => setQuickStartOpen(false)}
+          serviceType={selectedService.type}
+          serviceTitle={selectedService.title}
+        />
+      )}
+      <AgentBuilder
+        isOpen={agentBuilderOpen}
+        onClose={() => setAgentBuilderOpen(false)}
+      />
     </div>
   );
 };
