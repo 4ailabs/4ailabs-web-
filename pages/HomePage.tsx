@@ -542,118 +542,42 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Tecnologías Expandida */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-slate-50 via-zinc-50 to-slate-100 dark:from-slate-900 dark:via-zinc-900 dark:to-slate-900 transition-colors duration-300 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5 dark:opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.1),transparent_50%)]"></div>
-          <div className="absolute top-1/2 right-0 w-96 h-96 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)] rounded-full"></div>
-          <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.1),transparent_50%)] rounded-full"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+      {/* Tecnologías Simplificada */}
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-slate-50 to-zinc-50 dark:from-slate-900 dark:to-zinc-900 transition-colors duration-300">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium mb-4">
               <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse"></div>
               Tecnologías de Vanguardia
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-white leading-tight mb-6">
-              Powered by las <span className="text-slate-600 dark:text-slate-300">mejores plataformas</span> de IA
+            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-4">
+              <span className="text-slate-600 dark:text-slate-300">Mejores plataformas</span> de IA
             </h2>
-            <p className="text-base sm:text-lg text-zinc-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Utilizamos las tecnologías más avanzadas para crear agentes de IA que superen las expectativas.
+            <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 max-w-2xl mx-auto">
+              Utilizamos las tecnologías más avanzadas para crear soluciones de IA personalizadas.
             </p>
           </div>
 
-          {/* Grid de Tecnologías */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 mb-12">
+          {/* Tecnologías principales */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
             {[
-              { 
-                name: "OpenAI", 
-                description: "GPT-4, DALL-E, Whisper",
-                color: "from-green-500 to-emerald-600",
-                icon: Bot
-              },
-              { 
-                name: "Google Gemini", 
-                description: "Gemini Pro, Bard, PaLM",
-                color: "from-blue-500 to-cyan-600",
-                icon: Brain
-              },
-              { 
-                name: "Anthropic", 
-                description: "Claude, Constitutional AI",
-                color: "from-purple-500 to-violet-600",
-                icon: Crosshair
-              },
-              { 
-                name: "Hugging Face", 
-                description: "Transformers, Datasets",
-                color: "from-yellow-500 to-orange-600",
-                icon: Heart
-              },
-              { 
-                name: "LangChain", 
-                description: "Framework de desarrollo",
-                color: "from-red-500 to-pink-600",
-                icon: LinkIcon
-              },
-              { 
-                name: "Pinecone", 
-                description: "Vector Database",
-                color: "from-indigo-500 to-blue-600",
-                icon: Database
-              },
-              { 
-                name: "Weaviate", 
-                description: "GraphQL Vector Search",
-                color: "from-teal-500 to-green-600",
-                icon: Search
-              },
-              { 
-                name: "Flowise", 
-                description: "Low-code AI workflows",
-                color: "from-rose-500 to-pink-600",
-                icon: Waves
-              }
+              { name: "OpenAI", color: "from-green-500 to-emerald-600", icon: Bot },
+              { name: "Google Gemini", color: "from-blue-500 to-cyan-600", icon: Brain },
+              { name: "Anthropic", color: "from-purple-500 to-violet-600", icon: Crosshair },
+              { name: "Hugging Face", color: "from-yellow-500 to-orange-600", icon: Heart }
             ].map((tech, index) => {
               const IconComponent = tech.icon;
               return (
-                <div key={tech.name} className="group bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm p-6 rounded-xl border border-slate-200/50 dark:border-slate-700/50 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 hover:shadow-xl hover:shadow-slate-500/10 animate-fade-in-up" style={{animationDelay: `${0.1 + index * 0.1}s`}}>
+                <div key={tech.name} className="bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm p-4 rounded-xl border border-slate-200/50 dark:border-slate-700/50 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300">
                   <div className="text-center">
-                    <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${tech.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <IconComponent className="w-8 h-8 text-white" />
+                    <div className={`w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-br ${tech.color} flex items-center justify-center`}>
+                      <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-2 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors">
-                      {tech.name}
-                    </h3>
-                    <p className="text-xs text-zinc-600 dark:text-slate-400 leading-relaxed">
-                      {tech.description}
-                    </p>
+                    <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">{tech.name}</h3>
                   </div>
                 </div>
               );
             })}
-          </div>
-
-          {/* CTA Section */}
-          <div className="text-center">
-            <div className="bg-white/60 dark:bg-zinc-800/60 backdrop-blur-sm rounded-2xl p-8 sm:p-12 border border-slate-200/50 dark:border-slate-700/50 animate-fade-in-up" style={{animationDelay: '0.9s'}}>
-              <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-4">
-                ¿Quieres conocer más sobre nuestras tecnologías?
-              </h3>
-              <p className="text-sm sm:text-base text-zinc-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
-                Explora en detalle cómo utilizamos cada plataforma para crear soluciones de IA personalizadas y de alto rendimiento.
-              </p>
-              <Link 
-                to="/tecnologias" 
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-lg shadow-slate-500/25 min-h-[56px] w-full max-w-sm mx-auto sm:w-auto justify-center"
-              >
-                <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
-                Explorar Nuestras Tecnologías
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </Link>
-              </div>
           </div>
         </div>
       </section>
