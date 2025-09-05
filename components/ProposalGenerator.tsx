@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, Download, Send, Clock, DollarSign, CheckCircle, ArrowRight } from 'lucide-react';
+import { FileText, Download, Send, Clock, DollarSign, CheckCircle, ArrowRight, MessageCircle } from 'lucide-react';
 import { ProposalData } from '../services/proposalGeneratorService';
 
 interface ProposalGeneratorProps {
@@ -9,6 +9,26 @@ interface ProposalGeneratorProps {
 
 const ProposalGenerator: React.FC<ProposalGeneratorProps> = ({ proposal, onClose }) => {
   const [activeSection, setActiveSection] = useState<'overview' | 'technical' | 'timeline'>('overview');
+
+  const sendViaWhatsApp = () => {
+    const message = `Hola! Me interesa esta propuesta técnica de IA:
+
+📋 *${proposal.title}*
+
+🎯 *Objetivo:* ${proposal.overview.objective}
+
+💼 *Servicios incluidos:*
+${proposal.technical.services.map(service => `• ${service.name}`).join('\n')}
+
+⏱️ *Duración:* ${proposal.timeline.totalDuration}
+
+💰 *Presupuesto:* ${proposal.budget}
+
+¿Podemos agendar una reunión para discutir los detalles?`;
+    
+    const whatsappUrl = `https://wa.me/+525543417252?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  };
 
   const downloadProposal = () => {
     const proposalContent = `
@@ -226,6 +246,13 @@ Fecha: ${new Date().toLocaleDateString('es-MX')}
               Propuesta generada por IA • 4ailabs • {new Date().toLocaleDateString('es-MX')}
             </p>
             <div className="flex items-center gap-3">
+              <button
+                onClick={sendViaWhatsApp}
+                className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors flex items-center gap-2"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Enviar por WhatsApp
+              </button>
               <button
                 onClick={downloadProposal}
                 className="px-4 py-2 bg-zinc-600 hover:bg-zinc-700 text-white rounded-lg transition-colors flex items-center gap-2"
