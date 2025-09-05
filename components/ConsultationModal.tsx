@@ -79,7 +79,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
     setStep('generating');
     
     // Simular tiempo de generación
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 1500));
     
     try {
       const selectedConsultation = consultationTypes.find(type => type.id === selectedType);
@@ -88,6 +88,12 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
       const proposal = generateBasicProposal(selectedConsultation, company, needs);
       setProposalData(proposal);
       setStep('proposal');
+      
+      // Auto-enviar a WhatsApp después de mostrar la propuesta
+      setTimeout(() => {
+        handleWhatsAppRedirect();
+      }, 2000);
+      
     } catch (error) {
       console.error('Error generating proposal:', error);
       // Fallback to direct WhatsApp if generation fails
@@ -158,11 +164,23 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
 
   const handleWhatsAppRedirect = () => {
     const selectedConsultation = consultationTypes.find(type => type.id === selectedType);
-    const message = `Hola! Me interesa agendar una consulta gratuita de 15 minutos.
+    
+    let message = `Hola! Me interesa agendar una consulta gratuita de 15 minutos.
 
 📋 *Tipo de consulta:* ${selectedConsultation?.title || 'Consulta General'}
 🏢 *Empresa:* ${company || 'Por definir'}
-🎯 *Necesidades:* ${needs || 'Por discutir en la consulta'}
+🎯 *Necesidades:* ${needs || 'Por discutir en la consulta'}`;
+
+    // Si hay propuesta generada, incluir información de presupuesto
+    if (proposalData) {
+      message += `
+
+💰 *Presupuesto estimado:* $${proposalData.pricing.totalPrice.toLocaleString()}
+⏱️ *Timeline:* ${proposalData.timeline.totalDuration}
+📋 *Incluye:* ${proposalData.deliverables.slice(0, 3).join(', ')}`;
+    }
+
+    message += `
 
 ¿Podemos agendar una reunión para discutir cómo la IA puede transformar mi negocio?`;
     
@@ -328,6 +346,22 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                     </h3>
                     <p className="text-green-700 dark:text-green-300">
                       Basada en tu consulta de {consultationTypes.find(t => t.id === selectedType)?.title}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+                    <MessageCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-blue-900 dark:text-blue-100">
+                      🚀 Abriendo WhatsApp automáticamente...
+                    </h4>
+                    <p className="text-sm text-blue-700 dark:text-blue-300">
+                      Te redirigimos a WhatsApp con toda la información de tu propuesta
                     </p>
                   </div>
                 </div>
