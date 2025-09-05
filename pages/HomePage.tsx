@@ -5,10 +5,12 @@ import { serviceCards, stats, testimonials, partners, technologies } from '../co
 import InteractiveButtons from '../components/InteractiveButtons';
 import ServiceQuickStart from '../components/ServiceQuickStart';
 import AgentBuilder from '../components/AgentBuilder';
+import ConsultationModal from '../components/ConsultationModal';
 
 const HomePage: React.FC = () => {
   const [quickStartOpen, setQuickStartOpen] = useState(false);
   const [agentBuilderOpen, setAgentBuilderOpen] = useState(false);
+  const [consultationOpen, setConsultationOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<{type: string, title: string} | null>(null);
 
   return (
@@ -24,9 +26,13 @@ const HomePage: React.FC = () => {
             Creamos <strong>agentes de IA autónomos</strong> que automatizan procesos complejos, toman decisiones inteligentes y transforman tu negocio. Tecnología avanzada con atención personal y precios accesibles.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col justify-center items-center gap-4 animate-fade-in-up animate-delay-400 px-4">
-            <a href="https://wa.me/+525534403571?text=Hola! Me interesa agendar una consulta gratuita de 15 minutos para conocer más sobre sus servicios de IA y calcular mi ROI." target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[48px] flex items-center justify-center w-full sm:w-auto">
+            <button
+              onClick={() => setConsultationOpen(true)}
+              className="bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-bold py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all-smooth transform hover:scale-105 shadow-xl shadow-slate-400/25 pulse-cta min-h-[48px] flex items-center justify-center w-full sm:w-auto gap-2"
+            >
+              <MessageCircle className="w-5 h-5" />
               Consulta Gratuita - Ver mi ROI
-            </a>
+            </button>
             <p className="text-sm sm:text-base text-zinc-500 dark:text-slate-400 mt-2 text-center">
               Solo 15 minutos • Sin compromiso • Resultados garantizados
             </p>
@@ -814,6 +820,10 @@ const HomePage: React.FC = () => {
       <AgentBuilder
         isOpen={agentBuilderOpen}
         onClose={() => setAgentBuilderOpen(false)}
+      />
+      <ConsultationModal
+        isOpen={consultationOpen}
+        onClose={() => setConsultationOpen(false)}
       />
     </div>
   );
