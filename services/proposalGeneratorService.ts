@@ -60,12 +60,12 @@ class ProposalGeneratorService {
         systemInstruction: `Eres un consultor experto en IA empresarial que genera propuestas técnicas detalladas. Tu trabajo es crear propuestas profesionales, realistas y atractivas basadas en las necesidades del cliente. 
 
 PRECIOS REALISTAS (USD):
-- Chatbots Inteligentes: $400 - $1,250
-- Agentes de IA: $1,000 - $2,500  
-- IA Médica: $1,500 - $4,000
-- Context Engineering: $400 - $1,000
-- Automatización: $750 - $1,750
-- Educación IA: $250 - $750
+- Chatbots Inteligentes: $200 - $625
+- Agentes de IA: $500 - $1,250  
+- IA Médica: $750 - $2,000
+- Context Engineering: $200 - $500
+- Automatización: $375 - $875
+- Educación IA: $125 - $375
 
 IMPORTANTE: 
 - Los precios son FLEXIBLES y nos ajustamos al presupuesto del cliente
@@ -156,14 +156,14 @@ Responde SOLO con el JSON, sin texto adicional.
 
   private getMockProposal(formData: ContactFormData): ProposalData {
     const serviceType = formData.service.toLowerCase();
-    let basePrice = 750;
+    let basePrice = 375;
     let duration = "3-4 semanas";
     let technicalSpecs: string[] = [];
     let deliverables: string[] = [];
 
     // Personalizar según el tipo de servicio
     if (serviceType.includes('agente') || serviceType.includes('chatbot')) {
-      basePrice = 1250;
+      basePrice = 625;
       duration = "4-6 semanas";
       technicalSpecs = [
         "Integración con APIs de IA (OpenAI, Gemini, Claude)",
@@ -179,7 +179,7 @@ Responde SOLO con el JSON, sin texto adicional.
         "Soporte técnico por 3 meses"
       ];
     } else if (serviceType.includes('medica') || serviceType.includes('healthcare')) {
-      basePrice = 2500;
+      basePrice = 1250;
       duration = "6-8 semanas";
       technicalSpecs = [
         "Cumplimiento con regulaciones médicas",
@@ -195,7 +195,7 @@ Responde SOLO con el JSON, sin texto adicional.
         "Certificación y validación clínica"
       ];
     } else if (serviceType.includes('context') || serviceType.includes('engineering')) {
-      basePrice = 600;
+      basePrice = 300;
       duration = "2-3 semanas";
       technicalSpecs = [
         "Optimización de prompts y contextos",
@@ -212,7 +212,7 @@ Responde SOLO con el JSON, sin texto adicional.
       ];
     } else {
       // Servicio general
-      basePrice = 1000;
+      basePrice = 500;
       duration = "4-5 semanas";
       technicalSpecs = [
         "Análisis de procesos empresariales",
@@ -231,8 +231,8 @@ Responde SOLO con el JSON, sin texto adicional.
 
     const additionalServices = [
       { name: "Soporte extendido (6 meses)", price: Math.round(basePrice * 0.15) },
-      { name: "Capacitación adicional", price: 150 },
-      { name: "Integración con sistemas legacy", price: 250 }
+      { name: "Capacitación adicional", price: 75 },
+      { name: "Integración con sistemas legacy", price: 125 }
     ];
 
     return {
