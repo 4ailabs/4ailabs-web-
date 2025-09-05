@@ -296,64 +296,6 @@ const HomePage: React.FC = () => {
             ))}
           </div>
 
-          {/* Beneficios para Médicos */}
-          <div className="bg-white/60 dark:bg-zinc-800/60 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 border border-cyan-200/30 dark:border-cyan-700/30 animate-fade-in-up mb-8 sm:mb-12" style={{animationDelay: '0.3s'}}>
-            <div className="text-center mb-6 sm:mb-8">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-50 to-teal-50 dark:from-cyan-900/20 dark:to-teal-900/20 text-cyan-700 dark:text-cyan-300 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
-                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-500 rounded-full animate-pulse"></div>
-                <span className="hidden sm:inline">Impacto Real en tu Práctica Médica</span>
-                <span className="sm:hidden">💡 Impacto Real</span>
-              </div>
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-zinc-900 dark:text-white mb-2 sm:mb-4">
-                ¿Por qué los médicos eligen nuestras soluciones de IA?
-              </h3>
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              {[
-                {
-                  icon: Clock,
-                  title: "Ahorra 40% del tiempo",
-                  description: "Automatiza documentación y tareas administrativas"
-                },
-                {
-                  icon: Target,
-                  title: "Mejora precisión diagnóstica",
-                  description: "Reduce errores con análisis de IA como segunda opinión"
-                },
-                {
-                  icon: Heart,
-                  title: "Mejor atención al paciente",
-                  description: "Más tiempo para lo que realmente importa: tus pacientes"
-                },
-                {
-                  icon: BarChart3,
-                  title: "Aumenta ingresos 30%",
-                  description: "Optimiza agenda y reduce tiempos muertos"
-                },
-                {
-                  icon: Users,
-                  title: "Gestión inteligente",
-                  description: "Seguimiento automático de tratamientos y citas"
-                },
-                {
-                  icon: Globe,
-                  title: "Telemedicina avanzada",
-                  description: "Consultas remotas con herramientas de diagnóstico IA"
-                }
-              ].map((benefit, index) => (
-                <div key={index} className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg bg-cyan-50/30 dark:bg-cyan-900/10 hover:bg-cyan-100/50 dark:hover:bg-cyan-800/20 transition-colors duration-300">
-                  <div className="p-1.5 sm:p-2 bg-cyan-100 dark:bg-cyan-800 rounded-lg flex-shrink-0 mt-0.5">
-                    <benefit.icon className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-cyan-600 dark:text-cyan-400" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-zinc-900 dark:text-white text-xs sm:text-sm mb-1 leading-tight">{benefit.title}</h4>
-                    <p className="text-xs sm:text-xs text-zinc-600 dark:text-slate-400 leading-tight">{benefit.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* CTA Específico para Médicos */}
           <div className="text-center px-2">
