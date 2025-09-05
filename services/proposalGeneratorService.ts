@@ -13,7 +13,6 @@ interface ProposalData {
   email: string;
   serviceType: string;
   requirements: string;
-  timeline: string;
   budget: string;
   technicalSpecs: string[];
   deliverables: string[];
@@ -34,7 +33,7 @@ class ProposalGeneratorService {
   constructor() {
     try {
       // Intentar múltiples fuentes de API key
-      const apiKey = import.meta.env.VITE_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
       console.log("Proposal Generator API Key status:", apiKey ? "Found" : "Not found");
       
       if (apiKey && apiKey !== 'your_gemini_api_key_here' && apiKey.length > 10) {
@@ -61,12 +60,12 @@ class ProposalGeneratorService {
         systemInstruction: `Eres un consultor experto en IA empresarial que genera propuestas técnicas detalladas. Tu trabajo es crear propuestas profesionales, realistas y atractivas basadas en las necesidades del cliente. 
 
 PRECIOS REALISTAS (USD):
-- Chatbots Inteligentes: $3,000 - $5,000
-- Agentes de IA: $8,000 - $12,000  
-- IA Médica: $15,000 - $25,000
-- Context Engineering: $3,000 - $5,000
-- Automatización: $4,000 - $8,000
-- Educación IA: $2,000 - $4,000
+- Chatbots Inteligentes: $800 - $2,500
+- Agentes de IA: $2,000 - $5,000  
+- IA Médica: $3,000 - $8,000
+- Context Engineering: $800 - $2,000
+- Automatización: $1,500 - $3,500
+- Educación IA: $500 - $1,500
 
 Incluye especificaciones técnicas, timeline, precios en USD y entregables. Responde en español.`
       });
@@ -151,13 +150,15 @@ Responde SOLO con el JSON, sin texto adicional.
 
   private getMockProposal(formData: ContactFormData): ProposalData {
     const serviceType = formData.service.toLowerCase();
-    let duration = "4-6 semanas";
+    let basePrice = 1500;
+    let duration = "3-4 semanas";
     let technicalSpecs: string[] = [];
     let deliverables: string[] = [];
 
     // Personalizar según el tipo de servicio
     if (serviceType.includes('agente') || serviceType.includes('chatbot')) {
-      duration = "6-8 semanas";
+      basePrice = 2500;
+      duration = "4-6 semanas";
       technicalSpecs = [
         "Integración con APIs de IA (OpenAI, Gemini, Claude)",
         "Sistema de entrenamiento y fine-tuning",
@@ -172,7 +173,8 @@ Responde SOLO con el JSON, sin texto adicional.
         "Soporte técnico por 3 meses"
       ];
     } else if (serviceType.includes('medica') || serviceType.includes('healthcare')) {
-      duration = "8-12 semanas";
+      basePrice = 5000;
+      duration = "6-8 semanas";
       technicalSpecs = [
         "Cumplimiento con regulaciones médicas",
         "Integración con sistemas hospitalarios",
@@ -187,7 +189,8 @@ Responde SOLO con el JSON, sin texto adicional.
         "Certificación y validación clínica"
       ];
     } else if (serviceType.includes('context') || serviceType.includes('engineering')) {
-      duration = "3-4 semanas";
+      basePrice = 1200;
+      duration = "2-3 semanas";
       technicalSpecs = [
         "Optimización de prompts y contextos",
         "Fine-tuning de modelos de IA",
@@ -203,6 +206,8 @@ Responde SOLO con el JSON, sin texto adicional.
       ];
     } else {
       // Servicio general
+      basePrice = 2000;
+      duration = "4-5 semanas";
       technicalSpecs = [
         "Análisis de procesos empresariales",
         "Diseño de arquitectura de IA",
@@ -218,19 +223,25 @@ Responde SOLO con el JSON, sin texto adicional.
       ];
     }
 
+    const additionalServices = [
+      { name: "Soporte extendido (6 meses)", price: Math.round(basePrice * 0.15) },
+      { name: "Capacitación adicional", price: 300 },
+      { name: "Integración con sistemas legacy", price: 500 }
+    ];
+
     return {
       companyName: formData.name.split(' ')[0] + " Company", // Inferir nombre de empresa
       contactPerson: formData.name,
       email: formData.email,
       serviceType: formData.service,
       requirements: formData.message || "Implementación de soluciones de IA para optimizar procesos empresariales y mejorar la eficiencia operativa.",
-      budget: "A consultar en reunión personalizada",
+      budget: `$${basePrice.toLocaleString()} - $${(basePrice * 1.3).toLocaleString()}`,
       technicalSpecs,
       deliverables,
       pricing: {
-        basePrice: 0,
-        additionalServices: [],
-        totalPrice: 0
+        basePrice,
+        additionalServices,
+        totalPrice: basePrice + additionalServices.reduce((sum, service) => sum + service.price, 0)
       },
       timeline: {
         phases: [
