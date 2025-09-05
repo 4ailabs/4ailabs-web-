@@ -28,7 +28,7 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
     useCase: '',
     requirements: '',
     timeline: '4-6 semanas',
-    budget: '2000-5000'
+    budget: '500-1000'
   });
   const [proposalData, setProposalData] = useState<any>(null);
 
@@ -75,7 +75,7 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
       useCase: '',
       requirements: '',
       timeline: '4-6 semanas',
-      budget: '2000-5000'
+      budget: '500-1000'
     });
     setProposalData(null);
     onClose();
@@ -245,10 +245,11 @@ const AgentBuilder: React.FC<AgentBuilderProps> = ({ isOpen, onClose }) => {
                     onChange={(e) => handleInputChange('budget', e.target.value)}
                     className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent dark:bg-zinc-800 dark:text-white"
                   >
-                    <option value="1000-2500">$1,000 - $2,500</option>
-                    <option value="2000-5000">$2,000 - $5,000</option>
-                    <option value="5000-10000">$5,000 - $10,000</option>
-                    <option value="10000+">$10,000+</option>
+                    <option value="300-500">$300 - $500</option>
+                    <option value="500-1000">$500 - $1,000</option>
+                    <option value="1000-1500">$1,000 - $1,500</option>
+                    <option value="1500-2500">$1,500 - $2,500</option>
+                    <option value="2500+">$2,500+</option>
                   </select>
                 </div>
               </div>
